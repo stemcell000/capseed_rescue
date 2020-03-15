@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  resources :production_projects
+  resources :productions
+  resources :primers
+  resources :plasmid_batch_productions
+  resources :plasmid_batches
+  resources :plasmid_batch_qc_attachements
+  resources :plasmid_batch_qc_batches
+  resources :plasmid_batch_qcs
+  resources :plasmid_batch_attachments
+  resources :pcr_colony_qc_attachments
+  resources :pcr_colonies
+  resources :origins
   resources :options
   resources :inserts
   resources :genes

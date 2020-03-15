@@ -1,0 +1,1 @@
+json.partial! "plasmid_batch_qc_attachements/plasmid_batch_qc_attachement", plasmid_batch_qc_attachement: @plasmid_batch_qc_attachement

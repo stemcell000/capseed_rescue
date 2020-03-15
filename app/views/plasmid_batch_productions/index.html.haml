@@ -1,0 +1,19 @@
+%h1 Listing plasmid_batch_productions
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @plasmid_batch_productions.each do |plasmid_batch_production|
+      %tr
+        %td= link_to 'Show', plasmid_batch_production
+        %td= link_to 'Edit', edit_plasmid_batch_production_path(plasmid_batch_production)
+        %td= link_to 'Destroy', plasmid_batch_production, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Plasmid batch production', new_plasmid_batch_production_path

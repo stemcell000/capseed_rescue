@@ -1,0 +1,19 @@
+%h1 Listing production_projects
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @production_projects.each do |production_project|
+      %tr
+        %td= link_to 'Show', production_project
+        %td= link_to 'Edit', edit_production_project_path(production_project)
+        %td= link_to 'Destroy', production_project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Production project', new_production_project_path

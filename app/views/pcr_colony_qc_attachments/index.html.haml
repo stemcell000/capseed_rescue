@@ -1,0 +1,19 @@
+%h1 Listing pcr_colony_qc_attachments
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @pcr_colony_qc_attachments.each do |pcr_colony_qc_attachment|
+      %tr
+        %td= link_to 'Show', pcr_colony_qc_attachment
+        %td= link_to 'Edit', edit_pcr_colony_qc_attachment_path(pcr_colony_qc_attachment)
+        %td= link_to 'Destroy', pcr_colony_qc_attachment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Pcr colony qc attachment', new_pcr_colony_qc_attachment_path

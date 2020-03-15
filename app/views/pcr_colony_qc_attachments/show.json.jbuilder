@@ -1,0 +1,1 @@
+json.partial! "pcr_colony_qc_attachments/pcr_colony_qc_attachment", pcr_colony_qc_attachment: @pcr_colony_qc_attachment

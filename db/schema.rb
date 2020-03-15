@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200315164223) do
+ActiveRecord::Schema.define(version: 20200315171515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -225,6 +225,146 @@ ActiveRecord::Schema.define(version: 20200315164223) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "formats", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
+  create_table "genes", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "inserts", force: :cascade do |t|
+    t.integer  "clone_batch_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "number"
+    t.integer  "dismissed",      default: 0
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.integer  "user_id"
+    t.boolean  "display_limited_virus"
+    t.boolean  "display_all_virus"
+    t.boolean  "display_all_clone_batch"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "origins", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pcr_colonies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "clone_batch_qc_id"
+    t.integer  "user_id"
+    t.text     "comment"
+    t.date     "date"
+    t.string   "result"
+    t.boolean  "conclusion"
+    t.string   "primer_r"
+    t.string   "primer_f"
+    t.integer  "primer_f_id"
+    t.integer  "primer_r_id"
+  end
+
+  create_table "pcr_colony_qc_attachments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "plasmid_batch_attachments", force: :cascade do |t|
+    t.integer  "plasmid_batch_id"
+    t.string   "attachment"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "plasmid_batch_qcs", force: :cascade do |t|
+    t.integer  "plasmid_batch_id"
+    t.string   "dig_other"
+    t.text     "comments"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.boolean  "conclusion"
+    t.integer  "pcr_colony_id"
+    t.string   "primer1"
+    t.string   "primer2"
+    t.date     "date_send"
+    t.string   "sma1"
+  end
+
+  create_table "plasmid_batch_qcs_batches", force: :cascade do |t|
+    t.integer "plasmid_batch_id"
+    t.integer "plasmid_batch_qc_id"
+  end
+
+  create_table "plasmid_batch_qcs_qc_attachments", force: :cascade do |t|
+    t.integer "plasmid_batch_qc_id"
+    t.integer "qc_attachment_id"
+  end
+
+  create_table "plasmid_batches", force: :cascade do |t|
+    t.integer  "clone_batch_id"
+    t.integer  "unit_id"
+    t.string   "name"
+    t.string   "format"
+    t.decimal  "concentration"
+    t.text     "comment"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.boolean  "qc_validation",     default: false
+    t.integer  "strict_validation"
+    t.decimal  "volume"
+    t.integer  "vol_unit_id"
+    t.integer  "row_id"
+    t.integer  "column_id"
+    t.integer  "format_id"
+    t.integer  "number"
+    t.integer  "user_id"
+    t.integer  "box_id"
+    t.date     "date"
+    t.boolean  "trash",             default: false
+    t.string   "barcode"
+  end
+
+  create_table "plasmid_batches_productions", force: :cascade do |t|
+    t.integer "plasmid_batch_id"
+    t.integer "production_id"
+    t.decimal "volume",           default: 0.0
+    t.decimal "starting_volume"
+  end
+
+  create_table "productions", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "display"
+    t.integer  "step",              default: 0
+    t.text     "comment"
+    t.integer  "row_order"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "target"
+    t.integer  "last_step",         default: 0
+    t.date     "order_date"
+    t.float    "percentage",        default: 0.0
+    t.boolean  "locked",            default: false
+    t.integer  "strict_validation"
+    t.boolean  "pool"
+    t.date     "today_date"
+    t.decimal  "production_volume"
+    t.string   "cbtag"
+    t.string   "pbtag"
+    t.boolean  "disable_switch",    default: false
   end
 
   create_table "projects", force: :cascade do |t|

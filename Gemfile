@@ -69,7 +69,7 @@ gem 'fog-aws'
 #gem 'kaminari'
 #gem 'bootstrap-kaminari-views'
 gem "smart_listing"
-gem 'acts-as-taggable-on', '~> 3.4'
+#gem 'acts-as-taggable-on', '~> 3.4'
 gem 'jasny-bootstrap-rails'
 gem "haml"
 gem "haml-rails", "~> 0.9"

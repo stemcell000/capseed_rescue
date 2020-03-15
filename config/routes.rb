@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  resources :units
+  resources :types
+  resources :targets
+  resources :strands
+  resources :sterilitytests
+  resources :statistics
+  resources :sequencings
+  resources :rows
+  resources :qc_attachment_sequencings
+  resources :qc_attachments
+  resources :promoters
   resources :production_projects
   resources :productions
   resources :primers

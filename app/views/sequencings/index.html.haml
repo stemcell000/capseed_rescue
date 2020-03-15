@@ -1,0 +1,19 @@
+%h1 Listing sequencings
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @sequencings.each do |sequencing|
+      %tr
+        %td= link_to 'Show', sequencing
+        %td= link_to 'Edit', edit_sequencing_path(sequencing)
+        %td= link_to 'Destroy', sequencing, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Sequencing', new_sequencing_path

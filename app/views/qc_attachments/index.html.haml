@@ -1,0 +1,19 @@
+%h1 Listing qc_attachments
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @qc_attachments.each do |qc_attachment|
+      %tr
+        %td= link_to 'Show', qc_attachment
+        %td= link_to 'Edit', edit_qc_attachment_path(qc_attachment)
+        %td= link_to 'Destroy', qc_attachment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Qc attachment', new_qc_attachment_path

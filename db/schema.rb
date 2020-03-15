@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200315171515) do
+ActiveRecord::Schema.define(version: 20200315174350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -367,31 +367,88 @@ ActiveRecord::Schema.define(version: 20200315171515) do
     t.boolean  "disable_switch",    default: false
   end
 
+  create_table "productions_projects", force: :cascade do |t|
+    t.integer "production_id"
+    t.integer "project_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context",       limit: 128
-    t.datetime "created_at"
+  create_table "promoters", force: :cascade do |t|
+    t.string "name"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
-
-  create_table "tags", force: :cascade do |t|
-    t.string  "name"
-    t.integer "taggings_count", default: 0
+  create_table "qc_attachment_sequencings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  create_table "qc_attachments", force: :cascade do |t|
+    t.integer  "clone_batch_qc_id"
+    t.string   "attachment"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "rows", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sequencings", force: :cascade do |t|
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "name"
+    t.string   "primer"
+    t.integer  "clone_batch_qc_id"
+    t.integer  "user_id"
+    t.date     "date_rec"
+    t.date     "date_send"
+    t.text     "comment"
+    t.string   "result"
+    t.boolean  "conclusion"
+  end
+
+  create_table "statistics", force: :cascade do |t|
+    t.float    "value"
+    t.string   "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sterilitytests", force: :cascade do |t|
+    t.integer  "sterility"
+    t.date     "date"
+    t.integer  "virus_production_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "strands", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "targets", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "order_set"
+  end
+
+  create_table "units", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                            null: false

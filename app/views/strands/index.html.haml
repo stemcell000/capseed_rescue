@@ -1,0 +1,19 @@
+%h1 Listing strands
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @strands.each do |strand|
+      %tr
+        %td= link_to 'Show', strand
+        %td= link_to 'Edit', edit_strand_path(strand)
+        %td= link_to 'Destroy', strand, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Strand', new_strand_path

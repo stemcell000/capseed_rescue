@@ -1,0 +1,19 @@
+%h1 Listing rows
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @rows.each do |row|
+      %tr
+        %td= link_to 'Show', row
+        %td= link_to 'Edit', edit_row_path(row)
+        %td= link_to 'Destroy', row, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Row', new_row_path

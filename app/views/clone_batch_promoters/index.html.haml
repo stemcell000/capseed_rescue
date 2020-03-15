@@ -1,0 +1,19 @@
+%h1 Listing clone_batch_promoters
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @clone_batch_promoters.each do |clone_batch_promoter|
+      %tr
+        %td= link_to 'Show', clone_batch_promoter
+        %td= link_to 'Edit', edit_clone_batch_promoter_path(clone_batch_promoter)
+        %td= link_to 'Destroy', clone_batch_promoter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Clone batch promoter', new_clone_batch_promoter_path

@@ -1,0 +1,2 @@
+module CloneInsertsHelper
+end

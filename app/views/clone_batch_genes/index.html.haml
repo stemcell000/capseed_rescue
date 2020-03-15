@@ -1,0 +1,19 @@
+%h1 Listing clone_batch_genes
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @clone_batch_genes.each do |clone_batch_gene|
+      %tr
+        %td= link_to 'Show', clone_batch_gene
+        %td= link_to 'Edit', edit_clone_batch_gene_path(clone_batch_gene)
+        %td= link_to 'Destroy', clone_batch_gene, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Clone batch gene', new_clone_batch_gene_path

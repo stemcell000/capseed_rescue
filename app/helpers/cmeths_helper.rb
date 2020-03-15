@@ -1,0 +1,2 @@
+module CmethsHelper
+end

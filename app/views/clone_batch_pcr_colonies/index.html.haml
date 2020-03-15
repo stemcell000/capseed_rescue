@@ -1,0 +1,19 @@
+%h1 Listing clone_batch_pcr_colonies
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @clone_batch_pcr_colonies.each do |clone_batch_pcr_colony|
+      %tr
+        %td= link_to 'Show', clone_batch_pcr_colony
+        %td= link_to 'Edit', edit_clone_batch_pcr_colony_path(clone_batch_pcr_colony)
+        %td= link_to 'Destroy', clone_batch_pcr_colony, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Clone batch pcr colony', new_clone_batch_pcr_colony_path

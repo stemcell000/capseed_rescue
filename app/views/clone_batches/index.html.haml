@@ -1,0 +1,19 @@
+%h1 Listing clone_batches
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @clone_batches.each do |clone_batch|
+      %tr
+        %td= link_to 'Show', clone_batch
+        %td= link_to 'Edit', edit_clone_batch_path(clone_batch)
+        %td= link_to 'Destroy', clone_batch, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Clone batch', new_clone_batch_path

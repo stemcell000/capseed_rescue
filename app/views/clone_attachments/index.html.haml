@@ -1,0 +1,19 @@
+%h1 Listing clone_attachments
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @clone_attachments.each do |clone_attachment|
+      %tr
+        %td= link_to 'Show', clone_attachment
+        %td= link_to 'Edit', edit_clone_attachment_path(clone_attachment)
+        %td= link_to 'Destroy', clone_attachment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Clone attachment', new_clone_attachment_path

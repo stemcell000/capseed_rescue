@@ -1,0 +1,2 @@
+module CloneBatchSequencingsHelper
+end

@@ -1,0 +1,19 @@
+%h1 Listing clone_enzymes
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @clone_enzymes.each do |clone_enzyme|
+      %tr
+        %td= link_to 'Show', clone_enzyme
+        %td= link_to 'Edit', edit_clone_enzyme_path(clone_enzyme)
+        %td= link_to 'Destroy', clone_enzyme, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Clone enzyme', new_clone_enzyme_path

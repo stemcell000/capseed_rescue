@@ -1,0 +1,2 @@
+module CloneBatchProductionsHelper
+end

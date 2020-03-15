@@ -1,0 +1,19 @@
+%h1 Listing cmeths
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @cmeths.each do |cmeth|
+      %tr
+        %td= link_to 'Show', cmeth
+        %td= link_to 'Edit', edit_cmeth_path(cmeth)
+        %td= link_to 'Destroy', cmeth, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Cmeth', new_cmeth_path

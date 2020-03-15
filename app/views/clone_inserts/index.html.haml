@@ -1,0 +1,19 @@
+%h1 Listing clone_inserts
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @clone_inserts.each do |clone_insert|
+      %tr
+        %td= link_to 'Show', clone_insert
+        %td= link_to 'Edit', edit_clone_insert_path(clone_insert)
+        %td= link_to 'Destroy', clone_insert, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Clone insert', new_clone_insert_path

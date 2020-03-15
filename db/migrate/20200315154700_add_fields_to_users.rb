@@ -18,5 +18,6 @@ class AddFieldsToUsers < ActiveRecord::Migration
       t.boolean  "cloning_notify",         default: true
       t.boolean  "production_notify",      default: true
     end
+    add_index :users, :username, unique: true
   end
 end

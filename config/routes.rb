@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :option_virus_productions
+  resources :vol_units
+  resources :virus_productions
+  resources :virus_batches
   resources :units
   resources :types
   resources :targets

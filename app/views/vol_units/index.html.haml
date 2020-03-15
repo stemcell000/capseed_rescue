@@ -1,0 +1,19 @@
+%h1 Listing vol_units
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @vol_units.each do |vol_unit|
+      %tr
+        %td= link_to 'Show', vol_unit
+        %td= link_to 'Edit', edit_vol_unit_path(vol_unit)
+        %td= link_to 'Destroy', vol_unit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Vol unit', new_vol_unit_path

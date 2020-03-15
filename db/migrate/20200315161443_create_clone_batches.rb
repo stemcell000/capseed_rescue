@@ -1,7 +1,7 @@
 class CreateCloneBatches < ActiveRecord::Migration
   def up
   create_table "clone_batches", force: :cascade do |t|
-    t.integer  "target_id"
+    t.integer  "target_id", index: true
     t.string   "name"
     t.string   "temp_name"
     t.text     "comment"

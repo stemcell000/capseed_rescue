@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200315174350) do
+ActiveRecord::Schema.define(version: 20200315183637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,10 +124,15 @@ ActiveRecord::Schema.define(version: 20200315174350) do
     t.text     "recap"
   end
 
+  add_index "clone_batches", ["target_id"], name: "index_clone_batches_on_target_id", using: :btree
+
   create_table "clone_batches_genes", force: :cascade do |t|
     t.integer "clone_batch_id"
     t.integer "gene_id"
   end
+
+  add_index "clone_batches_genes", ["clone_batch_id"], name: "index_clone_batches_genes_on_clone_batch_id", using: :btree
+  add_index "clone_batches_genes", ["gene_id"], name: "index_clone_batches_genes_on_gene_id", using: :btree
 
   create_table "clone_batches_options", force: :cascade do |t|
     t.integer  "clone_batch_id"
@@ -136,25 +141,40 @@ ActiveRecord::Schema.define(version: 20200315174350) do
     t.datetime "updated_at",     null: false
   end
 
+  add_index "clone_batches_options", ["clone_batch_id"], name: "index_clone_batches_options_on_clone_batch_id", using: :btree
+  add_index "clone_batches_options", ["option_id"], name: "index_clone_batches_options_on_option_id", using: :btree
+
   create_table "clone_batches_pcr_colonies", force: :cascade do |t|
     t.integer "clone_batch_id"
     t.integer "pcr_colony_id"
   end
+
+  add_index "clone_batches_pcr_colonies", ["clone_batch_id"], name: "index_clone_batches_pcr_colonies_on_clone_batch_id", using: :btree
+  add_index "clone_batches_pcr_colonies", ["pcr_colony_id"], name: "index_clone_batches_pcr_colonies_on_pcr_colony_id", using: :btree
 
   create_table "clone_batches_productions", force: :cascade do |t|
     t.integer "clone_batch_id"
     t.integer "production_id"
   end
 
+  add_index "clone_batches_productions", ["clone_batch_id"], name: "index_clone_batches_productions_on_clone_batch_id", using: :btree
+  add_index "clone_batches_productions", ["production_id"], name: "index_clone_batches_productions_on_production_id", using: :btree
+
   create_table "clone_batches_promoters", force: :cascade do |t|
     t.integer "clone_batch_id"
     t.integer "promoter_id"
   end
 
+  add_index "clone_batches_promoters", ["clone_batch_id"], name: "index_clone_batches_promoters_on_clone_batch_id", using: :btree
+  add_index "clone_batches_promoters", ["promoter_id"], name: "index_clone_batches_promoters_on_promoter_id", using: :btree
+
   create_table "clone_batches_sequencings", force: :cascade do |t|
     t.integer "clone_batch_id"
     t.integer "sequencing_id"
   end
+
+  add_index "clone_batches_sequencings", ["clone_batch_id"], name: "index_clone_batches_sequencings_on_clone_batch_id", using: :btree
+  add_index "clone_batches_sequencings", ["sequencing_id"], name: "index_clone_batches_sequencings_on_sequencing_id", using: :btree
 
   create_table "clone_batches_users", force: :cascade do |t|
     t.integer  "clone_batch_id"
@@ -162,6 +182,9 @@ ActiveRecord::Schema.define(version: 20200315174350) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "clone_batches_users", ["clone_batch_id"], name: "index_clone_batches_users_on_clone_batch_id", using: :btree
+  add_index "clone_batches_users", ["user_id"], name: "index_clone_batches_users_on_user_id", using: :btree
 
   create_table "clones", force: :cascade do |t|
     t.integer  "assay_id"
@@ -181,9 +204,12 @@ ActiveRecord::Schema.define(version: 20200315174350) do
   end
 
   create_table "clones_enzymes", force: :cascade do |t|
-    t.integer "clone_id",  null: false
-    t.integer "enzyme_id", null: false
+    t.integer "clone_id"
+    t.integer "enzyme_id"
   end
+
+  add_index "clones_enzymes", ["clone_id"], name: "index_clones_enzymes_on_clone_id", using: :btree
+  add_index "clones_enzymes", ["enzyme_id"], name: "index_clones_enzymes_on_enzyme_id", using: :btree
 
   create_table "clones_inserts", force: :cascade do |t|
     t.integer "clone_id"
@@ -191,10 +217,16 @@ ActiveRecord::Schema.define(version: 20200315174350) do
     t.integer "backbone_id"
   end
 
+  add_index "clones_inserts", ["clone_id"], name: "index_clones_inserts_on_clone_id", using: :btree
+  add_index "clones_inserts", ["insert_id"], name: "index_clones_inserts_on_insert_id", using: :btree
+
   create_table "clones_projects", force: :cascade do |t|
     t.integer "clone_id"
     t.integer "project_id"
   end
+
+  add_index "clones_projects", ["clone_id"], name: "index_clones_projects_on_clone_id", using: :btree
+  add_index "clones_projects", ["project_id"], name: "index_clones_projects_on_project_id", using: :btree
 
   create_table "cmeths", force: :cascade do |t|
     t.string "name"
@@ -246,6 +278,8 @@ ActiveRecord::Schema.define(version: 20200315174350) do
     t.integer  "dismissed",      default: 0
   end
 
+  add_index "inserts", ["clone_batch_id"], name: "index_inserts_on_clone_batch_id", using: :btree
+
   create_table "options", force: :cascade do |t|
     t.integer  "user_id"
     t.boolean  "display_limited_virus"
@@ -254,6 +288,16 @@ ActiveRecord::Schema.define(version: 20200315174350) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
+
+  create_table "options_virus_productions", force: :cascade do |t|
+    t.integer  "option_id"
+    t.integer  "virus_production_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "options_virus_productions", ["option_id"], name: "index_options_virus_productions_on_option_id", using: :btree
+  add_index "options_virus_productions", ["virus_production_id"], name: "index_options_virus_productions_on_virus_production_id", using: :btree
 
   create_table "origins", force: :cascade do |t|
     t.string   "name"
@@ -277,10 +321,13 @@ ActiveRecord::Schema.define(version: 20200315174350) do
     t.integer  "primer_r_id"
   end
 
-  create_table "pcr_colony_qc_attachments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "pcr_colonies_qc_attachments", force: :cascade do |t|
+    t.integer "pcr_colony_id"
+    t.integer "qc_attachment_id"
   end
+
+  add_index "pcr_colonies_qc_attachments", ["pcr_colony_id"], name: "index_pcr_colonies_qc_attachments_on_pcr_colony_id", using: :btree
+  add_index "pcr_colonies_qc_attachments", ["qc_attachment_id"], name: "index_pcr_colonies_qc_attachments_on_qc_attachment_id", using: :btree
 
   create_table "plasmid_batch_attachments", force: :cascade do |t|
     t.integer  "plasmid_batch_id"
@@ -304,15 +351,24 @@ ActiveRecord::Schema.define(version: 20200315174350) do
     t.string   "sma1"
   end
 
+  add_index "plasmid_batch_qcs", ["pcr_colony_id"], name: "index_plasmid_batch_qcs_on_pcr_colony_id", using: :btree
+  add_index "plasmid_batch_qcs", ["plasmid_batch_id"], name: "index_plasmid_batch_qcs_on_plasmid_batch_id", using: :btree
+
   create_table "plasmid_batch_qcs_batches", force: :cascade do |t|
     t.integer "plasmid_batch_id"
     t.integer "plasmid_batch_qc_id"
   end
 
+  add_index "plasmid_batch_qcs_batches", ["plasmid_batch_id"], name: "index_plasmid_batch_qcs_batches_on_plasmid_batch_id", using: :btree
+  add_index "plasmid_batch_qcs_batches", ["plasmid_batch_qc_id"], name: "index_plasmid_batch_qcs_batches_on_plasmid_batch_qc_id", using: :btree
+
   create_table "plasmid_batch_qcs_qc_attachments", force: :cascade do |t|
     t.integer "plasmid_batch_qc_id"
     t.integer "qc_attachment_id"
   end
+
+  add_index "plasmid_batch_qcs_qc_attachments", ["plasmid_batch_qc_id"], name: "index_plasmid_batch_qcs_qc_attachments_on_plasmid_batch_qc_id", using: :btree
+  add_index "plasmid_batch_qcs_qc_attachments", ["qc_attachment_id"], name: "index_plasmid_batch_qcs_qc_attachments_on_qc_attachment_id", using: :btree
 
   create_table "plasmid_batches", force: :cascade do |t|
     t.integer  "clone_batch_id"
@@ -338,12 +394,18 @@ ActiveRecord::Schema.define(version: 20200315174350) do
     t.string   "barcode"
   end
 
+  add_index "plasmid_batches", ["clone_batch_id"], name: "index_plasmid_batches_on_clone_batch_id", using: :btree
+  add_index "plasmid_batches", ["vol_unit_id"], name: "index_plasmid_batches_on_vol_unit_id", using: :btree
+
   create_table "plasmid_batches_productions", force: :cascade do |t|
     t.integer "plasmid_batch_id"
     t.integer "production_id"
     t.decimal "volume",           default: 0.0
     t.decimal "starting_volume"
   end
+
+  add_index "plasmid_batches_productions", ["plasmid_batch_id"], name: "index_plasmid_batches_productions_on_plasmid_batch_id", using: :btree
+  add_index "plasmid_batches_productions", ["production_id"], name: "index_plasmid_batches_productions_on_production_id", using: :btree
 
   create_table "productions", force: :cascade do |t|
     t.string   "name"
@@ -372,6 +434,9 @@ ActiveRecord::Schema.define(version: 20200315174350) do
     t.integer "project_id"
   end
 
+  add_index "productions_projects", ["production_id"], name: "index_productions_projects_on_production_id", using: :btree
+  add_index "productions_projects", ["project_id"], name: "index_productions_projects_on_project_id", using: :btree
+
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -382,17 +447,20 @@ ActiveRecord::Schema.define(version: 20200315174350) do
     t.string "name"
   end
 
-  create_table "qc_attachment_sequencings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "qc_attachments", force: :cascade do |t|
     t.integer  "clone_batch_qc_id"
     t.string   "attachment"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  create_table "qc_attachments_sequencings", force: :cascade do |t|
+    t.integer "qc_attachment_id"
+    t.integer "sequencing_id"
+  end
+
+  add_index "qc_attachments_sequencings", ["qc_attachment_id"], name: "index_qc_attachments_sequencings_on_qc_attachment_id", using: :btree
+  add_index "qc_attachments_sequencings", ["sequencing_id"], name: "index_qc_attachments_sequencings_on_sequencing_id", using: :btree
 
   create_table "rows", force: :cascade do |t|
     t.string   "name"
@@ -478,5 +546,54 @@ ActiveRecord::Schema.define(version: 20200315174350) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "virus_batches", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "virus_production_id"
+    t.integer  "box_id"
+    t.integer  "row_id"
+    t.integer  "column_id"
+    t.date     "date"
+    t.float    "volume"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.text     "comment"
+    t.integer  "vol_unit_id"
+    t.boolean  "trash",               default: false
+    t.string   "barcode"
+    t.date     "date_of_thawing"
+  end
+
+  create_table "virus_productions", force: :cascade do |t|
+    t.integer  "production_id"
+    t.integer  "user_id"
+    t.integer  "vol_unit_id"
+    t.decimal  "vol"
+    t.text     "comment"
+    t.string   "gel_prot"
+    t.boolean  "invoice"
+    t.text     "hek_result"
+    t.string   "animal"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.date     "date_of_production"
+    t.string   "number"
+    t.string   "plasmid_tag"
+    t.string   "plasmid_batch_tag"
+    t.string   "rev_plasmid_tag"
+    t.string   "rev_plasmid_batch_tag"
+    t.integer  "nb"
+    t.string   "genes_tag"
+    t.string   "promoters_tag"
+    t.text     "recap"
+    t.integer  "dismissed",             default: 0
+  end
+
+  create_table "vol_units", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
 
 end

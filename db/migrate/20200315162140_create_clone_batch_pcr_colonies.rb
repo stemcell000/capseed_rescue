@@ -1,8 +1,8 @@
 class CreateCloneBatchPcrColonies < ActiveRecord::Migration
   def up
   create_table "clone_batches_pcr_colonies", force: :cascade do |t|
-    t.integer "clone_batch_id"
-    t.integer "pcr_colony_id"
+    t.integer "clone_batch_id", index: true
+    t.integer "pcr_colony_id", index: true
   end
   end
   

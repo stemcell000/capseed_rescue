@@ -1,0 +1,2 @@
+module OptionVirusProductionsHelper
+end

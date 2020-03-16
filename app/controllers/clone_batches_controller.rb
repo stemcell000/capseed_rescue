@@ -128,12 +128,14 @@ class CloneBatchesController < InheritedResources::Base
       
       @option = current_user.options.first
      
-       #Plasmids cachés
+     #Plasmids cachés
      unless @option.display_all_clone_batch
-        hidden_plasmids_ids = @option.clone_batches.pluck(:id)
-      else
+       unless @option.clone_batches.empty?
+          hidden_plasmids_ids = @option.clone_batches.pluck(:id) 
+       end
+     else
         hidden_plasmids_ids = []
-      end
+     end
       
        #Recherche sur tables multiples.
         @q = CloneBatch.ransack(params[:q]) 

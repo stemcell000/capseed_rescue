@@ -193,12 +193,11 @@ Rails.application.routes.draw do
       get :spawn_dosage, :on => :member
     end
     
-    resources :clone_batches do
+   resources :clone_batches do
       get :edit_from_prod, :on => :member
-    end
+   end
     
    end
-   
    
    resources :virus_productions do
      get :edit_from_inventory, :on => :member

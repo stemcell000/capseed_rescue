@@ -95,9 +95,9 @@ class User < ActiveRecord::Base
      self.virus_productions.empty? || self.assays.empty? ||self.plasmid_batches.empty? || self.sequencings.empty? || self.pcr_colonies.empty || self.dosages.empty?
    end
    
-     def create_option
-       if self.options.empty?
+   def create_option
+      if self.options.empty?
         self.options.create(:display_all_virus => false, :display_all_clone_batch => false)
       end
-    end
+   end
 end

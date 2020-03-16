@@ -1,5 +1,5 @@
 class CreatePrimers < ActiveRecord::Migration
-  def ip
+  def up
   create_table "primers", force: :cascade do |t|
     t.string   "name"
     t.text     "sequence"

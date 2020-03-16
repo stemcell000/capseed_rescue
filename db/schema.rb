@@ -389,6 +389,16 @@ ActiveRecord::Schema.define(version: 20200316165123) do
   add_index "plasmid_batches_productions", ["plasmid_batch_id"], name: "index_plasmid_batches_productions_on_plasmid_batch_id", using: :btree
   add_index "plasmid_batches_productions", ["production_id"], name: "index_plasmid_batches_productions_on_production_id", using: :btree
 
+  create_table "primers", force: :cascade do |t|
+    t.string   "name"
+    t.text     "sequence"
+    t.text     "comment"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "sequencing_id"
+    t.boolean  "available",     default: true
+  end
+
   create_table "productions", force: :cascade do |t|
     t.string   "name"
     t.boolean  "display"

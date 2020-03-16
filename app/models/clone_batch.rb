@@ -1,20 +1,16 @@
 class CloneBatch < ActiveRecord::Base
   #ActiveModel Dirty to track changes
   include ActiveModel::Dirty
-=begin
   #scopes
   scope :by_production,  ->(production_id) { joins(:productions).where(productions: { id: production_id }) }
 
   #Set to nil blank fields values (utile pour effacer le final name à l'étape CBQC - rename)
   before_save :normalize_blank_values
-  
   belongs_to :clone
-=end
   has_and_belongs_to_many :options
-=begin
+  has_many :plasmid_batches, -> { uniq }, :dependent => :destroy
   has_and_belongs_to_many :sequencings, :dependent => :destroy
   has_and_belongs_to_many :pcr_colonies, :dependent => :destroy
-  has_many :plasmid_batches, -> { uniq }, :dependent => :destroy
   has_and_belongs_to_many :productions, :join_table => "clone_batches_productions"
   has_many :virus_productions, :through => :productions
   belongs_to :target
@@ -46,9 +42,7 @@ class CloneBatch < ActiveRecord::Base
   accepts_nested_attributes_for :genes, :allow_destroy => false, :reject_if => :all_blank
   accepts_nested_attributes_for :promoters, :allow_destroy => false, :reject_if => :all_blank
   accepts_nested_attributes_for :origin
-=end
   accepts_nested_attributes_for :options
-=begin  
   #Validations
   attr_accessor :skip_name_validation
   attr_accessor :skip_type_validation
@@ -138,5 +132,4 @@ class CloneBatch < ActiveRecord::Base
     yes: 1,
     no: 0
   }
-=end
 end

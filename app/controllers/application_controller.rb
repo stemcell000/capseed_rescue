@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
         end
     end
  
-=begin   
    def update_last_step(model, value)
     unless model.last_step.nil?
       if model.last_step < value
@@ -50,9 +49,8 @@ end
       format.js   { head :forbidden, content_type: 'text/html' }
     end
   end
-=end
   
-    protected
+  protected
     
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, :role ) }

@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery3
 //= require bootstrap-sprockets
 //= require jquery.ui.all
 //= require jquery_ujs
@@ -21,10 +21,11 @@
 //= require nprogress-turbolinks
 //= require active_admin/select2
 //= require select2
+//= require custom
 //= require jquery_nested_form
+//= require smart_listing
 //= require bootstrap-datepicker
 //= require multi-select
-//= require smart_listing
 //= require jasny-bootstrap.min
 //= require bootstrap/bootstrap-rails-tooltip
 //= require bootstrap/bootstrap-rails-popover

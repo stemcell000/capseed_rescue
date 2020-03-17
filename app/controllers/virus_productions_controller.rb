@@ -44,7 +44,9 @@ class VirusProductionsController < InheritedResources::Base
       
       #virus cachés
       unless @option.display_all_virus
-        hidden_virus_ids = @option.virus_productions.pluck(:id)
+        unless @option.virus_productions.empty?
+          hidden_virus_ids = @option.virus_productions.pluck(:id)
+        end
       else
         hidden_virus_ids = []
       end

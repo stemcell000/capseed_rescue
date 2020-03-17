@@ -155,7 +155,6 @@ class CloneBatchesController < InheritedResources::Base
      #Champs origins
       @origins_all = Origin.all.order(name: "asc").uniq
       @origins_all = @origins_all.map{ |obj| [obj['name'], obj['id']] }
-     
 
     #variable global utilisé par la méthode 'listing' pour eviter l'initialisation de la recherche à la fermeture de la fenêtre modale (edit-from-inventory)
       @clone_batches = @q.result.includes(:clone, :target, :type, :strand, :genes, :promoters, :origin, :plasmid_batches).where.not(:nb => nil).where.not(:id => hidden_plasmids_ids)

@@ -1,1 +1,1 @@
-json.partial! "vol_units/vol_unit", vol_unit: @vol_unit
+json.extract! @vol_unit, :id, :created_at, :updated_at

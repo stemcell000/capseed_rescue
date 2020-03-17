@@ -1,1 +1,4 @@
-json.array! @vol_units, partial: "vol_units/vol_unit", as: :vol_unit
+json.array!(@vol_units) do |vol_unit|
+  json.extract! vol_unit, :id
+  json.url vol_unit_url(vol_unit, format: :json)
+end

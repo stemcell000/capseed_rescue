@@ -6,8 +6,7 @@ ActiveAdmin.register CloneEnzyme do
                
                
 
-              },
-              batch_size: 1000 
+              }
 
 permit_params :list, :of, :attributes, :on, :model, :id, :name, :clone_id, :enzyme_id
 end

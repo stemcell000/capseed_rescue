@@ -1,6 +1,6 @@
 ActiveAdmin.register CloneBatch do
  config.sort_order = 'id_asc'
-
+=begin
  #Import csv   
  active_admin_import validate: false,
               csv_options: {col_sep: ";" },
@@ -24,10 +24,15 @@ ActiveAdmin.register CloneBatch do
                 targets   = Target.where(name: target_names).pluck(:name, :id)
                 options = Hash[*targets.flatten]
                 importer.batch_replace(:target_id, options)
-                
-              },
-              batch_size: 1000
 
+              }
+=end
+#Import csv   
+ active_admin_import validate: false,
+              csv_options: {col_sep: ";" },
+              before_batch_import: ->(importer) {
+              CloneBatch.where(id: importer.values_at('id')).delete_all
+              }
 
 permit_params :list, :of, :attributes, :on, :model, :id, :name, :strand_id, :temp_name, :comment, :qc_validation, :strict_validation, :plasmid_validation,
 :date_as_plasmid, :glyc_stock_box_as_plasmid, :origin, :origin_id, :type_id, :type, :strand, :target, :target_id, :comment_as_plasmid, :promoters,

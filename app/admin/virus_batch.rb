@@ -46,8 +46,7 @@ end
                 options = Hash[*boxes.flatten]
                 importer.batch_replace(:box_id, options)
                 
-              },
-              batch_size: 1000
+              }
               
 #Add Button to site
 action_item do

@@ -14,8 +14,7 @@ ActiveAdmin.register Gene do
                
                
 
-              },
-              batch_size: 1000 
+              } 
 
 
 permit_params :list, :of, :attributes, :on, :model, :id, :name, :clone_batch_id

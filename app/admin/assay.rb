@@ -1,29 +1,8 @@
 ActiveAdmin.register Assay do
 
- active_admin_import validate: false,
-                          template: 'import' ,
-                          template_object: ActiveAdminImport::Model.new(
-                              hint: "you can configure CSV options",
-                              csv_options: { col_sep: ";", row_sep: nil, quote_char: nil }
-                          )
+active_admin_import validate: true,
+             csv_options: {col_sep: ";" }
 
-
-  def display_name
-    self.name
-  end
-
-index do
-  column :id
-  column :name
-  column :display
-  column :step
-  column :last_step
-  column :created_at
-  column :updated_at
-  column :row_order
-
-  actions
- end
  
 permit_params :list, :of, :attributes, :on, :model, :id, :name, :display, :step, :last_step, :created_at, :row_order_position, :updated_at
 

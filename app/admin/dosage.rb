@@ -9,7 +9,6 @@ ActiveAdmin.register Dosage do
     column :virus_production_id
     column :comment
     column :inactivation
-    
 #actions
     actions defaults: false do |p|
     link_to "Edit", edit_admin_dosage_path(p)
@@ -19,19 +18,9 @@ end
 #Import csv   
  active_admin_import validate: false,
               csv_options: {col_sep: ";" },
-              headers_rewrites: { 'username' => :user_id },
               before_batch_import: ->(importer) {
-                
                 Dosage.where(id: importer.values_at('id')).delete_all
-                
-                user_names = importer.values_at(:user_id)
-                users   = User.where(username: user_names).pluck(:username, :id)
-                options = Hash[*users.flatten]
-                importer.batch_replace(:user_id, options)     
-                
-              },
-              batch_size: 1000
-              
+              }
 #Add Button to site
 action_item do
   link_to "View Site", "/"

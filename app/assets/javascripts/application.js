@@ -13,14 +13,14 @@
 //= require jquery3
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require jquery.ui.all
+//= require jquery-ui/widgets/autocomplete
+//= require autocomplete-rails
+//= require jquery.remotipart
 //= require select2
 //= require bootstrap/bootstrap-rails-tooltip
 //= require bootstrap/bootstrap-rails-popover
-//= require jquery.remotipart
-//= require autocomplete
+//= require jquery.tokeninput
 //= require nprogress
-//= require nprogress-turbolinks
 //= require active_admin/select2
 //= require custom
 //= require update_assays_row_position
@@ -47,3 +47,4 @@ $(document).on('turbolinks:render', function() {
   NProgress.done();
   NProgress.remove();
 });
+

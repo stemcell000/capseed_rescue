@@ -63,8 +63,8 @@
 			 if(jQuery(e).attr('data-autocomplete-label') !== undefined) {
 				label = jQuery(e).attr('data-autocomplete-label');
 			  }
-			  arguments[0] = [];
-              arguments[0][0] = { id: "", label: label };
+			  arguments[0] = []
+              arguments[0][0] = { id: "", label: label }
             }
             jQuery(arguments[0]).each(function(i, el) {
               var obj = {};
@@ -91,7 +91,13 @@
                 jQuery(update_elements[key]).val(ui.item ? data[key] : "");
             }  
         },
-        minLength: 1,
+        search: function() {
+          // custom minLength
+          var term = extractLast( this.value );
+          if ( term.length < 2 ) {
+            return false;
+          }
+        },
         focus: function() {
           // prevent value inserted on focus
           return false;

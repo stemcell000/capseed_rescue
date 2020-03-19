@@ -2,7 +2,6 @@
   $(document).ready(function() {
   $('.modal').on('show.bs.modal', function(e) {
     console.debug('select2 is initialized in this modal window!');
-    
 		$( ".select2-select" ).select2({
 		    theme: "bootstrap",
 		    tag: true,
@@ -10,7 +9,6 @@
 		    placeholder: "Select",
 		    tokenSeparators: [',', ' ']
 		});
-		
 		
   });
 });

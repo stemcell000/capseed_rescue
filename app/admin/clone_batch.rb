@@ -1,6 +1,5 @@
 ActiveAdmin.register CloneBatch do
- config.sort_order = 'id_asc'
-begin
+csv force_quotes: false, col_sep: ';', column_names: true do
     column :id
     column :target_id
     column :name
@@ -24,6 +23,8 @@ begin
     column :dismissed
     column :plasmid_batches_count
   end
+
+
  
  active_admin_import validate: false,
               csv_options: {col_sep: ";" },

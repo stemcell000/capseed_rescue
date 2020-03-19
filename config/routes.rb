@@ -73,12 +73,9 @@ Rails.application.routes.draw do
       patch 'update_notif'
     end
   end
-  
-
 
   resources :assays do
     collection do
-        get :autocomplete_assay_name
         post :update_row_order
         get :display_all
         get :scheduler

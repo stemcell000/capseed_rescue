@@ -118,7 +118,7 @@
         u.username = 'crobert'
         u.firstname = 'Camille'
         u.lastname = 'Robert'
-        u.password  = 'YM26r9mt'
+        u.password  = '123456789'
         u.role = 'user'
     end 
     
@@ -127,7 +127,7 @@
         u.username = 'froutet'
         u.firstname = 'Fiona'
         u.lastname = 'Routet'
-        u.password  = 'YM26r9mt'
+        u.password  = '123456789'
         u.role = 'user'
     end  
     
@@ -136,7 +136,7 @@
         u.username = 'jmurat'
         u.firstname = 'Julien'
         u.lastname = 'Murat'
-        u.password    = 'gVx29g2G'
+        u.password    = '123456789'
         u.role = 'guest'
     end 
     
@@ -145,7 +145,7 @@
         u.username = 'mtenkisoy'
         u.firstname = 'Müge'
         u.lastname = 'Tenkisoy'
-        u.password    = 'gVx29g2G'
+        u.password    = '123456789'
         u.role = 'user'
     end 
     
@@ -154,7 +154,7 @@
         u.username = 'cbotto'
         u.firstname = 'Catherine'
         u.lastname = 'Botto'
-        u.password    = 'gVx29g2G'
+        u.password    = '123456789'
         u.role = 'user'
     end 
     
@@ -163,7 +163,7 @@
         u.username = 'csimon'
         u.firstname = 'Cardillia'
         u.lastname = 'Simon'
-        u.password    = 'gVx29g2G'
+        u.password    = '123456789'
         u.role = 'user'
     end
     
@@ -172,7 +172,7 @@
         u.username = 'emace'
         u.firstname = 'Emilie'
         u.lastname = 'Macé'
-        u.password    = 'C84r2mXs'
+        u.password    = '123456789'
         u.role = 'user'
     end 
     
@@ -181,7 +181,7 @@
         u.username = 'ebombard'
         u.firstname = 'Eléonore'
         u.lastname = 'Bombard'
-        u.password    = 'rr7A5Ke7'
+        u.password    = '123456789'
         u.role = 'guest'
     end 
     
@@ -190,7 +190,7 @@
         u.username = 'cwinkler'
         u.firstname = 'Céline'
         u.lastname = 'Winkler'
-        u.password    = 'E2tah3Y7'
+        u.password    = '123456789'
         u.role = 'guest'
     end 
     
@@ -199,7 +199,7 @@
         u.username = 'aplanul'
         u.firstname = 'Arthur'
         u.lastname = 'Planul'
-        u.password    = 'E2tah3Y7'
+        u.password    = '123456789'
         u.role = 'guest'
     end 
     
@@ -208,7 +208,7 @@
         u.username = 'hkhaboul'
         u.firstname = 'Hanen'
         u.lastname = 'Khabou'
-        u.password    = 'E2tah3Y7'
+        u.password    = '123456789'
         u.role = 'guest'
     end
 
@@ -217,7 +217,7 @@
         u.username = 'lpacot'
         u.firstname = 'Laure'
         u.lastname = 'Pacot'
-        u.password    = 'E2tah3Y7'
+        u.password    = '123456789'
         u.role = 'guest'
     end
     

@@ -1,23 +1,23 @@
 class User < ActiveRecord::Base
-  #has_many :assays
-  #has_many :plasmid_batches
-  #has_many :sequencings
-  #has_many :pcr_colonies
-  #has_many :dosages
+  has_many :assays
+  has_many :plasmid_batches
+  has_many :sequencings
+  has_many :pcr_colonies
+  has_many :dosages
   has_many :options
-  #has_many :clone_batch_users
-  #has_many :virus_productions
+  has_many :clone_batch_users
+  has_many :virus_productions
 
-  #accepts_nested_attributes_for :virus_productions
-  #accepts_nested_attributes_for :assays
-  #accepts_nested_attributes_for :plasmid_batches, :allow_destroy => true
-  #accepts_nested_attributes_for :sequencings
-  #accepts_nested_attributes_for :dosages
-  #accepts_nested_attributes_for :options
+  accepts_nested_attributes_for :virus_productions
+  accepts_nested_attributes_for :assays
+  accepts_nested_attributes_for :plasmid_batches, :allow_destroy => true
+  accepts_nested_attributes_for :sequencings
+  accepts_nested_attributes_for :dosages
+  accepts_nested_attributes_for :options
   
-  #has_many :plasmid_batch_qcs
+  has_many :plasmid_batch_qcs
   
-  #validates :username, :firstname, :lastname, :presence => true, :uniqueness => {:case_sensitive => false}
+  validates :username, :firstname, :lastname, :presence => true, :uniqueness => {:case_sensitive => false}
 
   
   # Include default devise modules. Others available are:

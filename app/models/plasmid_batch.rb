@@ -1,6 +1,5 @@
 class PlasmidBatch < ActiveRecord::Base
   belongs_to :clone_batch, :counter_cache => true
-=begin
   default_scope { order(:name) } #défini l'ordre d'affichage de pb par ex. dans les form (fields_for)
   
   has_many :plasmid_batch_attachments, :dependent => :destroy
@@ -65,5 +64,4 @@ def set_tube_status
    end
     return str
   end
-=end
 end

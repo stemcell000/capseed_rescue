@@ -1,5 +1,5 @@
 class AddAdministrator < ActiveRecord::Migration
-  def change    
+  def up    
          User.create! do |u|
           u.email     = 'marc.lechuga@inserm.fr'
           u.username = 'mlechuga'
@@ -10,6 +10,7 @@ class AddAdministrator < ActiveRecord::Migration
           u.password_confirmation = 'stemcell'
           u.role = 'administrator'
          end
-        User.first.create_option 
+  end
+  def down
   end
 end

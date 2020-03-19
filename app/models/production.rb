@@ -32,7 +32,6 @@ class Production < ActiveRecord::Base
    validates_presence_of :clone_batches
    validates_associated :plasmid_batch_productions, :if => :enable_strict_validation?
    validates_associated :plasmid_batches, :if => :enable_strict_validation?
-    
   
   #TRES IMPORTANT: indispensable pour la validation du modèle imbriqué (nested) dans les formulaire non "modal"
   validates_associated :clone_batches, :if => :enable_strict_validation?

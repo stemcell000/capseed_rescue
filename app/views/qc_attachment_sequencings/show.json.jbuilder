@@ -1,1 +1,0 @@
-json.partial! "qc_attachment_sequencings/qc_attachment_sequencing", qc_attachment_sequencing: @qc_attachment_sequencing

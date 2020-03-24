@@ -1,1 +1,0 @@
-json.partial! "clone_batch_as_plasmid_attachments/clone_batch_as_plasmid_attachment", clone_batch_as_plasmid_attachment: @clone_batch_as_plasmid_attachment

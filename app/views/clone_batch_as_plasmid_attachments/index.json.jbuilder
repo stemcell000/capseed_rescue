@@ -1,1 +1,0 @@
-json.array! @clone_batch_as_plasmid_attachments, partial: "clone_batch_as_plasmid_attachments/clone_batch_as_plasmid_attachment", as: :clone_batch_as_plasmid_attachment

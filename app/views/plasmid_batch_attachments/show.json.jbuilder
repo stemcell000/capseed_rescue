@@ -1,1 +1,1 @@
-json.partial! "plasmid_batch_attachments/plasmid_batch_attachment", plasmid_batch_attachment: @plasmid_batch_attachment
+json.extract! @plasmid_batch_attachment, :id, :created_at, :updated_at

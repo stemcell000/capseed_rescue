@@ -38,7 +38,7 @@
 NProgress.configure({
   showSpinner: true,
   ease: 'ease',
-  speed: 1
+  speed: 3
 });
 
 $(document).on('click', function() {

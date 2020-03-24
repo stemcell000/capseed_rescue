@@ -21,6 +21,7 @@
 //= require bootstrap/bootstrap-rails-popover
 //= require jquery.tokeninput
 //= require nprogress
+//= require nprogress-turbolinks
 //= require active_admin/select2
 //= require custom
 //= require update_assays_row_position
@@ -40,10 +41,10 @@ NProgress.configure({
   speed: 1
 });
 
-$(document).on('turbolinks:click', function() {
+$(document).on('click', function() {
   NProgress.start();
 });
-$(document).on('turbolinks:render', function() {
+$(document).on('render', function() {
   NProgress.done();
   NProgress.remove();
 });

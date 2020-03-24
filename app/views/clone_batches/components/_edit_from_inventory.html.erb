@@ -15,6 +15,9 @@
 			<div class="col-lg-2">
 				<%= f.input :number, :input_html => { :value => f.object.number}, :readonly => true%>
 			</div>
+			<div class="col-lg-2">
+				<%=f.input :hidden, :as => :boolean, :label => "Hide" %>
+			</div>
 		</div>
 		<div class="row">
 				<%= f.input :clone_id, :as => :hidden%>

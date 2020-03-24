@@ -3,7 +3,7 @@ class VirusProduction < ActiveRecord::Base
  
  include VirusProductionsHelper
  include ApplicationHelper
-  
+ 
  belongs_to :production
  has_and_belongs_to_many :options
  belongs_to :user

@@ -1,9 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "autocomp_style";
-@import "nprogress";
-@import "nprogress-bootstrap";
-@import "nprogress-turbolinks5";
 @import "active_admin/select2/base";
 @import "jquery-ui";
 @import "assays";
@@ -18,11 +15,16 @@
 @import "assays";
 @import "productions";
 @import "clone_batches";
-@import "nprogress";
-@import "nprogress-bootstrap";
 @import "jquery-ui-1.10.3.custom";
 @import "jquery-ui-1.10.3.theme";
 @import "jquery-ui-1.10.3.ie";
+
+//Progressbar
+
+$nprogress-height: 10px;
+
+@import "nprogress";
+@import "nprogress-bootstrap";
 
 //class pour modal-dialog
 .bigModal{
@@ -217,3 +219,4 @@ p.font12 {
 .invisible {
   visibility: hidden;
 }
+

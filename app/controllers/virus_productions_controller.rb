@@ -1,7 +1,8 @@
 class VirusProductionsController < InheritedResources::Base
  
-   before_action :set_virus_production, only:[:edit, :destroy, :edit_from_inventory, :hide_from_inventory, :add_vb_from_inventory, :spawn_dosage, :update, :update_from_inventory, :create_dosage]
-   before_action :set_option, only:[:index, :hide_from_inventory, :update_from_inventory]
+   before_action :set_virus_production, only:[:edit, :destroy, :edit_from_inventory, :add_vb_from_inventory, :spawn_dosage, :update, :update_from_inventory, :create_dosage]
+   before_action :set_option, only:[:index, :update_from_inventory, :edit_from_inventory, :hide]
+   after_action :hide, only:[:update_from_inventory]
   #Smart_listing
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
@@ -84,14 +85,21 @@ class VirusProductionsController < InheritedResources::Base
     end
   end
   
-  
   def edit_from_inventory
       @users = User.all
+      if @option.virus_productions.exists?(:id => @virus_production.id)
+        @virus_production.hidden = true
+      end
   end
   
   def update_from_inventory
       @virus_production.update_attributes(virus_production_params)
-      @virus_production.generate_recap
+      if @virus_production.valid?
+          flash.keep[:success] = "Task completed!"
+          @virus_production.generate_recap
+      else
+          render :action => 'spawn_dosage'
+      end
   end 
   
   def destroy
@@ -138,19 +146,12 @@ class VirusProductionsController < InheritedResources::Base
           @nb = (n +1).to_s
   end
   
-  def hide_from_inventory
-    unless @option.virus_productions.where(:id => @virus_production.id).exists?
-      @option.virus_productions << @virus_production
-    else
-      @option.virus_productions.destroy(@virus_production)
-    end
-  end
-  
   private
  
   def virus_production_params
     params.require(:virus_production).permit(:id, :number, :nb, :plate_name, :vol, :sterility, :titer_atcc, :titer, :titer_to_atcc, :comment, :date_of_production, :user_id,
-    :gel_prot, :invoice, :hek_result, :created_at, :updated_at, :vol_unit_id, :production_id, :_destroy, :plasmid_tag, :plasmid_batch_tag, :rev_plasmid_tag, :rev_plasmid_batch_tag, :dismissed,
+    :gel_prot, :invoice, :hek_result, :created_at, :updated_at, :vol_unit_id, :production_id, :_destroy, :plasmid_tag, :plasmid_batch_tag, :rev_plasmid_tag, :rev_plasmid_batch_tag,
+    :dismissed, :hidden,
     :dosages_attributes => [:id, :virus_production_id, :titer, :titer_atcc, :titer_to_atcc, :date, :plate_name, :_destroy, :remove_dosage,
     :inactivation, :inactivation_atcc, :inactivation_standard, :accepted, :user_id],
     :sterilitytests_attributes => [:id, :virus_production_id, :sterility, :date, :_destroy, :remove_sterilitytest],
@@ -164,6 +165,19 @@ class VirusProductionsController < InheritedResources::Base
  
  def set_option
    @option = current_user.options.first
+ end
+ 
+ def hide
+   if @virus_production.hidden
+     unless @option.virus_productions.exists?(:id => @virus_production.id)
+      @virus_production.options << @option
+     end
+   else
+     if @option.virus_productions.exists?(:id => @virus_production.id)
+      @virus_production.options.destroy(@option)
+     end  
+  end
+          @virus_production.update_columns(:hidden => false)
  end
  
 end

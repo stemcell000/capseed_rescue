@@ -3,7 +3,7 @@ class CloneBatch < ActiveRecord::Base
   include ActiveModel::Dirty
   #scopes
   scope :by_production,  ->(production_id) { joins(:productions).where(productions: { id: production_id }) }
-
+  
   #Set to nil blank fields values (utile pour effacer le final name à l'étape CBQC - rename)
   before_save :normalize_blank_values
   belongs_to :clone

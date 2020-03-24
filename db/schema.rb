@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200319104934) do
+ActiveRecord::Schema.define(version: 20200323152538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20200319104934) do
     t.integer  "dismissed",                 default: 0
     t.integer  "plasmid_batches_count",     default: 0,     null: false
     t.text     "recap"
+    t.boolean  "hidden"
   end
 
   add_index "clone_batches", ["target_id"], name: "index_clone_batches_on_target_id", using: :btree
@@ -579,6 +580,7 @@ ActiveRecord::Schema.define(version: 20200319104934) do
     t.string   "promoters_tag"
     t.text     "recap"
     t.integer  "dismissed",             default: 0
+    t.boolean  "hidden"
   end
 
   create_table "vol_units", force: :cascade do |t|

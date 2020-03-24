@@ -36,9 +36,10 @@
 //= require_tree .
 
 NProgress.configure({
-  showSpinner: true,
+  showSpinner: false,
   ease: 'ease',
-  speed: 3
+  speed: 3,
+  trickle: false
 });
 
 $(document).on('click', function() {

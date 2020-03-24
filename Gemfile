@@ -49,7 +49,6 @@ gem 'devise'
 gem 'activeadmin'
 gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
 gem 'binding_of_caller'
-#gem 'rails4-autocomplete'
 gem 'rails-autocomplete'
 gem 'jquery-ui-rails'
 gem 'select2-rails'
@@ -67,10 +66,7 @@ gem 'carrierwave-aws'
 gem 'remotipart'
 gem 'mini_magick','~> 4.9.4'
 gem 'fog-aws'
-#gem 'kaminari'
-#gem 'bootstrap-kaminari-views'
 gem "smart_listing"
-#gem 'acts-as-taggable-on', '~> 3.4'
 gem 'jasny-bootstrap-rails'
 gem "haml"
 gem "haml-rails", "~> 0.9"
@@ -87,6 +83,6 @@ gem 'bootstrap-popover-rails'
 gem "active_admin_import" , '3.0.0.pre'
 gem "font-awesome-rails"
 gem 'acts_as_list'
-#gem "puma_worker_killer"
 gem 'derailed', group: :development
 gem 'fast_excel'
+gem 'rack-cache'

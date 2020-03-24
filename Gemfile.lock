@@ -259,6 +259,8 @@ GEM
     rabl (0.13.0)
       activesupport (>= 2.3.14)
     rack (1.6.13)
+    rack-cache (1.11.0)
+      rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.2)
@@ -412,6 +414,7 @@ DEPENDENCIES
   pg (= 0.20.0)
   puma
   rabl (= 0.13.0)
+  rack-cache
   rails (= 4.2.2)
   rails-autocomplete
   rails_12factor

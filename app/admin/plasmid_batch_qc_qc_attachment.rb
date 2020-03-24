@@ -1,15 +1,15 @@
-ActiveAdmin.register CloneBatchAttachment do
+ActiveAdmin.register PlasmidBatchQcQcAttachment do
 csv force_quotes: false, col_sep: ';', column_names: true do
     column :id
-    column :clone_batch_id
-    column :attachment
+    column :plasmid_batch_qc_id
+    column :qc_attachment_id
   end
 
- #Import csv   
  active_admin_import validate: false,
               csv_options: {col_sep: ";" },
               before_batch_import: ->(importer) {
-                CloneBatchAttachment.where(id: importer.values_at('id')).delete_all
+                PlasmidBatchQcQcAttachment.where(id: importer.values_at('id')).delete_all
                 
               }
+
 end

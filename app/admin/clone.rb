@@ -13,11 +13,5 @@ end
                 
               }
               
-  show do
-    h3 clone.title
-    div do
-      simple_format clone.name
-    end
-  end
               
 end

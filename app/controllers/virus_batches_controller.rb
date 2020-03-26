@@ -1,4 +1,27 @@
 class VirusBatchesController < InheritedResources::Base
+def index
+  
+end
+  
+def new
+  
+end
+
+def create
+  
+end
+
+def edit
+  
+end
+
+def update
+  
+end
+
+def show
+  
+end
 
  def new_from_inventory
     @virus_batch = VirusBatch.new

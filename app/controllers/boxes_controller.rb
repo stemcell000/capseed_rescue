@@ -1,9 +1,28 @@
 class BoxesController < InheritedResources::Base
- 
+ def index
+  
+end
+  
+def new
+  
+end
+
  def create
    @box = Box.new(box_params)
    @box.save
  end
+
+def edit
+  
+end
+
+def update
+  
+end
+
+def show
+  
+end
  
   private
 

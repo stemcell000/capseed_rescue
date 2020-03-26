@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :shelves
+  resources :containers
+  resources :locations
+  resources :buildings
   resources :options do
    patch :display_all_virus_switch, :on => :member
    patch :display_all_clone_batch_switch, :on => :member

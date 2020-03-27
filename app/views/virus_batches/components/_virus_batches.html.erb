@@ -2,7 +2,8 @@
 <table>
 	<thead>
         <tr>
-            <%= sort_link(@q, :name) %>
+            <th><%= sort_link(@q, :id) %></th>
+            <th><%= sort_link(@q, :barcode) %></th>
         </tr>
     </thead>
     <tbody>
@@ -11,10 +12,14 @@
     			<td>
     				<%=vb.name%>
     			</td>
+    			 <td>
+    				<%=vb.barcode%>
+    			</td>
 		</tr>
 		<%end%>
     </tbody>
 </table>
+<%= will_paginate @virus_batches %>
 <%else%>
 	<span>No sample to display</span>
 <%end%>

@@ -9,7 +9,7 @@ def index
       
       @q = VirusBatch.ransack(params[:q])
       @q.sorts = ['name asc', 'date desc'] if @q.sorts.empty?
-      @virus_batches = @q.result.includes([:virus_production,:building, :location, :box ])
+      @virus_batches = @q.result.includes([:virus_production,:box ]).paginate(page: params[:page], per_page: 30)
 end
  
 def new

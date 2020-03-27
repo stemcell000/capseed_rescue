@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :containers
   resources :locations
   resources :buildings
+  resources :virus_batches
   resources :options do
    patch :display_all_virus_switch, :on => :member
    patch :display_all_clone_batch_switch, :on => :member

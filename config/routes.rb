@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :box_formats
+  resources :positions
   resources :shelves
   resources :containers
   resources :locations

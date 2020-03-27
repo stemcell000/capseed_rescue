@@ -1,8 +1,17 @@
 class VirusBatchesController < InheritedResources::Base
+
 def index
-  
+        #Formattage des dates
+      start_time = params[:date_gteq].to_date rescue Date.current
+      start_time = start_time.beginning_of_day # sets to 00:00:00
+      end_time = params[:date_lteq].to_date rescue Date.current
+      end_time = end_time.end_of_day # sets to 23:59:59
+      
+      @q = VirusBatch.ransack(params[:q])
+      @q.sorts = ['name asc', 'date desc'] if @q.sorts.empty?
+      @virus_batches = @q.result.includes([:virus_production,:building, :location, :box ])
 end
-  
+ 
 def new
   
 end

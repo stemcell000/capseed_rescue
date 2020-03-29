@@ -86,4 +86,3 @@ gem 'acts_as_list'
 gem 'derailed', group: :development
 gem 'fast_excel'
 gem 'rack-cache'
-gem 'will_paginate', '~> 3.3.0'

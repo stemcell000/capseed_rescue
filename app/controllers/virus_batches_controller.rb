@@ -1,7 +1,7 @@
 class VirusBatchesController < InheritedResources::Base
 
 def index
-        #Formattage des dates
+      #Formattage des dates
       start_time = params[:date_gteq].to_date rescue Date.current
       start_time = start_time.beginning_of_day # sets to 00:00:00
       end_time = params[:date_lteq].to_date rescue Date.current
@@ -10,6 +10,9 @@ def index
       @q = VirusBatch.ransack(params[:q])
       @q.sorts = ['name asc', 'date desc'] if @q.sorts.empty?
       @virus_batches = @q.result.includes([:virus_production,:box ]).paginate(page: params[:page], per_page: 30)
+      
+      @boxes = Box.ransack(vb_link_of_virus_batch_type_id: )
+      @boxes = @boxes.paginate(page: params[:page], per_page: 30)
 end
  
 def new

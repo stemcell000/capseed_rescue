@@ -15,7 +15,7 @@ function toggleChevron(e) {
     $(e.target)
         .prev('.panel-heading')
         .find("i.indicator")
-        .toggleClass('fa-chevron-down fa-chevron-right');
+        .toggleClass('fas fa-chevron-down fa-chevron-right');
 	};
 	
 		

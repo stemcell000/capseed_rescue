@@ -9,10 +9,11 @@ def index
       
       @q = VirusBatch.ransack(params[:q])
       @q.sorts = ['name asc', 'date desc'] if @q.sorts.empty?
-      @virus_batches = @q.result.includes([:virus_production,:box ]).paginate(page: params[:page], per_page: 30)
+      @virus_batches = @q.result.includes([:virus_production,:box ]).order(:name).page params[:page]
+      sql = "INNER JOIN virus_batches ON virus_batches.vb_link_id=boxes.id"
       
-      @boxes = Box.ransack(vb_link_of_virus_batch_type_id: )
-      @boxes = @boxes.paginate(page: params[:page], per_page: 30)
+      @boxes = Box.joins(:virus_batches)
+      @boxes = @boxes.order(:name).page params[:page]
 end
  
 def new

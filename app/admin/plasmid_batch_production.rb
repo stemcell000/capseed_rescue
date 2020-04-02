@@ -4,7 +4,8 @@ ActiveAdmin.register PlasmidBatchProduction do
               csv_options: {col_sep: ";" },
               before_batch_import: ->(importer) {
               PlasmidBatchProduction.where(id: importer.values_at('id')).delete_all
-              }
+              },
+              batch_size: 1000
               
 #Add Button to site
 action_item do
@@ -13,16 +14,12 @@ end
 
 #
 
-index do
-    selectable_column
+csv force_quotes: false, col_sep: ';', column_names: true do
     column :id
-    column :created_at
-    column :updated_at
     column :production_id
     column :plasmid_batch_id
     column :volume
     column :starting_volume
-    actions
 end
 #
 

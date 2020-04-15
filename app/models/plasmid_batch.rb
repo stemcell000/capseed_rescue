@@ -29,7 +29,7 @@ class PlasmidBatch < ActiveRecord::Base
   accepts_nested_attributes_for :productions
   
   #validations
-  validates :name, :format_id, :user_id, :unit_id, :concentration, :presence => true
+  validates :name, :format_id, :user_id, :unit_id, :concentration, :plasmid_box, :presence => true
   validates :volume, :presence => true, :numericality => { :greater_than_or_equal_to => 0 }
   validates :concentration, numericality: true
   validates :name, :uniqueness => {message: "This name is already taken."}

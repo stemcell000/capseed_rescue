@@ -293,7 +293,6 @@ Rails.application.routes.draw do
     get :destroy_confirm, :on => :member
     delete :destroy_from_inventory, :on => :member
     patch :update_and_sort, :on => :member
-    delete :remove_box_row_column, :on => :member
     get :pipe, :on => :member
     patch :send_to_production, :on => :member
       resources :plasmid_batch_qcs

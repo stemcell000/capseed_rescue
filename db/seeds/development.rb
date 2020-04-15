@@ -24,7 +24,7 @@
   
    #Add boxes
   Box.create(name: "Unknown")
-  Box.create(name: "Garbage")
+  PlasmidBox.create(name: "Garbage")
   
   #Add cloning methods
   Cmeth.create(name: "InFusion")

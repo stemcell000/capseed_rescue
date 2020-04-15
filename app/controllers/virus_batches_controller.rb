@@ -91,13 +91,9 @@ end
   @virus_batches = @virus_production.virus_batches
     @virus_batch.toggle!(:trash)
     @virus_batch.update_columns(:volume => 0)
-    garbage = Box.find_by_name("Garbage")
     
-    unless @virus_batch.trash
+    if @virus_batch.trash
       @virus_batch.update_columns(:volume => 0)
-      garbage.virus_batches << @virus_batch
-     else
-      garbage.virus_batches.delete(@virus_batch)
      end
      
       @row = @virus_batch.row

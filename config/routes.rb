@@ -43,8 +43,6 @@ Rails.application.routes.draw do
   resources :plasmid_batches_productions
 
   resources :vol_units
-  resources :rows
-  resources :columns
   resources :boxes do
     get :fetch_virus_batches, :on => :member
   end

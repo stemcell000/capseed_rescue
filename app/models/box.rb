@@ -1,11 +1,9 @@
 class Box < ActiveRecord::Base
-  has_many :plasmid_batches, :inverse_of => :box
   has_many :positions
   has_many :virus_batches, through: :positions
   belongs_to :box_format
   belongs_to :box_type
   
-  accepts_nested_attributes_for :plasmid_batches
   accepts_nested_attributes_for :virus_batches
   
   def generate_positions

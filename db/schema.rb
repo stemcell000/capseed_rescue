@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200415125353) do
+ActiveRecord::Schema.define(version: 20200415131907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -404,7 +404,7 @@ ActiveRecord::Schema.define(version: 20200415125353) do
     t.integer  "format_id"
     t.integer  "number"
     t.integer  "user_id"
-    t.integer  "box_id"
+    t.integer  "plasmis_box_id"
     t.date     "date"
     t.boolean  "trash",             default: false
     t.string   "barcode"

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :box_formats
+  resources :plasmid_boxes
+  resources :box_types
   resources :positions
   resources :shelves
   resources :containers
@@ -44,7 +45,10 @@ Rails.application.routes.draw do
   resources :vol_units
   resources :rows
   resources :columns
-  resources :boxes
+  resources :boxes do
+    get :fetch_virus_batches, :on => :member
+  end
+  
   resources :qc_attachments
   resources :plasmid_batch_qcs do
     patch :validation_switch, :on => :collection

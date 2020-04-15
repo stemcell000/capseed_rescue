@@ -4,16 +4,14 @@ class VirusBatch < ActiveRecord::Base
   belongs_to :column
   belongs_to :row
   belongs_to :vol_unit
-  belongs_to :vb_link, polymorphic: true
-  has_one :position
+  belongs_to :position
   
   accepts_nested_attributes_for :virus_production
-  #accepts_nested_attributes_for :box
   accepts_nested_attributes_for :column
   accepts_nested_attributes_for :row
   
   #validations
-  validates :name, :volume, :vol_unit_id, :box_id, :presence => true
+  validates :name, :volume, :vol_unit_id, :presence => true
   validates :name, :uniqueness => {message: "This name is already taken."}
   
 def set_tube_status
@@ -38,6 +36,14 @@ def set_tube_status
        str = self.trash? ? "/images/trash.png":"/images/empty-med.png"
    end
   return str
+end
+
+def generate_recap
+  block1 = "#{self.name}"
+  block2 = "#{ self.virus_production.number }"
+  block3 = "#{self.virus_production.recap}"
+  block = block1+block2+block3
+  self.update_columns(:recap => block)
 end
   
 end

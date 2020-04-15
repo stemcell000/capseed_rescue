@@ -11,7 +11,7 @@ class PlasmidBatch < ActiveRecord::Base
   belongs_to :unit
   belongs_to :column
   belongs_to :row
-  belongs_to :box, :inverse_of => :plasmid_batches
+  belongs_to :plasmid_box, :inverse_of => :plasmid_batches
   belongs_to :vol_unit
   belongs_to :format
   belongs_to :user
@@ -20,7 +20,7 @@ class PlasmidBatch < ActiveRecord::Base
   accepts_nested_attributes_for :clone_batch
   accepts_nested_attributes_for :plasmid_batch_attachments, :allow_destroy => true, :reject_if => :all_blank
   accepts_nested_attributes_for :plasmid_batch_qcs, :allow_destroy => true
-  accepts_nested_attributes_for :box, :allow_destroy => true
+  accepts_nested_attributes_for :plasmid_box, :allow_destroy => true
   accepts_nested_attributes_for :row, :allow_destroy => true
   accepts_nested_attributes_for :column, :allow_destroy => true
   accepts_nested_attributes_for :vol_unit, :allow_destroy => true

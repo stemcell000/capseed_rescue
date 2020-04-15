@@ -1,0 +1,25 @@
+%h1 Listing box_types
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Max position
+      %th Comment
+      %th
+      %th
+      %th
+
+  %tbody
+    - @box_types.each do |box_type|
+      %tr
+        %td= box_type.name
+        %td= box_type.max_position
+        %td= box_type.comment
+        %td= link_to 'Show', box_type
+        %td= link_to 'Edit', edit_box_type_path(box_type)
+        %td= link_to 'Destroy', box_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Box type', new_box_type_path

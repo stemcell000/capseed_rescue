@@ -10,8 +10,9 @@
 		      	<% if can? :manage, :all %>
 		      	<li><%=link_to "Constructions", clones_path %></li>
 		      	<%end%>
-		      	<li><%= link_to "Plasmid inventory", root_path %></li>
-		      	<li><%= link_to "Virus inventory", virus_productions_path %></li>
+		      	<li><%= link_to "Plasmid", root_path %></li>
+		      	<li><%= link_to "Virus", virus_productions_path %></li>
+		      	<li><%= link_to "Virus batches", boxes_path %></li>
 		        <li><%= link_to "Cloning", assays_path %></li>
 		        <li><%= link_to "Production", productions_path %></li>
 		         <li class="dropdown">

@@ -1,0 +1,28 @@
+<div id class="col-lg-4 col-md-4 col-sm-4">
+	<h4>Boxes</h4>
+	<% unless @boxes.empty?%>
+<table>
+	<thead>
+        <tr>
+            <th><%= sort_link(@q, :id, 'Name') %></th>
+            <th><%= sort_link(@q, :barcode) %></th>
+        </tr>
+    </thead>
+    <tbody>
+    		<%@boxes.each do |b|%>
+    		<tr>
+    			<td class="col-lg-6 col-md-6 col-sm-6">
+    				<%=link_to b.name, fetch_virus_batches_box_path(b.id), :remote => true %>
+    			</td>
+    			 <td class="col-lg-6 col-md-6 col-sm-6">
+    				<%=b.barcode%>
+    			</td>
+		</tr>
+		<%end%>
+    </tbody>
+</table>
+<%= paginate @boxes %>
+<%else%>
+	<span>No box to display</span>
+<%end%>
+</div>

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BoxFormatTest < ActiveSupport::TestCase
+class PlasmidBoxTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

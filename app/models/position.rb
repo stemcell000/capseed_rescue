@@ -1,4 +1,4 @@
 class Position < ActiveRecord::Base
   belongs_to :box
-  belongs_to :virus_batch
+  has_one :virus_batch
 end

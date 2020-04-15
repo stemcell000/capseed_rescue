@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200327133455) do
+ActiveRecord::Schema.define(version: 20200415125353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,20 +53,23 @@ ActiveRecord::Schema.define(version: 20200327133455) do
   add_index "assays_projects", ["assay_id"], name: "index_assays_projects_on_assay_id", using: :btree
   add_index "assays_projects", ["project_id"], name: "index_assays_projects_on_project_id", using: :btree
 
-  create_table "box_formats", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "box_types", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "max_position"
+    t.text     "comment"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "vertical_max"
+    t.integer  "horizontal_max"
   end
 
   create_table "boxes", force: :cascade do |t|
     t.string   "name"
     t.string   "barcode"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "box_format_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "box_type_id"
   end
-
-  add_index "boxes", ["box_format_id"], name: "index_boxes_on_box_format_id", using: :btree
 
   create_table "buildings", force: :cascade do |t|
     t.string   "name"
@@ -420,10 +423,19 @@ ActiveRecord::Schema.define(version: 20200327133455) do
   add_index "plasmid_batches_productions", ["plasmid_batch_id"], name: "index_plasmid_batches_productions_on_plasmid_batch_id", using: :btree
   add_index "plasmid_batches_productions", ["production_id"], name: "index_plasmid_batches_productions_on_production_id", using: :btree
 
+  create_table "plasmid_boxes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "barcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "positions", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "box_id"
+    t.integer  "nb"
   end
 
   create_table "primers", force: :cascade do |t|
@@ -587,7 +599,6 @@ ActiveRecord::Schema.define(version: 20200327133455) do
   create_table "virus_batches", force: :cascade do |t|
     t.string   "name"
     t.integer  "virus_production_id"
-    t.integer  "box_id"
     t.integer  "row_id"
     t.integer  "column_id"
     t.date     "date"
@@ -599,12 +610,9 @@ ActiveRecord::Schema.define(version: 20200327133455) do
     t.boolean  "trash",               default: false
     t.string   "barcode"
     t.date     "date_of_thawing"
-    t.integer  "vb_link_id"
-    t.string   "vb_link_type"
     t.integer  "position_id"
+    t.text     "recap"
   end
-
-  add_index "virus_batches", ["position_id"], name: "index_virus_batches_on_position_id", using: :btree
 
   create_table "virus_productions", force: :cascade do |t|
     t.integer  "production_id"

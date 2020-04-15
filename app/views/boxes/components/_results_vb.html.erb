@@ -1,18 +1,20 @@
+<div class="col-lg-4 col-md-4 col-sm-4">
+<h4>Batches</h5>
 <% unless @virus_batches.empty?%>
 <table>
 	<thead>
         <tr>
-            <th><%= sort_link(@q, :name) %></th>
-            <th><%= sort_link(@q, :barcode) %></th>
+            <th>Name</th>
+            <th>Barcode</th>
         </tr>
     </thead>
     <tbody>
     		<%@virus_batches.each do |vb|%>
     		<tr>
-    			<td>
+    			<td class="col-lg-6 col-md-6 col-sm-6">
     				<%=vb.name%>
     			</td>
-    			 <td>
+    			 <td class="col-lg-6 col-md-6 col-sm-6">
     				<%=vb.barcode%>
     			</td>
 		</tr>
@@ -23,3 +25,4 @@
 <%else%>
 	<span>No sample to display</span>
 <%end%>
+</div

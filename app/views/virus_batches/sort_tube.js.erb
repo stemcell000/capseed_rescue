@@ -1,18 +1,35 @@
-	//Les donnees dans les champs du formulaire form_clone sont testé d'apres les criteres de validation
-	//definis dans le model. Si ces criteres sont verifies, les donnees sont sauvees. Si non, le formulaire
-	//dans sa fenetre modale reste ouvert et les message d'erreur s'affichent en haut du formulaire.
 		$("#myModalLabel").html("Edit batch")
 		$("#myModalButtons").html("<%= escape_javascript( render'components/modal_close_btn' ) %>")
 		$("#flash-msg-container").html("")
-		$("#inner-assay-modal").html("<%= escape_javascript( render :partial => 'virus_batches/components/form_sort') %>")
+		$("#inner-assay-modal").html("<%= escape_javascript( render :partial => 'virus_batches/components/form_sort', :locals => {positions: @positions}) %>")
 		$("#assay-modal").modal("show")
 		$("ul.errors").html("")
 		
 $("#Box").on('change', function() {
-  console.log(this.value);
+
+vp_id= <%= @virus_production.id %>
+vb_id= <%= @virus_batch.id %>
+
+console.log("vp id = "+vp_id);
+console.log("vb id = "+vb_id);
+
+param = {box_id: this.value}
+
   $.ajax({
-			type: 'get',
-			url : '/virus_batches/sort_tube',
-			data: { box_id: +this.value}
+			url : '/virus_productions/'+vp_id+'/virus_batches/'+vb_id+'/sort_tube',
+			data: param,
+			success: function(data){
+				
+				},
+			error: function(data) { alert("error") }
 			});
+	$("#positions_container").html("<%= escape_javascript( render :partial => 'virus_batches/components/positions_select', :locals => {positions: @positions, f: f}) %>")
 });
+
+arr1 = "<%= escape_javascript(@positions.pluck(:name).to_json)%>"
+arr1 = arr1.replace(/&quot;/g, '"');
+arr2 = "<%= escape_javascript(@passed).to_json%>"
+arr2 = arr2.replace(/&quot;/g, '"');
+console.log(arr1)
+console.log(arr2)
+console.log("valeur de params[:box_id]: <%= params[:box_id].to_i%>")

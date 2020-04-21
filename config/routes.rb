@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   
   ActiveAdmin.routes(self)
     
-  resources :virus_batches
+  resources :virus_batches do
+    get :sort_tube, :on => :member
+  end
   resources :origins
   resources :sterilitytests
   get 'errors/not_found'
@@ -221,6 +223,7 @@ Rails.application.routes.draw do
        get :edit_from_inventory, :on => :member
        patch :update_from_inventory, :on => :member
        get :sort_tube, :on => :member
+       get :fetch_positions
      end
    end
   

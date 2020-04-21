@@ -76,15 +76,21 @@ end
 
 def sort_tube
   @boxes = Box.find(Position.all.pluck(:box_id)).uniq
-  if params[:box_id]
-    box = Box.find(params[:box_id])
-  else
-    if @virus_batch.position
-      box= @virus_batch.position.box
-      @positions = box.positions
-    else
-      @positions = Position.all
+  @positions = params[:box_id]? Position.where(box_id: params[:box_id]) : Position.all
+  @passed = params[:box_id]? "Oui":"Non"
+  puts "from sort_tube -> box_id = "
+  puts params[:box_id]
+   respond_to do |format|
+      format.html
+      format.js
     end
+end
+
+def fetch_positions
+  @positions = Position.where(:box_id=>params[:box_id])
+  respond_to do |format|
+    format.js
+    format.html
   end
 end
 
@@ -129,7 +135,7 @@ def destroy_from_inventory
     
     def set_objects
         @virus_batch = VirusBatch.find(params[:id])
-        @virus_production = VirusProduction.find(params[:virus_production_id])
+        @virus_production = @virus_batch.virus_production
     end
     
 end

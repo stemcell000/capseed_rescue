@@ -85,30 +85,10 @@
 		</div>
 		<div class="row">
 							<div class="col-lg-4 col-md-4 col-sm-4">
-								<%= f.association :box, :label=> "Box #",
+								<%= f.association :plasmid_box, :label=> "Box #",
 								:collection => @boxes,
 								:input_html => { class: "select2-select" } %>
 							</div>
-							
-							<div class="col-lg-4 col-md-4 col-sm-4">
-								<%= f.association :row, :label=> "Row",
-								:collection => @rows, 
-								:input_html => { class: "select2-select" } %>
-							</div>
-							
-							<div class="col-lg-4 col-md-4 col-sm-4">
-								<%= f.association :column, :label=> "Column",
-								:collection => @columns, 
-								:input_html => { class: "select2-select" } %>
-							</div>
-		
-		</div>
-		<div class ="row">
-			<%if @virus_list.nil? %>
-				<div class="col-lg-12">
-					Virus production history: <%= @virus_list%>
-				</div>
-			<%end%>
 		</div>
 		</div>
 		</div>
@@ -119,7 +99,7 @@
 			
 	 		<div class="btn-group pull-right" role="group" aria-label="...">
 	    		<%= f.submit("Save", :class => "btn btn-primary", :title => "Save the changes to this clone.") %>
-	        	<%= link_to 'Cancel', :back, :class => "btn btn-default" %>
+	        	<%= link_to 'Cancel', add_pb_from_inventory_clone_batch_path(f.object.clone_batch.id), :class => "btn btn-default" %>
 	        </div>
 	  </small>
 <% end %>

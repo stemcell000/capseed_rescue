@@ -2,6 +2,9 @@
 <%= render :partial => 'clone_batches/components/cb_search' %>
 <div class="row">
 	<small>
+	<div class="col-lg-3">
+		<%= link_to "New box", new_plasmid_box_path, class: "btn btn-default" %>
+	</div>
 	<div class="col-lg-3 col-lg-offset-9 text-right">
 		<div id="display-hidden-container"> <%= render :partial => "clone_batches/components/toggle_display_hidden", :locals => { :option => @option } %> </div>	
 	</div>

@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   resources :vol_units
   resources :boxes do
     get :fetch_virus_batches, :on => :member
+    get :fetch_positions
   end
   
   resources :qc_attachments
@@ -219,6 +220,7 @@ Rails.application.routes.draw do
        get :destroy_from_inventory, :on => :member
        get :edit_from_inventory, :on => :member
        patch :update_from_inventory, :on => :member
+       get :sort_tube, :on => :member
      end
    end
   

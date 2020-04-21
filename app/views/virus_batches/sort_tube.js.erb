@@ -4,15 +4,15 @@
 		$("#myModalLabel").html("Edit batch")
 		$("#myModalButtons").html("<%= escape_javascript( render'components/modal_close_btn' ) %>")
 		$("#flash-msg-container").html("")
-		$("#inner-assay-modal").html("<%= escape_javascript( render :partial => 'virus_batches/components/form_edit_inventory') %>")
+		$("#inner-assay-modal").html("<%= escape_javascript( render :partial => 'virus_batches/components/form_sort') %>")
 		$("#assay-modal").modal("show")
 		$("ul.errors").html("")
 		
-$("#virus_batch_box_id").on('change', function() {
+$("#Box").on('change', function() {
   console.log(this.value);
   $.ajax({
 			type: 'get',
-			url : '/virus_batches/fetch_positions',
+			url : '/virus_batches/sort_tube',
 			data: { box_id: +this.value}
 			});
 });

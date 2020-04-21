@@ -285,7 +285,7 @@ class CloneBatchesController < InheritedResources::Base
       :clone_batch_attachments_attributes =>[:id,:clone_batch_id, :attachment, :remove_attachment, :_destroy],
       :clone_batch_as_plasmid_attachments_attributes =>[:id,:clone_batch_id, :attachment, :remove_attachment, :_destroy],
       
-      :plasmid_batches_attributes => [:id, :clone_batch_id, :number, :name, :volume, :format, :concentration, :comment, :unit_id , :vol_unit_id, :plasmid_box_id, :row_id, :column_id, :production_id, :format_id,
+      :plasmid_batches_attributes => [:id, :clone_batch_id, :number, :name, :volume, :format, :concentration, :comment, :unit_id , :vol_unit_id, :plasmid_box_id, :production_id, :format_id, :trash, :date,
       :user_id, :strict_validation, :_destroy,
       :plasmid_batch_attachments_attributes =>[:id,:plasmid_batch_id, :attachment, :remove_attachment, :_destroy]],
       
@@ -305,7 +305,7 @@ class CloneBatchesController < InheritedResources::Base
       
       :clone_batch_as_plasmid_attachments_attributes =>[:id,:clone_batch_id, :attachment, :remove_attachment, :_destroy],
      
-      :plasmid_batches_attributes => [:id, :name, :clone_batch_id, :comment, :concentration, :user_id, :plasmid_box_id, :row_id, :column_id, :unit_id, :format_id, :_destroy,
+      :plasmid_batches_attributes => [:id, :name, :clone_batch_id, :comment, :concentration, :user_id, :plasmid_box_id, :unit_id, :format_id, :_destroy, :trash, :date,
       :plasmid_batch_attachments_attributes =>[:id,:plasmid_batch_id, :attachment, :remove_attachment, :_destroy]],
       
       :clone_attributes => [:id, :name, :assay_id, :clone_id],

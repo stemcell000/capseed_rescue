@@ -1,4 +1,5 @@
 class VirusBatchesController < InheritedResources::Base
+   before_action :set_objects, only:[:edit_from_inventory, :sort_tube]
 
 def index
       #Formattage des dates
@@ -26,10 +27,6 @@ def create
   
 end
 
-def edit
-  
-end
-
 def update
   
 end
@@ -43,8 +40,6 @@ end
     @virus_production = VirusProduction.find(params[:virus_production_id])
     nb = @virus_production.virus_batches.size+1
     @boxes = Box.where.not(:name => "Garbage")
-    @columns = Column.all
-    @rows = Row.all
     @name = @virus_production.nb.to_s+"."+nb.to_s
 end
 
@@ -62,13 +57,8 @@ end
 
 
 def edit_from_inventory
-  @virus_batch = VirusBatch.find(params[:id])
-  @virus_production = VirusProduction.find(params[:virus_production_id])
-    @boxes = Box.all
-    @columns = Column.all
-    @rows = Row.all
-end
 
+end
 
 def update_from_inventory
   @virus_batch = VirusBatch.find(params[:id])
@@ -82,18 +72,40 @@ def update_from_inventory
   else
     render :action => 'edit_from_inventory'
    end
+end
+
+def sort_tube
+  @boxes = Box.find(Position.all.pluck(:box_id)).uniq
+  if params[:box_id]
+    box = Box.find(params[:box_id])
+  else
+    if @virus_batch.position
+      box= @virus_batch.position.box
+      @positions = box.positions
+    else
+      @positions = Position.all
+    end
+  end
+end
+
+def update_box
+  @virus_batch.update_attributes(virus_batch_params)
+  if @virus_batch.valid?
+  else
+    render :action => 'add_to_position'
+   end
 end 
 
-
- def destroy_from_inventory
+def destroy_from_inventory
   @virus_batch = VirusBatch.find(params[:id])
   @virus_production  = VirusProduction.find(params[:virus_production_id])
   @virus_batches = @virus_production.virus_batches
     @virus_batch.toggle!(:trash)
     @virus_batch.update_columns(:volume => 0)
     
-    if @virus_batch.trash
+    unless @virus_batch.trash
       @virus_batch.update_columns(:volume => 0)
+      @virus_batch.position.delete
      end
      
       @row = @virus_batch.row
@@ -110,9 +122,14 @@ end
   
   private
     def virus_batch_params
-      params.require(:virus_batch).permit(:id, :name, :barcode, :volume, :virus_production_id, :box_id, :trash, :row_id, :column_id, :vol_unit_id, :comment, :date, :date_of_thawing,
+      params.require(:virus_batch).permit(:id, :name, :barcode, :volume, :virus_production_id, :box_id, :position_id, :trash, :vol_unit_id, :comment, :date, :date_of_thawing,
       virus_production_ids: [],
       :virus_production_attributes =>[:id, :nb])
+    end
+    
+    def set_objects
+        @virus_batch = VirusBatch.find(params[:id])
+        @virus_production = VirusProduction.find(params[:virus_production_id])
     end
     
 end

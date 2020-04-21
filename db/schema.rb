@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200415131907) do
+ActiveRecord::Schema.define(version: 20200420182740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -404,7 +404,7 @@ ActiveRecord::Schema.define(version: 20200415131907) do
     t.integer  "format_id"
     t.integer  "number"
     t.integer  "user_id"
-    t.integer  "plasmis_box_id"
+    t.integer  "plasmid_box_id"
     t.date     "date"
     t.boolean  "trash",             default: false
     t.string   "barcode"
@@ -436,6 +436,7 @@ ActiveRecord::Schema.define(version: 20200415131907) do
     t.datetime "updated_at", null: false
     t.integer  "box_id"
     t.integer  "nb"
+    t.string   "box_name"
   end
 
   create_table "primers", force: :cascade do |t|
@@ -599,8 +600,6 @@ ActiveRecord::Schema.define(version: 20200415131907) do
   create_table "virus_batches", force: :cascade do |t|
     t.string   "name"
     t.integer  "virus_production_id"
-    t.integer  "row_id"
-    t.integer  "column_id"
     t.date     "date"
     t.float    "volume"
     t.datetime "created_at",                          null: false
@@ -612,6 +611,7 @@ ActiveRecord::Schema.define(version: 20200415131907) do
     t.date     "date_of_thawing"
     t.integer  "position_id"
     t.text     "recap"
+    t.integer  "box_id"
   end
 
   create_table "virus_productions", force: :cascade do |t|

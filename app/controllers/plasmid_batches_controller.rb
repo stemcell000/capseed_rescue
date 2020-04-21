@@ -75,9 +75,7 @@ def edit_from_inventory
   @units = Unit.all
   @users = User.all
   @boxes = PlasmidBox.all
-  @columns = Column.all
-  @rows = Row.all
-  @virus_list = @plasmid_batch.productions.pluck(:id).to_s
+  @clone_batch = @plasmid_batch.clone_batch
 end
   
 def update
@@ -105,7 +103,7 @@ def update_from_inventory
       garbage = PlasmidBox.find_by_name("Garbage")
       garbage.plasmid_batches << @plasmid_batch
     end
-    @plasmid = @plasmid_batch.clone_batch
+    @clone_batch = @plasmid_batch.clone_batch
     flash.keep[:success] = "Task completed!"
     redirect_to add_pb_from_inventory_clone_batch_path(:id => @plasmid.id)
   else
@@ -166,15 +164,6 @@ end
      else
       garbage.plasmid_batches.delete(@plasmid_batch)
      end
-     
-      @row = @plasmid_batch.row
-      @column = @plasmid_batch.column
-      if @row 
-        @row.plasmid_batches.delete(@plasmid_batch)
-      end
-      if @column
-        @column.plasmid_batches.delete(@plasmid_batch)
-      end
   end
   
   #Interaction avec production

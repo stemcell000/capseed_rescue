@@ -23,7 +23,7 @@
 
   
    #Add boxes
-  Box.create(name: "Unknown")
+  #Box.create(name: "Unknown")
   PlasmidBox.create(name: "Garbage")
   
   #Add cloning methods

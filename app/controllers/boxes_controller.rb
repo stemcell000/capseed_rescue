@@ -20,9 +20,15 @@ def fetch_virus_batches
   positions = Position.where(box_id: @box.id) 
   @virus_batches = VirusBatch.where(position_id: positions.pluck(:id)).order(:id).page params[:page]
 end
+
+def fetch_positions
+  box = Box.find(:id)
+  @positions =  box.positions
+  render "fetch_positions"
+end
  
 def new
-  
+  @box = Box.new
 end
 
  def create
@@ -51,7 +57,7 @@ end
   private
 
     def box_params
-      params.require(:box).permit(:name, :plasmid_batch [:id, :name, :plasmid_batch_id], plasmid_batch_ids: [])
+      params.require(:box).permit(:name, :box_type_id, :plasmid_batch [:id, :name, :plasmid_batch_id], plasmid_batch_ids: [])
     end
     
     def load_box

@@ -1,10 +1,10 @@
 class Box < ActiveRecord::Base
   has_many :positions
-  has_many :virus_batches, through: :positions
-  belongs_to :box_format
+  has_many :virus_batches
   belongs_to :box_type
-  
+  validates :name, :barcode, :box_type, :presence => true
   accepts_nested_attributes_for :virus_batches
+  accepts_nested_attributes_for :positions
   
   def generate_positions
     position_name = []
@@ -21,7 +21,7 @@ class Box < ActiveRecord::Base
     #
     total_range = (0..(max_position-1)).to_a
     total_range.each{
-      |i| self.positions.create(nb: i, name: position_name[i])
+      |i| self.positions.create(nb: i, name: position_name[i], box_name: self.name)
     }
   end
   

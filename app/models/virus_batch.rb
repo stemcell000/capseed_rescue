@@ -1,14 +1,12 @@
 class VirusBatch < ActiveRecord::Base
   
   belongs_to :virus_production
-  belongs_to :column
-  belongs_to :row
   belongs_to :vol_unit
   belongs_to :position
+  belongs_to :box
   
   accepts_nested_attributes_for :virus_production
-  accepts_nested_attributes_for :column
-  accepts_nested_attributes_for :row
+  accepts_nested_attributes_for :position
   
   #validations
   validates :name, :volume, :vol_unit_id, :presence => true

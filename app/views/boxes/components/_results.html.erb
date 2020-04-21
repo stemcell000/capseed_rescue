@@ -11,11 +11,11 @@
     <tbody>
     		<%@boxes.each do |b|%>
     		<tr>
-    			<td class="col-lg-6 col-md-6 col-sm-6">
-    				<%=link_to b.name, fetch_virus_batches_box_path(b.id), :remote => true %>
+    			<td class="col-lg-9 col-md-9 col-sm-9">
+    				<small><%=link_to b.name, fetch_virus_batches_box_path(b.id), :remote => true %></small>
     			</td>
-    			 <td class="col-lg-6 col-md-6 col-sm-6">
-    				<%=b.barcode%>
+    			 <td class="col-lg-3 col-md-3 col-sm-3">
+    				<small><%=b.barcode%></small>
     			</td>
 		</tr>
 		<%end%>

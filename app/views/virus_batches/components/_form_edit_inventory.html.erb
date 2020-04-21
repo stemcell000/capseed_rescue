@@ -30,25 +30,6 @@
 	</div>
 </div>
 		
-		<div class="row">
-							<div class="col-lg-4 col-md-4 col-sm-4">
-								<%= f.association :box, :label=> "Box #",
-								:collection => @boxes,
-								:input_html => { class: "select2-select" } %>
-							</div>
-							
-							<div class="col-lg-4 col-md-4 col-sm-4">
-								<%= f.association :row, :label=> "Row",
-								:collection => @rows, 
-								:input_html => { class: "select2-select" } %>
-							</div>
-							
-							<div class="col-lg-4 col-md-4 col-sm-4">
-								<%= f.association :column, :label=> "Column",
-								:collection => @columns, 
-								:input_html => { class: "select2-select" } %>
-							</div>
-		</div>
 </small>
 	<div class="row">
 		<div class="col-lg-4 col-md-4 col-sm-3 ">
@@ -56,10 +37,8 @@
 		</div>
 	</div>
 
-<div class="panel-footer">
  		<div class="btn-group" role="group" aria-label="...">
     		<%= f.submit("Save", :class => "btn btn-default", :title => "Save the changes to this clone.") %>
         	<%= f.submit 'Cancel', :type => :reset, :class => "btn btn-default", "data-dismiss" => "modal", "aria-hidden" => "true" %>
         </div>
-</div>
 <% end %>

@@ -1,15 +1,14 @@
-<%= simple_nested_form_for ([@virus_production, @virus_batch]), url: update_from_inventory_virus_production_virus_batch_path, remote: true, html: {class: 'vertical-form'} do |f|  %>
+<%= simple_nested_form_for ([@virus_production, @virus_batch]), url: update_box_virus_production_virus_batch_path, remote: true, html: {class: 'vertical-form'} do |f|  %>
 	
 	<%= f.error_notification %>
 	<ul class="errors"></ul>
  	<h5>Choose a Box</h5>
  	<%=select_tag "Box", options_from_collection_for_select(@boxes, "id", "name"), {:class => 'select2-select'}%>
- 	
  	<div id="positions_container">
- 		<%= render :partial => 'virus_batches/components/positions_select', :locals => {:positions => @positions, :f => f} %>
+ 		<%= f.association :position, collection: positions.map{|p|"#{p.name.upcase}"}, input_html: {:class => 'select2-select'} %>
  	</div>
  	<div class="btn-group" role="group" aria-label="...">
-    		<%= f.submit("Save", :class => "btn btn-default", :title => "Save the changes to this clone.") %>
+    		<%= f.submit("Save", :class => "btn btn-default", :title => "Save.") %>
         	<%= f.submit 'Cancel', :type => :reset, :class => "btn btn-default", "data-dismiss" => "modal", "aria-hidden" => "true" %>
     </div>
 <% end %>

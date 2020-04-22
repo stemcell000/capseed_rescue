@@ -1,6 +1,8 @@
 class VirusBatchesController < InheritedResources::Base
-   before_action :set_objects, only:[:edit_from_inventory, :sort_tube]
-
+  
+   before_action :set_objects, only:[:edit_from_inventory, :sort_tube, :update_from_inventory, :update_box]
+   before_action :set_collections, only:[:update_box, :update_from_inventory]
+   
 def index
       #Formattage des dates
       start_time = params[:date_gteq].to_date rescue Date.current
@@ -61,7 +63,6 @@ def edit_from_inventory
 end
 
 def update_from_inventory
-  @virus_batch = VirusBatch.find(params[:id])
   @virus_production  = VirusProduction.find(params[:virus_production_id])
   @virus_batches = @virus_production.virus_batches
   @virus_batch.update_attributes(virus_batch_params)
@@ -76,29 +77,29 @@ end
 
 def sort_tube
   @boxes = Box.find(Position.all.pluck(:box_id)).uniq
-  @positions = params[:box_id]? Position.where(box_id: params[:box_id]) : Position.all
+ 
+  @current_box_positions = @virus_batch.position.nil? ? Position.all : @virus_batch.position.box.positions
+  
+  @positions_container_switch = @virus_batch.position.nil? 
+  
+  @positions = params[:box_id]? Position.where(box_id: params[:box_id]) : @current_box_positions
   @passed = params[:box_id]? "Oui":"Non"
   puts "from sort_tube -> box_id = "
   puts params[:box_id]
-   respond_to do |format|
-      format.html
-      format.js
-    end
-end
-
-def fetch_positions
-  @positions = Position.where(:box_id=>params[:box_id])
   respond_to do |format|
     format.js
-    format.html
   end
 end
 
+
 def update_box
+  @virus_production  = VirusProduction.find(params[:virus_production_id])
+  @virus_batches = @virus_production.virus_batches
   @virus_batch.update_attributes(virus_batch_params)
   if @virus_batch.valid?
+    flash.keep[:success] = "Task completed : the tube is sorted out !"
   else
-    render :action => 'add_to_position'
+    render :action => 'sort_tube'
    end
 end 
 
@@ -137,6 +138,10 @@ def destroy_from_inventory
         @virus_batch = VirusBatch.find(params[:id])
         @virus_production = @virus_batch.virus_production
     end
-    
+
+    def set_collections
+      @virus_production  = VirusProduction.find(params[:virus_production_id])
+      @virus_batches = @virus_production.virus_batches
+    end
 end
 

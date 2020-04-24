@@ -9,7 +9,10 @@ class Box < ActiveRecord::Base
   def generate_positions
     position_name = []
     max_position = self.box_type.vertical_max*self.box_type.horizontal_max
-    #
+    
+    #horizontal_max = nb de lignes
+    #vertical_max = nb de colonnes
+    
     rows = ('a'..'z').to_a[0..(self.box_type.horizontal_max-1)]
     cols = (1..26).to_a[0..(self.box_type.vertical_max-1)]
     #

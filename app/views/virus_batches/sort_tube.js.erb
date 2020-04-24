@@ -2,9 +2,6 @@ $("#myModalLabel").html("Sort it out")
 		$("#myModalButtons").html("<%= escape_javascript( render'components/modal_close_btn' ) %>")
 		$("#flash-msg-container").html("")
 		$("#inner-assay-modal").html("<%= escape_javascript( render :partial => 'virus_batches/components/form_sort', :locals => {:positions => @positions}) %>")
-		$("#positions_container").hide();
-		$("#assay-modal").modal("show")
-		$("ul.errors").html("")
 
 if(<%=!params[:box_id].nil?%>){
 	$("#positions_container").show();

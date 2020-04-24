@@ -1,0 +1,33 @@
+if( isEmpty($('#sort-container') )) {
+$("#sort-container").html("<%= escape_javascript( render :partial =>  "virus_productions/components/box_map", :locals => {:virus_production => @production, :boxes => @boxes}) %>")
+$("#sort-tube-btn").html("Hide storage");
+$(".select2-select").select2({
+		    theme: "bootstrap",
+		    tag: true,
+		    placeholder: "Select",
+		    tokenSeparators: [',', ' '],
+		    allowClear: true
+});
+
+$("#Box").on('change', function() {
+vp_id= <%= @virus_production.id %>
+param = {box_id: this.value}	
+console.log("vp id = "+vp_id);
+
+	$.ajax({
+			url : '/virus_productions/'+vp_id+'/map_tube',
+			data: param,
+			success: function(data){
+				console.log("success")
+				},
+			error: function(data) { alert("error") }
+			});
+});
+}else{
+$("#sort-container").empty();
+$("#sort-tube-btn").html("Storage")
+};
+//
+ function isEmpty( el ){
+      return !$.trim(el.html())
+ }

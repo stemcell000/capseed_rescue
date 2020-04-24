@@ -1,6 +1,7 @@
 class VirusProductionsController < InheritedResources::Base
  
-   before_action :set_virus_production, only:[:edit, :destroy, :edit_from_inventory, :add_vb_from_inventory, :spawn_dosage, :update, :update_from_inventory, :create_dosage]
+   before_action :set_virus_production, only:[:edit, :destroy, :edit_from_inventory, :add_vb_from_inventory, :spawn_dosage, :update, :update_from_inventory, :create_dosage,
+                                                :sort_tube]
    before_action :set_option, only:[:index, :update_from_inventory, :edit_from_inventory, :hide]
    after_action :hide, only:[:update_from_inventory]
   #Smart_listing
@@ -140,10 +141,22 @@ class VirusProductionsController < InheritedResources::Base
   
   def add_vb_from_inventory
     @users = User.all
-    @virus_production.virus_batches.build
     @virus_batches = @virus_production.virus_batches
-          n = VirusProduction.last.nb
-          @nb = (n +1).to_s
+    @arr = @virus_batches.each_slice(4).to_a
+  end
+  
+  def sort_tubes
+    @boxes = Box.all
+  end
+  
+  def map_tube
+    @box = Box.find(params[:box_id])
+    @box_type = @box.box_type
+    @v_max = @box_type.vertical_max
+    @h_max = @box_type.horizontal_max
+    @position_ids = @box.position_ids
+    @position_names = @box.positions.map{|p|p.name.upcase()}
+    @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
   end
   
   private

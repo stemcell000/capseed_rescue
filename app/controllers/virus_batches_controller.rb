@@ -1,7 +1,7 @@
 class VirusBatchesController < InheritedResources::Base
   
    before_action :set_objects, only:[:edit_from_inventory, :sort_tube, :update_from_inventory, :update_box]
-   before_action :set_collections, only:[:update_box, :update_from_inventory]
+   before_action :set_collections, only:[ :update_from_inventory, :destroy_from_inventory]
    
 def index
       #Formattage des dates
@@ -37,7 +37,7 @@ def show
   
 end
 
- def new_from_inventory
+def new_from_inventory
     @virus_batch = VirusBatch.new
     @virus_production = VirusProduction.find(params[:virus_production_id])
     nb = @virus_production.virus_batches.size+1
@@ -91,40 +91,23 @@ def sort_tube
   end
 end
 
-
 def update_box
-  @virus_production  = VirusProduction.find(params[:virus_production_id])
+  position = Position.find(params[:position_id])
+  @virus_batch.position = position
+  @virus_production = @virus_batch.virus_production
   @virus_batches = @virus_production.virus_batches
-  @virus_batch.update_attributes(virus_batch_params)
-  if @virus_batch.valid?
-    flash.keep[:success] = "Task completed : the tube is sorted out !"
-  else
-    render :action => 'sort_tube'
-   end
-end 
+  redirect_to map_tube_virus_production_url(@virus_production)
+end
 
 def destroy_from_inventory
-  @virus_batch = VirusBatch.find(params[:id])
-  @virus_production  = VirusProduction.find(params[:virus_production_id])
-  @virus_batches = @virus_production.virus_batches
     @virus_batch.toggle!(:trash)
     @virus_batch.update_columns(:volume => 0)
-    
-    unless @virus_batch.trash
+    if @virus_batch.trash
       @virus_batch.update_columns(:volume => 0)
-      @virus_batch.position.delete
+      if @virus_batch.position
+        @virus_batch.position.delete
+      end
      end
-     
-      @row = @virus_batch.row
-      @column = @virus_batch.column
-      
-      if @row 
-        @row.virus_batches.delete(@virus_batch)
-      end
-      
-      if @column
-        @column.virus_batches.delete(@virus_batch)
-      end
   end
   
   private
@@ -142,6 +125,8 @@ def destroy_from_inventory
     def set_collections
       @virus_production  = VirusProduction.find(params[:virus_production_id])
       @virus_batches = @virus_production.virus_batches
+      @virus_batch = @virus_batch = VirusBatch.find(params[:id])
+      @arr = @virus_batches.each_slice(4).to_a
     end
 end
 

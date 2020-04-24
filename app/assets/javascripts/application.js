@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery3
+//= require jquery-ui
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require jquery-ui/widgets/autocomplete
 //= require autocomplete-rails
 //= require jquery.remotipart
 //= require select2

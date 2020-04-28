@@ -8,6 +8,11 @@ $(document).ready(function() {
 		    tokenSeparators: [',', ' '],
 		    allowClear: true
 		});
+	//Popover
+  $('[data-toggle="popover"]').popover({
+  	html:true,
+  	container: 'body'
+  	});
 		
 //Activation des chevron sur le bootstrap panel collapse
 function toggleChevron(e) {

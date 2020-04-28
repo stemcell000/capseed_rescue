@@ -4,7 +4,7 @@
 	  	<!--Attention: la div form-group ui-front est indispensable au fonctionnement du champ autocomplete -->
 			<div class="form-group ui-front">
 				<div class="row">
-					<div class="col-lg-12 col-md-10 col-sm-10">
+						<div class="col-lg-8">
 							<% if params[:id]%>
 							<%= f.input :name %>
 							<% else %>
@@ -16,10 +16,8 @@
 							:update_elements => {:id => '[id*="_id"]'}
 							 %>
 							<% end %>
-					</div>
-				</div>
-				<div class="row">
-					 	<div class= "col-lg-3 col-md-3 col-sm-4">
+					 	</div>
+					 	<div class= "col-lg-3">
 					 		<small><%= f.input :id, :label => "Cloning #", :readonly => true%></small>
 						</div>
 					</div>

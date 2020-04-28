@@ -35,7 +35,6 @@
 									<thead>
 										<th>Batch</th>
 										<th>Box</th>
-										<th>Location</th>
 										<th>Conc.</th>
 										<th>Date of production</th>
 										<th>Volume</th>
@@ -47,7 +46,7 @@
 										<td><%= pb.plasmid_box.nil? ? "Unknown" : pb.plasmid_box.name %></td>
 										<td><%= pb.concentration.nil? ? "Unknown" : "#{pb.concentration} #{pb.unit.name}" %></td>
 										<td><%= pb.date.nil? ? "Unknown" : pb.date.strftime("%B %e, %Y") %></td>
-										<td class = <%= "dismissed" if involved %>><%= pb.volume.nil? ? "Unknown":"#{pb.volume} #{pb.vol_unit.name}" %></td>
+										<td class = <%= "dismissed" if involved %>><%= pb.volume.nil? ? "-":"#{pb.volume} #{pb.vol_unit.name}" %></td>
 									</tr>
 									<%end%>
 								</table>

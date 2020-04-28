@@ -1,10 +1,13 @@
-//Affichage du partial 
+console.log('UPDATED');
 $("#map-container").html("<%= escape_javascript( render :partial =>  "virus_productions/components/map", :locals => {:box => @box, :box_type => @box_type, :v_max => @v_max, :h_max => @h_max, :position_ids => @position_ids, :position_names => @position_names, :position_batch_names => @position_batch_names}) %>")
-	var arr1 =  <%= raw @position_ids %>;
+$("#vb-container").html("<%= escape_javascript( render :partial => "virus_productions/components/content_inventory", :locals => {:virus_batches => @virus_batches} )%>");
+
+var arr1 =  <%= raw @position_ids %>;
 	var arr2 =  <%= raw @position_names %>;
 	var arr3 = 	<%= raw @position_batch_names%>;
 	
-	var vb_id= <%=@virus_production.id%>;
+	var	vp_id= <%=@virus_production.id%>
+	var vb_id=0;
 	var box_id= <%=@box.id%>;
 	
 	console.log('arr1 length = '+arr1.length);
@@ -34,8 +37,7 @@ $('.draggable').draggable({
     start: function(event, ui){
     			console.log('Dragging start');
     			vb_id = $(this).data('id');
-    			$(this).popover('destroy');
-    		}
+    			}
     });
     
 $('.draggableContainer').droppable({
@@ -45,10 +47,9 @@ $('.draggableContainer').droppable({
 			console.log('data-id = '+this.dataset.id);
 			console.log('data-name = '+this.dataset.name);
 			//
-			param = {position_id: $(this).data('id'), id: vb_id, box_id: box_id};
+			param = {position_id: $(this).data('id'), virus_batch_id: vb_id, box_id: box_id};
 			//
 			updateBox(vb_id, param);
-			$(this).popover();
 		},
 		out: function (event, ui) {
 			$(this).attr('class', 'bg-default')
@@ -58,16 +59,20 @@ $('.draggableContainer').droppable({
 //Drag and Drop
 function updateBox(id, param){
 	$.ajax({
-			url : '/virus_productions/'+vp_id+'/virus_batches/'+vb_id+'/update_box',
+			url : '/virus_productions/'+vp_id+'/virus_productions/'+vb_id+'/update_box',
 			type: 'patch',
 			data: param,
 			success: function(data){
 				console.log("success")
 				},
 			error: function(data) { 
-				console.log("error")
-				},
+				console.log("error") 
+			},
 			})
 }
 
-
+//Popover
+  $('[data-toggle="popover"]').popover({
+  	html:true,
+  	container: 'body'
+  	});

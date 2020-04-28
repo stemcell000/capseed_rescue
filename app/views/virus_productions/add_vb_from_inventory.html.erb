@@ -8,11 +8,12 @@
 	</div>
 </div>
 
-		<div id="info-container"  >
+		<div id="info-container">
 			<div class="row">
-				<div class="col-lg-12">
 				<div class="col-lg-6">
-					<%= render :partial => "virus_batches/components/content_inventory", :locals => {:virus_batches => @virus_batches} %>
+					<div id="vb-container">
+						<%= render :partial => "virus_productions/components/content_inventory", :locals => {:virus_batches => @virus_batches} %>
+					</div>
 					<div class="row">
 							<div class="col-lg-11 right">
 								<%= link_to "Add virus batch", new_from_inventory_new_virus_production_virus_batch_path( :virus_production_id => @virus_production.id ), :class =>"btn btn-default", :remote => true %>
@@ -23,7 +24,8 @@
 				<div class="col-lg-6">
 					<div id="sort-container" class="container">
 					</div>
+					<div id = "help-block-container">
+					</div>
 				</div>
-			</div>
 			</div>
 		</div>

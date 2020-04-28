@@ -1,7 +1,7 @@
 class VirusProductionsController < InheritedResources::Base
  
    before_action :set_virus_production, only:[:edit, :destroy, :edit_from_inventory, :add_vb_from_inventory, :spawn_dosage, :update, :update_from_inventory, :create_dosage,
-                                                :sort_tube]
+                                                :sort_tube, :map_tube]
    before_action :set_option, only:[:index, :update_from_inventory, :edit_from_inventory, :hide]
    after_action :hide, only:[:update_from_inventory]
   #Smart_listing
@@ -158,7 +158,7 @@ class VirusProductionsController < InheritedResources::Base
     @position_names = @box.positions.map{|p|p.name.upcase()}
     @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
   end
-  
+   
   private
  
   def virus_production_params

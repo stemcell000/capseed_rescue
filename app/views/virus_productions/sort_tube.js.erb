@@ -1,6 +1,7 @@
 if( isEmpty($('#sort-container') )) {
 $("#sort-container").html("<%= escape_javascript( render :partial =>  "virus_productions/components/box_map", :locals => {:virus_production => @production, :boxes => @boxes}) %>")
 $("#sort-tube-btn").html("Hide storage");
+$("#help-block-container").html("<p><em><small>Choose a box then drag and drop each vial into a slot.</small></em></p>");
 $(".select2-select").select2({
 		    theme: "bootstrap",
 		    tag: true,
@@ -25,6 +26,7 @@ console.log("vp id = "+vp_id);
 });
 }else{
 $("#sort-container").empty();
+$("#help-block-container").empty();
 $("#sort-tube-btn").html("Storage")
 };
 //

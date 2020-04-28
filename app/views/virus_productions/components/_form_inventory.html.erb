@@ -183,13 +183,13 @@
 					</thead>
 					<%f.object.virus_batches.each do |vb|%>
 					<tr>
-						<td><%= vb.name.nil? ? "Unknown" :vb.name %></td>
-						<td><%= vb.barcode.nil? ? "Unknown" :vb.barcode %></td>
-						<td><%= vb.box.nil? ? "Unknown" : vb.box.name %></td>
-						<td><%= vb.row.nil? ? "Unknown" : vb.row.name %><%= vb.column_id.nil? ? "" : vb.column.name %></td>
-						<td><%= vb.volume.nil? ? "Unknown" : "#{vb.volume} #{vb.vol_unit.name}" %></td>
-						<td><%= f.object.date_of_production.nil? ? "Unknown" : f.object.date_of_production.strftime("%B %e, %Y") %></td>
-						<td><%= vb.date_of_thawing.nil? ? "Unknown" : vb.date_of_thawing.strftime("%B %e, %Y") %></td>
+						<td><%= vb.name.nil? ? "-" :vb.name %></td>
+						<td><%= vb.barcode.nil? ? "-" :vb.barcode %></td>
+						<td><%= vb.position.nil? ? "-" : vb.position.box.name %></td>
+						<td><%= vb.position.nil? ? "-" : vb.position.name.upcase() %></td>
+						<td><%= vb.volume.nil? ? "-" : "#{vb.volume} #{vb.vol_unit.name}" %></td>
+						<td><%= f.object.date_of_production.nil? ? "-" : f.object.date_of_production.strftime("%B %e, %Y") %></td>
+						<td><%= vb.date_of_thawing.nil? ? "-" : vb.date_of_thawing.strftime("%B %e, %Y") %></td>
 						<td><%= vb.trash = true ? "-" : "trash" %></td>
 					</tr>
 					<%end%>

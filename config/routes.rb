@@ -218,6 +218,7 @@ Rails.application.routes.draw do
      patch :create_dosage, :on => :member
      get :sort_tube, :on => :member
      get :map_tube, :on => :member
+     patch :update_box, :on => :member
      resources :virus_batches do
        get :new_from_inventory, :on => :new
        post :create_from_inventory, :on => :collection
@@ -225,6 +226,7 @@ Rails.application.routes.draw do
        get :edit_from_inventory, :on => :member
        patch :update_from_inventory, :on => :member
        get :sort_tube, :on => :member
+       patch :update_box, :on => :member
      end
    end
   

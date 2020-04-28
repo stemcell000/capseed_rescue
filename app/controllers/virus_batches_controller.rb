@@ -57,7 +57,6 @@ def create_from_inventory
     end
 end
 
-
 def edit_from_inventory
 
 end
@@ -75,39 +74,34 @@ def update_from_inventory
    end
 end
 
-def sort_tube
-  @boxes = Box.find(Position.all.pluck(:box_id)).uniq
- 
-  @current_box_positions = @virus_batch.position.nil? ? Position.all : @virus_batch.position.box.positions
-  
-  @positions_container_switch = @virus_batch.position.nil? 
-  
-  @positions = params[:box_id]? Position.where(box_id: params[:box_id]) : @current_box_positions
-  @passed = params[:box_id]? "Oui":"Non"
-  puts "from sort_tube -> box_id = "
-  puts params[:box_id]
-  respond_to do |format|
-    format.js
-  end
-end
-
 def update_box
   position = Position.find(params[:position_id])
+  if position.virus_batch
+    position.build_virus_batch
+  end
   @virus_batch.position = position
+  @virus_batch.save!
   @virus_production = @virus_batch.virus_production
   @virus_batches = @virus_production.virus_batches
-  redirect_to map_tube_virus_production_url(@virus_production)
+  @box = Box.find(params[:box_id])
+  @box_type = @box.box_type
+  @v_max = @box_type.vertical_max
+  @h_max = @box_type.horizontal_max
+  @position_ids = @box.position_ids
+  @position_names = @box.positions.map{|p|p.name.upcase()}
+  @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
+  @arr = @virus_batches.each_slice(4).to_a
 end
 
 def destroy_from_inventory
     @virus_batch.toggle!(:trash)
-    @virus_batch.update_columns(:volume => 0)
     if @virus_batch.trash
       @virus_batch.update_columns(:volume => 0)
       if @virus_batch.position
         @virus_batch.position.delete
-      end
-     end
+       end
+    end
+    redirect_to add_vb_from_inventory_virus_production_url(@virus_production.id)
   end
   
   private
@@ -123,9 +117,9 @@ def destroy_from_inventory
     end
 
     def set_collections
-      @virus_production  = VirusProduction.find(params[:virus_production_id])
+      @virus_batch = VirusBatch.find(params[:id])
+      @virus_production  = @virus_batch.virus_production
       @virus_batches = @virus_production.virus_batches
-      @virus_batch = @virus_batch = VirusBatch.find(params[:id])
       @arr = @virus_batches.each_slice(4).to_a
     end
 end

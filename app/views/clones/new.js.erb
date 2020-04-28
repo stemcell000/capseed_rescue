@@ -9,6 +9,14 @@
 	$("ul.errors").html("")
 	console.debug("new is loaded => clone_form_new");
 	
+	$(".select2-select").select2({
+		    theme: "bootstrap",
+		    tag: true,
+		    placeholder: "Select",
+		    tokenSeparators: [',', ' '],
+		    allowClear: true
+	});
+	
 <% if params[:id] %>
 	disableFormInputs(true);
 	console.log("New => form disabled");

@@ -1,1 +1,31 @@
-$("#results_vb").html("<%= escape_javascript(render partial: 'boxes/components/results_vb', locals: { virus_batches: @virus_batches } ) %>"); 
+$("#results_vb").html("<%= escape_javascript(render partial: 'boxes/components/results_vb', locals: { virus_batches: @virus_batches } ) %>");
+
+//Affichage du partial 
+$("#map-container").html("<%= escape_javascript( render :partial =>  "virus_productions/components/map", :locals => {:box => @box, :box_type => @box_type, :v_max => @v_max, :h_max => @h_max, :position_ids => @position_ids, :position_names => @position_names, :position_batch_names => @position_batch_names}) %>")
+	var arr1 =  <%= raw @position_ids %>;
+	var arr2 =  <%= raw @position_names %>;
+	var arr3 = 	<%= raw @position_batch_names%>;
+	
+	//var vb_id= <%=@virus_production.id%>;
+	var box_id= <%=@box.id%>;
+	
+	console.log('arr1 length = '+arr1.length);
+	console.log('arr2 length = '+arr2.length);
+	console.log('arr3 length = '+arr3.length);
+	console.log('box_id = '+box_id);
+
+$('.location-label').each(function(index){
+	console.log('Ajout des noms de batch des elts location-label');
+	$(this).append(arr2[index]);
+});
+
+$('.location').each(function(index){
+	console.log('Ajout de id des elts locations');
+	$(this).attr('id',arr1[index]);
+	$(this).append(arr3[index]);
+});
+
+$('.slot').each(function(index){
+	console.log('Ajout du dataset des elements draggableContainer');
+	$(this).attr({'data-id': arr1[index], 'data-name': arr2[index]});
+})

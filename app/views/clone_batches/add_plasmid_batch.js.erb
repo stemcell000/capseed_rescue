@@ -7,3 +7,12 @@
 		$("#inner-assay-modal").html("<%= escape_javascript( render :partial => 'clone_batches/components/clone_batch_form_add_plasmid_batch') %>")
 		$("#assay-modal").modal("show")
 		$("ul.errors").html("")
+		
+		$( ".select2-select" ).select2({
+		    theme: "bootstrap",
+		    tag: true,
+		    width: "100%",
+		    placeholder: "Select",
+		    tokenSeparators: [',', ' ']
+		});
+		

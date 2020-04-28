@@ -23,17 +23,16 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require active_admin/select2
-//= require custom
 //= require update_assays_row_position
 //= require update_productions_row_position
-//= require select2/scaffold_select2_modal
-//= require select2/scaffold_select2
 //= require jquery_nested_form
 //= require smart_listing
 //= require bootstrap-datepicker
 //= require multi-select
 //= require jasny-bootstrap.min
+//= require custom
 //= require_tree .
+
 
 NProgress.configure({
   showSpinner: false,

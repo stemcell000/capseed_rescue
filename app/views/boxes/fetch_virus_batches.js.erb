@@ -1,13 +1,14 @@
-$("#results_vb").html("<%= escape_javascript(render partial: 'boxes/components/results_vb', locals: { virus_batches: @virus_batches } ) %>");
+$("#results_vb").html("<%= escape_javascript(render :partial => "boxes/components/results_vb", :locals => { :virus_batches => @virus_batches } ) %>");
 
-//Affichage du partial 
-$("#map-container").html("<%= escape_javascript( render :partial =>  "virus_productions/components/map", :locals => {:box => @box, :box_type => @box_type, :v_max => @v_max, :h_max => @h_max, :position_ids => @position_ids, :position_names => @position_names, :position_batch_names => @position_batch_names}) %>")
-	var arr1 =  <%= raw @position_ids %>;
-	var arr2 =  <%= raw @position_names %>;
-	var arr3 = 	<%= raw @position_batch_names%>;
+if(<%= !@box_type.nil?%>){
 	
-	//var vb_id= <%=@virus_production.id%>;
-	var box_id= <%=@box.id%>;
+//Affichage du partial
+$("#map-container").html("<%= escape_javascript( render :partial =>  "boxes/components/map", :locals => {:box => @box, :box_type => @box_type, :v_max => @v_max, :h_max => @h_max, :position_ids => @position_ids, :position_names => @position_names, :position_batch_names => @position_batch_names}) %>");
+	
+	var arr1 =  <%= raw @position_ids.to_json %>;
+	var arr2 =  <%= raw @position_names.to_json %>;
+	var arr3 = 	<%= raw @position_batch_names.to_json %>;
+	var box_id= <%=@box.id %>;
 	
 	console.log('arr1 length = '+arr1.length);
 	console.log('arr2 length = '+arr2.length);
@@ -26,6 +27,10 @@ $('.location').each(function(index){
 });
 
 $('.slot').each(function(index){
-	console.log('Ajout du dataset des elements draggableContainer');
+	console.log('Ajout du dataset');
 	$(this).attr({'data-id': arr1[index], 'data-name': arr2[index]});
-})
+});
+}else{
+	console.log("Box_type_id : <%= @box_type.nil?%>");
+	$("#map-container").html("<%= escape_javascript( render :partial =>  "boxes/components/no_map") %>");
+}

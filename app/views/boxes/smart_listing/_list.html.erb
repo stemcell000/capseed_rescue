@@ -1,0 +1,26 @@
+  <div class="container-fluid">
+	  <table class="table table-striped">
+	    <thead>
+	      
+	    <th class="col-lg-5 col-md-6 col-sm-6 center">
+	        <%= smart_listing.sortable "Name", :name %>
+	    </th>
+	    	 <th class="col-lg-5 col-md-6 col-sm-6 center">
+	        <%= smart_listing.sortable "Barcode", :barcode %>
+	    </th>
+	    <th class="col-lg-2 col-md-2 col-sm-2 center"></th>
+	    
+	    </thead>
+	    <tbody>
+	    	 <% unless smart_listing.empty? %>
+		  	<% smart_listing.collection.to_a.uniq.each do |s| %>
+	      		<tr class="editable" data-id = "<%= s.id %>">
+	          		<%= smart_listing.render object: s, partial: "boxes/smart_listing/box", locals: {object: s} %>
+	        		</tr>
+	      	<% end %>
+	     <%end%>
+	    </tbody>
+	  </table>
+	  <%= smart_listing.paginate %>
+	  <%= smart_listing.pagination_per_page_links %>
+	</div>

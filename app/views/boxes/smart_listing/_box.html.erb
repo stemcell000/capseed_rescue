@@ -1,0 +1,12 @@
+  <td><%= object.name %></td>
+  <td><%= object.barcode %></td>
+<td class="actions text-right">
+	
+	  	<%= smart_listing_item_actions [
+	  	{name: :custom, url: edit_box_path(object),
+	  		method: :get, 
+  			icon: "fa fa-edit",
+  			title: "Edit"},
+	  	{name: :destroy, url: box_path(object), confirmation: "Are you sure you want to delete this?"}]
+	  	%>
+</td>

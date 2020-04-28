@@ -1,6 +1,7 @@
 <% rows = ('a'..'z').to_a[0..(h_max-1)] %>
 <% cols = (1..26).to_a[0..(v_max-1)] %>
 	<div class="col-lg-4 col-md-4 col-sm-4 text-center">
+		<div class="row"><h5><%="#{box.name} #{box.barcode}"%></h5></div>
 		<table>
 		<% rows.each do |r| %>
 			<tr>

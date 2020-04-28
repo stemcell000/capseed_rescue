@@ -21,8 +21,8 @@
 		<%end%>
     </tbody>
 </table>
-<%= paginate @boxes %>
+<small><%= paginate @boxes %></small>
 <%else%>
-	<span>No box to display</span>
+	<p><em><small>No box.</small></em></p>
 <%end%>
 </div>

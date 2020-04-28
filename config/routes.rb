@@ -48,12 +48,14 @@ Rails.application.routes.draw do
   resources :boxes do
     get :fetch_virus_batches, :on => :member
     get :fetch_positions
+    get :box_inventory, :on => :collection
   end
   
   resources :qc_attachments
   resources :plasmid_batch_qcs do
     patch :validation_switch, :on => :collection
   end
+  
   resources :plasmid_batch_attachments
   resources :add_attachment_to_plasmids
   resources :plasmid_batches

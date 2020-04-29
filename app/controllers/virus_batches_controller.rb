@@ -3,6 +3,10 @@ class VirusBatchesController < InheritedResources::Base
    before_action :set_objects, only:[:edit_from_inventory, :sort_tube, :update_from_inventory, :update_box]
    before_action :set_collections, only:[ :update_from_inventory, :destroy_from_inventory]
    
+    #Smart_listing
+    include SmartListing::Helper::ControllerExtensions
+    helper  SmartListing::Helper
+   
 def index
       #Formattage des dates
       start_time = params[:date_gteq].to_date rescue Date.current

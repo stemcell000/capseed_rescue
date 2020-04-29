@@ -22,12 +22,12 @@ $('.location-label').each(function(index){
 
 $('.location').each(function(index){
 	console.log('Ajout de id des elts locations');
-	$(this).attr('id',arr1[index]);
 	$(this).append(arr3[index]);
 });
 
 $('.slot').each(function(index){
 	console.log('Ajout du dataset des elts draggableContainer');
+	https://voca.ro/bJHZZxrl9OZ
 	$(this).attr({'data-id': arr1[index], 'data-name': arr2[index]});
 })
 
@@ -51,7 +51,10 @@ $('.draggableContainer').droppable({
 			param = {position_id: $(this).data('id'), virus_batch_id: vb_id, box_id: box_id};
 			//
 			updateBox(vb_id, param);
-			$(this).popover();
+			$(this).popover({
+				html: true,
+  				container: 'body'
+			});
 		},
 		over: function(event, ui){
 			console.log('Over');
@@ -76,6 +79,3 @@ function updateBox(id, param){
 				},
 			})
 }
-
-	console.log('hmax = <%=@h_max%>');
-	console.log('vmax = <%=@v_max%>');

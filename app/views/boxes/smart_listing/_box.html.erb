@@ -1,12 +1,16 @@
-  <td><%= object.name %></td>
-  <td><%= object.barcode %></td>
+  <td><small><%=link_to object.name, fetch_virus_batches_box_path(object.id), :remote => true %></small></td>
+  <td><small><%= object.barcode %></small></td>
 <td class="actions text-right">
-	
+	<% if can? :manage, Box%>
 	  	<%= smart_listing_item_actions [
 	  	{name: :custom, url: edit_box_path(object),
 	  		method: :get, 
   			icon: "fa fa-edit",
-  			title: "Edit"},
+  			title: "Edit"}]%>
+  	<%end%>
+  	<% if can? :manage, :all%>
+  		<%= smart_listing_item_actions [
 	  	{name: :destroy, url: box_path(object), confirmation: "Are you sure you want to delete this?"}]
 	  	%>
+	 <%end%>
 </td>

@@ -1,2 +1,3 @@
-$("#results").html("<%= escape_javascript(render partial: 'boxes/components/results', locals: { q: @q, boxes: @boxes} ) %>");
-$("#results_vb").html("<%= escape_javascript(render partial: 'boxes/components/results_vb', locals: { virus_batches: @virus_batches} ) %>"); 
+<%# Render list for XHR requests %>
+<%= smart_listing_update(:boxes) %>
+<%= smart_listing_update(:virus_batches) %>

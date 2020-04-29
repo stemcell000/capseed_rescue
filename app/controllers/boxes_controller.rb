@@ -4,7 +4,7 @@ class BoxesController < InheritedResources::Base
     include SmartListing::Helper::ControllerExtensions
     helper  SmartListing::Helper
     
-    before_action :set_box, only:[:delete, :edit, :fetch_position, :show]
+    before_action :set_box, only:[:delete, :edit, :show]
 
   
 def index
@@ -19,14 +19,15 @@ def index
       positions = Position.where(box_id: @boxes.pluck(:id)) 
       @virus_batches = VirusBatch.where(position_id: positions.pluck(:id))
      end
-      @boxes = @boxes.includes(:positions, :virus_batches).order(:name).page(params[:page]).per(20)
-      @virus_batches = @virus_batches.order(:id).page(params[:page]).per(20)
+      @boxes = @boxes.includes(:positions, :virus_batches).order(:name)
+      #@virus_batches = @virus_batches.order(:id).page(params[:page]).per(20)
+      @virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {id: "asc"}, page_sizes: [20, 30, 50, 100])
+      @boxes = smart_listing_create(:boxes, @boxes, partial: "boxes/smart_listing/list", default_sort: {name: "desc"}, page_sizes: [10, 20, 30, 50, 100])
 end
 
 def box_inventory
      @q = Box.ransack(params[:q])
-     @boxes = @q.result(distinct: true)
-     @boxes = @boxes.order(:name).page(params[:page]).per(20)
+     @boxes = @q.result(distinct: true).order(:name).page(params[:page]).per(20)
      @boxes = smart_listing_create(:boxes, @boxes, partial: "boxes/smart_listing/list", default_sort: {name: "desc"}, page_sizes: [20, 30, 50, 100])  
 end
 
@@ -49,12 +50,28 @@ def fetch_virus_batches
     @position_ids = []
     @position_names = []
   end
-    @virus_batches = VirusBatch.where(position_id: @position_ids).order(:id).page params[:page]
+    @virus_batches = VirusBatch.where(position_id: @position_ids)
+     @virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {id: "asc"}, page_sizes: [20, 30, 50, 100])
 end
 
-def fetch_positions
-  @positions =  box.positions
-  render "fetch_positions"
+def fetch_position
+@virus_batch = VirusBatch.find(params[:virus_batch_id])
+@box = Box.find(params[:box_id])
+if @box.box_type
+    @box_type = @box.box_type
+    @v_max = @box_type.vertical_max
+    @h_max = @box_type.horizontal_max
+    @position_ids = @box.position_ids
+    @position_names = @box.positions.map{|p|p.name.upcase()}
+    @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
+  else
+    @v_max = 0
+    @h_max = 0
+    @position_ids = []
+    @position_names = []
+  end
+    @virus_batches = VirusBatch.where(position_id: @position_ids)
+    @virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {id: "asc"}, page_sizes: [20, 30, 50, 100])
 end
  
 def new

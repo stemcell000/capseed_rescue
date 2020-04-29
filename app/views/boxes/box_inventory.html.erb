@@ -1,8 +1,0 @@
-<% provide(:title, "Boxes inventory") %>
-<%= render :partial => 'boxes/components/search' %>
-<div class="row">
-	<div class="col-lg-3">
-		<%= link_to "New box", new_box_path, class: "btn btn-default" %>
-	</div>
-</div>
-<%= smart_listing_render(:boxes) %>

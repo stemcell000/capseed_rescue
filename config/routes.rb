@@ -47,8 +47,7 @@ Rails.application.routes.draw do
   resources :vol_units
   resources :boxes do
     get :fetch_virus_batches, :on => :member
-    get :fetch_positions
-    get :box_inventory, :on => :collection
+    get :fetch_position
   end
   
   resources :qc_attachments

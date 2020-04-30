@@ -13,20 +13,6 @@
 		</div>
 </div>
 <div class="row">
-			<div class="col-lg-4">
-				<%= f.label "Location"%>
-				<%= f.select(:shelf_container_id_in, Shelf.all, {:include_blank=> " "}, {:class => "select2-select col-lg-12", :multiple => true}) %>
-			</div>
-			<div class="col-lg-4">
-				<%= f.label "Container"%>
-				<%= f.select(:shelf_container_id_in, Shelf.all, {:include_blank=> " "}, {:class => "select2-select col-lg-12", :multiple => true}) %>
-			</div>
-			<div class="col-lg-4">
-				<%= f.label "Shelf"%>
-				<%= f.select(:shelf_id_in, Shelf.all, {:include_blank=> " "}, {:class => "select2-select col-lg-12", :multiple => true}) %>
-			</div>
-		</div>
-<div class="row">
 	<div class="form-group pull-right">
   			<%= f.submit class:"btn btn-default" %>
   			<%= link_to "Clear Search", request.path, class:"btn btn-default" %>

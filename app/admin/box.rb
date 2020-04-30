@@ -12,5 +12,5 @@ ActiveAdmin.register Box do
 action_item do
   link_to "View Site", "/"
 end
-permit_params :id, :name, :created_at
+permit_params :id, :name, :barcode, :created_at
 end

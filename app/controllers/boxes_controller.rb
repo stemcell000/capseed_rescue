@@ -94,7 +94,12 @@ def edit
 end
 
 def update
-  
+      @box.update_attributes(assay_params)
+     if @box.valid?
+      flash.keep[:success] = "Task completed!"
+    else
+      render :action => 'edit'
+    end
 end
 
 def show

@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   
+  resources :plasmid_boxes
+  resources :box_types
+  resources :positions
+  resources :shelves
+  resources :containers
+  resources :locations
+  resources :buildings
+  resources :virus_batches do
+    patch :update_box, :on => :member
+  end
   resources :options do
    patch :display_all_virus_switch, :on => :member
    patch :display_all_clone_batch_switch, :on => :member
@@ -35,13 +45,16 @@ Rails.application.routes.draw do
   resources :plasmid_batches_productions
 
   resources :vol_units
-  resources :rows
-  resources :columns
-  resources :boxes
+  resources :boxes do
+    get :fetch_virus_batches, :on => :member
+    get :fetch_position
+  end
+  
   resources :qc_attachments
   resources :plasmid_batch_qcs do
     patch :validation_switch, :on => :collection
   end
+  
   resources :plasmid_batch_attachments
   resources :add_attachment_to_plasmids
   resources :plasmid_batches
@@ -204,12 +217,17 @@ Rails.application.routes.draw do
      resources :dosages, :on => :member
      get :spawn_dosage, :on => :member
      patch :create_dosage, :on => :member
+     get :sort_tube, :on => :member
+     get :map_tube, :on => :member
+     patch :update_box, :on => :member
      resources :virus_batches do
        get :new_from_inventory, :on => :new
        post :create_from_inventory, :on => :collection
        get :destroy_from_inventory, :on => :member
        get :edit_from_inventory, :on => :member
        patch :update_from_inventory, :on => :member
+       get :sort_tube, :on => :member
+       patch :update_box, :on => :member
      end
    end
   
@@ -284,7 +302,6 @@ Rails.application.routes.draw do
     get :destroy_confirm, :on => :member
     delete :destroy_from_inventory, :on => :member
     patch :update_and_sort, :on => :member
-    delete :remove_box_row_column, :on => :member
     get :pipe, :on => :member
     patch :send_to_production, :on => :member
       resources :plasmid_batch_qcs

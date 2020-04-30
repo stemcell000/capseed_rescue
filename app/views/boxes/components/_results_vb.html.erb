@@ -1,0 +1,28 @@
+<div class="col-lg-4 col-md-4 col-sm-4">
+<h4>Batches</h5>
+<% unless @virus_batches.empty?%>
+<table>
+	<thead>
+        <tr>
+            <th>Name</th>
+            <th>Barcode</th>
+        </tr>
+    </thead>
+    <tbody>
+    		<%@virus_batches.each do |vb|%>
+    		<tr>
+    			<td class="col-lg-6 col-md-6 col-sm-6">
+    				<small><%=vb.name%></small>
+    			</td>
+    			 <td class="col-lg-6 col-md-6 col-sm-6">
+    				<small><%=vb.barcode%></small>
+    			</td>
+		</tr>
+		<%end%>
+    </tbody>
+</table>
+<small><%= paginate @virus_batches %></small>
+<%else%>
+	No sample to display.
+<%end%>
+</div>

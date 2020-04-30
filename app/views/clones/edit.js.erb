@@ -7,6 +7,14 @@
 		$("#inner-assay-modal").html("<%= escape_javascript( render'clones/components/clone_form_new' ) %>")
 		$("#assay-modal").modal("show")
 		$("ul.errors").html("")
+	
+	$(".select2-select").select2({
+		    theme: "bootstrap",
+		    tag: true,
+		    placeholder: "Select",
+		    tokenSeparators: [',', ' '],
+		    allowClear: true
+	});
 		
 <% if params[:id] %>
 	disableFormInputs(true);

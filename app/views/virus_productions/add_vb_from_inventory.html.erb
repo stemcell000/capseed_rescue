@@ -1,14 +1,31 @@
-<% provide(:title, "Virus : Add batch(es)") %>
+<% provide(:title, "Virus : Add batch") %>
 
-<div class="container well">
+<div class="container">
 	<div class= "row">
-		<div class="col-lg-9">
-			<h5> Virus production: <%= @virus_production.number %> </h5>
+		<div class="col-lg-12">
+			<h4> Virus production: <%= @virus_production.number %> </h4>
 		</div>
 	</div>
 </div>
 
-		<div id="info-container" class="col-md-12" >
-					<%= render :partial => "virus_batches/components/content_inventory", :locals => {:virus_batches => @virus_batches} %>
+		<div id="info-container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div id="vb-container">
+						<%= render :partial => "virus_productions/components/content_inventory", :locals => {:virus_batches => @virus_batches} %>
+					</div>
+					<div class="row">
+							<div class="col-lg-11 right">
+								<%= link_to "Add virus batch", new_from_inventory_new_virus_production_virus_batch_path( :virus_production_id => @virus_production.id ), :class =>"btn btn-default", :remote => true %>
+								<%= link_to "Storage", sort_tube_virus_production_path( :virus_production_id => @virus_production.id ), :class =>"btn btn-default", :id =>"sort-tube-btn" ,:remote => true %>
+							</div><!--End of Btn_col-->
+					</div><!--End of row-->
+				</div>
+				<div class="col-lg-6">
+					<div id="sort-container" class="container">
+					</div>
+					<div id = "help-block-container">
+					</div>
+				</div>
+			</div>
 		</div>
-

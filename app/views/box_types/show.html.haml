@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @box_type.name
+%p
+  %b Max position:
+  = @box_type.max_position
+%p
+  %b Comment:
+  = @box_type.comment
+
+= link_to 'Edit', edit_box_type_path(@box_type)
+\|
+= link_to 'Back', box_types_path

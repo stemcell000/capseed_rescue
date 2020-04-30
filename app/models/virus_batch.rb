@@ -1,22 +1,27 @@
 class VirusBatch < ActiveRecord::Base
+  
   belongs_to :virus_production
-  belongs_to :column
-  belongs_to :row
-  belongs_to :box
   belongs_to :vol_unit
+  belongs_to :position
+  belongs_to :box
   
   accepts_nested_attributes_for :virus_production
-  accepts_nested_attributes_for :box
-  accepts_nested_attributes_for :column
-  accepts_nested_attributes_for :row
+  accepts_nested_attributes_for :position
   
   #validations
-  validates :name, :volume, :vol_unit_id, :box_id, :presence => true
+  validates :name, :volume, :vol_unit_id, :presence => true
   validates :name, :uniqueness => {message: "This name is already taken."}
   
+def generate_recap
+  block1 = "#{self.name}"
+  block2 = "#{ self.virus_production.number }"
+  block3 = "#{self.virus_production.recap}"
+  block = block1+block2+block3
+  self.update_columns(:recap => block)
+end
+
 def set_tube_status
-  str = self.volume == 0 ? (self.trash? ? "/images/empty-med.png" : "/images/trash.png") : "/images/full-med.png"
-  
+  str = ""
   unless self.trash?
     case self.volume
       when 0
@@ -33,9 +38,23 @@ def set_tube_status
        str=  "/images/empty-med.png"
      end
    else
-       str = self.trash? ? "/images/trash.png":"/images/empty-med.png"
+       str = "/images/trash.png"
    end
   return str
+end
+
+def set_draggable
+  str=""
+  unless self.trash?
+    str= "draggable"
+  end
+  return str
+end
+
+def set_color_from_position
+    str=""
+    str = self.position.nil? ? "text-danger" : "text-success"
+    return str
 end
   
 end

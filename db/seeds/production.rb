@@ -23,8 +23,8 @@
 
   
    #Add boxes
-  Box.create(name: "Unknown")
-  Box.create(name: "Garbage")
+  #Box.create(name: "Unknown")
+  PlasmidBox.create(name: "Garbage")
   
   #Add cloning methods
   Cmeth.create(name: "InFusion")
@@ -226,3 +226,5 @@
         u.options.create(:display_all_virus => false, :display_all_clone_batch => false)
      end
     end
+   BoxType.create(name: "9x9", max_position: "81")
+   BoxType.create(name: "8x12", max_position: "96")

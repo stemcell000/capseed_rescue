@@ -1,0 +1,25 @@
+<% unless @virus_batches.empty?%>
+<table>
+	<thead>
+        <tr>
+            <th><%= sort_link(@q, :name) %></th>
+            <th><%= sort_link(@q, :barcode) %></th>
+        </tr>
+    </thead>
+    <tbody>
+    		<%@virus_batches.each do |vb|%>
+    		<tr>
+    			<td>
+    				<%=vb.name%>
+    			</td>
+    			 <td>
+    				<%=vb.barcode%>
+    			</td>
+		</tr>
+		<%end%>
+    </tbody>
+</table>
+<%= paginate @virus_batches %>
+<%else%>
+	<span>No sample to display</span>
+<%end%>

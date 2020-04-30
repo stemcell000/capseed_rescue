@@ -7,3 +7,10 @@
 		$("#inner-assay-modal").html("<%= escape_javascript( render :partial => 'clone_batches/components/new_as_plasmid', :locals => {:clone => clone, :assay => @assay}) %>")
 		$("#assay-modal").modal("show")
 		$("ul.errors").html("")
+		$( ".select2-select" ).select2({
+		    theme: "bootstrap",
+		    tag: true,
+		    width: "100%",
+		    placeholder: "Select",
+		    tokenSeparators: [',', ' ']
+		});

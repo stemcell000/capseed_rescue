@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200323152538) do
+ActiveRecord::Schema.define(version: 20200430100018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,9 +53,27 @@ ActiveRecord::Schema.define(version: 20200323152538) do
   add_index "assays_projects", ["assay_id"], name: "index_assays_projects_on_assay_id", using: :btree
   add_index "assays_projects", ["project_id"], name: "index_assays_projects_on_project_id", using: :btree
 
+  create_table "box_types", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "max_position"
+    t.text     "comment"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "vertical_max"
+    t.integer  "horizontal_max"
+  end
+
   create_table "boxes", force: :cascade do |t|
     t.string   "name"
     t.string   "barcode"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "box_type_id"
+    t.integer  "shelf_id"
+  end
+
+  create_table "buildings", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -221,6 +239,14 @@ ActiveRecord::Schema.define(version: 20200323152538) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "containers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "barcode"
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "dosages", force: :cascade do |t|
     t.decimal "titer"
     t.decimal "titer_atcc"
@@ -262,6 +288,14 @@ ActiveRecord::Schema.define(version: 20200323152538) do
   end
 
   add_index "inserts", ["clone_batch_id"], name: "index_inserts_on_clone_batch_id", using: :btree
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "barcode"
+    t.integer  "building_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "options", force: :cascade do |t|
     t.integer  "user_id"
@@ -371,7 +405,7 @@ ActiveRecord::Schema.define(version: 20200323152538) do
     t.integer  "format_id"
     t.integer  "number"
     t.integer  "user_id"
-    t.integer  "box_id"
+    t.integer  "plasmid_box_id"
     t.date     "date"
     t.boolean  "trash",             default: false
     t.string   "barcode"
@@ -389,6 +423,22 @@ ActiveRecord::Schema.define(version: 20200323152538) do
 
   add_index "plasmid_batches_productions", ["plasmid_batch_id"], name: "index_plasmid_batches_productions_on_plasmid_batch_id", using: :btree
   add_index "plasmid_batches_productions", ["production_id"], name: "index_plasmid_batches_productions_on_production_id", using: :btree
+
+  create_table "plasmid_boxes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "barcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "box_id"
+    t.integer  "nb"
+    t.string   "box_name"
+  end
 
   create_table "primers", force: :cascade do |t|
     t.string   "name"
@@ -475,6 +525,14 @@ ActiveRecord::Schema.define(version: 20200323152538) do
     t.boolean  "conclusion"
   end
 
+  create_table "shelves", force: :cascade do |t|
+    t.string   "name"
+    t.string   "barcode"
+    t.integer  "container_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "statistics", force: :cascade do |t|
     t.float    "value"
     t.string   "label"
@@ -543,9 +601,6 @@ ActiveRecord::Schema.define(version: 20200323152538) do
   create_table "virus_batches", force: :cascade do |t|
     t.string   "name"
     t.integer  "virus_production_id"
-    t.integer  "box_id"
-    t.integer  "row_id"
-    t.integer  "column_id"
     t.date     "date"
     t.float    "volume"
     t.datetime "created_at",                          null: false
@@ -555,6 +610,8 @@ ActiveRecord::Schema.define(version: 20200323152538) do
     t.boolean  "trash",               default: false
     t.string   "barcode"
     t.date     "date_of_thawing"
+    t.integer  "position_id"
+    t.text     "recap"
   end
 
   create_table "virus_productions", force: :cascade do |t|

@@ -1,7 +1,6 @@
 //Initialisation des champs select avec Select2, hors fenêtres modales.
 $(document).ready(function() {
     console.debug('select2 is initialized in this DOM!');
-    
 	$(".select2-select").select2({
 		    theme: "bootstrap",
 		    tag: true,
@@ -9,13 +8,18 @@ $(document).ready(function() {
 		    tokenSeparators: [',', ' '],
 		    allowClear: true
 		});
+	//Popover
+  $('[data-toggle="popover"]').popover({
+  	html:true,
+  	container: 'body'
+  	});
 		
 //Activation des chevron sur le bootstrap panel collapse
 function toggleChevron(e) {
     $(e.target)
         .prev('.panel-heading')
         .find("i.indicator")
-        .toggleClass('fa-chevron-down fa-chevron-right');
+        .toggleClass('fas fa-chevron-down fa-chevron-right');
 	};
 	
 		

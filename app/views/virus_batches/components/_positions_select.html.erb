@@ -1,0 +1,1 @@
+<%= f.association :position, collection: positions.map{|p|"#{p.name.upcase}"}, input_html: {:class => 'select2-select'} %>

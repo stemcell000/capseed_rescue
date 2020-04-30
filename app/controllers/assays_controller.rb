@@ -7,10 +7,6 @@ class AssaysController < ApplicationController
     before_action :ranked_assays, only: :index
     helper_method :sort_column, :sort_direction
     
-#Smart_listing
-    include SmartListing::Helper::ControllerExtensions
-    helper  SmartListing::Helper
-   
   # GET /assays
   # GET /assays.json 
   def index

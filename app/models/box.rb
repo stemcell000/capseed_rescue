@@ -1,10 +1,8 @@
 class Box < ActiveRecord::Base
   has_many :positions
-  has_many :virus_batches
   belongs_to :box_type
   belongs_to :shelf
   validates :name, :barcode, :box_type, :presence => true
-  accepts_nested_attributes_for :virus_batches
   accepts_nested_attributes_for :positions
   
   def generate_positions

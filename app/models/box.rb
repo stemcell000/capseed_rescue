@@ -3,7 +3,11 @@ class Box < ActiveRecord::Base
   belongs_to :box_type
   belongs_to :shelf
   validates :name, :barcode, :box_type, :presence => true
+  validates :shelf, :presence => true
   accepts_nested_attributes_for :positions
+  
+  
+  
   
   def generate_positions
     position_name = []

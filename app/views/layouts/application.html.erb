@@ -9,8 +9,6 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
-  
-  
   	<%= include_gon(:watch => true) %>
   	<%= Gon::Base.render_data({}) %>
   	<%= render 'layouts/header' %>
@@ -21,7 +19,7 @@
     <div class="container">
     	<div id='flash-msg-container'>
 			<%= render partial: "layouts/flash_messages", :flash => flash %>
-		</div>
+	</div>
 
 <%case params[:controller] %>
 		<% when "assays" || params[:controller] == "clones"%>
@@ -48,7 +46,7 @@
 		<div class="jumbotron container-fluid white-bg" >
 		<%end%>
 				<div class="spinner">
-					</div>
+				</div>
 						     <%= yield %>
 				 </div>
  	</body>

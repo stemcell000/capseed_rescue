@@ -1,11 +1,14 @@
 <% rows = ('a'..'z').to_a[0..(h_max-1)] %>
 <% cols = (1..26).to_a[0..(v_max-1)] %>
-	<div class="col-lg-4 col-md-4 col-sm-4 text-center">
-		<div class="row"><h5><%="#{box.name} #{box.barcode}"%></h5></div>
+		<div class="col-lg-12">
+			<h5><%="#{box.name} #{box.barcode}"%></h5></div>
+			<% unless box.shelf.nil?%>
+				<h6>stored in : <%="#{box.shelf.container.name} | #{box.shelf.name}"%></h6>
+			<%end%>
 		<table>
-		<% rows.each do |r| %>
+		<% cols.each do |c| %>
 			<tr>
-				<% cols.each do |c| %>
+				<% rows.each do |r| %>
 					<td style="padding: 1px;">
 						<div class="col-lg-1 col-md-1 col-sm-1 slot draggableContainer" 
 						style="min-width: 35px; min-height: 35px; max-width: 35px; max-height: 35px; text-align: center; vertical-align: middle; border:1px solid black; border-radius: 2px; ; margin: 0; padding:0;">
@@ -18,4 +21,3 @@
 		<%end%>
 		</table>
 	</div>
-</div>

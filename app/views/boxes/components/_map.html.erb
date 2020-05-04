@@ -2,8 +2,8 @@
 <% cols = (1..26).to_a[0..(v_max-1)] %>
 		<div class="col-lg-12">
 			<h5><%="#{box.name} #{box.barcode}"%></h5></div>
-			<% unless box.shelf.nil?%>
-				<h6>stored in : <%="#{box.shelf.container.name} | #{box.shelf.name}"%></h6>
+			<% unless box.shelf.nil %>
+				<h6>stored in : <%= box.shelf.container.name} | box.shelf.name %></h6>
 			<%end%>
 		<table>
 		<% cols.each do |c| %>

@@ -37,8 +37,8 @@
 NProgress.configure({
   showSpinner: false,
   ease: 'ease',
-  speed: 3,
-  trickle: false
+  speed: 500,
+  trickle: true
 });
 
 $(document).on('click', function() {

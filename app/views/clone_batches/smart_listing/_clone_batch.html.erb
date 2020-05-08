@@ -1,4 +1,4 @@
-  <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><%= object.nb %></td>
+  <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><%= object.number %></td>
   <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><small><%= object.name || object.temp_name %></small></td>
   <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><%= object.clone.nil? ? "-" : object.clone.name %></td>
   <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><%= object.promoters.empty? ? "-" : object.promoters.map {|promoter| promoter.name}.to_sentence%></td>

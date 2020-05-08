@@ -4,7 +4,7 @@
   <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><%= object.promoters.empty? ? "-" : object.promoters.map {|promoter| promoter.name}.to_sentence%></td>
   <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><%= object.genes.empty? ? "-" : object.genes.map {|gene| gene.name}.to_sentence %></td>
   <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><%= object.plasmid_batches_count %></td>
-  <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><small><%= object.date_as_plasmid.strftime("%b %e, %Y") %></small></td>
+  <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><small><%= object.date_as_plasmid? ? "-" : object.date_as_plasmid.strftime("%b %e, %Y") %></small></td>
 <td class="actions text-right <%= dismissedOrNot(object.dismissed) %>">
 		 
 	<a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="left"

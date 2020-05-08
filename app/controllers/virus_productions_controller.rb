@@ -1,9 +1,8 @@
 class VirusProductionsController < InheritedResources::Base
  
    before_action :set_virus_production, only:[:edit, :destroy, :edit_from_inventory, :add_vb_from_inventory, :spawn_dosage, :update, :update_from_inventory, :create_dosage,
-                                                :sort_tube, :map_tube, :update_box]
-   before_action :set_option, only:[:index, :update_from_inventory, :edit_from_inventory, :hide]
-   after_action :hide, only:[:update_from_inventory]
+                                                :sort_tube, :map_tube, :update_box, :hide_from_inventory]
+   before_action :set_option, only:[:index, :update_from_inventory, :edit_from_inventory, :hide_from_inventory]
   #Smart_listing
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
@@ -183,6 +182,16 @@ class VirusProductionsController < InheritedResources::Base
     #
     @arr = @virus_batches.each_slice(4).to_a
   end
+  
+   
+ def hide_from_inventory
+    unless @option.virus_productions.where(:id => @virus_production.id).exists?
+      @option.virus_productions << @virus_production
+    else
+      @option.virus_productions.destroy(@virus_production)
+    end
+          redirect_to virus_productions_path
+ end
    
   private
  
@@ -203,19 +212,6 @@ class VirusProductionsController < InheritedResources::Base
  
  def set_option
    @option = current_user.options.first
- end
- 
- def hide
-   if @virus_production.hidden
-     unless @option.virus_productions.exists?(:id => @virus_production.id)
-      @virus_production.options << @option
-     end
-   else
-     if @option.virus_productions.exists?(:id => @virus_production.id)
-      @virus_production.options.destroy(@option)
-     end  
-  end
-          @virus_production.update_columns(:hidden => false)
  end
  
 end

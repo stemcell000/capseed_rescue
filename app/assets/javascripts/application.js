@@ -41,7 +41,9 @@ NProgress.configure({
   trickle: true
 });
 
-
+$(document).on('click', function() {
+  NProgress.start();
+});
 
 $(document).on('render', function() {
   NProgress.done();

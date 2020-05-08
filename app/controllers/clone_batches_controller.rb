@@ -14,8 +14,7 @@ class CloneBatchesController < InheritedResources::Base
   before_action :load_assay, only:[:show_exist, :select]
   before_action :load_clone, only:[:show_exist, :select, :update_as_plasmid]
   before_action :load_lists, only: [:edit_as_plasmid, :edit_from_inventory, :new_from_inventory, :update_from_inventory, :update_as_plasmid]
-  before_action :set_option, only:[:index_from_inventory, :hide, :edit_from_inventory, :update_from_inventory, :create_from_inventory ]
-  after_action :hide, only:[:update_from_inventory]
+  before_action :set_option, only:[:index_from_inventory, :hide_from_inventory, :edit_from_inventory, :update_from_inventory, :create_from_inventory ]
   
   def edit
     @clone_batch = CloneBatch.find(params[:id])
@@ -274,6 +273,15 @@ class CloneBatchesController < InheritedResources::Base
       end
   end
   
+  def hide_from_inventory
+    unless @option.clone_batches.where(:id => @clone_batch.id).exists?
+      @option.clone_batches << @clone_batch
+    else
+      @option.clone_batches.destroy(@clone_batch)
+    end
+    redirect_to clone_batches_path
+  end
+  
   private
   
     def set_clone_batch
@@ -385,18 +393,6 @@ class CloneBatchesController < InheritedResources::Base
    @option = current_user.options.first
  end
  
-  def hide
-   if @clone_batch.hidden
-     unless @option.virus_productions.exists?(:id => @clone_batch.id)
-      @clone_batch.options << @option
-     end
-   else
-     if @option.virus_productions.exists?(:id => @clone_batch.id)
-      @clone_batch.options.destroy(@option)
-     end  
-  end
-          @clone_batch.update_columns(:hidden => false)
- end
     
 end
 

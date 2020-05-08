@@ -1,15 +1,21 @@
+<div class="panel panel-default">
 <div class="panel-heading text-left"><%= b.name.nil? ? "-" : b.name %></div>
 <div class="panel-body text-left">
-	<small><small>
-	<strong>Virus production : </strong><%= b.virus_production.number.nil? ? "-" : b.virus_production.number %><br />	
-	<strong>Barcode : </strong><%= b.barcode.nil? ? "-" : b.barcode %><br />
-	<strong>Date of production : </strong><%= b.virus_production.date_of_production.nil? ?  "-" : b.virus_production.date_of_production.strftime("%h %e, %Y ") %><br />
-	<strong>Date of thawing : </strong><%= b.date_of_thawing.nil? ?  "-" : b.date_of_thawing.strftime("%h %e, %Y ") %><br />
-	<strong>Volume : </strong><%= b.volume.nil? ? "-" : b.volume %> <%= b.vol_unit_id.blank? ? "" : b.vol_unit.name %><br />
-	<strong>Box : </strong><%= b.position.nil? ? "-" : b.position.box.name %> <br />
-	<strong>Slot : </strong><%= b.position.nil? ? "-" : b.position.name.upcase() %> <br />
+	<small>
+	<div class="col-lg-6">
+		<strong>Virus production : </strong><%= b.virus_production.number.nil? ? "-" : b.virus_production.number %><br />	
+		<strong>Barcode : </strong><%= b.barcode.nil? ? "-" : b.barcode %><br />
+		<strong>Date of production : </strong><%= b.virus_production.date_of_production.nil? ?  "-" : b.virus_production.date_of_production.strftime("%h %e, %Y ") %><br />
+		<strong>Date of thawing : </strong><%= b.date_of_thawing.nil? ?  "-" : b.date_of_thawing.strftime("%h %e, %Y ") %><br />
+	</div>
+	<div class="col-lg-6">
+		<strong>Volume : </strong><%= b.volume.nil? ? "-" : b.volume %> <%= b.vol_unit_id.blank? ? "" : b.vol_unit.name %><br />
+		<strong>Box : </strong><%= b.position.nil? ? "-" : b.position.box.name %> <br />
+		<strong>Slot : </strong><%= b.position.nil? ? "-" : b.position.name.upcase() %> <br />
 		<% if !b.comment.blank? %>
 			<strong>Comments : </strong><br /><%= b.comment || "-" %><br />
 		<%end%>
-	</small></small>
+	</div>
+	</small>
 </div>
+<div>

@@ -34,7 +34,7 @@ $('.slot').each(function(index){
 });
 
 $("#<%=@virus_batch.position.id%>").css('background-color', '#FDC6F1');
-
+$("#vb-recap").html("<%= escape_javascript( render :partial =>  "boxes/components/vb", :locals => {:b => @virus_batch})%>");
 }else{
 	$("#map-container").html("<%= escape_javascript( render :partial =>  "boxes/components/no_map") %>");
 }

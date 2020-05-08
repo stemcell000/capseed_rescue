@@ -1,7 +1,8 @@
 <% rows = ('a'..'z').to_a[0..(h_max-1)] %>
 <% cols = (1..26).to_a[0..(v_max-1)] %>
-		<div class="col-lg-12">
-			<h5><%="#{box.name} #{box.barcode}"%></h5></div>
+<div class="row">
+		<div class="col-lg-8">
+			<h5><%="#{box.name} #{box.barcode}"%></h5>
 			<% unless box.shelf.nil? %>
 				<h6>stored in : <%= box.shelf.container.name+" | "+box.shelf.name %></h6>
 			<%end%>
@@ -15,9 +16,13 @@
 							<div class="location-label text-left text-primary" style="font-size: 50%; text-align: left; margin: 0; padding:0 0 0 1px;"></div>
 							<div class="location text-center" style="font-size: 70%; margin: 0; padding:0;"></div>
 						</div>
-					<td>
+					</td>
 				<%end%>
 			</tr>
 		<%end%>
 		</table>
+	</div>
+	<div class="col-lg-4"
+		<div id="vb-recap" class="panel panel-default"></div>
+	</div>
 	</div>

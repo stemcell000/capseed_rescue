@@ -53,6 +53,7 @@ def create_from_inventory
     @virus_batch = VirusBatch.create(virus_batch_params)
     @virus_production = VirusProduction.find(params[:virus_production_id])
     if  @virus_batch.valid?
+        @virus_batch.generate_recap
         @virus_production.virus_batches << @virus_batch
         flash.keep[:success] = "Task completed!"
         @virus_batches = @virus_production.virus_batches
@@ -72,6 +73,7 @@ def update_from_inventory
   
   if @virus_batch.valid?
     @units = Unit.all
+    @virus_batch.generate_recap
     flash.keep[:success] = "Task completed!"
   else
     render :action => 'edit_from_inventory'

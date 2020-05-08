@@ -51,7 +51,7 @@ def fetch_virus_batches
     @position_names = []
   end
     @virus_batches = VirusBatch.where(position_id: @position_ids)
-     @virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {id: "asc"}, page_sizes: [20, 30, 50, 100])
+     @virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {name: "asc"}, page_sizes: [20, 30, 50, 100])
 end
 
 def fetch_position

@@ -3,7 +3,7 @@ class Box < ActiveRecord::Base
   belongs_to :box_type
   belongs_to :shelf
   validates :name, :barcode, :box_type, :presence => true
-  validates :shelf, :presence => true
+  #validates :shelf, :presence => true
   accepts_nested_attributes_for :positions
   
   

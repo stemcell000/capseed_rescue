@@ -15,11 +15,11 @@
 <div class="row">
 			<div class="col-lg-4">
 				<%= f.label "Container"%>
-				<%= f.select(:shelf_container_id_in, Container.all, {:include_blank=> " "}, {:class => "select2-select col-lg-12", :multiple => true}) %>
+				<%= f.select(:shelf_container_id_in, Container.all.map{|c| c.name}, {:include_blank=> " "}, {:class => "select2-select col-lg-12", :multiple => true}) %>
 			</div>
 			<div class="col-lg-4">
 				<%= f.label "Shelf"%>
-				<%= f.select(:shelf_id_in, Shelf.all, {:include_blank=> " "}, {:class => "select2-select col-lg-12", :multiple => true}) %>
+				<%= f.select(:shelf_id_in, Shelf.all.map{|s| s.name}, {:include_blank=> " "}, {:class => "select2-select col-lg-12", :multiple => true}) %>
 			</div>
 		</div>
 <div class="row">

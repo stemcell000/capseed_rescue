@@ -35,18 +35,7 @@
 
 
 NProgress.configure({
-  showSpinner: false,
+  showSpinner: true,
   ease: 'ease',
-  speed: 500,
-  trickle: true
+  speed: 1
 });
-
-$(document).on('click', function() {
-  NProgress.start();
-});
-
-$(document).on('render', function() {
-  NProgress.done();
-  NProgress.remove();
-});
-

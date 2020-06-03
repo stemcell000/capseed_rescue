@@ -10,11 +10,11 @@ class VirusBatch < ActiveRecord::Base
   validates :name, :volume, :vol_unit_id, :presence => true
   validates :name, :uniqueness => {message: "This name is already taken."}
   
-def generate_recap
+def generate_recap(vp)
   block1 = "#{self.name}"
-  block2 = "#{ self.virus_production.number }"
-  block3 = "#{self.virus_production.recap}"
-  block = block1+block2+block3
+  block2 = "#{ vp.number }"
+  block3 = "#{vp.recap}"
+  block = block1+block3
   self.update_columns(:recap => block)
 end
 

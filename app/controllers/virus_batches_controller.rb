@@ -57,6 +57,7 @@ def create_from_inventory
         @virus_production.virus_batches << @virus_batch
         flash.keep[:success] = "Task completed!"
         @virus_batches = @virus_production.virus_batches
+        @arr = @virus_batches.each_slice(4).to_a
     else
         render :action => 'new_from_inventory'
     end

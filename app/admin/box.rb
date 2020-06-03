@@ -6,6 +6,13 @@ ActiveAdmin.register Box do
                 Box.where(id: importer.values_at('id')).delete_all
                 
               }
+csv force_quotes: false, col_sep: ';', column_names: true do
+    column :id
+    column :name
+    column :barcode
+    column :box_type_id
+    column :shelf_id
+  end
               
               
 #Add Button to site

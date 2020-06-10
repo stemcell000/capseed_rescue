@@ -4,9 +4,9 @@ autocomplete :plasmid_batch, :number, :extra_data => [:id, :name], :display_valu
 
   before_action :set_params, only:[:create, :add_to_prod, :create_from_inventory]
   before_action :load_plasmid_batch, only:[ :edit, :edit_from_inventory, :destroy, :update, :update_from_inventory, :send_to_production,:destroy_from_inventory, :destroy_confirm, :update_and_sort,
-                                            :load_box, :load_row, :load_column, :edit_to_prod, :add_to_prod,:send_to_production, :show ]
+                                            :load_box, :edit_to_prod, :add_to_prod,:send_to_production, :show ]
   before_action :load_all, only:[ :edit, :edit_and_sort, :destroy, :create, :destroy_from_list]
-  before_action :load_all_for_close, only:[ :update_and_sort, :load_box, :load_row, :load_column]
+  before_action :load_all_for_close, only:[ :update_and_sort, :load_box]
   before_action :load_all_for_prod, only:[ :edit_to_prod ]
   before_filter :listing, only: [:update_from_inventory, :edit_from_inventory, :create_from_inventory, :destroy_from_inventory]
   before_action :load_users, only: [:new, :new_from_inventory, :edit, :create, :update] 
@@ -32,8 +32,6 @@ def new_from_inventory
     @clone_batch = CloneBatch.find(params[:clone_batch_id])
     @number = @clone_batch.plasmid_batches.length + 1
     @boxes = PlasmidBox.all
-    @columns = Column.all
-    @rows = Row.all
     @name = @clone_batch.number+"."+@number.to_s
 end
 
@@ -131,23 +129,8 @@ end
     @clone_batch = CloneBatch.find(params[:clone_batch_id])
     @plasmid_batches = @clone_batch.plasmid_batches
     @plasmid_batch.toggle!(:trash)
-    garbage = PlasmidBox.find_by_name("Garbage")
-    
-    unless @plasmid_batch.trash
-      @plasmid_batch.update_columns(:volume => 0)
-      garbage.plasmid_batches << @plasmid_batch
-     else
-      garbage.plasmid_batches.delete(@plasmid_batch)
-     end
-      
-     @row = @plasmid_batch.row
-      @column = @plasmid_batch.column
-      if @row 
-        @row.plasmid_batches.delete(@plasmid_batch)
-      end
-      if @column
-        @column.plasmid_batches.delete(@plasmid_batch)
-      end
+    plasmid_box = @plasmid_batch.plasmid_box
+    plasmid_box.plasmid_batches.delete(@plasmid_batch)
   end
   
   def destroy_from_inventory
@@ -155,14 +138,11 @@ end
     @plasmid_batches = @clone_batch.plasmid_batches
     @plasmid_batch.toggle!(:trash)
     
-    garbage = PlasmidBox.find_by_name("Garbage")
-    
     if @plasmid_batch.trash
       @plasmid_batch.update_columns(:volume => 0)
       @plasmid_batch.plasmid_batch_productions.update_all(:starting_volume => @plasmid_batch.volume)
-      garbage.plasmid_batches << @plasmid_batch
-     else
-      garbage.plasmid_batches.delete(@plasmid_batch)
+      plasmid_box = @plasmid_batch.plasmid_box
+      plasmid_box.plasmid_batches.delete(@plasmid_batch)
      end
   end
   
@@ -173,8 +153,6 @@ end
         @format = @plasmid_batch.format
         @unit = @plasmid_batch.unit
         @box = @plasmid_batch.plasmid_box
-        @row = @plasmid_batch.row
-        @column = @plasmid_batch.column
         @vol_unit = @plasmid_batch.vol_unit
         @plasmid_batch_attachments = @plasmid_batch.plasmid_batch_attachments
         @clone_batch = @plasmid_batch.clone_batch
@@ -252,7 +230,7 @@ end
   
   private
     def set_params
-      params.require(:plasmid_batch).permit(:clone_batch_id, :id, :number, :name, :volume, :format, :concentration, :comment, :unit_id , :vol_unit_id, :plasmid_box_id, :row_id, :column_id, :production_id, :format_id,
+      params.require(:plasmid_batch).permit(:clone_batch_id, :id, :number, :name, :volume, :format, :concentration, :comment, :unit_id , :vol_unit_id, :plasmid_box_id, :production_id, :format_id,
       :user_id, :strict_validation , :_destroy, :trash, :date,
       
       :plasmid_batch_attachments_attributes =>[:id,:plasmid_batch_id, :attachment, :remove_attachment, :_destroy],

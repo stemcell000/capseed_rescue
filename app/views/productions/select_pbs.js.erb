@@ -9,4 +9,11 @@
 	$("ul.errors").html("")
 	console.debug("Select plasmids (Clone_batches) for production");
 
-	
+	$( ".select2-select" ).select2({
+		    theme: "bootstrap",
+		    tag: true,
+		    width: "100%",
+		    placeholder: "Select",
+		    tokenSeparators: [',', ' ']
+		});
+		

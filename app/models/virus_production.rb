@@ -1,4 +1,3 @@
-
 class VirusProduction < ActiveRecord::Base
  
  include VirusProductionsHelper

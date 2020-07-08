@@ -8,6 +8,17 @@ $(document).ready(function() {
 		    tokenSeparators: [',', ' '],
 		    allowClear: true
 		});
+	$('.datepicker').datepicker({
+    		dateFormat: 'dd-mm-yy',
+    		autoclose: true,
+    		todayBtn: true,
+    		clearBtn: true,
+    		calendarWeeks: true,
+    		todayHighlight: true,
+    		changeYear: true,
+    		changeMonth: true
+    		});
+    });
 	//Popover
   $('[data-toggle="popover"]').popover({
   	html:true,
@@ -42,7 +53,6 @@ function toggleChevron(e) {
 	$('#accordion').on('shown.bs.collapse', toggleChevron); 
 	
 
-});
 
 
 $(document).on('nested:fieldAdded', function(event){
@@ -52,6 +62,7 @@ $(document).on('nested:fieldAdded', function(event){
   var dateField = field.find('.date');
   // and activate datepicker on it
   dateField.datepicker();
+  
 $(".select2-select").select2({
     theme: "bootstrap",
     tag: true,

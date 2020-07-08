@@ -27,7 +27,6 @@
 //= require update_productions_row_position
 //= require jquery_nested_form
 //= require smart_listing
-//= require bootstrap-datepicker
 //= require multi-select
 //= require jasny-bootstrap.min
 //= require custom

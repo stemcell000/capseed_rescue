@@ -10,10 +10,10 @@
 			<tr>
 				<% rows.each do |c| %>
 					<td style="padding: 1px;">
-						<div class="bg-default col-lg-1 col-md-1 col-sm-1 slot draggableContainer" 
+						<div class="bg-default col-lg-1 col-md-1 col-sm-1 slot" 
 						style="min-width: 35px; min-height: 35px; max-width: 35px; max-height: 35px; text-align: center; vertical-align: middle; border:1px solid black; border-radius: 2px; ; margin: 0; padding:0;">
 							<div class="location-label text-left text-primary" style="font-size: 50%; text-align: left; margin: 0; padding:0 0 0 1px;"></div>
-							<div class="location text-center" style="font-size: 70%; margin: 0; padding:0;"></div>
+							<a class="location text-center draggable" style="font-size: 70%; margin: 0; padding:0;"></a>
 						</div>
 					<td>
 				<%end%>

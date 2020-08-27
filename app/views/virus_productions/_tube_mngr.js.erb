@@ -1,0 +1,82 @@
+//Affichage du partial 
+$("#map-container").html("<%= escape_javascript( render :partial =>  "virus_productions/components/map", :locals => {:box => @box, :box_type => @box_type, :v_max => @v_max, :h_max => @h_max, :position_ids => @position_ids, :position_names => @position_names, :position_batch_names => @position_batch_names}) %>")
+	
+	var arr1 =  <%= raw @position_ids %>;
+	var arr2 =  <%= raw @position_names%>;
+	var arr3 = 	<%= raw @position_batch_names %>;
+	
+	var vb_id= <%=@virus_production.id%>;
+	var box_id= <%=@box.id%>;
+	
+	console.log('arr1 length = '+arr1.length);
+	console.log('arr2 length = '+arr2.length);
+	console.log('arr3 length = '+arr3.length);
+	console.log('box_id = '+box_id);
+	console.log('hmax = <%=@h_max%>');
+	console.log('vmax = <%=@v_max%>');
+
+$('.location-label').each(function(index){
+	console.log('Ajout des noms de batch des elts location-label');
+	$(this).append(arr2[index]);
+});
+
+$('.location').each(function(index){
+	console.log('Ajout de id des elts locations');
+	$(this).append(arr3[index]);
+});
+
+$('.slot').each(function(index){
+	console.log('Ajout du dataset des elts draggableContainer');
+	https://voca.ro/bJHZZxrl9OZ
+	$(this).attr({'data-id': arr1[index], 'data-name': arr2[index]});
+})
+
+$('.draggable').draggable({
+    revert: "invalid",
+    stack: ".draggable",
+    start: function(event, ui){
+    			console.log('Dragging start');
+    			vb_id = $(this).data('id');
+    			$(this).popover('destroy');
+    		}
+    });
+    
+$('.draggableContainer').droppable({
+		drop: function(event, ui){
+			console.log('Dropped');
+			$(this).effect( "highlight",  {color: '#e7f5fe'}, 1000);
+			console.log('data-id = '+this.dataset.id);
+			console.log('data-name = '+this.dataset.name);
+			//
+			param = {position_id: $(this).data('id'), virus_batch_id: vb_id, box_id: box_id};
+			//
+			updateBox(vb_id, param);
+			//
+			$(this).popover({
+				html: true,
+  				container: 'body'
+			});
+		},
+		over: function(event, ui){
+			console.log('Over');
+			$(this).effect( "highlight",  {color: '#FDC6F1'}, 1000);
+		},
+		out: function (event, ui) {
+			$(this).attr('class', 'bg-default')
+		}
+	});
+	
+//Drag and Drop
+function updateBox(id, param){
+	$.ajax({
+			url : '/virus_productions/'+vp_id+'/update_box',
+			type: 'patch',
+			data: param,
+			success: function(data){
+				console.log("success")
+				},
+			error: function(data) { 
+				console.log("error")
+				},
+			})
+}

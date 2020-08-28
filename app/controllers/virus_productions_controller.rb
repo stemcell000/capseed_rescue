@@ -156,6 +156,9 @@ class VirusProductionsController < InheritedResources::Base
     @position_ids = @box.position_ids
     @position_names = @box.positions.map{|p|p.name.upcase()}
     @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
+    @virus_batches = @virus_production.virus_batches
+    @arr = @virus_batches.each_slice(4).to_a
+    @users = User.all
   end
   
   def update_box

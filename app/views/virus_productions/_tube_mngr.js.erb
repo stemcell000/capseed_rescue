@@ -1,6 +1,7 @@
 //Affichage du partial 
 $("#map-container").html("<%= escape_javascript( render :partial =>  "virus_productions/components/map", :locals => {:box => @box, :box_type => @box_type, :v_max => @v_max, :h_max => @h_max, :position_ids => @position_ids, :position_names => @position_names, :position_batch_names => @position_batch_names}) %>")
-	
+$("#vb-container").html("<%= escape_javascript( render :partial => "virus_productions/components/content_inventory", :locals => {:virus_batches => @virus_batches})%>")	
+	$('[data-toggle="popover"]').popover({html:true});
 	var arr1 =  <%= raw @position_ids %>;
 	var arr2 =  <%= raw @position_names%>;
 	var arr3 = 	<%= raw @position_batch_names %>;
@@ -9,7 +10,7 @@ $("#map-container").html("<%= escape_javascript( render :partial =>  "virus_prod
 	var box_id= <%=@box.id%>;
 	
 	console.log('arr1 length = '+arr1.length);
-	console.log('arr2 length = '+arr2.length);
+	console.log('arr2 length = '+arr2.length); 
 	console.log('arr3 length = '+arr3.length);
 	console.log('box_id = '+box_id);
 	console.log('hmax = <%=@h_max%>');
@@ -32,7 +33,9 @@ $('.slot').each(function(index){
 })
 
 $('.draggable').draggable({
-    revert: "invalid",
+	appendTo: 'body',
+    revert: "true",
+    helper: "clone",
     stack: ".draggable",
     start: function(event, ui){
     			console.log('Dragging start');

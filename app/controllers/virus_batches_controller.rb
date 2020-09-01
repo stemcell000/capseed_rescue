@@ -2,6 +2,7 @@ class VirusBatchesController < InheritedResources::Base
   
    before_action :set_objects, only:[:edit_from_inventory, :sort_tube, :update_from_inventory, :update_box]
    before_action :set_collections, only:[ :update_from_inventory, :destroy_from_inventory]
+   before_action :set_unsorted_collection, only:[:sorter, :map_tube]
    
     #Smart_listing
     include SmartListing::Helper::ControllerExtensions
@@ -111,6 +112,47 @@ def destroy_from_inventory
     redirect_to add_vb_from_inventory_virus_production_url(@virus_production.id)
   end
   
+ def sorter
+ end
+ 
+ def map_tube
+    @box = Box.find(params[:box_id])
+    @box_type = @box.box_type
+    @v_max = @box_type.vertical_max
+    @h_max = @box_type.horizontal_max
+    
+    @position_ids = @box.position_ids
+    @position_names = @box.positions.map{|p|p.name.upcase()}
+    
+    @position_batch_ids = @box.positions.ids
+    
+    @users = User.all
+  end
+  
+  def update_box
+    position = Position.find(params[:position_id])
+    if position.virus_batch
+      position.build_virus_batch
+    end
+    #
+    @virus_batch = VirusBatch.find(params[:virus_batch_id])
+    @virus_batch.position = position
+    @virus_batch.save!
+    #
+    @box = Box.find(params[:box_id])
+    @box_type = @box.box_type
+    #
+    @v_max = @box_type.vertical_max
+    @h_max = @box_type.horizontal_max
+    #
+    @position_ids = @box.position_ids
+    @position_names = @box.positions.map{|p|p.name.upcase()}
+    @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
+    #
+       @virus_batches = VirusBatch.all.where(trash: false).where(position_id: nil).order(:name)
+      @arr = @virus_batches.each_slice(5).to_a
+  end
+  
   private
     def virus_batch_params
       params.require(:virus_batch).permit(:id, :name, :barcode, :volume, :virus_production_id, :box_id, :position_id, :trash, :vol_unit_id, :comment, :date, :date_of_thawing,
@@ -128,6 +170,11 @@ def destroy_from_inventory
       @virus_production  = @virus_batch.virus_production
       @virus_batches = @virus_production.virus_batches
       @arr = @virus_batches.each_slice(4).to_a
+    end
+    
+    def set_unsorted_collection
+      @virus_batches = VirusBatch.all.where(trash: false).where(position_id: nil).order(:name)
+      @arr = @virus_batches.each_slice(5).to_a
     end
 end
 

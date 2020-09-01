@@ -1,6 +1,6 @@
 //Affichage du partial 
-$("#map-container").html("<%= escape_javascript( render :partial =>  "virus_productions/components/map", :locals => {:box => @box, :box_type => @box_type, :v_max => @v_max, :h_max => @h_max, :position_ids => @position_ids, :position_names => @position_names, :position_batch_names => @position_batch_names}) %>")
-$("#vb-container").html("<%= escape_javascript( render :partial => "virus_productions/components/content_inventory", :locals => {:virus_batches => @virus_batches})%>")	
+$("#map-container").html("<%= escape_javascript( render :partial =>  "virus_batches/components/map", :locals => {:box => @box, :box_type => @box_type, :v_max => @v_max, :h_max => @h_max, :position_ids => @position_ids, :position_names => @position_names, :position_batch_names => @position_batch_names}) %>")
+console.log("refreshing map");
 	$('[data-toggle="popover"]').popover({html:true});
 	var arr1 =  <%= raw @position_ids %>;
 	var arr2 =  <%= raw @position_names%>;
@@ -8,7 +8,6 @@ $("#vb-container").html("<%= escape_javascript( render :partial => "virus_produc
 	var arr4 = 	<%= raw  @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.id} %>;
 	
 	var box_id= <%= @box.id%>;
-	var vp_id = <%= @virus_production.id%>
 	var debug = true
 	
 	if(debug){
@@ -29,7 +28,7 @@ $('.slot').each(function(index){
 	console.log('Ajout du dataset des elts draggableContainer');
 	$(this).attr({'data-id': arr1[index], 'data-name': arr2[index]});
 	if(arr3[index]){
-		$(this).append("<%= escape_javascript(render :partial => "virus_productions/components/tube")%>")
+		$(this).append("<%= escape_javascript(render :partial => "virus_batches/components/tube")%>")
 		$(this).find('.location').append(arr3[index]);
 		$(this).find('.dot').attr({'data-id': arr4[index]});
 	}else{
@@ -45,6 +44,10 @@ $('.location-label').each(function(index){
 $('.dot').each(function(index){
 	
 });
+
+
+$("#vb-container").html("<%= escape_javascript( render :partial => "virus_batches/components/content_inventory", :locals => {:virus_batches => @virus_batches})%>")	
+console.log("refreshing vials");	
 
 $('.draggable').draggable({
 	appendTo: 'body',
@@ -68,7 +71,7 @@ $('.empty-slot').droppable({
 			//
 			param = {position_id: $(this).data('id'), virus_batch_id: vb_id, box_id: box_id};
 			//
-			updateBox(vp_id, param);
+			updateBox(vb_id, param);
 			//
 			$(this).popover({
 				html: true,
@@ -87,7 +90,7 @@ $('.empty-slot').droppable({
 //Drag and Drop
 function updateBox(id, param){
 	$.ajax({
-			url : '/virus_productions/'+id+'/update_box',
+			url : '/virus_batches/'+id+'/update_box',
 			type: 'patch',
 			data: param,
 			success: function(data){

@@ -1,25 +1,17 @@
+
 $("#vb-container").html("<%= escape_javascript( render :partial => "virus_batches/components/content_inventory", :locals => {:virus_batches => @virus_batches})%>")
 //
 <%if @box%>
 $("#map-container").html("<%= escape_javascript( render :partial =>  "virus_batches/components/map", :locals => {:box => @box, :box_type => @box_type, :v_max => @v_max, :h_max => @h_max, :position_ids => @position_ids, :position_names => @position_names, :position_batch_names => @position_batch_names}) %>")
 console.log("refreshing map");
-<<<<<<< HEAD
-=======
-	$('[data-toggle="popover"]').popover({html:true, container: 'body'});
->>>>>>> d&d_try5
+	$('[data-toggle="popover"]').popover({html:true});
 	var arr1 =  <%= raw @position_ids %>;
 	var arr2 =  <%= raw @position_names%>;
 	var arr3 = 	<%= raw @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name} %>;
 	var arr4 = 	<%= raw  @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.id} %>;
-<<<<<<< HEAD
 	
-	box_id = $("#map-container").data('id');
-	
-	var debug = true
-=======
 	var box_id= <%= @box.id%>;
 	var debug = false
->>>>>>> d&d_try5
 	
 	if(debug){
 	console.log('arr1 length = '+arr1.length);
@@ -52,30 +44,7 @@ $('.location-label').each(function(index){
 	$(this).append(arr2[index]);
 });
 
-<<<<<<< HEAD
-$('.dot').each(function(index){
-	
-});
 
-$("#vb-container").html("<%= escape_javascript( render :partial => "virus_batches/components/content_inventory", :locals => {:virus_batches => @virus_batches})%>")	
-$('[data-toggle="popover"]').popover({html:true});
-console.log("refreshing vials");	
-
-$('.draggable').draggable({
-	appendTo: 'body',
-    revert: "true",
-    helper: "clone",
-    stack: ".draggable",
-    start: function(event, ui){
-    			console.log('Dragging start');
-    			vb_id = $(this).data('id');
-    			$(this).popover('destroy');
-    		}
-    });
-    
-=======
-
->>>>>>> d&d_try5
 $('.empty-slot').droppable({
 		drop: function(event, ui){
 			console.log('Dropped');
@@ -101,35 +70,6 @@ $('.empty-slot').droppable({
 			$(this).attr('class', 'bg-default')
 		}
 	});
-<<<<<<< HEAD
-
-$('.outSlot').droppable({
-		drop: function(event, ui){
-			console.log('Dropped');
-			$(this).effect( "highlight",  {color: '#e7f5fe'}, 1000);
-			console.log('data-id = '+this.dataset.id);
-			console.log('data-name = '+this.dataset.name);
-			console.log('vb_id = '+vb_id);
-			//
-			param = { virus_batch_id: vb_id };
-			//
-			updateBox(vb_id, param);
-			//
-			$(this).popover({
-				html: true,
-  				container: 'body'
-			});
-		},
-		over: function(event, ui){
-			console.log('Over');
-			$(this).effect( "highlight",  {color: '#FDC6F1'}, 1000);
-		},
-		out: function (event, ui) {
-			$(this).attr('class', 'bg-default')
-		}
-	});
-	
-=======
 <%end%>
 
 $('.draggable').draggable({
@@ -144,7 +84,6 @@ $('.draggable').draggable({
     		}
     });
     
->>>>>>> d&d_try5
 //Drag and Drop
 function updateBox(id, param){
 	$.ajax({
@@ -158,9 +97,6 @@ function updateBox(id, param){
 				console.log("error")
 				},
 			})
-<<<<<<< HEAD
-}
-=======
 }
 //
 $('.out-slot').droppable({
@@ -189,4 +125,3 @@ $('.out-slot').droppable({
 		}
 	});
 	
->>>>>>> d&d_try5

@@ -130,27 +130,38 @@ def destroy_from_inventory
   end
   
   def update_box
-    position = Position.find(params[:position_id])
-    if position.virus_batch
-      position.build_virus_batch
+    @virus_batch = VirusBatch.find(params[:virus_batch_id])
+    
+      if params[:postion_id]
+        position = Position.find(params[:position_id])
+        if position.virus_batch
+          position.build_virus_batch
+        end
+      else
+        if @virus_batch.position
+          @virus_batch.position.destroy
+       end
     end
+    
     #
     @virus_batch = VirusBatch.find(params[:virus_batch_id])
     @virus_batch.position = position
     @virus_batch.save!
     #
-    @box = Box.find(params[:box_id])
-    @box_type = @box.box_type
-    #
-    @v_max = @box_type.vertical_max
-    @h_max = @box_type.horizontal_max
-    #
-    @position_ids = @box.position_ids
-    @position_names = @box.positions.map{|p|p.name.upcase()}
-    @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
-    #
-       @virus_batches = VirusBatch.all.where(trash: false).where(position_id: nil).order(:name)
-      @arr = @virus_batches.each_slice(5).to_a
+      @box = Box.find(params[:box_id])
+      #
+      @box_type = @box.box_type
+      #
+      @v_max = @box_type.vertical_max
+      @h_max = @box_type.horizontal_max
+      #
+      @position_ids = @box.position_ids
+      @position_names = @box.positions.map{|p|p.name.upcase()}
+      @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
+       #
+        @virus_batches = VirusBatch.all.where(trash: false).where(position_id: nil).order(:name)
+        @arr = @virus_batches.each_slice(5).to_a
+    
   end
   
   private

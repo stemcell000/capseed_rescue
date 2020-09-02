@@ -1,8 +1,8 @@
 class VirusBatchesController < InheritedResources::Base
   
-   before_action :set_objects, only:[:edit_from_inventory, :sort_tube, :update_from_inventory, :update_box]
+   before_action :set_objects, only:[:edit_from_inventory, :sort_tube, :update_from_inventory]
    before_action :set_collections, only:[ :update_from_inventory, :destroy_from_inventory]
-   before_action :set_unsorted_collection, only:[:sorter, :map_tube]
+   before_action :set_unsorted_collection, only:[:sorter, :map_tube, :update_box]
    
     #Smart_listing
     include SmartListing::Helper::ControllerExtensions
@@ -84,9 +84,9 @@ end
 
 def update_box
   position = Position.find(params[:position_id])
-  if position.virus_batch
-    position.build_virus_batch
-  end
+    if position.virus_batch
+      position.build_virus_batch
+    end
   @virus_batch.position = position
   @virus_batch.save!
   @virus_production = @virus_batch.virus_production
@@ -110,12 +110,13 @@ def destroy_from_inventory
        end
     end
     redirect_to add_vb_from_inventory_virus_production_url(@virus_production.id)
-  end
+ end
   
  def sorter
  end
  
  def map_tube
+   if params[:box_id]
     @box = Box.find(params[:box_id])
     @box_type = @box.box_type
     @v_max = @box_type.vertical_max
@@ -125,11 +126,13 @@ def destroy_from_inventory
     @position_names = @box.positions.map{|p|p.name.upcase()}
     
     @position_batch_ids = @box.positions.ids
-    
+   end
     @users = User.all
+     set_unsorted_collection 
   end
   
   def update_box
+<<<<<<< HEAD
     @virus_batch = VirusBatch.find(params[:virus_batch_id])
     
       if params[:postion_id]
@@ -141,13 +144,23 @@ def destroy_from_inventory
         if @virus_batch.position
           @virus_batch.position.destroy
        end
+=======
+  @virus_batch = VirusBatch.find(params[:virus_batch_id])    
+    if params[:position_id]
+      position = Position.find(params[:position_id])
+      if position.virus_batch
+        position.build_virus_batch
+      end
+    else
+      @virus_batch.update_columns(:position_id => nil)
+>>>>>>> d&d_try5
     end
     
     #
-    @virus_batch = VirusBatch.find(params[:virus_batch_id])
     @virus_batch.position = position
     @virus_batch.save!
     #
+<<<<<<< HEAD
       @box = Box.find(params[:box_id])
       #
       @box_type = @box.box_type
@@ -162,6 +175,19 @@ def destroy_from_inventory
         @virus_batches = VirusBatch.all.where(trash: false).where(position_id: nil).order(:name)
         @arr = @virus_batches.each_slice(5).to_a
     
+=======
+    @box = Box.find(params[:box_id])
+    @box_type = @box.box_type
+    #
+    @v_max = @box_type.vertical_max
+    @h_max = @box_type.horizontal_max
+    #
+    @position_ids = @box.position_ids
+    @position_names = @box.positions.map{|p|p.name.upcase()}
+    @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
+    #
+    set_unsorted_collection
+>>>>>>> d&d_try5
   end
   
   private
@@ -184,7 +210,7 @@ def destroy_from_inventory
     end
     
     def set_unsorted_collection
-      @virus_batches = VirusBatch.all.where(trash: false).where(position_id: nil).order(:name)
+      @virus_batches = VirusBatch.where(trash: false).where(position_id: nil).order(:name)
       @arr = @virus_batches.each_slice(5).to_a
     end
 end

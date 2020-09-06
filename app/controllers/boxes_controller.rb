@@ -81,8 +81,9 @@ end
  def create
    @box = Box.create(box_params)
    if  @box.valid?
-     flash.keep[:success] = "Task completed!"
+     flash.keep[:success] = "Box created !"
      @box.generate_positions
+     redirect_to virus_productions_path
    else
      render action: "new"
    end
@@ -109,7 +110,7 @@ end
   private
 
     def box_params
-      params.require(:box).permit(:name, :box_type_id, :plasmid_batch [:id, :name, :plasmid_batch_id], plasmid_batch_ids: [])
+      params.require(:box).permit(:name, :box_type_id, :barcode, :box_type_id, :shelf_id)
     end
     
     def set_box

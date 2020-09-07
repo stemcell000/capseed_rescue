@@ -53,13 +53,9 @@
 							<%else%>
 							no batch
 							<%end%>
-								<div class="col-lg-12">
+								<div class="col-lg-8">
 								<% if !object.clone_batch_as_plasmid_attachments.empty? %>
-								<% if object.clone_batch_as_plasmid_attachments.length>1%>
-									<strong>Attached files:</strong><br />
-									<%else%>
-									<strong>Attached file:</strong><br />
-								<%end%>	
+									<strong>Attached <%="file".pluralize(object.clone_batch_as_plasmid_attachments.length)%> :</strong><br />
 									<% object.clone_batch_as_plasmid_attachments.each do |a|%>
 										<small><%= link_to File.basename(a.attachment.path ), a.attachment.to_s %></small> <br />
 									<%end%>

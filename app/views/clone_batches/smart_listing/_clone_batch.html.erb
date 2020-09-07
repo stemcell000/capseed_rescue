@@ -29,8 +29,9 @@
 								<strong>Gene: </strong><%= object.genes.nil? ? "-" : object.genes.uniq.map {|gene| gene.name}.to_sentence %><br />
 								<% if !object.comment_as_plasmid.blank? %>
 									<strong>Comment: </strong>
-									<div class="col-lg-12 col-md-12 col-sm-12"><%= object.comment_as_plasmid %><br /></div>
+									<%= object.comment_as_plasmid %>
 								<%end%>
+								<br />
 								<% unless object.plasmid_batches.empty? %>
 								<table class="table table-bordered">
 									<thead>

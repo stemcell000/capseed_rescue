@@ -3,7 +3,7 @@ class PlasmidBoxesController < InheritedResources::Base
     #Smart_listing
     include SmartListing::Helper::ControllerExtensions
     helper  SmartListing::Helper
-    before_action :set_plasmid_box, only:[:delete, :edit, :show, :create]
+    before_action :set_plasmid_box, only:[:delete, :edit, :show]
 
 def index
      @q = PlasmidBox.ransack(params[:q])
@@ -16,6 +16,7 @@ def new
 end
 
 def create
+  @plasmid_box = Box.create(box_params)
   if @plasmid_box.valid?
     flash.keep[:success] = "Task completed!"
   else

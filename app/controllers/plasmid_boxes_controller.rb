@@ -3,7 +3,7 @@ class PlasmidBoxesController < InheritedResources::Base
     #Smart_listing
     include SmartListing::Helper::ControllerExtensions
     helper  SmartListing::Helper
-    before_action :set_plasmid_box, only:[:delete, :edit, :show]
+    before_action :set_plasmid_box, only:[:delete, :edit, :show, :create]
 
 def index
      @q = PlasmidBox.ransack(params[:q])

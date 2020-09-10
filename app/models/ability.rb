@@ -12,7 +12,7 @@ class Ability
         can :manage, :clone_batch_attachment
         can :manage, :sequencing
         can :manage, :box
-        can :manage, :plasmid_box
+        can :manage, :pbox
         can :manage, :clone_batch
         can :manage, :pcr_colony
         can :manage, :qc_attachment

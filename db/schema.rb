@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200430100018) do
+ActiveRecord::Schema.define(version: 20200910095939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -322,6 +323,13 @@ ActiveRecord::Schema.define(version: 20200430100018) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pboxes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "barcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pcr_colonies", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",        null: false
@@ -405,7 +413,7 @@ ActiveRecord::Schema.define(version: 20200430100018) do
     t.integer  "format_id"
     t.integer  "number"
     t.integer  "user_id"
-    t.integer  "plasmid_box_id"
+    t.integer  "pbox_id"
     t.date     "date"
     t.boolean  "trash",             default: false
     t.string   "barcode"
@@ -423,13 +431,6 @@ ActiveRecord::Schema.define(version: 20200430100018) do
 
   add_index "plasmid_batches_productions", ["plasmid_batch_id"], name: "index_plasmid_batches_productions_on_plasmid_batch_id", using: :btree
   add_index "plasmid_batches_productions", ["production_id"], name: "index_plasmid_batches_productions_on_production_id", using: :btree
-
-  create_table "plasmid_boxes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "barcode"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "positions", force: :cascade do |t|
     t.string   "name"
@@ -613,6 +614,8 @@ ActiveRecord::Schema.define(version: 20200430100018) do
     t.integer  "position_id"
     t.text     "recap"
   end
+
+  add_index "virus_batches", ["position_id"], name: "index_virus_batches_on_position_id", using: :btree
 
   create_table "virus_productions", force: :cascade do |t|
     t.integer  "production_id"

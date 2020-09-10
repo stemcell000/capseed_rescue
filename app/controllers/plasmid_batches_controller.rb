@@ -129,8 +129,8 @@ end
     @clone_batch = CloneBatch.find(params[:clone_batch_id])
     @plasmid_batches = @clone_batch.plasmid_batches
     @plasmid_batch.toggle!(:trash)
-    plasmid_box = @plasmid_batch.plasmid_box
-    plasmid_box.plasmid_batches.delete(@plasmid_batch)
+    pbox = @plasmid_batch.pbox
+    pbox.plasmid_batches.delete(@plasmid_batch)
   end
   
   def destroy_from_inventory
@@ -141,8 +141,8 @@ end
     if @plasmid_batch.trash
       @plasmid_batch.update_columns(:volume => 0)
       @plasmid_batch.plasmid_batch_productions.update_all(:starting_volume => @plasmid_batch.volume)
-      plasmid_box = @plasmid_batch.plasmid_box
-      plasmid_box.plasmid_batches.delete(@plasmid_batch)
+      pbox = @plasmid_batch.pbox
+      pbox.plasmid_batches.delete(@plasmid_batch)
      end
   end
   
@@ -152,7 +152,7 @@ end
         @plasmid_batch = PlasmidBatch.find(params[:id])
         @format = @plasmid_batch.format
         @unit = @plasmid_batch.unit
-        @box = @plasmid_batch.plasmid_box
+        @box = @plasmid_batch.pbox
         @vol_unit = @plasmid_batch.vol_unit
         @plasmid_batch_attachments = @plasmid_batch.plasmid_batch_attachments
         @clone_batch = @plasmid_batch.clone_batch
@@ -230,7 +230,7 @@ end
   
   private
     def set_params
-      params.require(:plasmid_batch).permit(:clone_batch_id, :id, :number, :name, :volume, :format, :concentration, :comment, :unit_id , :vol_unit_id, :plasmid_box_id, :production_id, :format_id,
+      params.require(:plasmid_batch).permit(:clone_batch_id, :id, :number, :name, :volume, :format, :concentration, :comment, :unit_id , :vol_unit_id, :pbox_id, :production_id, :format_id,
       :user_id, :strict_validation , :_destroy, :trash, :date,
       
       :plasmid_batch_attachments_attributes =>[:id,:plasmid_batch_id, :attachment, :remove_attachment, :_destroy],
@@ -246,7 +246,7 @@ end
       :productions_attributes => [:id, :name, :_destroy],
        production_ids: [],
       
-      :plasmid_box_attributes => [:id, :name],
+      :pbox_attributes => [:id, :name],
       
       :format_attributes => [:id, :name],
       
@@ -283,7 +283,7 @@ end
     end
     
     def load_box
-      @box = PlasmidBox.find(@plasmid_batch.plasmid_box_id)
+      @box = PlasmidBox.find(@plasmid_batch.pbox_id)
     end
     
     def load_plasmid_batch

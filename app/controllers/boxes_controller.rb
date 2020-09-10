@@ -95,7 +95,7 @@ def edit
 end
 
 def update
-      @box.update_attributes(assay_params)
+      @box.update_attributes(box_params)
      if @box.valid?
       flash.keep[:success] = "Task completed!"
     else

@@ -16,7 +16,7 @@ def new
 end
 
 def create
-  @plasmid_box = Box.create(box_params)
+  @plasmid_box = Box.create(plasmid_box_params)
   if @plasmid_box.valid?
     flash.keep[:success] = "Task completed!"
   else

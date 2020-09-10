@@ -1,10 +1,6 @@
-<%= simple_form_for(@pbox) do |f| %>
+<%= simple_form_for(@plasmid_box) do |f| %>
   <%= f.error_notification %>
-   <ul>
-    <% @pbox.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
+
   <div class="form-inputs">
     <%= f.input :name %>
   </div>

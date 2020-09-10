@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   
+  resources :plasmid_boxes
+  resources :box_types
+  resources :positions
+  resources :shelves
+  resources :containers
+  resources :locations
+  resources :buildings
   resources :virus_batches do
     patch :update_box, :on => :member
     get :sorter, :on => :collection
@@ -45,13 +52,7 @@ Rails.application.routes.draw do
     get :fetch_virus_batches, :on => :member
     get :fetch_position
   end
-  resources :pboxes
-  resources :box_types
-  resources :positions
-  resources :shelves
-  resources :containers
-  resources :locations
-  resources :buildings
+  
   resources :qc_attachments
   resources :plasmid_batch_qcs do
     patch :validation_switch, :on => :collection

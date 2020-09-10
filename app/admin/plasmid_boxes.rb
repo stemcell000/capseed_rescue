@@ -1,11 +1,12 @@
-ActiveAdmin.register Pbox do
+ActiveAdmin.register PlasmidBox do
 #Import csv   
  active_admin_import validate: false,
               csv_options: {col_sep: ";" },
               before_batch_import: ->(importer) {
-                Pbox.where(id: importer.values_at('id')).delete_all
+                PlasmidBox.where(id: importer.values_at('id')).delete_all
                 
               }
+              
               
 #Add Button to site
 action_item do

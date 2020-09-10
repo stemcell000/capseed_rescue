@@ -19,6 +19,7 @@ def create
   @plasmid_box = PlasmidBox.create(plasmid_box_params)
   if @plasmid_box.valid?
     flash.keep[:success] = "Task completed!"
+    redirect_to clone_batches_path
   else
     render :action => 'new'
   end
@@ -29,9 +30,10 @@ def edit
 end
 
 def update
-     @box.update_attributes(assay_params)
-     if @box.valid?
+     @plasmid_box.update_attributes(assay_params)
+     if @plasmid_box.valid?
       flash.keep[:success] = "Task completed!"
+      redirect_to clone_batches_path
     else
       render :action => 'edit'
     end

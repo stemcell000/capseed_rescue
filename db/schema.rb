@@ -45,14 +45,6 @@ ActiveRecord::Schema.define(version: 20200430100018) do
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "assays_projects", force: :cascade do |t|
-    t.integer "assay_id"
-    t.integer "project_id"
-  end
-
-  add_index "assays_projects", ["assay_id"], name: "index_assays_projects_on_assay_id", using: :btree
-  add_index "assays_projects", ["project_id"], name: "index_assays_projects_on_project_id", using: :btree
-
   create_table "box_types", force: :cascade do |t|
     t.string   "name"
     t.integer  "max_position"
@@ -177,16 +169,6 @@ ActiveRecord::Schema.define(version: 20200430100018) do
   add_index "clone_batches_sequencings", ["clone_batch_id"], name: "index_clone_batches_sequencings_on_clone_batch_id", using: :btree
   add_index "clone_batches_sequencings", ["sequencing_id"], name: "index_clone_batches_sequencings_on_sequencing_id", using: :btree
 
-  create_table "clone_batches_users", force: :cascade do |t|
-    t.integer  "clone_batch_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "clone_batches_users", ["clone_batch_id"], name: "index_clone_batches_users_on_clone_batch_id", using: :btree
-  add_index "clone_batches_users", ["user_id"], name: "index_clone_batches_users_on_user_id", using: :btree
-
   create_table "clones", force: :cascade do |t|
     t.integer  "assay_id"
     t.string   "name"
@@ -231,12 +213,6 @@ ActiveRecord::Schema.define(version: 20200430100018) do
 
   create_table "cmeths", force: :cascade do |t|
     t.string "name"
-  end
-
-  create_table "columns", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "containers", force: :cascade do |t|
@@ -505,12 +481,6 @@ ActiveRecord::Schema.define(version: 20200430100018) do
   add_index "qc_attachments_sequencings", ["qc_attachment_id"], name: "index_qc_attachments_sequencings_on_qc_attachment_id", using: :btree
   add_index "qc_attachments_sequencings", ["sequencing_id"], name: "index_qc_attachments_sequencings_on_sequencing_id", using: :btree
 
-  create_table "rows", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "sequencings", force: :cascade do |t|
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
@@ -613,6 +583,8 @@ ActiveRecord::Schema.define(version: 20200430100018) do
     t.integer  "position_id"
     t.text     "recap"
   end
+
+  add_index "virus_batches", ["position_id"], name: "index_virus_batches_on_position_id", using: :btree
 
   create_table "virus_productions", force: :cascade do |t|
     t.integer  "production_id"

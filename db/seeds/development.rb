@@ -33,32 +33,7 @@
   Cmeth.create(name: "Gibson")
   Cmeth.create(name: "other")
   Cmeth.create(name: "unknown") 
- 
-  #Add columns
-  Column.create( name:"1")
-  Column.create( name:"2")
-  Column.create( name:"3")
-  Column.create( name:"4")
-  Column.create( name:"5")
-  Column.create( name:"6")
-  Column.create( name:"7")
-  Column.create( name:"8")
-  Column.create( name:"9")
-  Column.create(name: "None")
-  
-  
-  #Add rows
-  Row.create( name:"A")
-  Row.create( name:"B")
-  Row.create( name:"C")
-  Row.create( name:"D")
-  Row.create( name:"E")
-  Row.create( name:"F")
-  Row.create( name:"G")
-  Row.create( name:"H")
-  Row.create( name:"I")
-  Row.create(name: "None")
-  
+   
   #Formats
   Format.create(name: "mini")
   Format.create(name: "midi")

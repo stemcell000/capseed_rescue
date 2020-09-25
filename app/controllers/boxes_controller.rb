@@ -97,6 +97,8 @@ def update
     @box.update_attributes(box_params)
      if @box.valid?
       flash.keep[:success] = "Task completed!"
+     @box.generate_positions
+     redirect_to virus_productions_path 
     else
       render :action => 'edit'
     end

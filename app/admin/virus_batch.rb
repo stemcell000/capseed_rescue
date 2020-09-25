@@ -12,9 +12,7 @@ csv force_quotes: false, col_sep: ';', column_names: true do
   column :id
   column :name
   column :virus_production_id
-  column :box_id
-  column :row_id
-  column :column_id
+  column :position_id
   column :date
   column :volume
   column :created_at
@@ -24,6 +22,7 @@ csv force_quotes: false, col_sep: ';', column_names: true do
   column :trash
   column :barcode
   column :date_of_thawing
+  column :recap
 end              
 #Add Button to site
 action_item do

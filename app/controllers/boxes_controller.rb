@@ -25,13 +25,13 @@ def index
 end
 
 def box_inventory
-     @q = Box.ransack(params[:q])
-     @boxes = @q.result(distinct: true).order(:name).page(params[:page]).per(20)
-     @boxes = smart_listing_create(:boxes, @boxes, partial: "boxes/smart_listing/list", default_sort: {name: "desc"}, page_sizes: [20, 30, 50, 100])  
+ @q = Box.ransack(params[:q])
+ @boxes = @q.result(distinct: true).order(:name).page(params[:page]).per(20)
+ @boxes = smart_listing_create(:boxes, @boxes, partial: "boxes/smart_listing/list", default_sort: {name: "desc"}, page_sizes: [20, 30, 50, 100])  
 end
 
 def destroy
-  @box.destroy
+ @box.destroy
 end
 
 def fetch_virus_batches
@@ -50,12 +50,12 @@ def fetch_virus_batches
     @position_names = []
   end
     @virus_batches = VirusBatch.where(position_id: @position_ids)
-     @virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {name: "asc"}, page_sizes: [20, 30, 50, 100])
+    @virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {name: "asc"}, page_sizes: [20, 30, 50, 100])
 end
 
 def fetch_position
-@virus_batch = VirusBatch.find(params[:virus_batch_id])
-@box = Box.find(params[:box_id])
+  @virus_batch = VirusBatch.find(params[:virus_batch_id])
+  @box = Box.find(params[:box_id])
 if @box.box_type
     @box_type = @box.box_type
     @v_max = @box_type.vertical_max
@@ -77,7 +77,7 @@ def new
   @box = Box.new
 end
 
- def create
+def create
    @box = Box.create(box_params)
    if  @box.valid?
      flash.keep[:success] = "Box created !"
@@ -86,8 +86,7 @@ end
    else
      render action: "new"
    end
-   
- end
+end
 
 def edit
   
@@ -96,11 +95,11 @@ end
 def update
     @box.update_attributes(box_params)
      if @box.valid?
-      flash.keep[:success] = "Task completed!"
-     @box.generate_positions
-     redirect_to virus_productions_path 
+       flash.keep[:success] = "Task completed!"
+       @box.generate_positions
+       redirect_to virus_productions_path 
     else
-      render :action => 'edit'
+        render :action => 'edit'
     end
 end
 
@@ -108,8 +107,7 @@ def show
   
 end
  
-  private
-
+private
     def box_params
       params.require(:box).permit(:name, :box_type_id, :barcode, :box_type_id, :shelf_id)
     end

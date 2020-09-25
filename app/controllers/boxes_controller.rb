@@ -4,7 +4,7 @@ class BoxesController < InheritedResources::Base
     include SmartListing::Helper::ControllerExtensions
     helper  SmartListing::Helper
     
-    before_action :set_box, only:[:delete, :edit, :show]
+    before_action :set_box, only:[:delete, :edit, :show, :update]
 
   
 def index
@@ -94,7 +94,7 @@ def edit
 end
 
 def update
-      @box.update_attributes(box_params)
+    @box.update_attributes(box_params)
      if @box.valid?
       flash.keep[:success] = "Task completed!"
     else

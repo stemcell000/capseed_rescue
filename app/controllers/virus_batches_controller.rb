@@ -123,7 +123,7 @@ def destroy_from_inventory
     @h_max = @box_type.horizontal_max
     
     @position_ids = @box.position_ids
-    @position_names = @box.positions.map{|p|p.name.upcase()}
+    @position_names = @box.positions.sort_by{|position| position.nb}.map{|p|p.name.upcase()}
     
     @position_batch_ids = @box.positions.ids
    end

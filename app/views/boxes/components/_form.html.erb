@@ -8,7 +8,12 @@
     <%= f.input :barcode %>
   </div>
     <div class="form-inputs">
-    <%= f.association :box_type, :collection=>BoxType.all, :input_html => {class: "select2-select"} %>
+    	<% if @box.persisted? %>
+    		<%= f.association :box_type, label_method: :name, disabled: true %>
+    		<%= f.association :box_type, label_method: :name, as: :hidden %>
+    	<%else%>
+    		<%= f.association :box_type, :collection=>BoxType.all, :input_html => {class: "select2-select"}  %>
+    	<%end%>
   </div>
     <div class="form-inputs">
     <%= f.association :shelf,

@@ -1,4 +1,3 @@
-
 $("#vb-container").html("<%= escape_javascript( render :partial => "virus_batches/components/content_inventory", :locals => {:virus_batches => @virus_batches})%>")
 //
 <%if @box%>
@@ -9,10 +8,10 @@ console.log("refreshing map");
 	var arr2 =  <%= raw @position_names%>;
 	var arr3 = 	<%= raw @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name} %>;
 	var arr4 = 	<%= raw  @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.id} %>;
-	
 	var box_id= <%= @box.id%>;
 	var debug = false
-	
+console.log("position_id : "+arr1);
+console.log("position_name : "+arr2);	
 	if(debug){
 	console.log('arr1 length = '+arr1.length);
 	console.log('arr1 = '+arr1);

@@ -1,5 +1,5 @@
 class Box < ActiveRecord::Base
-  has_many :positions
+  has_many :positions, :dependent => :destroy
   belongs_to :box_type
   belongs_to :shelf
   validates :name, :box_type, :presence => true

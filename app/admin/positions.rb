@@ -1,4 +1,5 @@
 ActiveAdmin.register Position do
+  actions :all, :except => [:destroy, :edit, :new]   
 #Import csv   
  active_admin_import validate: false,
               csv_options: {col_sep: ";" },
@@ -13,8 +14,7 @@ csv force_quotes: false, col_sep: ';', column_names: true do
     column :nb
     column :box_name
   end
-              
-              
+                 
 #Add Button to site
 action_item do
   link_to "View Site", "/"

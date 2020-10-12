@@ -8,18 +8,15 @@ class BoxesController < InheritedResources::Base
 
   
 def index
-
      @q = Box.ransack(params[:q])
-      
      @boxes = @q.result(distinct: true)
-     
      if params[:q].blank?
       @virus_batches = VirusBatch.all  
      else
       positions = Position.where(box_id: @boxes.pluck(:id)) 
       @virus_batches = VirusBatch.where(position_id: positions.pluck(:id))
      end
-      @boxes = @boxes.includes(:positions).order(:name)
+      @boxes = @boxes.includes(:positions)
       @virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {id: "asc"}, page_sizes: [20, 30, 50, 100])
       @boxes = smart_listing_create(:boxes, @boxes, partial: "boxes/smart_listing/list", default_sort: {name: "asc"}, page_sizes: [10, 20, 30, 50, 100])
 end

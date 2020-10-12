@@ -1,6 +1,5 @@
  <%= search_form_for @q, :url => search_tube_virus_batches_path, :class => "form-inline" ,:remote => true do |f| %>
 <small>
-
  <div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<h3><i class="fa_icon fa fa-search"></i> Virus batches</h3>
@@ -11,7 +10,6 @@
 		<div class="col-lg-12 col-md-12 col-sm-12">
 				<%= f.search_field :name_cont, class: "col-lg-12 col-md-12 col-sm-12", placeholder: "Search any terms."%>
 		</div>
-		<div id = "hidden-data"></div>
 </div>
 
 <div class="row">

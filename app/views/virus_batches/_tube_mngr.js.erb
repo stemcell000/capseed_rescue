@@ -9,7 +9,7 @@ console.log("refreshing map");
 	var arr3 = 	<%= raw @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name} %>;
 	var arr4 = 	<%= raw  @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.id} %>;
 	var box_id= <%= @box.id%>;
-	var debug = false
+	var debug = true
 console.log("position_id : "+arr1);
 console.log("position_name : "+arr2);	
 	if(debug){
@@ -42,7 +42,6 @@ $('.location-label').each(function(index){
 	console.log('Ajout des noms de batch des elts location-label');
 	$(this).append(arr2[index]);
 });
-
 
 $('.empty-slot').droppable({
 		drop: function(event, ui){

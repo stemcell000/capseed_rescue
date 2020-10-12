@@ -21,7 +21,7 @@ def index
      end
       @boxes = @boxes.includes(:positions).order(:name)
       @virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {id: "asc"}, page_sizes: [20, 30, 50, 100])
-      @boxes = smart_listing_create(:boxes, @boxes, partial: "boxes/smart_listing/list", default_sort: {name: "desc"}, page_sizes: [10, 20, 30, 50, 100])
+      @boxes = smart_listing_create(:boxes, @boxes, partial: "boxes/smart_listing/list", default_sort: {name: "asc"}, page_sizes: [10, 20, 30, 50, 100])
 end
 
 def box_inventory

@@ -122,10 +122,9 @@ def destroy_from_inventory
     @v_max = @box_type.vertical_max
     @h_max = @box_type.horizontal_max
     
-    @position_ids = @box.position_ids
-    @position_names = @box.positions.sort_by{|position| position.nb}.map{|p|p.name.upcase()}
-    
-    @position_batch_ids = @box.positions.ids
+    @position_ids = @box.positions.order(:nb).pluck(:id)
+    @position_names = @box.positions.order(:nb).map{|p|p.name.upcase()}
+    @position_batch_ids = @box.positions.order(:nb).pluck(:id)
    end
     @users = User.all
      set_unsorted_collection 
@@ -151,7 +150,7 @@ def destroy_from_inventory
     @v_max = @box_type.vertical_max
     @h_max = @box_type.horizontal_max
     #
-    @position_ids = @box.position_ids
+    @position_ids = @box.positions.order(:nb).pluck(:id)
     @position_names = @box.positions.map{|p|p.name.upcase()}
     @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
     #
@@ -178,7 +177,7 @@ def destroy_from_inventory
     end
     
     def set_unsorted_collection
-      @virus_batches = VirusBatch.where(trash: false).where(position_id: nil).order(:name)
+      @virus_batches = VirusBatch.where(trash: false).where(position_id: nil).order(:id)
       @arr = @virus_batches.each_slice(5).to_a
     end
 end

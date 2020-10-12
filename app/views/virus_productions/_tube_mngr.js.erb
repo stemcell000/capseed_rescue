@@ -1,20 +1,21 @@
 //Affichage du partial 
 $("#map-container").html("<%= escape_javascript( render :partial =>  "virus_productions/components/map", :locals => {:box => @box, :box_type => @box_type, :v_max => @v_max, :h_max => @h_max, :position_ids => @position_ids, :position_names => @position_names, :position_batch_names => @position_batch_names}) %>")
 $("#vb-container").html("<%= escape_javascript( render :partial => "virus_productions/components/content_inventory", :locals => {:virus_batches => @virus_batches})%>")	
-	$('[data-toggle="popover"]').popover({html:true});
-	var arr1 =  <%= raw @position_ids %>;
-	var arr2 =  <%= raw @position_names%>;
-	var arr3 = 	<%= raw @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name} %>;
-	var arr4 = 	<%= raw  @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.id} %>;
+$('[data-toggle="popover"]').popover({html:true});
+	
+	var arr1 =  <%= raw @box.position_ids  %>;
+	var arr2 =  <%= raw @box.positions.order(:nb).map{|p| p.name.upcase} %>;
+ 	var arr3 = <%= raw @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}%>
+	var arr4 = <%= raw @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.id} %>
 	
 	var box_id= <%= @box.id%>;
 	var vp_id = <%= @virus_production.id%>
-	var debug = true
+	var debug = false
 	
 	if(debug){
 	console.log('arr1 length = '+arr1.length);
 	console.log('arr1 = '+arr1);
-	console.log('arr2 length = '+arr2.length); 
+	console.log('arr2 length = '+arr2.length);
 	console.log('arr2 = '+arr2);
 	console.log('arr3 length = '+arr3.length);
 	console.log('arr3 = '+arr3);
@@ -23,11 +24,11 @@ $("#vb-container").html("<%= escape_javascript( render :partial => "virus_produc
 	console.log('box_id = '+box_id);
 	console.log('hmax = <%=@h_max%>');
 	console.log('vmax = <%=@v_max%>');
-	}
+	};
 
 $('.slot').each(function(index){
 	console.log('Ajout du dataset des elts draggableContainer');
-	$(this).attr({'data-id': arr1[index], 'data-name': arr2[index]});
+	$(this).attr({'data-id': arr1[index], 'data-name': arr2[index], 'data-box': box_id});
 	if(arr3[index]){
 		$(this).append("<%= escape_javascript(render :partial => "virus_productions/components/tube")%>")
 		$(this).find('.location').append(arr3[index]);
@@ -43,7 +44,7 @@ $('.location-label').each(function(index){
 });
 
 $('.dot').each(function(index){
-	
+
 });
 
 $('.draggable').draggable({
@@ -62,8 +63,10 @@ $('.empty-slot').droppable({
 		drop: function(event, ui){
 			console.log('Dropped');
 			$(this).effect( "highlight",  {color: '#e7f5fe'}, 1000);
-			console.log('data-id = '+this.dataset.id);
-			console.log('data-name = '+this.dataset.name);
+			console.log('dataset.id = '+this.dataset.id);
+			console.log('dataset.name = '+this.dataset.name);
+			console.log('data(id) = '+$(this).data('id'));
+			console.log('box_id = '+box_id);
 			console.log('vb_id = '+vb_id);
 			//
 			param = {position_id: $(this).data('id'), virus_batch_id: vb_id, box_id: box_id};

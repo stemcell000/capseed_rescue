@@ -6,9 +6,11 @@ module VirusBatchesHelper
     box1_pos = box1.positions
     box2_pos = box2.positions
     box1_pos.each_with_index do |pos, index|
-    vb = pos.virus_batch
-    vb.position = box2_pos[index]
-    vb.save!
+      if pos.virus_batch
+        vb = pos.virus_batch
+        vb.position = box2_pos[index]
+        vb.save!
+      end
     end
   end
 end

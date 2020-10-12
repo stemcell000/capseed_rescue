@@ -7,7 +7,7 @@ module VirusBatchesHelper
     box2_pos = box2.positions
     box1_pos.each_with_index do |pos, index|
     vb = pos.virus_batch
-    vb.position = box2_virus_batch[index]
+    vb.position = box2_pos[index]
     vb.save!
     end
   end

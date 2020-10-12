@@ -1,5 +1,5 @@
 ActiveAdmin.register Box do
-actions :all, :except => [:destroy, :edit]   
+actions :all, :except => [:destroy, :new]   
 #Import csv   
  active_admin_import validate: false,
               csv_options: {col_sep: ";" },

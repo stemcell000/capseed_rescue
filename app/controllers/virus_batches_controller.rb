@@ -2,7 +2,7 @@ class VirusBatchesController < InheritedResources::Base
   
    before_action :set_objects, only:[:edit_from_inventory, :sort_tube, :update_from_inventory]
    before_action :set_collections, only:[ :update_from_inventory, :destroy_from_inventory]
-   before_action :set_unsorted_collection, only:[:sorter, :map_tube, :update_box]
+   #before_action :set_unsorted_collection, only:[:sorter, :map_tube, :update_box]
    
     #Smart_listing
     include SmartListing::Helper::ControllerExtensions
@@ -82,24 +82,6 @@ def update_from_inventory
    end
 end
 
-def update_box
-  position = Position.find(params[:position_id])
-    if position.virus_batch
-      position.build_virus_batch
-    end
-  @virus_batch.position = position
-  @virus_batch.save!
-  @virus_production = @virus_batch.virus_production
-  @virus_batches = @virus_production.virus_batches
-  @box = Box.find(params[:box_id])
-  @box_type = @box.box_type
-  @v_max = @box_type.vertical_max
-  @h_max = @box_type.horizontal_max
-  @position_ids = @box.position_ids
-  @position_names = @box.positions.map{|p|p.name.upcase()}
-  @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
-  @arr = @virus_batches.each_slice(4).to_a
-end
 
 def destroy_from_inventory
     @virus_batch.toggle!(:trash)
@@ -113,48 +95,31 @@ def destroy_from_inventory
  end
   
  def sorter
+   set_box_map
  end
  
  def map_tube
-   if params[:box_id]
-    @box = Box.find(params[:box_id])
-    @box_type = @box.box_type
-    @v_max = @box_type.vertical_max
-    @h_max = @box_type.horizontal_max
-    
-    @position_ids = @box.positions.order(:nb).pluck(:id)
-    @position_names = @box.positions.order(:nb).map{|p|p.name.upcase()}
-    @position_batch_ids = @box.positions.order(:nb).pluck(:id)
-   end
-    @users = User.all
-     set_unsorted_collection 
+    set_box_map
+    respond_to do |format|
+      format.js
+    end
   end
   
   def update_box
   @virus_batch = VirusBatch.find(params[:virus_batch_id])    
     if params[:position_id]
       position = Position.find(params[:position_id])
-      if position.virus_batch
-        position.build_virus_batch
-      end
     else
-      @virus_batch.update_columns(:position_id => nil)
+      @virus_batch.position.delete
     end
     #
     @virus_batch.position = position
     @virus_batch.save!
+    set_box_map
     #
-    @box = Box.find(params[:box_id])
-    @box_type = @box.box_type
-    #
-    @v_max = @box_type.vertical_max
-    @h_max = @box_type.horizontal_max
-    #
-    @position_ids = @box.positions.order(:nb).pluck(:id)
-    @position_names = @box.positions.map{|p|p.name.upcase()}
-    @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
-    #
-    set_unsorted_collection
+    respond_to do |format|
+      format.js
+    end
   end
   
   def unsort
@@ -182,9 +147,21 @@ def destroy_from_inventory
       @arr = @virus_batches.each_slice(4).to_a
     end
     
-    def set_unsorted_collection
+    def set_box_map
       @virus_batches = VirusBatch.where(trash: false).where(position_id: nil).order(:id)
       @arr = @virus_batches.each_slice(5).to_a
+      if params[:box_id]
+        @box = Box.find(params[:box_id])
+        @box_type = @box.box_type
+        @v_max = @box_type.vertical_max
+        @h_max = @box_type.horizontal_max
+    
+        @position_ids = @box.position_ids
+        @position_names = @box.positions.map{|p| p.name.upcase}
+        @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
+        @position_batch_ids = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.id}
+        @arr = @virus_batches.each_slice(4).to_a
+        @users = User.all
+      end
     end
 end
-

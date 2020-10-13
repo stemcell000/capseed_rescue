@@ -4,10 +4,11 @@ $("#map-container").html("<%= escape_javascript( render :partial =>  "virus_prod
 
 $('[data-toggle="popover"]').popover({html:true});
 	
-	var arr1 =  <%= raw @box.position_ids  %>;
-	var arr2 =  <%= raw @box.positions.map{|p| p.name.upcase} %>;
- 	var arr3 = <%= raw @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}%>
-	var arr4 = <%= raw @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.id} %>
+	
+	  	var arr1 =  <%= raw @position_ids  %>
+  		var arr2 =  <%= raw @position_names %>
+  		var arr3 = <%= raw @position_batch_names%>
+ 		var arr4 = <%= raw @position_batch_ids %>
 	
 	var box_id= <%= @box.id%>;
 	

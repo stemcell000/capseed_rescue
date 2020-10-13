@@ -188,12 +188,13 @@ class VirusProductionsController < InheritedResources::Base
     @h_max = @box_type.horizontal_max
 
     @position_ids = @box.position_ids
-    @position_names = @box.positions.order(:nb).map{|p| p.name.upcase}
+    @position_names = @box.positions.map{|p| p.name.upcase}
     @virus_batches = @virus_production.virus_batches
-    @position_batch_names = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
+    @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
     @position_batch_ids = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.id}
     @arr = @virus_batches.each_slice(4).to_a
     @users = User.all
+    
 end
    
   private

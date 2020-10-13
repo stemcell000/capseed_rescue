@@ -1,6 +1,7 @@
 //Affichage du partial 
-$("#map-container").html("<%= escape_javascript( render :partial =>  "virus_productions/components/map", :locals => {:box => @box, :box_type => @box_type, :v_max => @v_max, :h_max => @h_max, :position_ids => @position_ids, :position_names => @position_names, :position_batch_names => @position_batch_names}) %>")
-$("#vb-container").html("<%= escape_javascript( render :partial => "virus_productions/components/content_inventory", :locals => {:virus_batches => @virus_batches})%>")	
+$("#vb-container").html("<%= escape_javascript( render :partial => "virus_productions/components/content_inventory", :locals => {:virus_batches => @virus_batches})%>");
+$("#map-container").html("<%= escape_javascript( render :partial =>  "virus_productions/components/map", :locals => {:box => @box, :box_type => @box_type, :v_max => @v_max, :h_max => @h_max, :position_ids => @position_ids, :position_names => @position_names, :position_batch_names => @position_batch_names}) %>");
+
 $('[data-toggle="popover"]').popover({html:true});
 	
 	var arr1 =  <%= raw @box.position_ids  %>;
@@ -45,9 +46,6 @@ $('.location-label').each(function(index){
 	$(this).append(arr2[index]);
 });
 
-$('.dot').each(function(index){
-
-});
 
 $('.draggable').draggable({
 	appendTo: 'body',
@@ -88,6 +86,7 @@ $('.empty-slot').droppable({
 			$(this).attr('class', 'bg-default')
 		}
 	});
+	
 	
 //Drag and Drop
 function updateBox(id, param){

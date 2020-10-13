@@ -157,6 +157,12 @@ def destroy_from_inventory
     set_unsorted_collection
   end
   
+  def unsort
+    @virus_batch = VirusBatch.find(params[:virus_batch_id])
+    @virus_batch.position = position
+    @virus_batch.save!
+  end
+  
   private
     def virus_batch_params
       params.require(:virus_batch).permit(:id, :name, :barcode, :volume, :virus_production_id, :box_id, :position_id, :trash, :vol_unit_id, :comment, :date, :date_of_thawing,

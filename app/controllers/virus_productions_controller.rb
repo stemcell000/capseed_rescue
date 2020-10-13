@@ -1,10 +1,10 @@
 class VirusProductionsController < InheritedResources::Base
  
    before_action :set_virus_production, only:[:edit, :destroy, :edit_from_inventory, :add_vb_from_inventory, :spawn_dosage, :update, :update_from_inventory, :create_dosage,
-                                                :sort_tube, :map_tube, :update_box, :hide_from_inventory]
+                                                :sort_tube, :map_tube, :update_box, :unsort, :hide_from_inventory]
    before_action :set_option, only:[:index, :update_from_inventory, :edit_from_inventory, :hide_from_inventory]
    
-   before_action :set_box_map, only:[:map_tube, :update_box]
+   #before_action :set_box_map, only:[:map_tube, :update_box]
    
   #Smart_listing
   include SmartListing::Helper::ControllerExtensions
@@ -152,21 +152,26 @@ class VirusProductionsController < InheritedResources::Base
   end
   
   def map_tube
+    set_box_map
+    respond_to do |format|
+      format.js
+    end
   end
   
   def update_box
     position = Position.find(params[:position_id])
-   # if position.virus_batch
-    #  position.build_virus_batch
-   # end
-    #
     @virus_batch = VirusBatch.find(params[:virus_batch_id])
     @virus_batch.position = position
     @virus_batch.save!
+    set_box_map
     #
+    respond_to do |format|
+      format.js
+    end
   end
   
-   
+  def
+  
  def hide_from_inventory
     unless @option.virus_productions.where(:id => @virus_production.id).exists?
       @option.virus_productions << @virus_production
@@ -175,6 +180,21 @@ class VirusProductionsController < InheritedResources::Base
     end
           redirect_to virus_productions_path
  end
+ 
+ def set_box_map
+    @box = Box.find(params[:box_id])
+    @box_type = @box.box_type
+    @v_max = @box_type.vertical_max
+    @h_max = @box_type.horizontal_max
+
+    @position_ids = @box.position_ids
+    @position_names = @box.positions.order(:nb).map{|p| p.name.upcase}
+    @virus_batches = @virus_production.virus_batches
+    @position_batch_names = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
+    @position_batch_ids = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.id}
+    @arr = @virus_batches.each_slice(4).to_a
+    @users = User.all
+end
    
   private
  
@@ -196,21 +216,6 @@ class VirusProductionsController < InheritedResources::Base
  def set_option
    @option = current_user.options.first
  end
- 
-def set_box_map
-    @box = Box.find(params[:box_id])
-    @box_type = @box.box_type
-    @v_max = @box_type.vertical_max
-    @h_max = @box_type.horizontal_max
-
-    @position_ids = @box.position_ids
-    @position_names = @box.positions.order(:nb).map{|p| p.name.upcase}
-    @virus_batches = @virus_production.virus_batches
-    @position_batch_names = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
-    @position_batch_ids = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.id}
-    @arr = @virus_batches.each_slice(4).to_a
-    @users = User.all
-end
  
 end
 

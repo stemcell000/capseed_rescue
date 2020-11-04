@@ -8,11 +8,3 @@
 		$("#assay-modal").modal("show")
 		$("ul.errors").html("")
 		
-$("#virus_batch_box_id").on('change', function() {
-  console.log(this.value);
-  $.ajax({
-			type: 'get',
-			url : '/virus_batches/fetch_positions',
-			data: { box_id: +this.value}
-			});
-});

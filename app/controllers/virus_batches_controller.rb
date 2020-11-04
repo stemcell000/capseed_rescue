@@ -72,7 +72,7 @@ def update_from_inventory
   @virus_production  = VirusProduction.find(params[:virus_production_id])
   @virus_batches = @virus_production.virus_batches
   @virus_batch.update_attributes(virus_batch_params)
-  
+  @arr = @virus_batches.each_slice(4).to_a
   if @virus_batch.valid?
     @units = Unit.all
     @virus_batch.generate_recap(@virus_production)

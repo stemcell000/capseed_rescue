@@ -12,7 +12,6 @@ class VirusProductionsController < InheritedResources::Base
   
  def index
    #"between search": recherche dans un range de dates
-      
       #Formattage des dates
       start_time = params[:created_at_gteq].to_date rescue Date.current
       start_time = start_time.beginning_of_day # sets to 00:00:00

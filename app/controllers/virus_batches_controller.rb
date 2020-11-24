@@ -148,7 +148,7 @@ def destroy_from_inventory
     end
     
     def set_box_map
-      @virus_batches = VirusBatch.where(trash: false).where(position_id: nil).order(:id)
+      @virus_batches = VirusBatch.where(trash: false).where(position_id: nil).order(:name)
       @arr = @virus_batches.each_slice(5).to_a
       if params[:box_id]
         @box = Box.find(params[:box_id])

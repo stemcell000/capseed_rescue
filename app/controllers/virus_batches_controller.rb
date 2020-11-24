@@ -110,7 +110,7 @@ def destroy_from_inventory
     if params[:position_id]
       position = Position.find(params[:position_id])
     else
-      @virus_batch.position.delete
+      @virus_batch.update_columns(position_id: nil)
     end
     #
     @virus_batch.position = position

@@ -5,7 +5,7 @@ class ProductionsController < InheritedResources::Base
   before_action :production_params, only:[:create, :update_row_order, :update, :add_pbs, :update_pb_volumes]
   before_action :production_position_params, only:[:move_higher, :move_lower, :move_highest, :move_lowest ]
   before_action :set_production, only:[:edit, :edit_pb_volumes, :update, :add_plasmid, :virus_production, :select_pbs, :add_pbs, :destroy, :reset_volume, :close, :create_vp, :update_pb_volume, :set_pb_volume,
-    :add_pbs, :move_higher, :move_lower, :move_highest, :move_lowest]
+    :add_pbs, :move_higher, :move_lower, :move_highest, :move_lowest, :lock]
   
 #Smart_listing
   #include SmartListing::Helper::ControllerExtensions
@@ -314,6 +314,15 @@ end
       inform_closed_production    
     end
  end
+
+ def lock
+  if @production.last_step > 3
+    @production.update_columns(last_step: 3)
+  else
+    @production.update_columns(last_step: 2)
+  end
+  redirect_to :action => "virus_production"
+end
  
   def inform_closed_production
     @production = Production.find(params[:id])

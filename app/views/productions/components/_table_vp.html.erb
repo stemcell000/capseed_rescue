@@ -38,12 +38,14 @@
 										:remote => true
 							%>
 							<%end%>
-							<%= link_to "Edit", 
-										 edit_production_virus_production_path(:id =>vp.id, :production_id => vp.production_id),
-										:class =>"btn btn-success btn-xs",
-										:title=>"Edit virus production.",
-										:remote => true
-							%>
+							<% unless @production.last_step == 3 %>
+								<%= link_to "Edit", 
+											 edit_production_virus_production_path(:id =>vp.id, :production_id => vp.production_id),
+											:class =>"btn btn-success btn-xs",
+											:title=>"Edit virus production.",
+											:remote => true
+								%>
+							<%end%>
 							<%= link_to "Add/Modify Titers", 
 										 spawn_dosage_virus_production_path(:id =>vp.id, :production_id => vp.production_id),
 										:class =>"btn btn-primary btn-xs",

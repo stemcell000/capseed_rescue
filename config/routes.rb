@@ -198,7 +198,8 @@ Rails.application.routes.draw do
             get :edit_pb_volume, :on => :member
             patch :update_from_inventory, :on => :member 
     end
-    
+    get :lock, :on => :member
+
     resources :projects
     
     resources :virus_productions do

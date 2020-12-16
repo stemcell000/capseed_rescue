@@ -103,7 +103,7 @@ def update_from_inventory
     end
     @clone_batch = @plasmid_batch.clone_batch
     flash.keep[:success] = "Task completed!"
-    redirect_to add_pb_from_inventory_clone_batch_path(:id => @plasmid.id)
+    redirect_to add_pb_from_inventory_clone_batch_path(:id => @clone_batch.id)
   else
     render :action => 'edit_from_inventory'
   end

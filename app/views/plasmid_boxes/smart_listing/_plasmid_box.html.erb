@@ -1,5 +1,5 @@
   <td><small><%=object.name%></small></td>
-  <td><small><%= object.barcode %></small></td>
+  <td><small><%= object.barcode %><%= object.id %></small></td>
 <td class="actions text-right">
 	<% if can? :manage, PlasmidBox%>
 	  	<%= smart_listing_item_actions [

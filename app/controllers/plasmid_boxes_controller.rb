@@ -20,7 +20,7 @@ def create
   @plasmid_box = PlasmidBox.create(plasmid_box_params)
   if @plasmid_box.valid?
     flash.keep[:success] = "Task completed!"
-    redirect_to clone_batches_path
+    redirect_to plasmid_boxes_path
   else
     render :action => 'new'
   end
@@ -46,7 +46,7 @@ end
     end
     
     def set_plasmid_box
-      @plasmid_box = Box.find(params[:id])
+      @plasmid_box = PlasmidBox.find(params[:id])
     end
 end
 

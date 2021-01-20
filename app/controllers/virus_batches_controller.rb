@@ -2,7 +2,6 @@ class VirusBatchesController < InheritedResources::Base
   
    before_action :set_objects, only:[:edit_from_inventory, :sort_tube, :update_from_inventory]
    before_action :set_collections, only:[ :update_from_inventory, :destroy_from_inventory]
-   #before_action :set_unsorted_collection, only:[:sorter, :map_tube, :update_box]
    
     #Smart_listing
     include SmartListing::Helper::ControllerExtensions
@@ -149,7 +148,6 @@ def destroy_from_inventory
     
     def set_box_map
       @virus_batches = VirusBatch.where(trash: false).where(position_id: nil).order(:name)
-      @arr = @virus_batches.each_slice(5).to_a
       if params[:box_id]
         @box = Box.find(params[:box_id])
         @box_type = @box.box_type

@@ -5,7 +5,6 @@ actions :all, :except => [:destroy, :new]
               csv_options: {col_sep: ";" },
               before_batch_import: ->(importer) {
                 Box.where(id: importer.values_at('id')).delete_all
-                
               }
 csv force_quotes: false, col_sep: ';', column_names: true do
     column :id
@@ -14,8 +13,7 @@ csv force_quotes: false, col_sep: ';', column_names: true do
     column :box_type_id
     column :shelf_id
   end
-              
-              
+                  
 #Add Button to site
 action_item do
   link_to "View Site", "/"

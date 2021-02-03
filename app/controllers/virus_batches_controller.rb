@@ -87,7 +87,7 @@ def destroy_from_inventory
     if @virus_batch.trash
       @virus_batch.update_columns(:volume => 0)
       if @virus_batch.position
-        @virus_batch.position.delete
+        @virus_batch.update_attributes(position_id: nil)
        end
     end
     redirect_to add_vb_from_inventory_virus_production_url(@virus_production.id)
@@ -123,7 +123,7 @@ def destroy_from_inventory
   
   def unsort
     @virus_batch = VirusBatch.find(params[:virus_batch_id])
-    @virus_batch.position = position
+    @virus_batch.position = nil
     @virus_batch.save!
   end
   
@@ -148,6 +148,7 @@ def destroy_from_inventory
     
     def set_box_map
       @virus_batches = VirusBatch.where(trash: false).where(position_id: nil).order(:name)
+      @arr = @virus_batches.each_slice(4).to_a
       if params[:box_id]
         @box = Box.find(params[:box_id])
         @box_type = @box.box_type
@@ -158,7 +159,6 @@ def destroy_from_inventory
         @position_names = @box.positions.map{|p| p.name.upcase}
         @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
         @position_batch_ids = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.id}
-        @arr = @virus_batches.each_slice(4).to_a
         @users = User.all
       end
     end

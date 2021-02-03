@@ -4,8 +4,6 @@ class VirusProductionsController < InheritedResources::Base
                                                 :sort_tube, :map_tube, :update_box, :unsort, :hide_from_inventory]
    before_action :set_option, only:[:index, :update_from_inventory, :edit_from_inventory, :hide_from_inventory]
    
-   #before_action :set_box_map, only:[:map_tube, :update_box]
-   
   #Smart_listing
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper

@@ -12,7 +12,7 @@ csv force_quotes: false, col_sep: ';', column_names: true do
     column :name
     column :box_id
     column :nb
-    column :box_name
+    column (:box) {|position| position.box.name}
   end
                  
 #Add Button to site

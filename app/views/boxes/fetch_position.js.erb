@@ -10,6 +10,7 @@ $("#map-container").html("<%= escape_javascript( render :partial =>  "boxes/comp
 	var arr1 =  <%= raw @position_ids.to_json %>;
 	var arr2 =  <%= raw @position_names.to_json %>;
 	var arr3 = 	<%= raw @position_batch_names.to_json %>;
+	var arr4 = 	<%= raw @position_nbs.to_json %>;
 	var box_id= <%=@box.id %>;
 	
 	console.log('arr1 length = '+arr1.length);
@@ -30,7 +31,7 @@ $('.location').each(function(index){
 $('.slot').each(function(index){
 	console.log('Ajout du dataset');
 	$(this).attr('id',arr1[index]);
-	$(this).attr({'data-id': arr1[index], 'data-name': arr2[index]});
+	$(this).attr({'data-id': arr1[index], 'data-name': arr2[index], 'data-nb': arr4[index]});
 });
 
 $("#<%=@virus_batch.position.id%>").css('background-color', '#FDC6F1');

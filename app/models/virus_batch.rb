@@ -2,9 +2,6 @@ class VirusBatch < ActiveRecord::Base
   belongs_to :virus_production
   belongs_to :vol_unit
   belongs_to :position
-
-  after_create :relocate
-  after_update :relocate
   
   accepts_nested_attributes_for :virus_production
   accepts_nested_attributes_for :position

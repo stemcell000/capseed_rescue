@@ -8,7 +8,7 @@
 		
 <div class="row">
 		<div class="col-lg-12">
-				<%= f.search_field :number_or_recap_or_plasmid_tag_or_plasmid_batch_tag_or_rev_plasmid_tag_or_rev_plasmid_batch_tag_or_production_name_or_virus_batches_barcode_has_any_term, class: "col-lg-12 col-md-12 col-sm-12", placeholder: "Search any terms."%>
+				<%= f.search_field :number_or_recap_or_plasmid_tag_or_plasmid_batch_tag_or_rev_plasmid_tag_or_rev_plasmid_batch_tag_or_production_name_has_any_term, class: "col-lg-12 col-md-12 col-sm-12", placeholder: "Search any terms."%>
 		</div>
 </div>
 
@@ -27,21 +27,25 @@
     <div id="collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading">
       	<div class="panel-body">
 <div class="row">
-	<div class="col-lg-3 col-md-3 col-sm-3">
+	<div class="col-lg-2 col-md-2 col-sm-2">
 			<%= f.label "Number" %>
-  			<%= f.search_field :number_has_any_term, :class => "col-lg-5" %>
+  			<%= f.search_field :number_has_any_term, :class => "col-lg-12" %>
   	</div>
-  	<div class="col-lg-3 col-md-3 col-sm-3">
+  	<div class="col-lg-2 col-md-2 col-sm-2">
+			<%= f.label "Production name" %>
+  			<%= f.search_field :production_name_has_any_term, :class => "col-lg-12" %>
+  	</div>
+  	<div class="col-lg-2 col-md-2 col-sm-2">
 			<%= f.label "Barcode" %>
-  			<%= f.search_field :virus_batches_barcode_has_any_term, :class => "col-lg-5" %>
+  			<%= f.search_field :virus_batches_barcode_has_any_term, :class => "col-lg-12" %>
   	</div>
-  	<div class="col-lg-3 col-md-3 col-sm-3">
+  	<div class="col-lg-2 col-md-2 col-sm-2">
 			<%= f.label "Project" %>
-  			<%= f.select(:production_projects_id_eq, @projects_all, {:include_blank=>" "}, {:class => "select2-select col-lg-3"}) %>
+  			<%= f.select(:production_projects_id_eq, @projects_all, {:include_blank=>" "}, {:class => "select2-select col-lg-12"}) %>
   	</div>
-	<div class="col-lg-3 col-md-3 col-sm-3">
+	<div class="col-lg-2 col-md-2 col-sm-2">
 			<%= f.label 'Invoice'%>
-			<%= f.select(:invoice_eq ,[['', ''],['True', true], ['False', false]],{:include_blank => " "}, {:class => "select2-select"}) %>
+			<%= f.select(:invoice_eq ,[['', ''],['True', true], ['False', false]],{:include_blank => " "}, {:class => "select2-select col-lg-12"}) %>
 	</div>
 </div>
 

@@ -11,7 +11,7 @@ class VirusBatch < ActiveRecord::Base
   validates :name, :uniqueness => {message: "This name is already taken."}
   
 def generate_recap(vp)
-  block1 = "#{self.name}"
+  block1 = "#{self.name} "
   block2 = "#{ vp.number }"
   block3 = "#{vp.recap}"
   block = block1+block3

@@ -54,13 +54,19 @@ class VirusProductionsController < InheritedResources::Base
         
       @q = VirusProduction.ransack(params[:q])
       
-      @vps = @q.result.includes([:production, :plasmid_batches, :clone_batches, :sterilitytests, :genes, :user ]).where.not(:id => hidden_virus_ids)
+      @virus_productions = @q.result.includes([:production, :plasmid_batches, :clone_batches, :sterilitytests, :genes, :user ]).where.not(:id => hidden_virus_ids)
       
-      @vps  = @vps.limit(100) if current_user.options.first.display_limited_virus
+      @virus_productions  = @vps.limit(100) if current_user.options.first.display_limited_virus
         
       #Config de l'affichage des résultats.
-      @vps = smart_listing_create(:virus_productions, @vps, partial: "virus_productions/smart_listing/list", default_sort: {nb: "desc"}, page_sizes: [ 20, 30, 50, 100])  
+      @all_virus_productions = smart_listing_create(:virus_productions, @virus_productions, partial: "virus_productions/smart_listing/list", default_sort: {nb: "desc"}, page_sizes: [20, 30, 50, 100])  
 
+    respond_to do |format|
+      format.html
+      format.text
+      format.js
+      format.xls
+    end
   end
  
   def display_all_virus_switch
@@ -184,10 +190,10 @@ class VirusProductionsController < InheritedResources::Base
     @v_max = @box_type.vertical_max
     @h_max = @box_type.horizontal_max
 
-    @position_ids = @box.position_ids
-    @position_names = @box.positions.map{|p| p.name.upcase}
-    @virus_batches = @virus_production.virus_batches
-    @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
+    @position_ids = @box.positions.order(:nb).pluck(:id)
+    @position_nbs = @box.positions.order(:nb).pluck(:nb)
+    @position_names = @box.positions.order(:nb).map{|p|p.name.upcase()}
+    @position_batch_names = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
     @position_batch_ids = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.id}
     @arr = @virus_batches.each_slice(4).to_a
     @users = User.all

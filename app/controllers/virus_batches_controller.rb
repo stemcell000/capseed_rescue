@@ -154,10 +154,10 @@ def destroy_from_inventory
         @box_type = @box.box_type
         @v_max = @box_type.vertical_max
         @h_max = @box_type.horizontal_max
-    
-        @position_ids = @box.position_ids
-        @position_names = @box.positions.map{|p| p.name.upcase}
-        @position_batch_names = @box.positions.map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
+        @position_ids = @box.positions.order(:nb).pluck(:id)
+        @position_nbs = @box.positions.order(:nb).pluck(:nb)
+        @position_names = @box.positions.order(:nb).map{|p|p.name.upcase()}
+        @position_batch_names = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.name}
         @position_batch_ids = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.id}
         @users = User.all
       end

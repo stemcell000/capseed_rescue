@@ -56,7 +56,7 @@ class VirusProductionsController < InheritedResources::Base
       
       @virus_productions = @q.result.includes([:production, :plasmid_batches, :clone_batches, :sterilitytests, :genes, :user ]).where.not(:id => hidden_virus_ids)
       
-      @virus_productions  = @vps.limit(100) if current_user.options.first.display_limited_virus
+      @virus_productions  = @virus_productions.limit(100) if current_user.options.first.display_limited_virus
         
       #Config de l'affichage des résultats.
       @all_virus_productions = smart_listing_create(:virus_productions, @virus_productions, partial: "virus_productions/smart_listing/list", default_sort: {nb: "desc"}, page_sizes: [20, 30, 50, 100])  

@@ -22,7 +22,6 @@
 //= require jquery.tokeninput
 //= require nprogress
 //= require nprogress-turbolinks
-//= require active_admin/select2
 //= require update_assays_row_position
 //= require update_productions_row_position
 //= require jquery_nested_form

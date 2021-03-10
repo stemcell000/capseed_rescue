@@ -84,6 +84,6 @@ gem "active_admin_import" , '3.0.0.pre'
 gem "font-awesome-rails"
 gem 'acts_as_list'
 gem 'derailed', group: :development
-gem 'fast_excel'
+#gem 'fast_excel'
 gem 'rack-cache'
 gem 'kaminari'

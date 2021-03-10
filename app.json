@@ -1,0 +1,17 @@
+{
+  "name": "capseed_rescue",
+  "description": "Fonctonnal version of capseed.",
+  "website": "http://rubyonrails.org",
+  "repository": "https://github.com/stemcell000/capseed_rescue",
+  "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Ruby_on_Rails_logo.svg",
+  "stack": "heroku-20",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
+  "env": {
+    "RAILS_ENV": "production",
+    "RACK_ENV": "production",
+    "RAILS_SERVE_STATIC_FILES": "true"
+  },
+  "addons": ["heroku-postgresql"]
+}

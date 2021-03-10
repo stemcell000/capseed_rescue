@@ -55,7 +55,6 @@ gem 'nested_form'
 gem 'ranked-model'
 gem 'gon'
 gem 'rabl', '0.13.0'
-#gem 'bootstrap-datepicker-rails'
 gem 'simple_form'  
 gem 'cancancan', '~> 2.0'
 gem 'amoeba'
@@ -67,8 +66,6 @@ gem 'mini_magick','~> 4.9.4'
 gem 'fog-aws'
 gem "smart_listing"
 gem 'jasny-bootstrap-rails'
-#gem "haml"
-#gem "haml-rails", "~> 0.9"
 gem 'ransack'
 gem 'puma'
 group :production do
@@ -79,10 +76,9 @@ end
 gem "figaro"
 gem 'sendgrid'
 gem 'bootstrap-popover-rails'
-gem "active_admin_import" , '3.0.0.pre'
+gem "active_admin_import"
 gem "font-awesome-rails"
 gem 'acts_as_list'
 gem 'derailed', group: :development
-#gem 'fast_excel'
 gem 'rack-cache'
 gem 'kaminari'

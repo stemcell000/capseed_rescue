@@ -1,4 +1,4 @@
-class CreateProductions < ActiveRecord::Migration
+class CreateProductions < ActiveRecord::Migration[5.0]
   def up
     create_table "productions", force: :cascade do |t|
     t.string   "name"

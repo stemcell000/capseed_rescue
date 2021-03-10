@@ -1,4 +1,4 @@
-class CreateCloneBatchPromoters < ActiveRecord::Migration
+class CreateCloneBatchPromoters < ActiveRecord::Migration[5.0]
   def up
     create_table "clone_batches_promoters", force: :cascade do |t|
       t.integer "clone_batch_id", index: true

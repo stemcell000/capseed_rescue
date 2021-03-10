@@ -1,4 +1,4 @@
-class CreateUnits < ActiveRecord::Migration
+class CreateUnits < ActiveRecord::Migration[5.0]
   def up
   create_table "units", force: :cascade do |t|
     t.string   "name"

@@ -1,4 +1,4 @@
-class AddAdministrator < ActiveRecord::Migration
+class AddAdministrator < ActiveRecord::Migration[5.0]
   def up    
          User.create! do |u|
           u.email     = 'marc.lechuga@inserm.fr'

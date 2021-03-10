@@ -1,4 +1,4 @@
-class CreateInserts < ActiveRecord::Migration
+class CreateInserts < ActiveRecord::Migration[5.0]
   def change
   create_table "inserts", force: :cascade do |t|
     t.integer  "clone_batch_id", index: true

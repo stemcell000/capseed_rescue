@@ -1,4 +1,4 @@
-class CreateTypes < ActiveRecord::Migration
+class CreateTypes < ActiveRecord::Migration[5.0]
   def up
   create_table "types", force: :cascade do |t|
     t.string   "name"

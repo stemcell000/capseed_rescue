@@ -1,4 +1,4 @@
-class CreateVolUnits < ActiveRecord::Migration
+class CreateVolUnits < ActiveRecord::Migration[5.0]
   def up
   create_table "vol_units", force: :cascade do |t|
     t.datetime "created_at", null: false

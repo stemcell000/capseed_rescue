@@ -1,4 +1,4 @@
-class CreateOrigins < ActiveRecord::Migration
+class CreateOrigins < ActiveRecord::Migration[5.0]
   def up
     create_table "origins", force: :cascade do |t|
       t.string   "name"

@@ -1,4 +1,4 @@
-class AddColAndRowIndexToBoxType < ActiveRecord::Migration
+class AddColAndRowIndexToBoxType < ActiveRecord::Migration[5.0]
   def up
     add_column :box_types, :vertical_max, :integer
     add_column :box_types, :horizontal_max, :integer

@@ -1,4 +1,4 @@
-class CreateSequencings < ActiveRecord::Migration
+class CreateSequencings < ActiveRecord::Migration[5.0]
   def up
     create_table "sequencings", force: :cascade do |t|
       t.datetime "created_at",        null: false

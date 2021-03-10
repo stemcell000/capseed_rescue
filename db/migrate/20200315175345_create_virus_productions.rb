@@ -1,4 +1,4 @@
-class CreateVirusProductions < ActiveRecord::Migration
+class CreateVirusProductions < ActiveRecord::Migration[5.0]
   def up
     create_table "virus_productions", force: :cascade do |t|
     t.integer  "production_id"

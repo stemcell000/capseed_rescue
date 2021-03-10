@@ -1,4 +1,4 @@
-class CreateSterilitytests < ActiveRecord::Migration
+class CreateSterilitytests < ActiveRecord::Migration[5.0]
   def change
  create_table "sterilitytests", force: :cascade do |t|
     t.integer  "sterility"

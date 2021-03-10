@@ -1,4 +1,4 @@
-class CreateDosages < ActiveRecord::Migration
+class CreateDosages < ActiveRecord::Migration[5.0]
   def change
   create_table "dosages", force: :cascade do |t|
     t.decimal "titer"

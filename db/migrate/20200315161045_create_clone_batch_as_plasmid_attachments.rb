@@ -1,4 +1,4 @@
-class CreateCloneBatchAsPlasmidAttachments < ActiveRecord::Migration
+class CreateCloneBatchAsPlasmidAttachments < ActiveRecord::Migration[5.0]
   def up
     create_table :clone_batch_as_plasmid_attachments do |t|
       t.integer  "clone_batch_id"

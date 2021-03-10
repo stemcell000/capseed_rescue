@@ -1,4 +1,4 @@
-class CreateStrands < ActiveRecord::Migration
+class CreateStrands < ActiveRecord::Migration[5.0]
   def up
    create_table "strands", force: :cascade do |t|
     t.string "name"

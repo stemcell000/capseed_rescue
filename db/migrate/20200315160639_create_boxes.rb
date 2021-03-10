@@ -1,4 +1,4 @@
-class CreateBoxes < ActiveRecord::Migration
+class CreateBoxes < ActiveRecord::Migration[5.0]
   def change
     create_table "boxes", force: :cascade do |t|
       t.string   "name"

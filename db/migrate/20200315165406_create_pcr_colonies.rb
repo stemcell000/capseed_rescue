@@ -1,4 +1,4 @@
-class CreatePcrColonies < ActiveRecord::Migration
+class CreatePcrColonies < ActiveRecord::Migration[5.0]
   def up
   create_table "pcr_colonies", force: :cascade do |t|
     t.string   "name"

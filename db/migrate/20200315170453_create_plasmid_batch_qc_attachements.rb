@@ -1,4 +1,4 @@
-class CreatePlasmidBatchQcAttachements < ActiveRecord::Migration
+class CreatePlasmidBatchQcAttachements < ActiveRecord::Migration[5.0]
   def up
   create_table "plasmid_batch_qcs_qc_attachments", force: :cascade do |t|
     t.integer "plasmid_batch_qc_id", index: true

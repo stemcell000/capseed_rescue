@@ -1,4 +1,4 @@
-class CreateEnzymes < ActiveRecord::Migration
+class CreateEnzymes < ActiveRecord::Migration[5.0]
   def up
     create_table :enzymes do |t|
       t.string :name

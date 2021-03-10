@@ -1,4 +1,4 @@
-class DestroyRowIdFromVirusBatches < ActiveRecord::Migration
+class DestroyRowIdFromVirusBatches < ActiveRecord::Migration[5.0]
   def up
     remove_column :virus_batches, :row_id
   end

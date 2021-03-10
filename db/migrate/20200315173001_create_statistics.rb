@@ -1,4 +1,4 @@
-class CreateStatistics < ActiveRecord::Migration
+class CreateStatistics < ActiveRecord::Migration[5.0]
   def up
     create_table "statistics", force: :cascade do |t|
       t.float    "value"

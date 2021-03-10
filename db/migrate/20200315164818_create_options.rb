@@ -1,4 +1,4 @@
-class CreateOptions < ActiveRecord::Migration
+class CreateOptions < ActiveRecord::Migration[5.0]
   def up
   create_table "options", force: :cascade do |t|
     t.integer  "user_id"

@@ -1,4 +1,4 @@
-class AddBoxIdToPositions < ActiveRecord::Migration
+class AddBoxIdToPositions < ActiveRecord::Migration[5.0]
   def up
     add_column :positions, :box_id, :integer
   end

@@ -1,4 +1,4 @@
-class CreateQcAttachmentSequencings < ActiveRecord::Migration
+class CreateQcAttachmentSequencings < ActiveRecord::Migration[5.0]
   def change
     create_table "qc_attachments_sequencings", force: :cascade do |t|
     t.integer "qc_attachment_id", index: true

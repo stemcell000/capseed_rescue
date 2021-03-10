@@ -1,4 +1,4 @@
-class CreatePlasmidBoxes < ActiveRecord::Migration
+class CreatePlasmidBoxes < ActiveRecord::Migration[5.0]
   def up
     create_table :plasmid_boxes do |t|
       t.string :name

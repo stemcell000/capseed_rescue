@@ -1,4 +1,4 @@
-class CreateQcAttachments < ActiveRecord::Migration
+class CreateQcAttachments < ActiveRecord::Migration[5.0]
   def change
    create_table "qc_attachments", force: :cascade do |t|
     t.integer  "clone_batch_qc_id"

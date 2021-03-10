@@ -1,4 +1,4 @@
-class RemoveBoxIdFromVirusBatches < ActiveRecord::Migration
+class RemoveBoxIdFromVirusBatches < ActiveRecord::Migration[5.0]
   def up
     remove_column :virus_batches, :box_id
   end

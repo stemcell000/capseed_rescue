@@ -1,4 +1,4 @@
-class CreatePcrColonyQcAttachments < ActiveRecord::Migration
+class CreatePcrColonyQcAttachments < ActiveRecord::Migration[5.0]
   def up
     create_table "pcr_colonies_qc_attachments", force: :cascade do |t|
       t.integer "pcr_colony_id", index: true

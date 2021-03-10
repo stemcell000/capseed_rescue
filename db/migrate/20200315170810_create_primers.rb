@@ -1,4 +1,4 @@
-class CreatePrimers < ActiveRecord::Migration
+class CreatePrimers < ActiveRecord::Migration[5.0]
   def up
     create_table "primers", force: :cascade do |t|
       t.string   "name"

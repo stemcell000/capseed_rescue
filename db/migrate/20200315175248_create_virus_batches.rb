@@ -1,4 +1,4 @@
-class CreateVirusBatches < ActiveRecord::Migration
+class CreateVirusBatches < ActiveRecord::Migration[5.0]
   def up
     create_table "virus_batches", force: :cascade do |t|
     t.string   "name"

@@ -1,4 +1,4 @@
-class CreateFormats < ActiveRecord::Migration
+class CreateFormats < ActiveRecord::Migration[5.0]
   def up
   create_table "formats", force: :cascade do |t|
     t.datetime "created_at", null: false

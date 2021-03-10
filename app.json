@@ -4,7 +4,7 @@
   "website": "http://rubyonrails.org",
   "repository": "https://github.com/stemcell000/capseed_rescue",
   "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Ruby_on_Rails_logo.svg",
-  "stack": "heroku-20",
+  "stack": "heroku-18",
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate"
   },

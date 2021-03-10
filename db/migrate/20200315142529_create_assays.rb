@@ -1,4 +1,4 @@
-class CreateAssays < ActiveRecord::Migration
+class CreateAssays < ActiveRecord::Migration[5.0]
   def up
     create_table :assays do |t|
       t.string :name

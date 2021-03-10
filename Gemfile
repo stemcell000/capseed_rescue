@@ -41,7 +41,7 @@ group :development, :test do
   gem 'better_errors'
 end
 
-gem 'pg', '0.20.0'
+gem 'pg', '1.2.3'
 gem 'rake', '13.0.1'
 gem 'bootstrap-sass'
 gem 'nprogress-rails'
@@ -74,7 +74,7 @@ gem 'ransack'
 gem 'puma'
 group :production do
   gem 'rails_12factor'
-  ruby '2.3.0'
+  ruby '2.7.0'
   gem 'foreman'
 end
 gem "figaro"

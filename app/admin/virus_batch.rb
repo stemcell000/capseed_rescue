@@ -24,10 +24,5 @@ csv force_quotes: false, col_sep: ';', column_names: true do
   column :date_of_thawing
   column :recap
 end              
-#Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
-
 
 end

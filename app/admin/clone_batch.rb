@@ -36,11 +36,6 @@ permit_params :list, :of, :attributes, :on, :model, :id, :name, :strand_id, :tem
 :date_as_plasmid, :glyc_stock_box_as_plasmid, :origin, :origin_id, :type_id, :type, :strand, :target, :target_id, :comment_as_plasmid, :promoters,
 :genes, :created_at, :updated_at, :clone_id, :number, :dismissed, :nb
 
-#Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
-
   
  index do
     column :id

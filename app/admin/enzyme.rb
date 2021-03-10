@@ -11,10 +11,6 @@ ActiveAdmin.register Enzyme do
 
 permit_params :list, :of, :attributes, :on, :model, :id, :name, :category
 
-#Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
 
  show do |enzyme|
     attributes_table do

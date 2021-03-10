@@ -15,9 +15,5 @@ csv force_quotes: false, col_sep: ';', column_names: true do
     column :shelf_id
   end
                   
-#Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
 permit_params :id, :name, :barcode, :created_at
 end

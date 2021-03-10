@@ -15,10 +15,6 @@ csv force_quotes: false, col_sep: ';', column_names: true do
     column (:box) {|position| position.box.name}
   end
                  
-#Add Button to site
-  action_item do
-    link_to "View Site", "/"
-  end
 permit_params :id, :name, :box_id, :box_name, :shelf_id, :nb, :created_at
 
 end

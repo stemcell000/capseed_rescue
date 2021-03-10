@@ -14,10 +14,4 @@ ActiveAdmin.register Type do
 
 permit_params :list, :of, :attributes, :on, :model, :id, :name, :order_set
 
-#Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
-
-
 end

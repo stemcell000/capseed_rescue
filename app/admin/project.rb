@@ -1,10 +1,6 @@
 ActiveAdmin.register Project do
 #Strong parameters
  permit_params :list, :of, :attributes, :on, :model, :id, :name
-  #
- action_item do
-  link_to "View Site", "/"
- end
 #
  config.sort_order = 'id_asc'
 

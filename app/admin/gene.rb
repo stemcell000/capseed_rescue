@@ -19,9 +19,4 @@ ActiveAdmin.register Gene do
 
 permit_params :list, :of, :attributes, :on, :model, :id, :name, :clone_batch_id
 
-#Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
-
 end

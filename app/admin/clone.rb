@@ -1,8 +1,4 @@
 ActiveAdmin.register Clone do
- #Add Button to site
-action_item do
-   link_to "View Site", "/"
-end 
   
   
 #Import csv   

@@ -7,11 +7,6 @@ ActiveAdmin.register PlasmidBox do
                 
               }
               
-              
-#Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
 permit_params :id, :name, :barcode,:created_at
 
 end

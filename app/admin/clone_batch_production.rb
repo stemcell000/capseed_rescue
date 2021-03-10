@@ -7,9 +7,5 @@ ActiveAdmin.register CloneBatchProduction do
                CloneBatchProduction.where(id: importer.values_at('id')).delete_all
 
               }
- #Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
 
 end

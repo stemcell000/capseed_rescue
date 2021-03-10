@@ -7,12 +7,6 @@ ActiveAdmin.register Statistic do
                 #Statistic.where(id: importer.values_at('id')).delete_all
                 
               } 
-   
-   
-   #Add Button to site
-    action_item do
-    link_to "View Site", "/"
-  end
   
   index do
   column :id

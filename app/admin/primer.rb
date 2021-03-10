@@ -8,11 +8,6 @@ active_admin_import validate: true,
 
 permit_params :list, :of, :attributes, :on, :model, :id, :name, :sequence, :available
 
-#Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
-
  show do |enzyme|
     attributes_table do
       row :id

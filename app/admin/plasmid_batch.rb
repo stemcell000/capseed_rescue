@@ -14,11 +14,5 @@ ActiveAdmin.register PlasmidBatch do
                 
                           
               }
-
-  #Add Button to site
-  action_item do
-    link_to "View Site", "/"
-  end
   
-
 end

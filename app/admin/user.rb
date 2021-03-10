@@ -40,11 +40,6 @@ permit_params :id, :email, :password, :password_confirmation, :role, :username, 
         f.actions
     end
     
-    #Add Button to site
-       action_item do
-    link_to "View Site", "/"
-    end
-    
    show do |user|
     attributes_table do
       row :firstname

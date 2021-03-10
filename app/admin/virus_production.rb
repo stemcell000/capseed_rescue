@@ -32,11 +32,6 @@ end
               },
               batch_size: 1000
               
-#Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
-
 permit_params :vol_unit, :number, :nb, :plate_id, :vol, :sterility, :plate_id, :titer, :titer_atcc, :titer_to_atcc, :comment,
 :gel_prot, :invoice, :hek_result, :target, :animal, :user_id, :date_of_production
 

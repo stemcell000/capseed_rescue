@@ -21,10 +21,6 @@ end
               before_batch_import: ->(importer) {
                 Dosage.where(id: importer.values_at('id')).delete_all
               }
-#Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
 
 permit_params  :id, :titer, :titer_atcc, :titer_to_atcc, :virus_production_id, :user_id, :accepted
 

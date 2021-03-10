@@ -6,9 +6,6 @@ active_admin_import validate: true,
  
 permit_params :list, :of, :attributes, :on, :model, :id, :name, :display, :step, :last_step, :created_at, :row_order_position, :updated_at
 
-#Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
+
 
 end

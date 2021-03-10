@@ -10,10 +10,5 @@ index do
  
 permit_params :list, :of, :attributes, :on, :model, :id, :name, :created_at, :updated_at
 
-#Add Button to site
-action_item do
-  link_to "View Site", "/"
-end
-
 
 end

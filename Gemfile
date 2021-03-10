@@ -67,8 +67,8 @@ gem 'mini_magick','~> 4.9.4'
 gem 'fog-aws'
 gem "smart_listing"
 gem 'jasny-bootstrap-rails'
-gem "haml"
-gem "haml-rails", "~> 0.9"
+#gem "haml"
+#gem "haml-rails", "~> 0.9"
 gem 'ransack'
 gem 'puma'
 group :production do

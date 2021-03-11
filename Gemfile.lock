@@ -418,6 +418,7 @@ DEPENDENCIES
   mini_magick (~> 4.9.4)
   multi-select-rails
   nested_form
+  nokogiri
   nprogress-rails
   pg (= 1.2.3)
   puma

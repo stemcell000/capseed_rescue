@@ -82,3 +82,4 @@ gem 'acts_as_list'
 gem 'derailed', group: :development
 gem 'rack-cache'
 gem 'kaminari'
+gem 'nokogiri'

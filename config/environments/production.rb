@@ -94,5 +94,9 @@ ActionMailer::Base.smtp_settings = {
   :password => ENV['SENDGRID_PASSWORD'],
   :domain => 'heroku.com',
   :enable_starttls_auto => true
-}           
+}
+
+  
+config.secret_key_base = ENV["SECRET_KEY_BASE"]
+
 end

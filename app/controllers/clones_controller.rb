@@ -11,7 +11,7 @@ before_action :load_assay, only:[:edit, :new, :edit_record, :edit_batch, :edit_b
 before_action :set_param, only: [:update, :edit, :cb_generator, :edit_record, :edit_batch_select, :update_record, :update_record_batch, :update_record_batch_select,
   :update_from_inventory, :edit_from_inventory]
 before_action :clone_params, only: [:update, :update_clone, :create, :edit, :update_record_batch]
-skip_before_filter :verify_authenticity_token, :only => :update_record_batch
+skip_before_action :verify_authenticity_token, :only => :update_record_batch
 
 @@old_id =0
 

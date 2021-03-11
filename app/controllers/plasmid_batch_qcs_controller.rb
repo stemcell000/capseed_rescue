@@ -3,7 +3,7 @@ class PlasmidBatchQcsController < InheritedResources::Base
   before_action :set_params, only:[:create, :update ]
   before_action :load_plasmid_batch_qc, only:[ :edit, :destroy, :update ]
   before_action :load_all, only:[ :new, :edit, :create, :update, :destroy, :new_qc_protocol, :create_qc_protocol_collection, :set_qc_validation, :set_qc_unvalidation]
-  before_filter :load_users, only:[:edit, :new, :update, :create, :new_qc_protocol, :create_qc_protocol_collection]
+  before_action :load_users, only:[:edit, :new, :update, :create, :new_qc_protocol, :create_qc_protocol_collection]
   before_action :load_plasmid_batch, only:[:batch_qc_validation_checking]
 
 def new

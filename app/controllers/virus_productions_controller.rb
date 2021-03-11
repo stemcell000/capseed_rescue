@@ -59,7 +59,7 @@ class VirusProductionsController < InheritedResources::Base
       @vps  = @vps.limit(100) if current_user.options.first.display_limited_virus
         
       #Config de l'affichage des résultats.
-      @all_virus_productions = smart_listing_create(:virus_productions, @vps, partial: "virus_productions/smart_listing/list", default_sort: {nb: "desc"}, page_sizes: [20, 30, 50, 100])
+      smart_listing_create(:virus_productions, @vps, partial: "virus_productions/smart_listing/list", default_sort: {nb: "desc"}, page_sizes: [20, 30, 50, 100])
   end
  
   def display_all_virus_switch

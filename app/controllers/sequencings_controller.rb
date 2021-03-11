@@ -5,7 +5,7 @@ class SequencingsController < ApplicationController
   before_action :load_sequencing, only:[:update, :destroy, :load_all, :set_sequencing_validation, :set_sequencing_unvalidation]
   before_action :load_all, only:[:create, :update, :destroy,  :new_sequencing_protocol, :create_sequencing_protocol_collection, :set_sequencing_validation, :set_sequencing_unvalidation]
   after_action :batch_sequencing_validation_checking, only:[:destroy]
-  before_filter :load_users, only:[:edit, :new, :update, :create, :new_sequencing_protocol]
+  before_action :load_users, only:[:edit, :new, :update, :create, :new_sequencing_protocol]
   
   def edit
     @assay = Assay.find(params[:assay_id])

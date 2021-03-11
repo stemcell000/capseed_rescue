@@ -1,6 +1,6 @@
 class ProductionsController < InheritedResources::Base
   
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   before_action :ranked_productions, only: [:index]
   before_action :production_params, only:[:create, :update_row_order, :update, :add_pbs, :update_pb_volumes]
   before_action :production_position_params, only:[:move_higher, :move_lower, :move_highest, :move_lowest ]

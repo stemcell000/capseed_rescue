@@ -1,6 +1,6 @@
 <div class="row invisible">
 	<div class="col-lg-1 col-md-1 col-sm-2 pull-right">
-		<%= link_to "Export to xlsx", clone_batches_path({format: 'xls'}.merge(params)), class:"btn btn-default btn-xs" %>
+		<%= link_to "Export to xlsx", clone_batches_path(request.parameters.merge({format: 'xls'})), class:"btn btn-default btn-xs" %>
 	</div>
 </div>
   <div class="container-fluid">

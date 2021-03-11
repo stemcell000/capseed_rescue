@@ -1,10 +1,10 @@
 class PcrColoniesController < ApplicationController
- before_action :set_params, only:[:update, :create, :create_pcr_colony_protocol_collection]
+  before_action :set_params, only:[:update, :create, :create_pcr_colony_protocol_collection]
   before_action :load_clone_batch, only:[ :new, :create, :destroy, :set_pcr_colony_validation, :set_pcr_colony_unvalidation]
   before_action :load_pcr_colony, only:[:update, :destroy, :load_all, :set_pcr_colony_validation, :set_pcr_colony_unvalidation]
   before_action :load_all, only:[:create, :update, :destroy,  :new_pcr_colony_protocol, :create_pcr_colony_protocol_collection, :set_pcr_colony_validation, :set_pcr_colony_unvalidation]
   after_action :batch_pcr_colony_validation_checking, only:[:destroy]
-  before_filter :load_users, only:[:edit, :new, :update, :create, :new_pcr_colony_protocol]
+  before_action :load_users, only:[:edit, :new, :update, :create, :new_pcr_colony_protocol]
   
   def edit
     @assay = Assay.find(params[:assay_id])

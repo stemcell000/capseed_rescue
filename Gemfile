@@ -69,7 +69,7 @@ gem 'jasny-bootstrap-rails'
 gem 'ransack'
 gem 'puma'
 group :production do
-  gem 'rails_12factor'
+  #gem 'rails_12factor'
   ruby '2.7.0'
   gem 'foreman'
 end

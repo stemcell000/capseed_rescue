@@ -251,15 +251,17 @@ GEM
     mini_histogram (0.3.1)
     mini_magick (4.9.5)
     mini_mime (1.0.2)
+    mini_portile2 (2.5.0)
     minitest (5.14.4)
     multi-select-rails (0.9.12)
       railties (>= 3.0)
     multi_json (1.15.0)
     nested_form (0.3.2)
     nio4r (2.5.7)
-    nokogiri (1.11.2-x86_64-darwin)
+    nokogiri (1.11.2)
+      mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
-    nokogiri (1.11.2-x86_64-linux)
+    nokogiri (1.11.2-x86_64-darwin)
       racc (~> 1.4)
     nprogress-rails (0.2.0.2)
     orm_adapter (0.5.0)
@@ -386,8 +388,8 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  ruby
   x86_64-darwin-19
-  x86_64-linux
 
 DEPENDENCIES
   active_admin_import
@@ -447,4 +449,4 @@ RUBY VERSION
    ruby 2.7.0p0
 
 BUNDLED WITH
-   2.2.14
+   2.1.4

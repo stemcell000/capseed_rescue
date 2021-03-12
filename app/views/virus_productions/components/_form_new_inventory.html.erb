@@ -7,7 +7,7 @@
 			<%= f.input :id, :as => :hidden %>
 			<div class="row">
 				<div class="col-lg-2">
-					<% unless VirusProduction.all.nil? %>
+					<% unless VirusProduction.last.nil? %>
 						<% n = VirusProduction.last.nb+1 %>
 					 <%else%>
 					     <% n = 1 %>
@@ -170,39 +170,6 @@
 				
 								<%= f.link_to_add "Add titers", :dosages %>
 				
-		<div class="row">
-			<div class="col-lg-8">
-			<h6><strong> Virus batches </strong></h6>
-			<% unless f.object.virus_batches.empty? %>
-				<table class="table table-bordered">
-					<thead>
-						<th>Batch</th>
-						<th>Barcode</th>
-						<th>Box</th>
-						<th>Location</th>
-						<th>Volume</th>
-						<th>Date of production</th>
-						<th>Date of thawing</th>
-						<th>Trash</th>
-					</thead>
-					<%f.object.virus_batches.each do |vb|%>
-					<tr>
-						<td><%= vb.name.nil? ? "Unknown" :vb.name %></td>
-						<td><%= vb.barcode.nil? ? "Unknown" :vb.number %></td>
-						<td><%= vb.box.nil? ? "Unknown" : vb.box.name %></td>
-						<td><%= vb.row.nil? ? "Unknown" : vb.row.name %><%= vb.column_id.nil? ? "" : pb.column.name %></td>
-						<td><%= vb.volume.nil? ? "Unknown" : "#{vb.volume} #{vb.vol_unit.name}" %></td>
-						<td><%= f.object.date_of_production.nil? ? "Unknown" : f.object.date_of_production.strftime("%B %e, %Y") %></td>
-						<td><%= vb.date_of_thawing.nil? ? "Unknown" : vb.date_of_thawing.strftime("%B %e, %Y") %></td>
-						<td><%= vb.trash = true ? "-" : "trash" %></td>
-					</tr>
-					<%end%>
-				</table>
-			<%else%>
-			no batch
-			<%end%>
-			</div>
-		</div>	
 		<div class="row">
 			<div class="col-lg-2">
 				<%=f.input :dismissed, collection: VirusProduction.statuses, input_html: { class: 'select2-select'}%>

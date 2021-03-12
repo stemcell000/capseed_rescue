@@ -1,7 +1,7 @@
 class ConfirmationsController < Devise::ConfirmationsController
 
-  #skip_before_action :require_no_authentication
-  skip_before_action :authenticate_user!
+  skip_before_action :require_no_authentication, raise: false
+  skip_before_action :authenticate_user!, raise: false
 
   # PUT /resource/confirmation
   def update

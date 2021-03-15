@@ -1,4 +1,7 @@
-class AssayNotifier < ApplicationMailer
+class AssayNotifier < ActionMailer::Base
+
+    include SendGrid
+    default from: "capseed.com"
   
   def notify_closed_assay(assay)
     #TUTO: ligne suivante nécessaire pour passer des variables (attributs de @production) dans le corps du message. 

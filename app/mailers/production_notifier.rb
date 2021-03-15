@@ -1,4 +1,7 @@
-class ProductionNotifier < ApplicationMailer
+class ProductionNotifier < ActionMailer::Base
+
+    include SendGrid
+  default from: "idv.org"
   
   def notify_closed_production(production)
     #TUTO: ligne suivante nécessaire pour passer des variables (attributs de @production) dans le corps du message. 
@@ -11,6 +14,6 @@ class ProductionNotifier < ApplicationMailer
     sendgrid_substitute "|subme|", firstnames
     sendgrid_unique_args :key => production.id
     
-    mail :from => "mailer@capseed.com", :to => "noreply@address.com", :subject => "Production ##{production.virus_productions.first.number} is closed."
+    mail(:from => "mailer@capseed.com", :to => "noreply@address.com", :subject => "Production ##{production.virus_productions.first.number} is closed.")
   end
 end

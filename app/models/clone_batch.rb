@@ -8,7 +8,7 @@ class CloneBatch < ActiveRecord::Base
   before_save :normalize_blank_values
   belongs_to :clone
   has_and_belongs_to_many :options
-  has_many :plasmid_batches, -> { uniq }, :dependent => :destroy
+  has_many :plasmid_batches, -> { distinct }, :dependent => :destroy
   has_and_belongs_to_many :sequencings, :dependent => :destroy
   has_and_belongs_to_many :pcr_colonies, :dependent => :destroy
   has_and_belongs_to_many :productions, :join_table => "clone_batches_productions"

@@ -19,7 +19,7 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', group: :doc
+gem 'sdoc','2.0.4 ', group: :doc
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
@@ -56,7 +56,7 @@ gem 'ranked-model'
 gem 'gon'
 gem 'rabl', '0.13.0'
 gem 'simple_form'  
-gem 'cancancan', '~> 2.0'
+gem 'cancancan', '3.0'
 gem 'amoeba'
 gem 'multi-select-rails'
 gem 'carrierwave'

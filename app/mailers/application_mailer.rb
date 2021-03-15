@@ -1,6 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
   include SendGrid
-  default from: "labmate.com"
+  default from: "capseed.com"
   layout 'mailer'
   
   sendgrid_category :use_subject_lines

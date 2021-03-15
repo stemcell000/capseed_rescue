@@ -8,7 +8,7 @@ class Assay < ActiveRecord::Base
   
   #Nested models relationships
   #-> { uniq } empêche l'enregistrement de duplicats identifiés par l'id de clone, ici.
-  has_many :clones, -> { uniq }, :dependent => :destroy
+  has_many :clones, -> { distinct }, :dependent => :destroy
   has_many :clone_batches, :through => :clones
   belongs_to :user
   

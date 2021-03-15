@@ -1,5 +1,6 @@
-class UserNotifier < ApplicationMailer
-   default :from => 'mailer@capseed.net'
+class UserNotifier < ActionMailer::Base
+    include SendGrid
+  default from: "capseed.com"
 
   def notify_assay(user)   
     @user = user
@@ -25,7 +26,7 @@ class UserNotifier < ApplicationMailer
     sendgrid_recipients recipients
     sendgrid_substitute "|subme|", firstnames
     
-    mail :from => "mailer@capseed.com", :to => "noreply@address.com", :subject => "Production Notification"
+    mail(from: "mailer@capseed.com", to: "noreply@address.com", subject: "Production Notification")
   end
   
    def notify_closed_assay(assay)

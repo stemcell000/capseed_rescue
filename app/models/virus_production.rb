@@ -13,7 +13,7 @@ class VirusProduction < ActiveRecord::Base
  has_many :dosages
  has_many :sterilitytests
  has_many :plasmid_batches, :through => :production
- has_many :virus_batches, -> { uniq }, :dependent => :destroy
+ has_many :virus_batches, -> { distinct }, :dependent => :destroy
  
  
  before_save :titer_to_atcc

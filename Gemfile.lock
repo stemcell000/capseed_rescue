@@ -91,7 +91,7 @@ GEM
     autoprefixer-rails (10.2.4.0)
       execjs
     aws-eventstream (1.1.1)
-    aws-partitions (1.435.0)
+    aws-partitions (1.436.0)
     aws-sdk-core (3.113.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -257,12 +257,16 @@ GEM
     mini_histogram (0.3.1)
     mini_magick (4.9.5)
     mini_mime (1.0.3)
+    mini_portile2 (2.5.0)
     minitest (5.14.4)
     multi-select-rails (0.9.12)
       railties (>= 3.0)
     multi_json (1.15.0)
     nested_form (0.3.2)
     nio4r (2.5.7)
+    nokogiri (1.11.2)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     nokogiri (1.11.2-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.11.2-x86_64-linux)
@@ -387,6 +391,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  ruby
   x86_64-darwin-19
   x86_64-linux
 

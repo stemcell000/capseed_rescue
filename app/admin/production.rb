@@ -1,6 +1,6 @@
 ActiveAdmin.register Production do
 #Strong parameters
- permit_params :list, :of, :attributes, :on, :model, :id, :step, :last_step, :name, :locked, :pbtag, :cbtag, :today_date, :comment
+permit_params :list, :of, :attributes, :on, :model, :id, :step, :last_step, :name, :locked, :pbtag, :cbtag, :today_date, :comment
 #
  config.sort_order = 'id_asc'
 

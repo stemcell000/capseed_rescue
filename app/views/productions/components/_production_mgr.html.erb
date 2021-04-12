@@ -1,6 +1,7 @@
 <% if @productions.empty?%>
 			<p>No production to display!</p>
 <%else%>
+<small>
 <table class="table table-bordered table-hover" style="width: 90%;" id="sortable-production">
   <thead>
     <tr>
@@ -76,4 +77,5 @@
       </tr>
   </tbody>
 </table>
+</small>
 <%end%>

@@ -1,4 +1,4 @@
-console.log('checkbox submitting');
+console.debug('checkbox submitting');
 $('#display-all-container').html("<%= escape_javascript( render :partial => "virus_productions/components/toggle_display_all" , :locals => { :option => @option }) %>");
-console.log('refreshing checkbox');
+console.debug('refreshing checkbox');
 $('#virus_production_search').submit();

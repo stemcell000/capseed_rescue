@@ -36,6 +36,8 @@ class ProductionsController < InheritedResources::Base
            end
        end
     end
+      
+    gon.rabl "app/views/productions/index.json.rabl", as: "productions"
   end
   
   def update_row_order

@@ -1,24 +1,39 @@
-<% provide(:title, "Production Manager") %>
-	<div class="center" >
+<div class="row">
+	<h3>Production manager</h3>
+</div>
+<% unless @productions.empty?%>
+<div class="container">
+	<div class="row" >
 		<div class="row expl">
-			
+			<% if can? :update_row_order, @productions %>
 			<div class="row">
-				<div class="col-lg-2 col-md-2 col-sm-3">
 					<%= link_to 'New Production', new_production_path, :class => "btn info prod_btn" %> 
-				</div>
-				<div class="col-lg-2 col-md-2 col-sm-3">
-					<%= link_to 'Search', "#", :class => "btn info prod_btn" %> 
-				</div>
-				<div class="col-lg-8 col-md-8 col-sm-9 text-right">
-					<%= link_to 'Push!', users_inform_production_path(@user), :class => "btn btn-success" %>
-				</div>
+					<%= link_to 'Push message !', users_inform_production_path(@user), :class => "btn info prod_btn" %>
 			</div>
-		</div>
-		<% if @productions.empty?%>
-			<p>No production to display</p>
-		<%else%>
+				<div class="row">
+					<div class= "col-lg-12">
+						<p>Drag and drop from the bottom to the top the rows by priority level.</p>
+					</div>
+				</div>
+			<%end%>
 				<div class="row" id="production_todo">
 						<%= render :partial => 'productions/components/production_mgr'%>
 				</div>
+		</div>
+	</div>
+<!-- -->
+<div class="row">
+	<h4>Production Gantt-chart :</h4>
+		<div id='gantt-container' class="row">
+			<% if Production.where.not("last_step < ? ", 0).any? %>
+			<div class="col-lg-12 col-md-12 col-xs-12">
+					<%= render :partial => "productions/components/production_gantt_chart", :locals => {:productions => @productions}  %>
+			</div>
+			<%end%>
+		</div>
+	</div>
+		<%else%>
+			<p>No production to display</p>
 		<%end%>
-</div>
+	</div>
+

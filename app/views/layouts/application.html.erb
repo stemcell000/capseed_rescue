@@ -21,34 +21,19 @@
 			<%= render partial: "layouts/flash_messages", :flash => flash %>
 	</div>
 
-<%case params[:controller] %>
-		<% when "assays" || params[:controller] == "clones"%>
-		<h4>Cloning manager</h4>
+<% case params[:controller] %>
+	<% when "assays" || params[:controller] == "clones"%>
+		<h3>Cloning manager</h3>
 		<nav class="navbar-cloning" role="navigation">
     			<div class="collapse navbar-collapse navbar-cloning">
 				<%= render :partial => 'components/dynamic_menu' %>
-				<% provide(:title, "Cloning Manager") %>
+				<% provide(:title, "Cloning Manager") %>    
+        </div>
 				</nav>
-				<div class="jumbotron container-fluid cloning-color" >
-		<% when "productions" %>
-		<h4>Production manager</h4>
-		<nav class="navbar-production" role="navigation">
-    			<div class="collapse navbar-collapse navbar-production">
-				<%= render :partial => 'components/dynamic_menu_prod' %>
-				<% provide(:title, "Production Manager") %>
-				</nav>
-				<div class="jumbotron container-fluid production-color" >
-		<% when "clone_batches" %>
-				<div class="jumbotron container-fluid clone_batch-color" >
-		<% when "virus_productions" %>
-				<div class="jumbotron container-fluid virus_production-color" >
-		<%else%>
-		<div class="jumbotron container-fluid white-bg" >
-		<%end%>
-				<div class="spinner">
-				</div>
+	<%end%>
+      <div class="container">
 						     <%= yield %>
-				 </div>
+		</div>
  	</body>
  	<div>
  		<div class="col-lg-12">

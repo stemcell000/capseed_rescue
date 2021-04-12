@@ -1,16 +1,9 @@
 <% provide(:title, "Plasmid : Search") %>
 <%= render :partial => 'clone_batches/components/cb_search' %>
 <div class="row">
-	<small>
-	<div class="col-lg-1 text-left">
-		<%= link_to "New box", new_plasmid_box_path, class: "btn btn-default btn-sm" %>
+	<div class="col-lg-4 pull-left">
+		<div id="display-hidden-container"> <%= render :partial => "clone_batches/components/toggle_display_hidden", :locals => { :option => @option } %>
+		</div>	
 	</div>
-		<div class="col-lg-1 text-left">
-		<%= link_to "Plasmid boxes inventory", plasmid_boxes_path, class: "btn btn-default btn-sm" %>
-	</div>
-	<div class="col-lg-8 col-lg-offset-3 text-right">
-		<div id="display-hidden-container"> <%= render :partial => "clone_batches/components/toggle_display_hidden", :locals => { :option => @option } %> </div>	
-	</div>
-	</small>
 </div>
 <%= smart_listing_render :clone_batches %>

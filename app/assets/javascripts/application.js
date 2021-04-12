@@ -20,8 +20,6 @@
 //= require bootstrap/bootstrap-rails-tooltip
 //= require bootstrap/bootstrap-rails-popover
 //= require jquery.tokeninput
-//= require nprogress
-//= require nprogress-turbolinks
 //= require update_assays_row_position
 //= require update_productions_row_position
 //= require jquery_nested_form
@@ -30,7 +28,8 @@
 //= require jasny-bootstrap.min
 //= require custom
 //= require_tree .
-
+//= require nprogress
+//= require nprogress-ajax
 
 NProgress.configure({
   showSpinner: true,

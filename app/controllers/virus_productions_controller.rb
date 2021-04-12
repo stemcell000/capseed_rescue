@@ -51,30 +51,20 @@ class VirusProductionsController < InheritedResources::Base
       else
         hidden_virus_ids = []
       end
-        
+      #
       @q = VirusProduction.ransack(params[:q])
       
-      @vps = @q.result.includes([:production, :plasmid_batches, :clone_batches, :sterilitytests, :genes, :user ]).where.not(:id => hidden_virus_ids)
-      
-      @vps  = @vps.limit(100) if current_user.options.first.display_limited_virus
-        
+      @vps = @q.result.includes([:production, :plasmid_batches, :clone_batches, :sterilitytests, :genes, :user ]).where.not(:id => hidden_virus_ids).distinct
+
       #Config de l'affichage des résultats.
       smart_listing_create(:virus_productions, @vps, partial: "virus_productions/smart_listing/list", default_sort: {nb: "desc"}, page_sizes: [20, 30, 50, 100])
 
     respond_to do |format|
       format.html
-      format.text
       format.js
-      format.csv { send_data @clone_batches.to_csv }
-      format.xls
+      format.csv {send_data @vps.order(:nb).group(:id).to_csv, :filename => "Virus_Production-#{Date.today.strftime('%m/%d/%Y')}.csv"}
     end
   end
- 
-  def display_all_virus_switch
-    @option = current_user.options.first
-    @option.toggle!(:display_all_virus)
-    redirect_to :index
-  end 
    
   def edit
   end
@@ -174,15 +164,13 @@ class VirusProductionsController < InheritedResources::Base
     end
   end
   
-  def
-  
  def hide_from_inventory
     unless @option.virus_productions.where(:id => @virus_production.id).exists?
       @option.virus_productions << @virus_production
     else
       @option.virus_productions.destroy(@virus_production)
     end
-          redirect_to virus_productions_path
+      redirect_to virus_productions_path
  end
  
  def set_box_map
@@ -198,8 +186,7 @@ class VirusProductionsController < InheritedResources::Base
     @position_batch_ids = @box.positions.order(:nb).map{|p| p.virus_batch.nil? ? "":p.virus_batch.id}
     @virus_batches=@virus_production.virus_batches
     @arr = @virus_batches.each_slice(4).to_a
-    @users = User.all
-    
+    @users = User.all 
 end
    
   private

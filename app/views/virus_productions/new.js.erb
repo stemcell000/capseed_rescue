@@ -1,5 +1,3 @@
-<%= smart_listing_item :virus_productions, :new, @virus_production, "virus_productions/components/form_new_inventory" %>
-
 		$(".select2-select").select2({
 		    theme: "bootstrap",
 		    tag: true,
@@ -17,3 +15,17 @@ $(document).on('nested:fieldAdded', function(event){
 		    allowClear: true
 		});
 })
+
+    $('.datepicker').datepicker({
+    	    dateFormat: 'dd-mm-yy',
+            atformat: 'dd-mm-yy',
+            format: 'dd-mm-yy'
+    		autoclose: true,
+    		todayBtn: true,
+    		clearBtn: true,
+    		calendarWeeks: true,
+    		todayHighlight: true,
+    		changeYear: true,
+    		changeMonth: true
+    		}
+    );

@@ -99,7 +99,7 @@
 			
 	 		<div class="btn-group pull-right" role="group" aria-label="...">
 	    		<%= f.submit("Save", :class => "btn btn-primary", :title => "Save the changes to this clone.") %>
-        		<%= link_to 'Cancel', add_pb_from_inventory_clone_batch_path(f.object.clone_batch.id), :class => "btn btn-default" %>
+        		<%= link_to 'Cancel', add_pb_from_inventory_clone_batch_path(@clone_batch), :class => "btn btn-default" %>
 	        </div>
 	  </small>
 <% end %>

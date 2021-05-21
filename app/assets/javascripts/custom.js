@@ -28,7 +28,7 @@ $(document).ready(function() {
 //Activation des chevron sur le bootstrap panel collapse
 function toggleChevron(e) {
     $(e.target)
-        .prev('.panel-heading')
+        //.prev('.panel-heading')
         .find("i.indicator")
         .toggleClass('fas fa-chevron-down fa-chevron-right');
 	};

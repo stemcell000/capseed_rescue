@@ -82,7 +82,7 @@ gem 'acts_as_list'
 gem 'derailed', group: :development
 gem 'rack-cache'
 gem 'kaminari'
-gem 'nokogiri', '~> 1.11.0.rc4'
+gem 'nokogiri', '~> 1.11.4'
 gem 'json', '2.3.0'
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 gem 'marcel'

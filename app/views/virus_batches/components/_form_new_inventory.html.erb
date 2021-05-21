@@ -1,7 +1,7 @@
-<h4>Edit batch : <%=@virus_batch.name %></h4>
+<h4>New batch %></h4>
 <div class="panel panel-default">
 	<div class="panel-body">
-<%= simple_nested_form_for ([@virus_production, @virus_batch]), url: update_from_inventory_virus_production_virus_batch_path, remote: false, html: {class: 'vertical-form'} do |f|  %>
+<%= simple_nested_form_for ([@virus_production, @virus_batch]), url: create_from_inventory_virus_production_virus_batches_path, remote: false, html: {class: 'vertical-form'} do |f|  %>
 	
 	<%= f.error_notification %>
 	<ul class="errors"></ul>

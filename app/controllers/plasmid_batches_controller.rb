@@ -53,6 +53,7 @@ def create_from_inventory
     @users = User.all
     @clone_batch = CloneBatch.find(params[:clone_batch_id])
     if  @plasmid_batch.valid?
+        redirect_to add_pb_from_inventory_clone_batch_path(:id => @clone_batch.id)
         @plasmid_batch.update_columns(:strict_validation => 0)
         @clone_batch.plasmid_batches << @plasmid_batch
         flash.keep[:success] = "Task completed!"
@@ -141,8 +142,10 @@ end
     if @plasmid_batch.trash
       @plasmid_batch.update_columns(:volume => 0)
       @plasmid_batch.plasmid_batch_productions.update_all(:starting_volume => @plasmid_batch.volume)
-      plasmid_box = @plasmid_batch.plasmid_box
-      plasmid_box.plasmid_batches.delete(@plasmid_batch)
+      if @plasmid_batch.plasmid_box
+        plasmid_box = @plasmid_batch.plasmid_box
+        plasmid_box.plasmid_batches.delete(@plasmid_batch)
+      end
      end
   end
   

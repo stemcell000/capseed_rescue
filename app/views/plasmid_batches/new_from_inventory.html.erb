@@ -1,8 +1,8 @@
-<h4>Edit batch : <%=@plasmid_batch.name %></h4>
+<h4>New batch </h4>
 <div class="panel panel-default">
 	<div class="panel-body">
 
-<%= simple_nested_form_for @plasmid_batch, url: update_from_inventory_plasmid_batch_path, html: {class: 'vertical-form', multipart: true } do |f|  %>
+<%= simple_nested_form_for ([@assay, @clone, @clone_batch, @plasmid_batch]), url: create_from_inventory_clone_batch_plasmid_batches_path, html: {class: 'vertical-form', multipart: true } do |f|  %>
 	<%= f.error_notification %>
 	<ul class="errors"></ul>
 	<div class="container">
@@ -99,7 +99,7 @@
 			
 	 		<div class="btn-group pull-right" role="group" aria-label="...">
 	    		<%= f.submit("Save", :class => "btn btn-primary", :title => "Save the changes to this clone.") %>
-	        	<%= link_to 'Cancel', add_pb_from_inventory_clone_batch_path(f.object.clone_batch.id), :class => "btn btn-default" %>
+        		<%= link_to 'Cancel', add_pb_from_inventory_clone_batch_path(f.object.clone_batch.id), :class => "btn btn-default" %>
 	        </div>
 	  </small>
 <% end %>

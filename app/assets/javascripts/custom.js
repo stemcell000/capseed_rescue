@@ -10,6 +10,7 @@ $(document).ready(function() {
 		});
 	$('.datepicker').datepicker({
     		dateFormat: 'dd-mm-yy',
+        format: 'dd-mm-yy',
     		autoclose: true,
     		todayBtn: true,
     		clearBtn: true,
@@ -51,9 +52,10 @@ function toggleChevron(e) {
     
    	$('#accordion').on('hidden.bs.collapse', toggleChevron);
 	$('#accordion').on('shown.bs.collapse', toggleChevron); 
-	
 
-
+$("#assay-modal").on('show', function () {
+    $.fn.modal.Constructor.prototype.enforceFocus = function () { };
+});
 
 $(document).on('nested:fieldAdded', function(event){
   // this field was just inserted into your form

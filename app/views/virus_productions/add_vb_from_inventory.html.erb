@@ -14,7 +14,7 @@
 							<%= render :partial => "virus_productions/components/content_inventory", :locals => {:virus_batches => @virus_batches} %>
 						</div>
 						<div class="col-lg-6 right">
-							<%= link_to "Add virus batch", new_from_inventory_new_virus_production_virus_batch_path( :virus_production_id => @virus_production.id ), :class =>"btn btn-default", :remote => true %>
+							<%= link_to "Add virus batch", new_from_inventory_new_virus_production_virus_batch_path( :virus_production_id => @virus_production.id ), :class =>"btn btn-default", :remote => false %>
 							<%= link_to "Storage", sort_tube_virus_production_path( :virus_production_id => @virus_production.id ), :class =>"btn btn-default", :id =>"sort-tube-btn" ,:remote => true %>
 							<div id="sort-container" class="container"></div>
 							<div id = "help-block-container"></div>

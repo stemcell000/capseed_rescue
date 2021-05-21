@@ -8,6 +8,17 @@
 		    allowClear: true
 		});
 
+	$('.datepicker').datepicker({
+    		dateFormat: 'dd-mm-yy',
+    		autoclose: true,
+    		todayBtn: true,
+    		clearBtn: true,
+    		calendarWeeks: true,
+    		todayHighlight: true,
+    		changeYear: true,
+    		changeMonth: true
+    		});
+
 $(document).on('nested:fieldAdded', function(event){
 			$(".select2-select").select2({
 		    theme: "bootstrap",

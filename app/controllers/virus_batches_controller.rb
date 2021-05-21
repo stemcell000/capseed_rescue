@@ -53,6 +53,7 @@ def create_from_inventory
     @virus_batch = VirusBatch.create(virus_batch_params)
     @virus_production = VirusProduction.find(params[:virus_production_id])
     if  @virus_batch.valid?
+        redirect_to add_vb_from_inventory_virus_production_path(:id => @virus_production.id)
         @virus_batch.generate_recap(@virus_production)
         @virus_production.virus_batches << @virus_batch
         flash.keep[:success] = "Task completed!"
@@ -73,6 +74,7 @@ def update_from_inventory
   @virus_batch.update_attributes(virus_batch_params)
   @arr = @virus_batches.each_slice(4).to_a
   if @virus_batch.valid?
+    redirect_to add_vb_from_inventory_virus_production_path(:id => @virus_production.id)
     @units = Unit.all
     @virus_batch.generate_recap(@virus_production)
     flash.keep[:success] = "Task completed!"

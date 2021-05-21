@@ -114,6 +114,8 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
+    bootstrap-datepicker-rails (1.9.0.1)
+      railties (>= 3.0)
     bootstrap-popover-rails (0.1.0)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
@@ -405,6 +407,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
+  bootstrap-datepicker-rails
   bootstrap-popover-rails
   bootstrap-sass
   byebug

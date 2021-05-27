@@ -13,20 +13,18 @@
 ActiveRecord::Schema.define(version: 2021_04_12_171216) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "active_admin_comments", id: :serial, force: :cascade do |t|
     t.string "namespace"
     t.text "body"
-    t.integer "resource_id"
     t.string "resource_type"
-    t.integer "author_id"
+    t.integer "resource_id"
     t.string "author_type"
+    t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
@@ -42,13 +40,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_171216) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "assays_projects", id: :serial, force: :cascade do |t|
-    t.integer "assay_id"
-    t.integer "project_id"
-    t.index ["assay_id"], name: "index_assays_projects_on_assay_id"
-    t.index ["project_id"], name: "index_assays_projects_on_project_id"
   end
 
   create_table "box_types", id: :serial, force: :cascade do |t|
@@ -167,15 +158,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_171216) do
     t.index ["sequencing_id"], name: "index_clone_batches_sequencings_on_sequencing_id"
   end
 
-  create_table "clone_batches_users", id: :serial, force: :cascade do |t|
-    t.integer "clone_batch_id"
-    t.integer "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["clone_batch_id"], name: "index_clone_batches_users_on_clone_batch_id"
-    t.index ["user_id"], name: "index_clone_batches_users_on_user_id"
-  end
-
   create_table "clones", id: :serial, force: :cascade do |t|
     t.integer "assay_id"
     t.string "name"
@@ -217,12 +199,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_171216) do
 
   create_table "cmeths", id: :serial, force: :cascade do |t|
     t.string "name"
-  end
-
-  create_table "columns", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "containers", id: :serial, force: :cascade do |t|
@@ -479,12 +455,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_171216) do
     t.integer "sequencing_id"
     t.index ["qc_attachment_id"], name: "index_qc_attachments_sequencings_on_qc_attachment_id"
     t.index ["sequencing_id"], name: "index_qc_attachments_sequencings_on_sequencing_id"
-  end
-
-  create_table "rows", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "sequencings", id: :serial, force: :cascade do |t|

@@ -5,22 +5,25 @@
 <table class="table table-bordered table-hover" style="width: 90%;" id="sortable-production">
   <thead>
     <tr>
-    		<th>
+    		<th style="width: 5%;">
         ID
       </th>
-      <th >
+      <th style="width: 15%;">
         Name
       </th>
-      <th>
+      <th style="width: 30%;">
         Plasmids
       </th>
-      <th>
+      <th style="width: 10%;">
         Batches
       </th>
-      <th>
+      <th style="width: 20%;">
+        Comments
+      </th>
+      <th style="width: 10%;">
         Expected end
       </th>
-      <th></th>
+      <th style="width: 5%;"></th>
     </tr>
   </thead>
   <tbody>
@@ -40,14 +43,14 @@
     		    	
         </td>
         <td class=" <%= "bg-primary" unless p.virus_productions.empty? %>">
-        	<small><%=p.name%></small>
+        	<%=p.name%>
         </td>
         <td class=" text-align-left <%= "bg-primary" unless p.virus_productions.empty? %>">
 	        	<%if p.clone_batches.empty?%>
 	        	-
 	        	<%else%>
 	        	<% p.clone_batches.joins(:type).order('order_set').each do |c| %>
-	        		<small><span class="<%=  p.virus_productions.empty? ? "text-primary" : "white" %>"><strong><%=c.nb if c.number%></strong></span>-<span><%=c.name.truncate(20, omission:'...') if c.name%></span></small><br />
+	        		<small><span class="<%=  p.virus_productions.empty? ? "text-primary" : "white" %>"><strong><%=c.nb if c.number%></strong></span>-<span></small><%=c.name.truncate(50, omission:'...') if c.name%></span><br />
 	        	<%end%>
         	<%end%>
         </td>
@@ -56,12 +59,15 @@
 	        	-
 	        	<%else%>
 				<% p.plasmid_batches.each do |pb|%>
-					<small><strong><%= pb.name %></strong><br /></small>
+					<strong><%= pb.name %></strong><br />
 				<%end%>
         		<%end%>
         	</td>
+          <td id="comment" class=" <%= "bg-primary" unless p.virus_productions.empty? %>">
+            <small><%=p.comment.nil? ? "-" : p.comment %></small>
+          </td>
            <td id="Exp. end" class=" <%= "bg-primary" unless p.virus_productions.empty? %>">
-          <small><%=p.order_date.nil? ? "-" : p.order_date.strftime("%d %b %y") %></small>
+          <%=p.order_date.nil? ? "-" : p.order_date.strftime("%d %b %y") %>
          </td>
         <td class="<%= "bg-primary" unless p.virus_productions.empty? %>">
             <%= link_to edit_production_path(p.id)  do %>

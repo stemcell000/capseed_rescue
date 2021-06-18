@@ -328,6 +328,7 @@ end
  
   def inform_closed_production
     @production = Production.find(params[:id])
+    id = params[:id]
     production = @production 
     ProductionNotifier.notify_closed_production(@production).deliver_now
     flash.keep[:success] = "Production closed. A mail has been sent to the administrators!"

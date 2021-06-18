@@ -30,16 +30,20 @@
     <% @productions.each do |p| %>
       <tr data-item-id=<%= p.id %> class="item">
         <td id="id" class=" <%= "bg-primary" unless p.virus_productions.empty? %>">
-        	<strong>Prod.-<%= p.id %></strong>
-	    <%unless p.last_step > 1%>
-	        	<%busy_batches =[]%>
-			<%if p.disable_switch %>
-	        		<span class= "glyphicon glyphicon-lock text-danger"></span>
-	        	<%else%>
-	        		<span class="glyphicon glyphicon-ok text-success"></span>
-	        <%end%>
-        <%end%><br />
-        	<strong><%= "Virus-#{p.virus_productions.last.number}" unless p.virus_productions.empty?%></strong>
+      <%unless p.virus_productions.empty?%>
+          <strong><%= "Virus-#{p.virus_productions.last.number}"%></strong>
+          <small>Prod.-<%= p.id %></small>
+        <%else%>
+          	<strong>Prod.-<%= p.id %></strong>
+  	    <%unless p.last_step > 1%>
+  	        	<%busy_batches =[]%>
+  			<%if p.disable_switch %>
+  	        		<span class= "glyphicon glyphicon-lock text-danger"></span>
+  	        	<%else%>
+  	        		<span class="glyphicon glyphicon-ok text-success"></span>
+  	        <%end%>
+          <%end%><br />
+        <%end%>
     		    	
         </td>
         <td class=" <%= "bg-primary" unless p.virus_productions.empty? %>">

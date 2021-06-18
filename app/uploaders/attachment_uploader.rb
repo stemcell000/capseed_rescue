@@ -7,7 +7,11 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   #storage :file
   # storage :fog
-  storage :aws
+  if Rails.env.production?
+    storage :aws
+  else
+    storage :file
+  end
   
   def cache_dir
     "#{Rails.root}/tmp/uploads"

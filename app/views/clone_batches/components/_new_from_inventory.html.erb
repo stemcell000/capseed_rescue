@@ -50,11 +50,14 @@
 		</div>
 		<!--Add Promoter(s) & gene(s)-->
 		<div class= "row">
-			<div class="col-lg-6">
+			<div class="col-lg-3">
 				<%=f.association :promoters, :label => "Promoter", :collection => Promoter.all, input_html: { class: 'select2-select'} %>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-3">
 				<%=f.association :genes, :label => "Gene", :collection => Gene.all, input_html: { class: 'select2-select'} %>	
+			</div>
+			<div class="col-lg-6">
+				<%=f.input :comment_as_plasmid, :label => "Comment" %>
 			</div>
 		</div>
 		

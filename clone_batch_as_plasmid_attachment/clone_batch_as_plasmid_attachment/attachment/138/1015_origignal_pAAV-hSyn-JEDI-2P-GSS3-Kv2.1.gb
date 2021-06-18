@@ -1,0 +1,1133 @@
+LOCUS       pAAV-hSyn-JEDI-2        6071 bp    DNA     circular     09-SEP-2019
+DEFINITION  .
+ACCESSION   urn.local...1i-7yygls6 (modified)
+KEYWORDS    .
+SOURCE      
+  ORGANISM  
+            .
+COMMENT     This file is created by Vector NTI http://www.invitrogen.com/
+            ORIGDB|GenBank VNTDATE|498562703| VNTDBDATE|558264430| LSOWNER|
+            VNTNAME|pAAV-hSyn-hChR2(H134R)-mcherry-WPRE| VNTAUTHORNAME|Charu
+            Ramakrishnan| VNTOAUTHORNAME|Feng Zhang|
+            Vector_NTI_Display_Data_(Do_Not_Edit!) (SXF (CGexDoc
+            "pAAV-hSyn-hChR2(H134R)-mcherry-WPRE" 0 6221 (CDBMol 0 0 1 1 1 0 0
+            0 0 "" "" 0 0 0 0 (CObList) (CObList) (CObLi st) (CObList) -1 "")
+            (CDocSetData 1 1 0 0 0 0 "MAIN" 1 1 1 1 0 0 1 1 0 1 10 10 42949672
+            95 50 0 1 0 (CHomObj 0 0 0 3 75) (CWordArray) (CWordArray)
+            (CStringList "ApaLI" "AvaI" "BamHI" "ClaI" "EcoRI" "HindIII" "Nco
+            I" "PstI" "SmaI" "XmaI" "SalI" "MluI") (CStringList "atg" "gtg")
+            (CStringList "taa" "tga" "tag") (CObList) 1 "{(0,1),2}" 0 0 "" 0
+            4294967295 0 0 0 0 0 0 0 "MAIN" 0 0 30 0 (CProteinMotifSearchObject
+            70 20 1 1 1 1 0 0 1 0 0 0 0 0)) (CMolPar 0 0 0 0 0 1 6221 0 0 0 0 0
+            0 0 0) (CStringList) (CStringL ist) (CObList) (COAPar 25 250 50 0 6
+            4 3 7) (COAPar 25 250 50 0 6 4 3 7 ) (COAPar 25 250 50 0 6 4 3 7)
+            (CObList #0=(CRSite (CStringList) "ApaLI" "gtgcac" 2 0 5 1674 0
+            2558 0 416 0 0 4657 0 5903 0 0 "") #1=(CRSite (CStringList) "AvaI"
+            "cycgrg" 2 0 10 41 0 52 0 957 0 1 890 0 2082 0 2955 0 3260 0 3570 0
+            3581 0 4037 0 0 "") #2=(CRSite (CStringList) "BamHI" "ggatcc" 2 0 1
+            648 0 0 "") #3=(CRSite (CStringList) "ClaI" "atcgat" 3 0 2 2344 0
+            2939 0 0 "" ) #4=(CRSite (CStringList) "EcoRI" "gaattc" 2 0 1 2325
+            0 0 "") #5=(CRSite (CStringList) "HindIII" "aagctt" 2 0 1 2337 0 0
+            "") #6=(CRSite (CStringList) "NcoI" "ccatgg" 2 0 5 670 0 1117 0
+            1171 0 1612 0 2047 0 0 "") #7=(CRSite (CStringList) "PstI" "ctgcag"
+            6 0 5 7 0 170 0 838 0 19 69 0 3623 0 0 "") #8=(CRSite (CStringList)
+            "SmaI" "cccggg" 4 0 4 43 0 54 0 3572 0 3 583 0 0 "") #9=(CRSite
+            (CStringList) "XmaI" "cccggg" 2 0 4 41 0 52 0 3570 0 3 581 0 0 "")
+            #10=(CRSite (CStringList) "SalI" "gtcgac" 2 0 1 660 0 0 " ")
+            #11=(CRSite (CStringList) "MluI" "acgcgt" 2 0 1 151 0 0 ""))
+            (CObList #12=(CFSignal (CObList) "L-ITR" 21 0 0 1 141 0
+            (CStringList) (CStringList) 1 1 1 1 "1..141") #13=(CFSignal
+            (CObList) "hGH polyA" 25 0 0 2966 3444 0 (CStringLi st)
+            (CStringList) 1 1 1 1 "2976..3454") #14=(CFSignal (CObList) "R-ITR"
+            21 0 0 3484 3624 0 (CStringList) (CStringList) 1 1 1 1
+            "3494..3634") #15=(CFSignal (CObList) "f1 Origin" 33 0 0 3716 4022
+            0 (CStringLi st) (CStringList) 1 1 1 1 "3726..4032") #16=(CFSignal
+            (CObList) "AmpR" 21 0 0 4541 5398 0 (CStringList) (CStringList) 1 1
+            1 1 "4551..5408") #17=(CFSignal (CObList) "pUC ori" 33 0 0 5549
+            6216 0 (CStringList ) (CStringList) 1 1 1 1 "5559..6226")
+            #18=(CFSignal (CObList) "hChR2" 61 0 0 671 1600 0 (CStringList)
+            (CStringList) 1 1 1 1 "677..1606") #19=(CFSignal (CObList) "WPRE"
+            21 0 0 2338 2946 0 (CStringList) (CStringList) 1 1 1 1
+            "2348..2956") #20=(CFSignal (CObList) "H134R" 81 0 0 1070 1072 0
+            (CStringList) (CStringList) 1 1 1 1 "1076..1078") #21=(CFSignal
+            (CObList) "hSyn" 21 0 0 156 640 0 (CStringList) (CStringList) 1 1 1
+            1 "156..640") #22=(CFSignal (CObList) "mCherry" 61 0 0 1616 2323 0
+            (CStringList ) (CStringList) 1 1 1 1 "4857..5564")) (CObList)
+            (CObList) (CO bList) (CObList) (CObList) (CObList) (CTextView 0
+            #23=(CGroupPar (CParagraph 0 (0 0) 1 2 0 0 180) (CObjectList
+            #24=(CRefLinePar (CLinePar (CParagraph 0 (0 0) 0 2 0 0 233)
+            "pAAV-hSyn-hChR2(H134R)-mcherry-WPRE" 2) 5 "" 0 4) #25=(CFolderPar
+            (CGroupPar (CParagraph 1 (0 0) 1 1 0 0 178) (CObjectList
+            #26=(CLinePar (CParagraph 0 (0 0) 1 2 1 0 180) "DNA
+            'pAAV-hSyn-hChR2(H134R)-mcherry-WPRE'" 1) #27=(CLinePar (CParagraph
+            0 (0 0) 1 2 1 0 180) "Currently local object. Original author: Feng
+            Zhang" 1) #28=(CLinePar (CParagraph 0 (0 0) 1 2 1 0 180) "Created:
+            11/10/08 09:38AM" 1) #29=(CLinePar (CParagraph 0 (0 0) 1 2 1 0 180)
+            "Last Modified: 06/29/10 09:27AM" 1) #30=(CLinePar (CParagraph 0 (0
+            0) 1 2 1 0 180) "length: 6221 bp" 1) #31=(CLinePar (CParagraph 0 (0
+            0) 1 2 1 0 180) "storage type: Basic" 1) #32=(CLinePar (CParagraph
+            0 (0 0) 1 2 1 0 180) "form: Circular" 1))) "General Description")
+            #33=(CFolderPar (CGroupPar (CParagraph 2 (0 0) 1 1 0 0 178)
+            (CObjectList #34=(CLinePar (CParagraph 0 (0 0) 1 2 1 0 180)
+            "Original Source Database: GenBank" 1) #35=(CLinePar (CParagraph 0
+            (0 0) 1 2 1 0 180) "Modification Date in the Original DB: 23-AUG-2
+            007" 1))) "Standard Fields") #36=(CFolderPar (CGroupPar (CParagraph
+            5 (0 0) 1 1 0 0 178) (CObjectList #37=(CLinePar (CParagraph 0 (0 0)
+            1 2 1 0 180) "Feng Zhang" 1))) "Original Author") #38=(CRefLinePar
+            (CLinePar (CParagraph 0 (0 0) 0 2 0 0 233) "Comments" 2) 1 "" 0 0)
+            #39=(CFolderPar (CGroupPar (CParagraph 8 (0 0) 1 2 0 0 178)
+            (CObjectLi st)) "Annotations") #40=(CFolderPar (CGroupPar
+            (CParagraph 12 (6 0) 1 1 0 0 178) (CObjectList #41=(CFolderPar
+            (CGroupPar (CParagraph 21 (7 21 0) 1 1 1 0 178) (CObjectList
+            #42=(CFolderPar (CGroupPar (CParagraph 1 (3 #12# 0) 1 2 2 0 194)
+            (CObjectList #43=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180) "Start:
+            1 End: 141 " 1) #44=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180)
+            "Original Location Description:" 1) #45=(CLinePar (CParagraph 0 (0
+            0) 1 2 3 0 180) " 1..141" 1))) "L-ITR") #46=(CFolderPar (CGroupPar
+            (CParagraph 156 (3 #21# 0) 1 2 2 0 194) (CObjectList #47=(CLinePar
+            (CParagraph 0 (0 0) 1 2 3 0 180) "Start: 156 End: 640 " 1)
+            #48=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180) "Original Location
+            Description:" 1) #49=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180) "
+            156..640" 1))) "hSyn") #50=(CFolderPar (CGroupPar (CParagraph 2338
+            (3 #19# 0) 1 2 2 0 194 ) (CObjectList #51=(CLinePar (CParagraph 0
+            (0 0) 1 2 3 0 180) "Start: 2338 End: 2946" 1) #52=(CLinePar
+            (CParagraph 0 (0 0) 1 2 3 0 180) "Original Location Description:"
+            1) #53=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180) " 2348..2956"
+            1))) "WPRE") #54=(CFolderPar (CGroupPar (CParagraph 3484 (3 #14# 0)
+            1 2 2 0 194 ) (CObjectList #55=(CLinePar (CParagraph 0 (0 0) 1 2 3
+            0 180) "Start: 3484 End: 3624" 1) #56=(CLinePar (CParagraph 0 (0 0)
+            1 2 3 0 180) "Original Location Description:" 1) #57=(CLinePar
+            (CParagraph 0 (0 0) 1 2 3 0 180) " 3494..3634" 1))) "R-ITR")
+            #58=(CFolderPar (CGroupPar (CParagraph 4541 (3 #16# 0) 1 2 2 0 194
+            ) (CObjectList #59=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180)
+            "Start: 4541 End: 5398" 1) #60=(CLinePar (CParagraph 0 (0 0) 1 2 3
+            0 180) "Original Location Description:" 1) #61=(CLinePar
+            (CParagraph 0 (0 0) 1 2 3 0 180) " 4551..5408" 1))) "AmpR")))
+            "Misc. Feature (5 total)") #62=(CFolderPar (CGroupPar (CParagraph
+            25 (7 25 0) 1 1 1 0 178) (CObjectList #63=(CFolderPar (CGroupPar
+            (CParagraph 2966 (3 #13# 0) 1 2 2 0 194 ) (CObjectList
+            #64=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180) "Start: 2966 End:
+            3444" 1) #65=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180) "Original
+            Location Description:" 1) #66=(CLinePar (CParagraph 0 (0 0) 1 2 3 0
+            180) " 2976..3454" 1))) "hGH polyA") )) "PolyA Signal (1 total)")
+            #67=(CFolderPar (CGroupPar (CParagraph 33 (7 33 0) 1 1 1 0 178)
+            (CObjectList #68=(CFolderPar (CGroupPar (CParagraph 3716 (3 #15# 0)
+            1 2 2 0 194 ) (CObjectList #69=(CLinePar (CParagraph 0 (0 0) 1 2 3
+            0 180) "Start: 3716 End: 4022" 1) #70=(CLinePar (CParagraph 0 (0 0)
+            1 2 3 0 180) "Original Location Description:" 1) #71=(CLinePar
+            (CParagraph 0 (0 0) 1 2 3 0 180) " 3726..4032" 1))) "f1 Origin")
+            #72=(CFolderPar (CGroupPar (CParagraph 5549 (3 #17# 0) 1 2 2 0 194
+            ) (CObjectList #73=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180)
+            "Start: 5549 End: 6216" 1) #74=(CLinePar (CParagraph 0 (0 0) 1 2 3
+            0 180) "Original Location Description:" 1) #75=(CLinePar
+            (CParagraph 0 (0 0) 1 2 3 0 180) " 5559..6226" 1))) "pUC ori")))
+            "Replication Origin (2 total)") #76=(CFolderPar (CGroupPar
+            (CParagraph 61 (7 61 0) 1 1 1 0 178) (CObjectList #77=(CFolderPar
+            (CGroupPar (CParagraph 671 (3 #18# 0) 1 2 2 0 194) (CObjectList
+            #78=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180) "Start: 671 End:
+            1600" 1) #79=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180) "Original
+            Location Description:" 1) #80=(CLinePar (CParagraph 0 (0 0) 1 2 3 0
+            180) " 677..1606" 1))) "hChR2") #81=(CFolderPar (CGroupPar
+            (CParagraph 1616 (3 #22# 0) 1 2 2 0 194 ) (CObjectList
+            #82=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180) "Start: 1616 End:
+            2323" 1) #83=(CLinePar (CParagraph 0 (0 0) 1 2 3 0 180) "Original
+            Location Description:" 1) #84=(CLinePar (CParagraph 0 (0 0) 1 2 3 0
+            180) " 4857..5564" 1))) "mCherry"))) "Exon (2 total)")
+            #85=(CFolderPar (CGroupPar (CParagraph 81 (7 81 0) 1 1 1 0 178)
+            (CObjectList #86=(CFolderPar (CGroupPar (CParagraph 1070 (3 #20# 0)
+            1 2 2 0 194 ) (CObjectList #87=(CLinePar (CParagraph 0 (0 0) 1 2 3
+            0 180) "Start: 1070 End: 1072" 1) #88=(CLinePar (CParagraph 0 (0 0)
+            1 2 3 0 180) "Original Location Description:" 1) #89=(CLinePar
+            (CParagraph 0 (0 0) 1 2 3 0 180) " 1076..1078" 1))) "H134R")))
+            "Allele (1 total)"))) "Feature Map") #90=(CFolderPar (CGroupPar
+            (CParagraph 13 (0 0) 1 1 0 0 178) (CObjectList #91=(CRSFolderPar
+            (CFolderPar (CGroupPar (CParagraph 45866424 (8 0) 1 1 1 0 178)
+            (CObjectList #92=(CGroupPar (CParagraph 0 (10 #0# 0) 1 2 2 0 180)
+            (CObjectList #93=(CLinePar (CParagraph 0 (1 #0# 1) 1 2 2 0 1 91) "
+            N1: 1674 " 1) #94=(CLinePar (CParagraph 0 (1 #0# 2) 1 2 2 0 1 91) "
+            N2: 2558 " 1) #95=(CLinePar (CParagraph 0 (1 #0# 3) 1 2 2 0 1 91) "
+            N3: 4160 " 1) #96=(CLinePar (CParagraph 0 (1 #0# 4) 1 2 2 0 1 91) "
+            N4: 4657 " 1) #97=(CLinePar (CParagraph 0 (1 #0# 5) 1 2 2 0 1 91) "
+            N5: 5903 " 1))))) "ApaLI: 5 sit es") 1 5 "GTGCAC" "CACGTG")
+            #98=(CRSFolderPar (CFolderPar (CGroupPar (CParagraph 45866392 (8 0)
+            1 1 1 0 178) (CObjectList #99=(CGroupPar (CParagraph 0 (10 #1# 0) 1
+            2 2 0 180) (CObjectList #100=(CLinePar (CParagraph 0 (1 #1# 1) 1 2
+            2 0 191) " N1: 41 " 1) #101=(CLinePar (CParagraph 0 (1 #1# 2) 1 2 2
+            0 191) " N2: 52 " 1) #102=(CLinePar (CParagraph 0 (1 #1# 3) 1 2 2 0
+            191) " N3: 957 " 1) #103=(CLinePar (CParagraph 0 (1 #1# 4) 1 2 2 0
+            191) " N4: 1890 " 1) #104=(CLinePar (CParagraph 0 (1 #1# 5) 1 2 2 0
+            191) " N5: 2082 " 1) #105=(CLinePar (CParagraph 0 (1 #1# 6) 1 2 2 0
+            191) " N6: 2955 " 1) #106=(CLinePar (CParagraph 0 (1 #1# 7) 1 2 2 0
+            191) " N7: 3260 " 1) #107=(CLinePar (CParagraph 0 (1 #1# 8) 1 2 2 0
+            191) " N8: 3570 " 1) #108=(CLinePar (CParagraph 0 (1 #1# 9) 1 2 2 0
+            191) " N9: 3581 " 1) #109=(CLinePar (CParagraph 0 (1 #1# 10) 1 2 2
+            0 191) " N10: 4037 " 1))))) "AvaI: 10 s ites") 1 5 "CYCGRG"
+            "GRGCYC") #110=(CRSFolderPar (CFolderPar (CGroupPar (CParagraph
+            46001352 (8 0) 1 1 1 0 178) (CObjectList #111=(CGroupPar
+            (CParagraph 0 (10 #2# 0) 1 2 2 0 180) (CObjectList #112=(CLinePar
+            (CParagraph 0 (1 #2# 1) 1 2 2 0 191) " N1: 648 " 1))))) "BamHI: 1 s
+            ite") 1 5 "GGATCC" "CCTAGG") #113=(CRSFolderPar (CFolderPar
+            (CGroupPar (CParagraph 46001320 (8 0) 1 1 1 0 178) (CObjectList
+            #114=(CGroupPar (CParagraph 0 (10 #3# 0) 1 2 2 0 180) (CObjectList
+            #115=(CLinePar (CParagraph 0 (1 #3# 1) 1 2 2 0 191) " N1: 2344 " 1)
+            #116=(CLinePar (CParagraph 0 (1 #3# 2) 1 2 2 0 191) " N2: 2939 "
+            1))))) "ClaI: 2 s ites") 2 4 "ATCGAT" "TAGCTA") #117=(CRSFolderPar
+            (CFolderPar (CGroupPar (CParagraph 46001288 (8 0) 1 1 1 0 178)
+            (CObjectList #118=(CGroupPar (CParagraph 0 (10 #4# 0) 1 2 2 0 180)
+            (CObjectList #119=(CLinePar (CParagraph 0 (1 #4# 1) 1 2 2 0 191) "
+            N1: 2325 " 1))))) "EcoRI: 1 site") 1 5 "GAATTC" "CTTAAG")
+            #120=(CRSFolderPar (CFolderPar (CGroupPar (CParagraph 46001256 (8
+            0) 1 1 1 0 178) (CObjectList #121=(CGroupPar (CParagraph 0 (10 #5#
+            0) 1 2 2 0 180) (CObjectList #122=(CLinePar (CParagraph 0 (1 #5# 1)
+            1 2 2 0 191) " N1: 2337 " 1))))) "HindIII: 1 site") 1 5 "AAGCTT"
+            "TTCGAA") #123=(CRSFolderPar (CFolderPar (CGroupPar (CParagraph
+            45866824 (8 0) 1 1 1 0 178) (CObjectList #124=(CGroupPar
+            (CParagraph 0 (10 #11# 0) 1 2 2 0 180 ) (CObjectList #125=(CLinePar
+            (CParagraph 0 (1 #11# 1) 1 2 2 0 191) " N1: 151 " 1))))) "MluI: 1
+            si te") 1 5 "ACGCGT" "TGCGCA") #126=(CRSFolderPar (CFolderPar
+            (CGroupPar (CParagraph 46001224 (8 0) 1 1 1 0 178) (CObjectList
+            #127=(CGroupPar (CParagraph 0 (10 #6# 0) 1 2 2 0 180) (CObjectList
+            #128=(CLinePar (CParagraph 0 (1 #6# 1) 1 2 2 0 191) " N1: 670 " 1)
+            #129=(CLinePar (CParagraph 0 (1 #6# 2) 1 2 2 0 191) " N2: 1117 " 1)
+            #130=(CLinePar (CParagraph 0 (1 #6# 3) 1 2 2 0 191) " N3: 1171 " 1)
+            #131=(CLinePar (CParagraph 0 (1 #6# 4) 1 2 2 0 191) " N4: 1612 " 1)
+            #132=(CLinePar (CParagraph 0 (1 #6# 5) 1 2 2 0 191) " N5: 2047 "
+            1))))) "NcoI: 5 s ites") 1 5 "CCATGG" "GGTACC") #133=(CRSFolderPar
+            (CFolderPar (CGroupPar (CParagraph 22563464 (8 0) 1 1 1 0 178)
+            (CObjectList #134=(CGroupPar (CParagraph 0 (10 #7# 0) 1 2 2 0 180)
+            (CObjectList #135=(CLinePar (CParagraph 0 (1 #7# 1) 1 2 2 0 191) "
+            N1: 7 " 1) #136=(CLinePar (CParagraph 0 (1 #7# 2) 1 2 2 0 191) "
+            N2: 170 " 1) #137=(CLinePar (CParagraph 0 (1 #7# 3) 1 2 2 0 191) "
+            N3: 838 " 1) #138=(CLinePar (CParagraph 0 (1 #7# 4) 1 2 2 0 191) "
+            N4: 1969 " 1) #139=(CLinePar (CParagraph 0 (1 #7# 5) 1 2 2 0 191) "
+            N5: 3623 " 1))))) "PstI: 5 s ites") 5 1 "CTGCAG" "GACGTC")
+            #140=(CRSFolderPar (CFolderPar (CGroupPar (CParagraph 45866856 (8
+            0) 1 1 1 0 178) (CObjectList #141=(CGroupPar (CParagraph 0 (10 #10#
+            0) 1 2 2 0 180 ) (CObjectList #142=(CLinePar (CParagraph 0 (1 #10#
+            1) 1 2 2 0 191) " N1: 660 " 1))))) "SalI: 1 si te") 1 5 "GTCGAC"
+            "CAGCTG") #143=(CRSFolderPar (CFolderPar (CGroupPar (CParagraph
+            22563432 (8 0) 1 1 1 0 178) (CObjectList #144=(CGroupPar
+            (CParagraph 0 (10 #8# 0) 1 2 2 0 180) (CObjectList #145=(CLinePar
+            (CParagraph 0 (1 #8# 1) 1 2 2 0 191) " N1: 43 " 1) #146=(CLinePar
+            (CParagraph 0 (1 #8# 2) 1 2 2 0 191) " N2: 54 " 1) #147=(CLinePar
+            (CParagraph 0 (1 #8# 3) 1 2 2 0 191) " N3: 3572 " 1) #148=(CLinePar
+            (CParagraph 0 (1 #8# 4) 1 2 2 0 191) " N4: 3583 " 1))))) "SmaI: 4 s
+            ites") 3 3 "CCCGGG" "GGGCCC") #149=(CRSFolderPar (CFolderPar
+            (CGroupPar (CParagraph 22563400 (8 0) 1 1 1 0 178) (CObjectList
+            #150=(CGroupPar (CParagraph 0 (10 #9# 0) 1 2 2 0 180) (CObjectList
+            #151=(CLinePar (CParagraph 0 (1 #9# 1) 1 2 2 0 191) " N1: 41 " 1)
+            #152=(CLinePar (CParagraph 0 (1 #9# 2) 1 2 2 0 191) " N2: 52 " 1)
+            #153=(CLinePar (CParagraph 0 (1 #9# 3) 1 2 2 0 191) " N3: 3570 " 1)
+            #154=(CLinePar (CParagraph 0 (1 #9# 4) 1 2 2 0 191) " N4: 3581 "
+            1))))) "XmaI: 4 s ites") 1 5 "CCCGGG" "GGGCCC")))
+            "Restriction/Methylation Map")))) (CGraphView (CWStyleSheet
+            (CObjectList #155=(CWidgetStyle "RSite Label" 1 (LOGPEN 0 0
+            13408563) 1 0 1 (LOGFONT 0 0 0 0 400 0 0 0 0 3 2 1 18 "Georgia")
+            0.555556 0 1 5 "@N (@S)" 0) #156=(CWidgetStyle "Signal Label" 1
+            (LOGPEN 0 0 0) 1 0 1 (LOGFONT 0 0 0 0 700 0 0 0 0 3 2 1 34 "Arial")
+            0.666667 0 1 1 "@N" 0) #157=(CWidgetStyle "Molecule Label 2" 0 0 1
+            (LOGFONT 0 0 0 0 400 0 0 0 0 3 2 1 18 "Georgia") 0.555556 0 1 16
+            "@L bp" 0) #158=(CWidgetStyle "Molecule Label 1" 0 0 1 (LOGFONT 0 0
+            0 0 400 0 0 0 0 3 2 1 34 "Verdana") 0.833333 0 1 1 "@N" 0)
+            #159=(CWidgetStyle "Shape 3" 1 (LOGPEN 0 0 3355545) 1 1 (LOGBRUSH 0
+            6724095 0) 0 0 1 (LOGSHAPE 9 1 0.8 1.8 0)) #160=(CWidgetStyle
+            "Shape 1" 1 (LOGPEN 0 0 6723840) 1 1 (LOGBRUSH 0 10079334 0) 0 0 1
+            (LOGSHAPE 9 1 0.8 1.8 0)) #161=(CWidgetStyle "Axis" 1 (LOGPEN 0 0
+            10079436) 2 1 (LOGBRUSH 0 13434879 0) 0 0 1 (LOGSHAPE 10 1 0 0 0))
+            #162=(CWidgetStyle "Line 2" 1 (LOGPEN 0 0 6723840) 8 0 0 0 1
+            (LOGSHAPE 1 1.9 0 0 0)) #163=(CWidgetStyle "RSite" 1 (LOGPEN 0 0
+            10053171) 8 0 0 0 1 (LOGSHAPE 1 1.9 0 0 0)) #164=(CWidgetStyle
+            "Short Signal" 1 (LOGPEN 0 0 13395507) 10 0 0 0 1 (LOGSHAPE 1 1.9 0
+            0 0)) #165=(CWidgetStyle "Uniq RSite Label" 1 (LOGPEN 0 0 153) 1 0
+            1 (LOGFONT 0 0 0 0 400 0 0 0 0 3 2 1 18 "Georgia") 0.555556 128 1 5
+            "@N (@S)" 0) #166=(CWidgetStyle "Vanilla" 1 (LOGPEN 0 0 0) 1 1
+            (LOGBRUSH 0 16777215 0) 1 (LOGFONT 0 0 0 0 400 0 0 0 0 7 48 2 18
+            "Times New Roman") 0.8 0 1 2 "?" 0) #167=(CWidgetStyle "Mark 1" 0 0
+            1 (LOGFONT 0 0 0 0 400 0 0 0 2 7 48 2 2 "Windings") 0.7 0 1 2 "?"
+            0) #168=(CWidgetStyle "Motif Label" 1 (LOGPEN 0 0 16744512) 1 0 1
+            (LOGFONT 0 0 0 0 400 0 0 0 0 3 2 1 34 "Arial") 0.611111 8 388608 1
+            65535 "@N (@H)" 0) #169=(CWidgetStyle "Fragment Label 2" 1 (LOGPEN
+            0 0 0) 1 0 1 (LOGFONT 0 0 0 0 400 0 0 0 0 3 2 1 49 "Courier New")
+            1.05 0 1 48 "@F bp (molecule @L bp)" 0) #170=(CWidgetStyle
+            "Fragment Label 1" 1 (LOGPEN 0 0 0) 1 0 1 (LOGFONT 0 0 0 0 400 0 0
+            0 0 3 2 1 34 "Arial") 0.91 0 1 1 "Fragment of @N" 0)
+            #171=(CWidgetStyle "Shape 4" 1 (LOGPEN 0 0 0) 1 1 (LOGBRUSH 2
+            8388608 5) 0 0 0) #172=(CWidgetStyle "Shape 2" 1 (LOGPEN 0 0 0) 1 1
+            (LOGBRUSH 0 1 28 0) 0 0 0) #173=(CWidgetStyle "Shape 0" 1 (LOGPEN 0
+            0 0) 1 1 (LOGBRUSH 0 0 0) 0 0 0) #174=(CWidgetStyle "ORF" 1 (LOGPEN
+            0 0 16384) 8 0 0 0 1 (LOGSHAPE 7 0.2 3.41182 2.86186 0.609808))
+            #175=(CWidgetStyle "Line 4" 1 (LOGPEN 0 0 32768) 8 0 0 0 0)
+            #176=(CWidgetStyle "Line 3" 1 (LOGPEN 0 0 16711680) 8 0 0 0 0)
+            #177=(CWidgetStyle "Line 1" 1 (LOGPEN 0 0 16711680) 1 0 0 0 0)
+            #178=(CWidgetStyle "Short Promoter" 1 (LOGPEN 0 0 128) 6 0 0 0 0)
+            #179=(CWidgetStyle "Motif" 1 (LOGPEN 0 0 0) 1 0 0 0 0)
+            #180=(CWidgetStyle "Line 0" 1 (LOGPEN 0 0 0) 8 0 0 0 0)
+            #181=(CWidgetStyle "Void" 0 0 0 0 0) #182=(CWidgetStyle "General
+            Label" 1 (LOGPEN 0 0 0) 1 0 1 (LOGFONT 0 0 0 0 400 0 0 0 0 3 2 1 18
+            "Times New Roman") 0.91 0 1 3 "@T @N " 0) #183=(CWidgetStyle
+            "Position" 1 (LOGPEN 0 0 0) 1 0 0 0 0) #184=(CWidgetStyle
+            "Annotation" 0 0 1 (LOGFONT 0 0 0 0 400 0 0 0 0 3 2 1 18 "Times New
+            Roman") 0.91 0 0 0) #185=(CWidgetStyle "Position Label" 1 (LOGPEN 0
+            0 8388608) 1 0 1 (LOGFONT 0 0 0 0 400 0 1 0 0 3 2 1 34 "Arial")
+            0.63 83886 08 1 1 "@N" 0) #186=(CWidgetStyle "Range" 1 (LOGPEN 0 0
+            0) 1 1 (LOGBRUSH 0 16777215 0) 0 0 0) #187=(CWidgetStyle "Range
+            Label" 1 (LOGPEN 0 0 8388608) 1 0 1 (LOGFONT 0 0 0 0 400 0 1 0 0 3
+            2 1 34 "Arial") 0.63 83886 08 1 1 "@N" 0) #188=(CWidgetStyle "ORF
+            Label" 1 (LOGPEN 0 0 49216) 1 0 1 (LOGFONT 0 0 0 0 400 0 0 0 0 3 2
+            1 18 "Times New Roman") 0.611111 0 1 65535 "@N" 0)
+            #189=(CWidgetStyle "CDS Label" 1 (LOGPEN 0 0 4227264) 1 0 1
+            (LOGFONT 0 0 0 0 400 0 0 0 0 3 2 1 34 "Arial") 0.555556 2 55 1 1
+            "@N" 0) #190=(CWidgetStyle "Shape 5" 1 (LOGPEN 0 0 0) 3 1 (LOGBRUSH
+            0 16777113 0) 1 (LOGFONT 0 0 0 0 400 0 0 0 0 7 48 2 50 "Arial") 0.9
+            0 0 1 (LOGSHAPE 9 1 0.8 1.8 0)) #191=(CWidgetStyle "CDS" 1 (LOGPEN
+            0 0 0) 1 1 (LOGBRUSH 2 39423 3) 0 0 1 (LOGSHAPE 9 1 0.8 1.8 0))
+            #192=(CWidgetStyle "Label 2" 1 (LOGPEN 0 0 4227264) 1 0 1 (LOGFONT
+            0 0 0 0 400 0 0 0 0 3 2 1 34 "Arial") 0.944444 8 388608 1 1 "@N" 0)
+            #193=(CWidgetStyle "Label 3" 1 (LOGPEN 0 0 8421376) 1 0 1 (LOGFONT
+            0 0 0 0 700 255 0 0 0 3 2 1 34 "Arial") 0.833333 255 1 5 "@N (@S)"
+            0) #194=(CWidgetStyle "Label 4" 1 (LOGPEN 0 0 8437824) 1 0 1
+            (LOGFONT 0 0 0 0 400 0 0 0 0 3 2 1 34 "Arial") 0.722222 0 1 5 "@N
+            (@S)" 0)) 0.164644 1.74233 0.164644 2.53336 (70 (CShapeMapEntry 0
+            "Unique RSite" 1 "Uniq RSite Label") 67 (CShapeMapEntry 0 "ORF" 0
+            "ORF Label")) 40.0378 40.0378 39 39 0 .1 -365) 1 1 0 1 1 (mapper:
+            19.1125 -23.1337 40.0378 40.0378 0.01 10 -1 6221 6221 1 0 0)
+            #195=(CGroupWidget (CWidget 0 (0 0) 1 2 0 0 Nil -2201 100)
+            (CObjectList #196=(CGroupWidget (CWidget 1 (0 0) 1 2 0 0 Nil -1642
+            100) (CObjectList #197=(CAxis (CWideLine (CWidget 0 (0 0) 1 2 0 0
+            #161# 33365908 0) (LOGPEN 0 0 10079436) 2 (LOGBRUSH 0 13434879 0) 1
+            6.27519 6.27319 1 0.0214037) 0.100839) #198=(CLabel (CWidget 1001
+            (0 0) 1 2 0 0 #158# 21776116 10 0) (LOGPEN 0 0 13408563) 1 (LOGFONT
+            58 22 0 0 400 0 0 0 0 3 2 1 34 "Verd ana") 1.74233 0.833333 0
+            "pAAV-hSyn-hChR2(H134R)-mcherry-WPRE" "@N" 1 0 0.871165 0 -10
+            23.5278 1.47361 Nil) #199=(CLabel (CWidget 1002 (0 0) 1 2 0 0 #157#
+            21999084 10 0) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0
+            0 3 2 1 18 "Geor gia") 1.74233 0.555556 0 "6221 bp" "@L bp" 16 0
+            -0. 871165 0 -10.8 3.172 0.949103 Nil)) (CObjectList))
+            #200=(CGroupWidget (CWidget 10 (6 0) 1 2 0 0 Nil -2410 100 )
+            (CObjectList #201=(CGroupWidget (CWidget 21 (7 21 0) 1 2 0 0 Nil
+            -1921 100) (CObjectList #202=(CWideArrow (CWideLine (CWidget 0 (3
+            #12# 0) 1 2 0 0 #160# 0 100) (LOGPEN 0 0 6723840) 1 (LOGBRUSH 0
+            10079334 0) 1 6.131 6.273 19 1 0.082322) 0.8 1.8 0) #203=(CLabel
+            (CWidget 0 (0 0) 1 2 0 0 #156# 2181064 0 100) (LOGPEN 0 0 0) 1
+            (LOGFONT 46 17 0 0 700 0 0 0 0 3 2 1 3 4 "Arial") 1.74233 0.666667
+            0 "L-ITR" " @N" 1 9.83426 8.71165 0 -10 2.29783 1.12394 #202#)
+            #204=(CWideArrow (CWideLine (CWidget 0 (3 #14# 0) 1 2 0 0 #160# 0
+            100) (LOGPEN 0 0 6723840) 1 (LOGBRUSH 0 10079334 0) 1 2.61879 2.7
+            6097 1 0.082322) 0.8 1.8 0) #205=(CLabel (CWidget 0 (0 0) 1 2 0 0
+            #156# 2119584 8 100) (LOGPEN 0 0 0) 1 (LOGFONT 46 17 0 0 700 0 0 0
+            0 3 2 1 3 4 "Arial") 1.74233 0.666667 0 "R-ITR" " @N" 1 -7.37883
+            -15.681 0 -10 2.42271 1.12394 #204#) #206=(CWideArrow (CWideLine
+            (CWidget 0 (3 #16# 0) 1 2 0 0 #160# 0 100) (LOGPEN 0 0 6723840) 1
+            (LOGBRUSH 0 10079334 0) 1 0.829904 1. 6951 1 0.082322) 0.8 1.8 0)
+            #207=(CLabel (CWidget 0 (0 0) 1 2 0 0 #156# 2081903 016 100)
+            (LOGPEN 0 0 0) 1 (LOGFONT 46 17 0 0 700 0 0 0 0 3 2 1 3 4 "Arial")
+            1.74233 0.666667 0 "AmpR" "@ N" 1 -12.9173 5.22699 0 -10 2.59755
+            1.12394 #206#) #208=(CWideArrow (CWideLine (CWidget 0 (3 #19# 0) 1
+            2 0 0 #160# 0 100) (LOGPEN 0 0 6723840) 1 (LOGBRUSH 0 10079334 0) 1
+            3.30247 3.9 1658 1 0.082322) 0.8 1.8 0) #209=(CLabel (CWidget 0 (0
+            0) 1 2 0 0 #156# 2193616 4 100) (LOGPEN 0 0 0) 1 (LOGFONT 46 17 0 0
+            700 0 0 0 0 3 2 1 3 4 "Arial") 1.74233 0.666667 0 "WPRE" "@ N" 1
+            7.91646 -33.1043 0 -10 2.67247 1.12394 #208#) #210=(CWideArrow
+            (CWideLine (CWidget 0 (3 #21# 0) 1 2 0 0 #160# 0 100) (LOGPEN 0 0
+            6723840) 1 (LOGBRUSH 0 10079334 0) 1 5.62782 6.1 1688 1 0.082322)
+            0.8 1.8 0) #211=(CLabel (CWidget 0 (0 0) 1 2 0 0 #156# 2210432 4
+            100) (LOGPEN 0 0 0) 1 (LOGFONT 46 17 0 0 700 0 0 0 0 3 2 1 3 4
+            "Arial") 1.74233 0.666667 0 "hSyn" "@ N" 1 12.6526 3.48466 0 -10
+            2.17295 1.12394 #210#)) (CObjectList)) #212=(CGroupWidget (CWidget
+            25 (7 25 0) 1 2 0 0 Nil -1642 100) (CObjectList #213=(CLine
+            (CWidget 0 (3 #13# 0) 1 2 0 0 #175# 50 3 100) (LOGPEN 0 6 32768) 8
+            0.835356 2.8003 3 .28331) #214=(CLabel (CWidget 0 (0 0) 1 2 0 0
+            #156# 2181797 6 100) (LOGPEN 0 0 0) 1 (LOGFONT 46 17 0 0 700 0 0 0
+            0 3 2 1 3 4 "Arial") 1.74233 0.666667 0 "hGH poly A" "@N" 1
+            -4.53059 -19.1656 0 -10 4.5457 1.123 94 #213#)) (CObjectList))
+            #215=(CGroupWidget (CWidget 33 (7 33 0) 1 2 0 0 Nil -1154 100)
+            (CObjectList #216=(CWideArrow (CWideLine (CWidget 0 (3 #15# 0) 1 2
+            0 0 #159# 0 100) (LOGPEN 0 0 3355545) 1 (LOGBRUSH 0 6724095 0) 1
+            2.21745 2.52 702 1 0.082322) 0.8 1.8 0) #217=(CLabel (CWidget 0 (0
+            0) 1 2 0 0 #156# 2119592 0 100) (LOGPEN 0 0 0) 1 (LOGFONT 46 17 0 0
+            700 0 0 0 0 3 2 1 3 4 "Arial") 1.74233 0.666667 0 "f1 Origi n" "@N"
+            1 -13.6245 -1.74233 0 -10 3.67153 1.12 394 #216#) #218=(CWideArrow
+            (CWideLine (CWidget 0 (3 #17# 0) 1 2 0 0 #159# 0 100) (LOGPEN 0 0
+            3355545) 1 (LOGBRUSH 0 6724095 0) 1 0.00504194 0 .678645 1
+            0.082322) 0.8 1.8 0) #219=(CLabel (CWidget 0 (0 0) 1 2 0 0 #156#
+            2123673 6 100) (LOGPEN 0 0 0) 1 (LOGFONT 46 17 0 0 700 0 0 0 0 3 2
+            1 3 4 "Arial") 1.74233 0.666667 0 "pUC ori" "@N" 1 -8.0416 10.454 0
+            -10 3.172 1.12394 #21 8#)) (CObjectList)) #220=(CGroupWidget
+            (CWidget 61 (7 61 0) 1 2 0 0 Nil -456 100) (CObjectList
+            #221=(CWideArrow (CWideLine (CWidget 0 (3 #18# 0) 1 2 0 0 #159# 0
+            100) (LOGPEN 0 0 3355545) 1 (LOGBRUSH 0 6724095 0) 1 4.65976 5.59
+            756 1 0.082322) 0.8 1.8 0) #222=(CLabel (CWidget 0 (0 0) 1 2 0 0
+            #156# 2082602 612 100) (LOGPEN 0 0 0) 1 (LOGFONT 46 17 0 0 700 0 0
+            0 0 3 2 1 3 4 "Arial") 1.74233 0.666667 0 "hChR2" " @N" 1 13.0217
+            -10.454 0 -10 2.84731 1.12394 #221#) #223=(CWideArrow (CWideLine
+            (CWidget 0 (3 #22# 0) 1 2 0 0 #159# 0 100) (LOGPEN 0 0 3355545) 1
+            (LOGBRUSH 0 6724095 0) 1 3.9307 4.644 64 1 0.082322) 0.8 1.8 0)
+            #224=(CLabel (CWidget 0 (0 0) 1 2 0 0 #156# 2146281 2 100) (LOGPEN
+            0 0 0) 1 (LOGFONT 46 17 0 0 700 0 0 0 0 3 2 1 3 4 "Arial") 1.74233
+            0.666667 0 "mCherry" "@N" 1 13.832 -20.908 0 -10 3.5966 1.12394 #2
+            23#)) (CObjectList)) #225=(CGroupWidget (CWidget 81 (7 81 0) 1 2 0
+            0 Nil -247 100) (CObjectList #226=(CScratch (CWidget 0 (3 #20# 0) 1
+            2 0 0 #177# 21 333440 100) (LOGPEN 0 0 16711680) 1 1 5.1952 2 1.9
+            0.082322 1) #227=(CLabel (CWidget 0 (0 0) 1 2 0 0 #156# 2128080 8
+            100) (LOGPEN 0 0 0) 1 (LOGFONT 46 17 0 0 700 0 0 0 0 3 2 1 3 4
+            "Arial") 1.74233 0.666667 0 "H134R" " @N" 1 12.3366 -6.96932 0 -10
+            2.84731 1.12394 #226#)) (CObjectList))) (CObjectList))
+            #228=(CGroupWidget (CWidget 11 (8 0) 1 2 0 0 Nil -1084 100 )
+            (CObjectList #229=(CGroupWidget (CWidget 1 (10 #2# 0) 1 2 0 0 Nil
+            -735 100) (CObjectList #230=(CScratch (CWidget 1 (1 #2# 1) 1 2 0 0
+            #163# 639 100) (LOGPEN 0 6 10053171) 8 1 5.62076 1.9 0.082322 1)
+            #231=(CLabel (CWidget 0 (0 0) 1 2 0 0 #165# 2195004 0 100) (LOGPEN
+            0 0 153) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia")
+            1.74233 0.555556 128 "{\\i Bam}HI (648)" "@N (@S)" 5 14.426 1.74233
+            0 -10 5.17011 0.949103 #230#)) (CObjectList)) #232=(CGroupWidget
+            (CWidget 1 (10 #4# 0) 1 2 0 0 Nil -1852 100) (CObjectList
+            #233=(CScratch (CWidget 1 (1 #4# 1) 1 2 0 0 #163# 406 3688 100)
+            (LOGPEN 0 6 10053171) 8 1 3.9296 9 1.9 0.082322 1) #234=(CLabel
+            (CWidget 0 (0 0) 1 2 0 0 #165# 2177244 4 100) (LOGPEN 0 0 153) 1
+            (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233
+            0.555556 128 "{\\i Eco}RI (2325)" "@N (@S)" 5 12.19 84 -26.1349 0
+            -10 5.295 0.949103 #233#)) (CObjectList)) #235=(CGroupWidget
+            (CWidget 1 (10 #5# 0) 1 2 0 0 Nil -1503 100) (CObjectList
+            #236=(CScratch (CWidget 1 (1 #5# 1) 1 2 0 0 #163# 218 17452 100)
+            (LOGPEN 0 6 10053171) 8 1 3.9175 9 1.9 0.082322 1) #237=(CLabel
+            (CWidget 0 (0 0) 1 2 0 0 #165# 0 100) (LOGPEN 0 0 153) 1 (LOGFONT
+            38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233 0.555556 128
+            "{\\i Hin}dIII (2337)" "@N (@S)" 5 12. 3531 -27.8773 0 -10 5.96936
+            0.949103 #236#) ) (CObjectList)) #238=(CGroupWidget (CWidget 1 (10
+            #10# 0) 1 2 0 0 Nil -805 100) (CObjectList #239=(CScratch (CWidget
+            1 (1 #10# 1) 1 2 0 0 #163# 21 981496 100) (LOGPEN 0 6 10053171) 8 1
+            5.6086 6 1.9 0.082322 1) #240=(CLabel (CWidget 0 (0 0) 1 2 0 0
+            #165# 8 100) (LOGPEN 0 0 153) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2
+            1 1 8 "Georgia") 1.74233 0.555556 128 "{\\i Sal}I (660)" "@N (@S)"
+            5 13.9446 0 0 -10 4.04618 0.949103 #239#)) (CObjectL ist))
+            #241=(CGroupWidget (CWidget 1 (10 #11# 0) 1 2 0 0 Nil -875 100)
+            (CObjectList #242=(CScratch (CWidget 1 (1 #11# 1) 1 2 0 0 #163# 22
+            020268 100) (LOGPEN 0 6 10053171) 8 1 6.1219 3 1.9 0.082322 1)
+            #243=(CLabel (CWidget 0 (0 0) 1 2 0 0 #165# 2687863 12 100) (LOGPEN
+            0 0 153) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia")
+            1.74233 0.555556 128 "{\\i Mlu}I (151)" "@N (@S)" 5 12.0264 6.96932
+            0 -10 4.17106 0.949103 #242#)) (CObjectList)) #244=(CGroupWidget
+            (CWidget 2 (10 #3# 0) 1 2 0 0 Nil -108 100) (CObjectList
+            #245=(CScratch (CWidget 1 (1 #3# 1) 1 2 0 0 #163# 220 97988 100)
+            (LOGPEN 0 6 10053171) 8 1 3.9105 3 1.9 0.082322 1) #246=(CLabel
+            (CWidget 0 (0 0) 1 2 0 0 #155# 2192385 6 100) (LOGPEN 0 0 13408563)
+            1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233
+            0.555556 0 "{\\i Cla}I (2344)" "@N (@S)" 5 11.711 6 -29.6196 0 -10
+            4.5457 0.949103 #245#) #247=(CScratch (CWidget 2 (1 #3# 2) 1 2 0 0
+            #163# 211 88028 100) (LOGPEN 0 6 10053171) 8 1 3.3105 4 1.9
+            0.082322 1) #248=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 393246 100)
+            (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8
+            "Georgia") 1.74233 0.555556 0 "{\\i Cla}I (2939)" "@N (@S)" 5
+            5.4000 2 -34.8466 0 -10 4.5457 0.949103 #247#)) (CObjectList))
+            #249=(CGroupWidget (CWidget 4 (10 #8# 0) 1 2 0 0 Nil -1014 100)
+            (CObjectList #250=(CScratch (CWidget 1 (1 #8# 1) 1 2 0 0 #163# 406
+            3688 100) (LOGPEN 0 6 10053171) 8 1 6.2308 3 1.9 0.082322 1)
+            #251=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 2195004 0 100) (LOGPEN
+            0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia")
+            1.74233 0.555556 0 "{\\i Sma}I (43)" "@N (@S)" 5 3.56202 15.681 0
+            -10 3.99622 0.949103 #250#) #252=(CScratch (CWidget 2 (1 #8# 2) 1 2
+            0 0 #163# 220 90916 100) (LOGPEN 0 6 10053171) 8 1 6.2197 4 1.9
+            0.082322 1) #253=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 2082602 612
+            100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1
+            8 "Georgia") 1.74233 0.555556 0 "{\\i Sma}I (54)" "@N (@S)" 5
+            8.43363 10.454 0 -10 3.99622 0.949103 #252#) #254=(CScratch
+            (CWidget 3 (1 #8# 3) 1 2 0 0 #163# 220 97572 100) (LOGPEN 0 6
+            10053171) 8 1 2.6722 3 1.9 0.082322 1) #255=(CLabel (CWidget 0 (0
+            0) 1 2 0 0 #155# 2182224 0 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38
+            14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i
+            Sma}I (3572)" "@N (@S)" 5 -8.869 21 -10.454 0 -10 5.04523 0.949103
+            #254#) #256=(CScratch (CWidget 4 (1 #8# 4) 1 2 0 0 #163# 220 88692
+            100) (LOGPEN 0 6 10053171) 8 1 2.6611 4 1.9 0.082322 1)
+            #257=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 2131424 0 100) (LOGPEN
+            0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia")
+            1.74233 0.555556 0 "{\\i Sma}I (3583)" "@N (@S)" 5 -13.37 -5.22699
+            0 -10 4.99528 0.949103 #256#) ) (CObjectList)) #258=(CGroupWidget
+            (CWidget 4 (10 #9# 0) 1 2 0 0 Nil -456 100) (CObjectList
+            #259=(CScratch (CWidget 1 (1 #9# 1) 1 2 0 0 #163# 0 1 00) (LOGPEN 0
+            6 10053171) 8 1 6.23285 1.9 0.082322 1) #260=(CLabel (CWidget 0 (0
+            0) 1 2 0 0 #155# 2181804 8 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38
+            14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i
+            Xma}I (41)" "@N (@S)" 5 3.67873 19.1656 0 -10 4.04618 0.949103
+            #259#) #261=(CScratch (CWidget 2 (1 #9# 2) 1 2 0 0 #163# 392 100)
+            (LOGPEN 0 6 10053171) 8 1 6.22176 1.9 0.082322 1) #262=(CLabel
+            (CWidget 0 (0 0) 1 2 0 0 #155# 2176480 8 100) (LOGPEN 0 0 13408563)
+            1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233
+            0.555556 0 "{\\i Xma}I (52)" "@N (@S)" 5 3.63794 13.9386 0 -10
+            4.12111 0.949103 #261#) #263=(CScratch (CWidget 3 (1 #9# 3) 1 2 0 0
+            #163# 406 3688 100) (LOGPEN 0 6 10053171) 8 1 2.6742 5 1.9 0.082322
+            1) #264=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 2082602 612 100)
+            (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8
+            "Georgia") 1.74233 0.555556 0 "{\\i Xma}I (3570)" "@N (@S)" 5
+            -8.751 05 -13.9386 0 -10 5.24504 0.949103 #263#) #265=(CScratch
+            (CWidget 4 (1 #9# 4) 1 2 0 0 #163# 406 3688 100) (LOGPEN 0 6
+            10053171) 8 1 2.6631 5 1.9 0.082322 1) #266=(CLabel (CWidget 0 (0
+            0) 1 2 0 0 #155# 4063824 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38
+            14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i
+            Xma}I (3581)" "@N (@S)" 5 -11.11 49 -8.71165 0 -10 5.04523 0.949103
+            #265#) ) (CObjectList)) #267=(CGroupWidget (CWidget 5 (10 #0# 0) 1
+            2 0 0 Nil -1712 100) (CObjectList #268=(CScratch (CWidget 1 (1 #0#
+            1) 1 2 0 0 #163# 214 85392 100) (LOGPEN 0 6 10053171) 8 1 4.5861 5
+            1.9 0.082322 1) #269=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 4063864
+            100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1
+            8 "Georgia") 1.74233 0.555556 0 "{\\i Apa}LI (1674)" "@N (@S)" 5
+            15.38 2 -15.681 0 -10 5.41988 0.949103 #268#) #270=(CScratch
+            (CWidget 2 (1 #0# 2) 1 2 0 0 #163# 0 1 00) (LOGPEN 0 6 10053171) 8
+            1 3.69474 1.9 0.082322 1) #271=(CLabel (CWidget 0 (0 0) 1 2 0 0
+            #155# 2082602 612 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0
+            400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i Apa}LI
+            (2558)" "@N (@S)" 5 10.05 16 -31.3619 0 -10 5.41988 0.949103 #270#)
+            #272=(CScratch (CWidget 3 (1 #0# 3) 1 2 0 0 #163# 0 1 00) (LOGPEN 0
+            6 10053171) 8 1 2.0793 1.9 0 .082322 1) #273=(CLabel (CWidget 0 (0
+            0) 1 2 0 0 #155# -911 10 0) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14
+            0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i
+            Apa}LI (4160)" "@N (@S)" 5 -14.4 347 1.74233 0 -10 5.41988 0.949103
+            #272#) #274=(CScratch (CWidget 4 (1 #0# 4) 1 2 0 0 #163# 211 87224
+            100) (LOGPEN 0 6 10053171) 8 1 1.5781 3 1.9 0.082322 1)
+            #275=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 2176402 4 100) (LOGPEN
+            0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia")
+            1.74233 0.555556 0 "{\\i Apa}LI (4657)" "@N (@S)" 5 -14.6 34
+            3.48466 0 -10 5.46983 0.949103 #274#) #276=(CScratch (CWidget 5 (1
+            #0# 5) 1 2 0 0 #163# 220 17824 100) (LOGPEN 0 6 10053171) 8 1
+            0.3216 76 1.9 0.082322 1) #277=(CLabel (CWidget 0 (0 0) 1 2 0 0
+            #155# 2120268 0 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400
+            0 0 0 0 3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i Apa}LI
+            (5903)" "@N (@S)" 5 -7.13 951 12.1963 0 -10 5.46983 0.949103
+            #276#)) (CObjectList)) #278=(CGroupWidget (CWidget 5 (10 #6# 0) 1 2
+            0 0 Nil -1433 100) (CObjectList #279=(CScratch (CWidget 1 (1 #6# 1)
+            1 2 0 0 #163# 393 221 100) (LOGPEN 0 6 10053171) 8 1 5.59857 1.9
+            0.082322 1) #280=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 2210557 2
+            100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1
+            8 "Georgia") 1.74233 0.555556 0 "{\\i Nco}I (670)" "@N (@S)" 5
+            13.9729 -1.74233 0 -10 4.49575 0.949103 #279#) #281=(CScratch
+            (CWidget 2 (1 #6# 2) 1 2 0 0 #163# 0 1 00) (LOGPEN 0 6 10053171) 8
+            1 5.14782 1.9 0.082322 1) #282=(CLabel (CWidget 0 (0 0) 1 2 0 0
+            #155# 0 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0
+            3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i Nco}I (1117)" "@N
+            (@S)" 5 13.468 3 -8.71165 0 -10 4.74552 0.949103 #281#)
+            #283=(CScratch (CWidget 3 (1 #6# 3) 1 2 0 0 #163# 213 33264 100)
+            (LOGPEN 0 6 10053171) 8 1 5.0933 7 1.9 0.082322 1) #284=(CLabel
+            (CWidget 0 (0 0) 1 2 0 0 #155# 4063632 100) (LOGPEN 0 0 13408563) 1
+            (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233
+            0.555556 0 "{\\i Nco}I (1171)" "@N (@S)" 5 14.008 7 -12.1963 0 -10
+            4.74552 0.949103 #283#) #285=(CScratch (CWidget 4 (1 #6# 4) 1 2 0 0
+            #163# 211 88892 100) (LOGPEN 0 6 10053171) 8 1 4.6486 7 1.9
+            0.082322 1) #286=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 2179398 8
+            100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1
+            8 "Georgia") 1.74233 0.555556 0 "{\\i Nco}I (1612)" "@N (@S)" 5
+            15.045 8 -13.9386 0 -10 4.74552 0.949103 #285#) #287=(CScratch
+            (CWidget 5 (1 #6# 5) 1 2 0 0 #163# 220 89300 100) (LOGPEN 0 6
+            10053171) 8 1 4.2100 2 1.9 0.082322 1) #288=(CLabel (CWidget 0 (0
+            0) 1 2 0 0 #155# 2136979 2 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38
+            14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i
+            Nco}I (2047)" "@N (@S)" 5 13.997 2 -22.6503 0 -10 4.99528 0.949103
+            #287#) ) (CObjectList)) #289=(CGroupWidget (CWidget 5 (10 #7# 0) 1
+            2 0 0 Nil -1294 100) (CObjectList #290=(CScratch (CWidget 1 (1 #7#
+            1) 1 2 0 0 #163# 220 96188 100) (LOGPEN 0 6 10053171) 8 1 6.2671 3
+            1.9 0.082322 1) #291=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 1128743
+            751 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2
+            1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i Pst}I (7)" "@N (@S)" 5
+            2.7814 20 .908 0 -10 3.04712 0.949103 #290#) #292=(CScratch
+            (CWidget 2 (1 #7# 2) 1 2 0 0 #163# 208 1903016 100) (LOGPEN 0 6
+            10053171) 8 1 6.1027 7 1.9 0.082322 1) #293=(CLabel (CWidget 0 (0
+            0) 1 2 0 0 #155# 2177072 0 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38
+            14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i
+            Pst}I (170)" "@N (@S)" 5 12.8647 5.22699 0 -10 4.04618 0.949103
+            #292#) #294=(CScratch (CWidget 3 (1 #7# 3) 1 2 0 0 #163# 217 70460
+            100) (LOGPEN 0 6 10053171) 8 1 5.4291 6 1.9 0.082322 1)
+            #295=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 2177166 8 100) (LOGPEN
+            0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia")
+            1.74233 0.555556 0 "{\\i Pst}I (838)" "@N (@S)" 5 13.4802 -3.48466
+            0 -10 3.99622 0.949103 #294#) #296=(CScratch (CWidget 4 (1 #7# 4) 1
+            2 0 0 #163# 598 100) (LOGPEN 0 6 10053171) 8 1 4.28868 1.9 0.082322
+            1) #297=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 0 100) (LOGPEN 0 0
+            13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia")
+            1.74233 0.555556 0 "{\\i Pst}I (1969)" "@N (@S)" 5 14.149 7
+            -19.1656 0 -10 4.42082 0.949103 #296#) #298=(CScratch (CWidget 5 (1
+            #7# 5) 1 2 0 0 #163# 217 66300 100) (LOGPEN 0 6 10053171) 8 1
+            2.6208 1.9 0.082322 1) #299=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155#
+            2119634 4 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0
+            0 3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i Pst}I (3623)" "@N
+            (@S)" 5 -13.69 8 -3.48466 0 -10 4.49575 0.949103 #298#) )
+            (CObjectList)) #300=(CGroupWidget (CWidget 10 (10 #1# 0) 1 2 0 0
+            Nil -1084 100) (CObjectList #301=(CScratch (CWidget 1 (1 #1# 1) 1 2
+            0 0 #163# 211 88236 100) (LOGPEN 0 6 10053171) 8 1 6.2328 5 1.9
+            0.082322 1) #302=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 2154323 2
+            100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1
+            8 "Georgia") 1.74233 0.555556 0 "{\\i Ava}I (41)" "@N (@S)" 5
+            3.45264 17.4233 0 -10 3.84637 0.949103 #301#) #303=(CScratch
+            (CWidget 2 (1 #1# 2) 1 2 0 0 #163# 211 87164 100) (LOGPEN 0 6
+            10053171) 8 1 6.2217 6 1.9 0.082322 1) #304=(CLabel (CWidget 0 (0
+            0) 1 2 0 0 #155# 0 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0
+            400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i Ava}I
+            (52)" "@N (@S)" 5 3.348 12 .1963 0 -10 3.92129 0.949103 #303#)
+            #305=(CScratch (CWidget 3 (1 #1# 3) 1 2 0 0 #163# 0 1 00) (LOGPEN 0
+            6 10053171) 8 1 5.30917 1.9 0.082322 1) #306=(CLabel (CWidget 0 (0
+            0) 1 2 0 0 #155# 0 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0
+            400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i Ava}I
+            (957)" "@N (@S)" 5 13.0389 -5.22699 0 -10 4.47078 0.949103 #305#)
+            #307=(CScratch (CWidget 4 (1 #1# 4) 1 2 0 0 #163# 220 31292 100)
+            (LOGPEN 0 6 10053171) 8 1 4.3683 4 1.9 0.082322 1) #308=(CLabel
+            (CWidget 0 (0 0) 1 2 0 0 #155# 2200828 0 100) (LOGPEN 0 0 13408563)
+            1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233
+            0.555556 0 "{\\i Ava}I (1890)" "@N (@S)" 5 14.620 6 -17.4233 0 -10
+            4.92035 0.949103 #307#) #309=(CScratch (CWidget 5 (1 #1# 5) 1 2 0 0
+            #163# 213 32552 100) (LOGPEN 0 6 10053171) 8 1 4.1747 3 1.9
+            0.082322 1) #310=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 2195144 8
+            100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1
+            8 "Georgia") 1.74233 0.555556 0 "{\\i Ava}I (2082)" "@N (@S)" 5
+            13.828 -24.3926 0 -10 4.9703 0.949103 #309#) #311=(CScratch
+            (CWidget 6 (1 #1# 6) 1 2 0 0 #163# 211 89516 100) (LOGPEN 0 6
+            10053171) 8 1 3.2944 1 1.9 0.082322 1) #312=(CLabel (CWidget 0 (0
+            0) 1 2 0 0 #155# 2205058 4 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38
+            14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i
+            Ava}I (2955)" "@N (@S)" 5 5.3139 9 -36.5889 0 -10 4.92035 0.949103
+            #311#) #313=(CScratch (CWidget 7 (1 #1# 7) 1 2 0 0 #163# 488 100)
+            (LOGPEN 0 6 10053171) 8 1 2.98685 1.9 0.082322 1) #314=(CLabel
+            (CWidget 0 (0 0) 1 2 0 0 #155# 0 100) (LOGPEN 0 0 13408563) 1
+            (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia") 1.74233
+            0.555556 0 "{\\i Ava}I (3260)" "@N (@S)" 5 -5.236 01 -17.4233 0 -10
+            4.9703 0.949103 #313#) #315=(CScratch (CWidget 8 (1 #1# 8) 1 2 0 0
+            #163# 3 1 00) (LOGPEN 0 6 10053171) 8 1 2.67425 1.9 0.082322 1)
+            #316=(CLabel (CWidget 0 (0 0) 1 2 0 0 #155# 0 100) (LOGPEN 0 0
+            13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia")
+            1.74233 0.555556 0 "{\\i Ava}I (3570)" "@N (@S)" 5 -8.461 11
+            -12.1963 0 -10 5.04523 0.949103 #315#) #317=(CScratch (CWidget 9 (1
+            #1# 9) 1 2 0 0 #163# 220 87500 100) (LOGPEN 0 6 10053171) 8 1
+            2.6631 5 1.9 0.082322 1) #318=(CLabel (CWidget 0 (0 0) 1 2 0 0
+            #155# 0 100) (LOGPEN 0 0 13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0
+            3 2 1 1 8 "Georgia") 1.74233 0.555556 0 "{\\i Ava}I (3581)" "@N
+            (@S)" 5 -12.31 38 -6.96932 0 -10 4.84542 0.949103 #317#)
+            #319=(CScratch (CWidget 10 (1 #1# 10) 1 2 0 0 #163# 2 1378800 100)
+            (LOGPEN 0 6 10053171) 8 1 2.2033 3 1.9 0.082322 1) #320=(CLabel
+            (CWidget 0 (0 0) 1 2 0 0 #155# 2686730 32 100) (LOGPEN 0 0
+            13408563) 1 (LOGFONT 38 14 0 0 400 0 0 0 0 3 2 1 1 8 "Georgia")
+            1.74233 0.555556 0 "{\\i Ava}I (4037)" "@N (@S)" 5 -14.29 3 0 0 -10
+            5.04523 0.949103 #319#)) (CObjectL ist))) (CObjectList))
+            #321=(CGroupWidget (CWidget 14 (16 0) 1 2 0 0 Nil -2200 10 0)
+            (CObjectList) (CObjectList)) #322=(CGroupWidget (CWidget 12 (0 0) 1
+            2 0 0 Nil -1573 100 ) (CObjectList) (CObjectList))) (CObjectList)))
+            (CSeqView 10 10 (CObjectList) (CObList) 1 (CObList)) (CObList) 195
+            3068654 (CStringList) 1952671094 891318895 (CObList))).
+FEATURES             Location/Qualifiers
+     misc_feature    1..141
+                     /label="L-ITR"
+     misc_feature    156..640
+                     /label="hSyn"
+     misc_feature    652
+                     /Original_Bases="C"
+                     /label="C"
+                     /note="Geneious type: Editing History Replacement"
+     misc_difference 652
+                     /created_by="User"
+                     /modified_by="User"
+                     /label="BamHI  c->T mutation (Will not cut by BamHI or
+                     BglII anymore）"
+     misc_feature    <665..>670
+                     /created_by="User"
+                     /label="Kozak"
+     CDS             671..>1951
+                     /created_by="User"
+                     /Transferred_From="pCS2-Hygro-ChickenVSD(R154Q)-Mermaid
+                     (partial)"
+                     /Transferred_Similarity="100.00%"
+                     /modified_by="User"
+                     /modified_by="User"
+                     /modified_by="User"
+                     /label="JEDI-2P"
+     misc_feature    1115..>1843
+                     /created_by="User"
+                     /modified_by="User"
+                     /label="cpsfGFP-OPT"
+     misc_feature    1952..1978
+                     /note="GSS*3 linker"
+     misc_difference 1979..1984
+                     /modified_by="User"
+                     /label="do not exist in rat Kv2.1"
+     CDS             1979..>1984
+                     /created_by="User"
+                     /label="Kv2.1"
+     CDS             <1985..>2179
+                     /gene="Kcnb1"
+                     /codon_start=1
+                     /product="potassium voltage gated channel, Shab-related
+                     subfamily, member 1"
+                     /protein_id="NP_037318.1"
+                     /db_xref="GI:6981120"
+                     /vntifkey=4
+                     /label="Rat\Kv2.1\CDS"
+     misc_feature    2188..2796
+                     /label="WPRE"
+     polyA_signal    2816..3294
+                     /label="hGH polyA"
+     misc_feature    complement(2831..2848)
+                     /Hairpin="3.0"
+                     /Primer-Dimer="3.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084841728929000015b92a1-af83-4dbf-a
+                     42c-566b7ca9001d"
+                     /%GC="72.2"
+                     /Tm="62.0"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="GCACTGGGGAGGGGTCAC"
+                     /label="PCMV5R"
+                     /note="Geneious type: primer_bind_reverse"
+     misc_feature    complement(2878..2901)
+                     /Hairpin="5.0"
+                     /Primer-Dimer="4.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="14040848384156170002f2cce1c-b68a-4c0e-b
+                     643-5268dc0e27cc"
+                     /%GC="54.2"
+                     /Tm="64.5"
+                     /Hairpin_Tm="43.6"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="TATTAGGACAAGGCTGGTGGGCAC"
+                     /label="C-CMV-24"
+                     /note="Geneious type: primer_bind_reverse"
+     misc_feature    complement(3201..3218)
+                     /Hairpin="2.0"
+                     /Primer-Dimer="1.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084841315334000745ac835-0583-4388-8
+                     a6d-dc198129d3d5"
+                     /%GC="50.0"
+                     /Tm="50.9"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="GATTAGGAGTTGGAGACC"
+                     /label="f-xa.L"
+                     /note="Geneious type: primer_bind_reverse"
+     primer_bind     3203..3220
+                     /Hairpin="2.0"
+                     /Primer-Dimer="0.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084839450516000b4013eda-25d9-4f5e-8
+                     861-55b45780d8e3"
+                     /%GC="44.4"
+                     /Tm="49.3"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="TCTCCAACTCCTAATCTC"
+                     /label="f-xa.5"
+     misc_feature    3334..3474
+                     /label="R-ITR"
+     rep_origin      3566..3872
+                     /label="f1 Origin"
+     primer_bind     3648..3665
+                     /Hairpin="2.0"
+                     /Primer-Dimer="2.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="14040848391447190003dbf2eee-9891-4d0d-a
+                     ca4-b12fabd63a1b"
+                     /%GC="50.0"
+                     /Tm="53.1"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="TCTTCCCTTCCTTTCTCG"
+                     /label="f-xa.15"
+     misc_feature    complement(3692..3709)
+                     /Hairpin="2.0"
+                     /Primer-Dimer="2.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084840264173000a5fe39ba-33e1-4af8-9
+                     9b0-ea7af0747d5e"
+                     /%GC="61.1"
+                     /Tm="57.2"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="GAGCCCCCGATTTAGAGC"
+                     /label="f-xa.A"
+                     /note="Geneious type: primer_bind_reverse"
+     misc_feature    complement(4067..4084)
+                     /Hairpin="4.0"
+                     /Primer-Dimer="0.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084842077855000c875ea6b-d5ac-46fc-9
+                     3ee-469e1098a83a"
+                     /%GC="72.2"
+                     /Tm="64.3"
+                     /Hairpin_Tm="60.1"
+                     /Self_Dimer_Tm="5.5"
+                     /Sequence="CGCGTCAGCGGGTGTTGG"
+                     /label="PN3"
+                     /note="Geneious type: primer_bind_reverse"
+     primer_bind     4140..4162
+                     /Hairpin="4.0"
+                     /Primer-Dimer="3.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="140408484188042900067768c14-dd97-423a-a
+                     024-50cf822aff40"
+                     /%GC="65.2"
+                     /Tm="67.3"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="1.6"
+                     /Sequence="CCGGGAGCTGCATGTGTCAGAGG"
+                     /label="pGEX3"
+     primer_bind     4140..4162
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1617219092462427ca885dcb-ef3b-4711-84da
+                     -3390a013123f"
+                     /%GC="65.2"
+                     /Tm="67.3"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="1.6"
+                     /Sequence="CCGGGAGCTGCATGTGTCAGAGG"
+                     /label="3GEX"
+     misc_feature    complement(4193..4209)
+                     /Hairpin="5.0"
+                     /Primer-Dimer="2.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084841491389000acaaec6f-f439-4e26-9
+                     f8c-2993e169288e"
+                     /%GC="58.8"
+                     /Tm="56.5"
+                     /Hairpin_Tm="43.4"
+                     /Self_Dimer_Tm="11.1"
+                     /Sequence="ATCACGAGGCCCTTTCG"
+                     /label="LseqPrimer"
+                     /note="Geneious type: primer_bind_reverse"
+     misc_feature    complement(4260..4277)
+                     /Hairpin="5.0"
+                     /Primer-Dimer="3.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084842282514000e1c66d28-3eba-4c62-a
+                     a61-c91d6cdd0ae2"
+                     /%GC="61.1"
+                     /Tm="58.6"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="CCCGAAAAGTGCCACCTG"
+                     /label="pQEVecPromRegion"
+                     /note="Geneious type: primer_bind_reverse"
+     misc_feature    4391..5248
+                     /label="AmpR"
+     misc_feature    complement(4398..4415)
+                     /Hairpin="3.0"
+                     /Primer-Dimer="3.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084842531067000a87b1ce3-e175-44e9-9
+                     e3a-b5b5e305f4c6"
+                     /%GC="44.4"
+                     /Tm="53.3"
+                     /Hairpin_Tm="36.2"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="CGACACGGAAATGTTGAA"
+                     /label="pRLTK.R"
+                     /note="Geneious type: primer_bind_reverse"
+     primer_bind     4574..4591
+                     /Hairpin="6.0"
+                     /Primer-Dimer="1.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084840441648000cd9456e4-8ce3-426e-9
+                     78a-9cab2762ff6a"
+                     /%GC="38.9"
+                     /Tm="49.5"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="GAACGTTTTCCAATGATG"
+                     /label="f-xa.C"
+     misc_feature    complement(4577..4594)
+                     /Hairpin="3.0"
+                     /Primer-Dimer="2.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="14040848389103090003a0a2ea6-7881-41f7-9
+                     f5b-a65fc9320c9e"
+                     /%GC="44.4"
+                     /Tm="51.9"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="GCTCATCATTGGAAAACG"
+                     /label="f-xa.13"
+                     /note="Geneious type: primer_bind_reverse"
+     primer_bind     5017..5034
+                     /Hairpin="3.0"
+                     /Primer-Dimer="2.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="140408484067247700087cc33a2-53f6-49e8-9
+                     d97-64a96ea31f91"
+                     /%GC="55.6"
+                     /Tm="55.8"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="GGAGGCGGATAAAGTTGC"
+                     /label="f-xa.E"
+     misc_feature    complement(5023..5040)
+                     /Hairpin="4.0"
+                     /Primer-Dimer="0.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="140408483869724900098fffddc-3468-4d1c-8
+                     f70-39ec9f0a2911"
+                     /%GC="50.0"
+                     /Tm="52.6"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="GGTCCTGCAACTTTATCC"
+                     /label="f-xa.11"
+                     /note="Geneious type: primer_bind_reverse"
+     rep_origin      5399..6066
+                     /label="pUC ori"
+     primer_bind     5466..5483
+                     /Hairpin="2.0"
+                     /Primer-Dimer="2.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="140408484089697000091616f97-f8a0-4540-9
+                     b98-452710bcb38f"
+                     /%GC="50.0"
+                     /Tm="55.2"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="AAAAACCACCGCTACCAG"
+                     /label="f-xa.G"
+     misc_feature    complement(5488..5505)
+                     /Hairpin="4.0"
+                     /Primer-Dimer="0.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084840063286000b2f7610c-01fb-40e3-b
+                     9c1-d244bb897d82"
+                     /%GC="50.0"
+                     /Tm="55.9"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="TGATCCGGCAAACAAACC"
+                     /label="f-xa.9"
+                     /note="Geneious type: primer_bind_reverse"
+     misc_feature    complement(5767..5786)
+                     /Hairpin="3.0"
+                     /Primer-Dimer="1.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="140408484322032300013acf55b-8495-4a8a-b
+                     409-8b1a5796474f"
+                     /%GC="55.0"
+                     /Tm="59.8"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="TGTAGGTCGTTCGCTCCAAG"
+                     /label="TempTest2"
+                     /note="Geneious type: primer_bind_reverse"
+     primer_bind     5932..5949
+                     /Hairpin="3.0"
+                     /Primer-Dimer="2.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084841098837000c0fadb0b-a60c-4c0d-8
+                     da0-c661b305abba"
+                     /%GC="55.6"
+                     /Tm="56.0"
+                     /Hairpin_Tm="40.9"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="TAGTCCTGTCGGGTTTCG"
+                     /label="f-xa.J"
+     misc_feature    complement(5934..5951)
+                     /Hairpin="3.0"
+                     /Primer-Dimer="1.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084839839012000b23dd4f2-1b88-45ab-8
+                     f13-0d1e7aaac573"
+                     /%GC="66.7"
+                     /Tm="60.7"
+                     /Hairpin_Tm="47.9"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="GGCGAAACCCGACAGGAC"
+                     /label="f-xa.7"
+                     /note="Geneious type: primer_bind_reverse"
+     primer_bind     6024..6043
+                     /Hairpin="4.0"
+                     /Primer-Dimer="1.0"
+                     /Monovalent_Salt_Concentration="50.0"
+                     /Divalent_Salt_Concentration="0.0"
+                     /DNTP_Concentration="0.0"
+                     /Mismatches=0
+                     /created_by="primer3"
+                     /annotation_group="1404084842987142000becc116e-9212-4e73-8
+                     286-d301a54d4834"
+                     /%GC="55.0"
+                     /Tm="59.5"
+                     /Hairpin_Tm="None"
+                     /Self_Dimer_Tm="None"
+                     /Sequence="CGGCCTTTTTACGGTTCCTG"
+                     /label="TempTest1"
+ORIGIN      
+        1 cctgcaggca gctgcgcgct cgctcgctca ctgaggccgc ccgggcaaag cccgggcgtc
+       61 gggcgacctt tggtcgcccg gcctcagtga gcgagcgagc gcgcagagag ggagtggcca
+      121 actccatcac taggggttcc tgcggccgca cgcgtgtgtc tagactgcag agggccctgc
+      181 gtatgagtgc aagtgggttt taggaccagg atgaggcggg gtgggggtgc ctacctgacg
+      241 accgaccccg acccactgga caagcaccca acccccattc cccaaattgc gcatccccta
+      301 tcagagaggg ggaggggaaa caggatgcgg cgaggcgcgt gcgcactgcc agcttcagca
+      361 ccgcggacag tgccttcgcc cccgcctggc ggcgcgcgcc accgccgcct cagcactgaa
+      421 ggcgcgctga cgtcactcgc cggtcccccg caaactcccc ttcccggcca ccttggtcgc
+      481 gtccgcgccg ccgccggccc agccggaccg caccacgcga ggcgcgagat aggggggcac
+      541 gggcgcgacc atctgcgctg cggcgccggc gactcagcgc tgcctcagtc tgcggtgggc
+      601 agcggaggag tcgtgtcgtg cctgagagcg cagtcgagaa ggtaccggat cttctagagt
+      661 cgacgccacc atggagacga ctgtgaggta tgaacagggg tcagagctca ctaaaacttc
+      721 gagctctcca acagcagatg agcccacgat aaagattgat gatggtcgtg atgagggtaa
+      781 tgaacaagac agctgttcca ataccattag gagaaaaatt tccccgtttg tgatgtcatt
+      841 tggattcaga gtatttggag ttgtgcttat cattgtagac atcatagtgg tgattgtgga
+      901 tctggccatc agtgagaaga aaagaggcat tagagagatt cttgaaggtg tttccctggc
+      961 tatagcactc ttcttccttg ttgatgttct catgagagtg tttgttgaag gcttcaagaa
+     1021 ctatttccgg tccaaactgg ttactttgga tgcagtcata gtagtgggca ctctgctaat
+     1081 taatatgacc tactccttct ctgaccttgc tgcctttaac agcgagaacg tgtatattac
+     1141 cgcggataaa cagaaaaacg gcattaaagc gaactttacc gtgcgccata acgtggaaga
+     1201 tggcagcgtg cagctggcgg atcattatca gcagaacacc ccgattggcg atggcccggt
+     1261 gctgctgccg gataaccatt atctgagcca ccagaccgtg ctgagcaaag atccgaacga
+     1321 aaaacgcgat cacatggtgc tgctggaatt tgtgaccgca gcgggcatta cacacggcat
+     1381 ggatgaactg tatggcggca ccggcggcag cgcgagccag ggcgaagaac tgtttaccgg
+     1441 cgtggtgccg attctggtgg aactggatgg cgatgtgaac ggccataaat ttagcgtgcg
+     1501 cggcgaaggc gaaggcgatg cgaccattgg caaactgacc ctgaaattta tttgcaccac
+     1561 cggcaaacta ccggtgccgt ggccgaccct ggtgaccacc ttaacctatg gcgtgcagtg
+     1621 ctttagccgc tatccggatc atatgaaacg ccatgatttt tttaaaagcg cgatgccgga
+     1681 aggctatgtg caggaacgca ccattagctt taaagatgat ggcaaatata aaacccgcgc
+     1741 ggtggtgaaa tttgaaggcg ataccctggt gaaccgcatt gaactgaaag gcaccgattt
+     1801 taaagaagat ggcaacattc tggggcataa actggaatat gatacagatc agatgccgca
+     1861 catggttact cttcttcgag ttctgaaaat tgttatctta ataagaatat ttcgcctggc
+     1921 ttcacagaag aaacaacttg aagtggtaac cggttcttca ggttcatctg gatcttccac
+     1981 gcgtcagtcc cagcccatcc tcaacaccaa ggagatggcc ccgcagagca agcctccaga
+     2041 ggagctggag atgagcagca tgcccagccc cgtggcccct ctgcccgcac gcacggaggg
+     2101 cgtcatcgac atgcggagca tgtccagcat tgacagcttc atcagctgtg ccacggactt
+     2161 ccctgaagcc accagattct gataaaagct tatcgataat caacctctgg attacaaaat
+     2221 ttgtgaaaga ttgactggta ttcttaacta tgttgctcct tttacgctat gtggatacgc
+     2281 tgctttaatg cctttgtatc atgctattgc ttcccgtatg gctttcattt tctcctcctt
+     2341 gtataaatcc tggttgctgt ctctttatga ggagttgtgg cccgttgtca ggcaacgtgg
+     2401 cgtggtgtgc actgtgtttg ctgacgcaac ccccactggt tggggcattg ccaccacctg
+     2461 tcagctcctt tccgggactt tcgctttccc cctccctatt gccacggcgg aactcatcgc
+     2521 cgcctgcctt gcccgctgct ggacaggggc tcggctgttg ggcactgaca attccgtggt
+     2581 gttgtcgggg aaatcatcgt cctttccttg gctgctcgcc tgtgttgcca cctggattct
+     2641 gcgcgggacg tccttctgct acgtcccttc ggccctcaat ccagcggacc ttccttcccg
+     2701 cggcctgctg ccggctctgc ggcctcttcc gcgtcttcgc cttcgccctc agacgagtcg
+     2761 gatctccctt tgggccgcct ccccgcatcg ataccgagcg ctgctcgaga gatctacggg
+     2821 tggcatccct gtgacccctc cccagtgcct ctcctggccc tggaagttgc cactccagtg
+     2881 cccaccagcc ttgtcctaat aaaattaagt tgcatcattt tgtctgacta ggtgtccttc
+     2941 tataatatta tggggtggag gggggtggta tggagcaagg ggcaagttgg gaagacaacc
+     3001 tgtagggcct gcggggtcta ttgggaacca agctggagtg cagtggcaca atcttggctc
+     3061 actgcaatct ccgcctcctg ggttcaagcg attctcctgc ctcagcctcc cgagttgttg
+     3121 ggattccagg catgcatgac caggctcagc taatttttgt ttttttggta gagacggggt
+     3181 ttcaccatat tggccaggct ggtctccaac tcctaatctc aggtgatcta cccaccttgg
+     3241 cctcccaaat tgctgggatt acaggcgtga accactgctc ccttccctgt ccttctgatt
+     3301 ttgtaggtaa ccacgtgcgg accgagcggc cgcaggaacc cctagtgatg gagttggcca
+     3361 ctccctctct gcgcgctcgc tcgctcactg aggccgggcg accaaaggtc gcccgacgcc
+     3421 cgggctttgc ccgggcggcc tcagtgagcg agcgagcgcg cagctgcctg caggggcgcc
+     3481 tgatgcggta ttttctcctt acgcatctgt gcggtatttc acaccgcata cgtcaaagca
+     3541 accatagtac gcgccctgta gcggcgcatt aagcgcggcg ggtgtggtgg ttacgcgcag
+     3601 cgtgaccgct acacttgcca gcgccctagc gcccgctcct ttcgctttct tcccttcctt
+     3661 tctcgccacg ttcgccggct ttccccgtca agctctaaat cgggggctcc ctttagggtt
+     3721 ccgatttagt gctttacggc acctcgaccc caaaaaactt gatttgggtg atggttcacg
+     3781 tagtgggcca tcgccctgat agacggtttt tcgccctttg acgttggagt ccacgttctt
+     3841 taatagtgga ctcttgttcc aaactggaac aacactcaac cctatctcgg gctattcttt
+     3901 tgatttataa gggattttgc cgatttcggc ctattggtta aaaaatgagc tgatttaaca
+     3961 aaaatttaac gcgaatttta acaaaatatt aacgtttaca attttatggt gcactctcag
+     4021 tacaatctgc tctgatgccg catagttaag ccagccccga cacccgccaa cacccgctga
+     4081 cgcgccctga cgggcttgtc tgctcccggc atccgcttac agacaagctg tgaccgtctc
+     4141 cgggagctgc atgtgtcaga ggttttcacc gtcatcaccg aaacgcgcga gacgaaaggg
+     4201 cctcgtgata cgcctatttt tataggttaa tgtcatgata ataatggttt cttagacgtc
+     4261 aggtggcact tttcggggaa atgtgcgcgg aacccctatt tgtttatttt tctaaataca
+     4321 ttcaaatatg tatccgctca tgagacaata accctgataa atgcttcaat aatattgaaa
+     4381 aaggaagagt atgagtattc aacatttccg tgtcgccctt attccctttt ttgcggcatt
+     4441 ttgccttcct gtttttgctc acccagaaac gctggtgaaa gtaaaagatg ctgaagatca
+     4501 gttgggtgca cgagtgggtt acatcgaact ggatctcaac agcggtaaga tccttgagag
+     4561 ttttcgcccc gaagaacgtt ttccaatgat gagcactttt aaagttctgc tatgtggcgc
+     4621 ggtattatcc cgtattgacg ccgggcaaga gcaactcggt cgccgcatac actattctca
+     4681 gaatgacttg gttgagtact caccagtcac agaaaagcat cttacggatg gcatgacagt
+     4741 aagagaatta tgcagtgctg ccataaccat gagtgataac actgcggcca acttacttct
+     4801 gacaacgatc ggaggaccga aggagctaac cgcttttttg cacaacatgg gggatcatgt
+     4861 aactcgcctt gatcgttggg aaccggagct gaatgaagcc ataccaaacg acgagcgtga
+     4921 caccacgatg cctgtagcaa tggcaacaac gttgcgcaaa ctattaactg gcgaactact
+     4981 tactctagct tcccggcaac aattaataga ctggatggag gcggataaag ttgcaggacc
+     5041 acttctgcgc tcggcccttc cggctggctg gtttattgct gataaatctg gagccggtga
+     5101 gcgtgggtct cgcggtatca ttgcagcact ggggccagat ggtaagccct cccgtatcgt
+     5161 agttatctac acgacgggga gtcaggcaac tatggatgaa cgaaatagac agatcgctga
+     5221 gataggtgcc tcactgatta agcattggta actgtcagac caagtttact catatatact
+     5281 ttagattgat ttaaaacttc atttttaatt taaaaggatc taggtgaaga tcctttttga
+     5341 taatctcatg accaaaatcc cttaacgtga gttttcgttc cactgagcgt cagaccccgt
+     5401 agaaaagatc aaaggatctt cttgagatcc tttttttctg cgcgtaatct gctgcttgca
+     5461 aacaaaaaaa ccaccgctac cagcggtggt ttgtttgccg gatcaagagc taccaactct
+     5521 ttttccgaag gtaactggct tcagcagagc gcagatacca aatactgtcc ttctagtgta
+     5581 gccgtagtta ggccaccact tcaagaactc tgtagcaccg cctacatacc tcgctctgct
+     5641 aatcctgtta ccagtggctg ctgccagtgg cgataagtcg tgtcttaccg ggttggactc
+     5701 aagacgatag ttaccggata aggcgcagcg gtcgggctga acggggggtt cgtgcacaca
+     5761 gcccagcttg gagcgaacga cctacaccga actgagatac ctacagcgtg agctatgaga
+     5821 aagcgccacg cttcccgaag ggagaaaggc ggacaggtat ccggtaagcg gcagggtcgg
+     5881 aacaggagag cgcacgaggg agcttccagg gggaaacgcc tggtatcttt atagtcctgt
+     5941 cgggtttcgc cacctctgac ttgagcgtcg atttttgtga tgctcgtcag gggggcggag
+     6001 cctatggaaa aacgccagca acgcggcctt tttacggttc ctggcctttt gctggccttt
+     6061 tgctcacatg t
+//

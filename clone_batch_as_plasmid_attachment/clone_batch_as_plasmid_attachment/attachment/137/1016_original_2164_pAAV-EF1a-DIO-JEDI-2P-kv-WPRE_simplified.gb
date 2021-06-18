@@ -1,0 +1,353 @@
+LOCUS       2164_pAAV-EF1a-DIO-JEDI-2P-kv-WPRE_simplified        7132 bp ds-DNA     circular SYN 30-MAY-2019
+DEFINITION  Cre-activated AAV expression of soma localized JEDI-2P.
+ACCESSION
+VERSION     .
+KEYWORDS    pAAV-EF1a-double floxed-hChR2(H134R)-EYFP-WPRE-HGHpA.
+SOURCE      synthetic DNA construct
+  ORGANISM  synthetic DNA construct
+            .
+REFERENCE   1  (bases 1 to 7256)
+  TITLE     Cre-activated AAV expression plasmids
+REFERENCE   2  (bases 1 to 7256)
+  AUTHORS   .
+  TITLE     Direct Submission
+  JOURNAL   Exported Aug 6, 2018 from SnapGene Server 1.1.58
+            http://www.snapgene.com
+FEATURES             Location/Qualifiers
+     source          1..7132
+                     /organism="synthetic DNA construct"
+                     /mol_type="other DNA"
+     repeat_region   2..131
+                     /note="Functional equivalent of wild-type AAV2 ITR"
+                     /label="AAV2 ITR (alternate)"
+     misc_feature    3..8
+                     /Recognition_pattern="CTGCA^G"
+                     /annotation_group="CTGCAG"
+                     /label="PstI"
+                     /note="Geneious type: restriction site"
+     misc_feature    41..46
+                     /Recognition_pattern="CCC^GGG"
+                     /annotation_group="CCCGGG"
+                     /label="SmaI"
+                     /note="Geneious type: restriction site"
+     misc_feature    132..139
+                     /Recognition_pattern="GC^GGCCGC"
+                     /annotation_group="GCGGCCGC"
+                     /label="NotI"
+                     /note="Geneious type: restriction site"
+     misc_feature    146..151
+                     /Recognition_pattern="A^AGCTT"
+                     /annotation_group="AAGCTT"
+                     /label="HindIII"
+                     /note="Geneious type: restriction site"
+     promoter        232..1410
+                     /note="strong constitutive promoter for human elongation 
+                     factor EF-1-alpha"
+                     /label="EF-1-alpha promoter"
+     intron          463..1401
+                     /note="intron upstream of the start codon of human 
+                     EF-1-alpha"
+                     /label="EF-1-alpha intron A"
+     misc_feature    544..549
+                     /Recognition_pattern="CTGCA^G"
+                     /annotation_group="CTGCAG"
+                     /label="PstI"
+                     /note="Geneious type: restriction site"
+     misc_feature    611..616
+                     /Recognition_pattern="C^TTAAG"
+                     /annotation_group="CTTAAG"
+                     /label="AflII"
+                     /note="Geneious type: restriction site"
+     misc_feature    798..803
+                     /Recognition_pattern="A^GATCT"
+                     /annotation_group="AGATCT"
+                     /label="BglII"
+                     /note="Geneious type: restriction site"
+     misc_feature    1049..1054
+                     /Recognition_pattern="CTGCA^G"
+                     /annotation_group="CTGCAG"
+                     /label="PstI"
+                     /note="Geneious type: restriction site"
+     misc_feature    1197..1202
+                     /Recognition_pattern="C^TCGAG"
+                     /annotation_group="CTCGAG"
+                     /label="XhoI"
+                     /note="Geneious type: restriction site"
+     misc_feature    1411..1416
+                     /Recognition_pattern="GGTAC^C"
+                     /annotation_group="GGTACC"
+                     /label="KpnI"
+                     /note="Geneious type: restriction site"
+     misc_feature    1417..1422
+                     /Recognition_pattern="G^GATCC"
+                     /annotation_group="GGATCC"
+                     /label="BamHI"
+                     /note="Geneious type: restriction site"
+     misc_feature    1423..1428
+                     /Recognition_pattern="T^CTAGA"
+                     /annotation_group="TCTAGA"
+                     /label="XbaI"
+                     /note="Geneious type: restriction site"
+     misc_feature    1429..1434
+                     /Recognition_pattern="G^TCGAC"
+                     /annotation_group="GTCGAC"
+                     /label="SalI"
+                     /note="Geneious type: restriction site"
+     misc_feature    1435..1440
+                     /Recognition_pattern="T^CCGGA"
+                     /annotation_group="TCCGGA"
+                     /label="Kpn2I"
+                     /note="Geneious type: restriction site"
+     protein_bind    1441..1474
+                     /bound_moiety="Cre recombinase"
+                     /note="Cre-mediated recombination occurs in the 8-bp core
+                     sequence (GGATACTT). lox2272 sites are compatible with
+                     eachother, but incompatible with loxP or loxN sites."
+                     /label="lox2272"
+     protein_bind    1525..1558
+                     /bound_moiety="Cre recombinase"
+                     /note="Cre-mediated recombination occurs in the 8-bp core
+                     sequence (GCATACAT)."
+                     /label="loxP"
+     misc_feature    1575..1580
+                     /Recognition_pattern="T^GTACA"
+                     /annotation_group="TGTACA"
+                     /label="Bsp1407I"
+                     /note="Geneious type: restriction site"
+     CDS             complement(1581..3101)
+                     /created_by="User"
+                     /label="JEDI-2P-soma localized"
+     misc_feature    1600..1605
+                     /Recognition_pattern="T^CCGGA"
+                     /annotation_group="TCCGGA"
+                     /label="Kpn2I"
+                     /note="Geneious type: restriction site"
+     misc_feature    1815..1820
+                     /Recognition_pattern="C^TTAAG"
+                     /annotation_group="CTTAAG"
+                     /label="AflII"
+                     /note="Geneious type: restriction site"
+     misc_feature    3112..3117
+                     /Recognition_pattern="G^CTAGC"
+                     /annotation_group="GCTAGC"
+                     /label="NheI"
+                     /note="Geneious type: restriction site"
+     protein_bind    complement(3118..3151)
+                     /bound_moiety="Cre recombinase"
+                     /note="Cre-mediated recombination occurs in the 8-bp core
+                     sequence (GGATACTT). lox2272 sites are compatible with
+                     eachother, but incompatible with loxP or loxN sites."
+                     /label="lox2272"
+     protein_bind    complement(3202..3235)
+                     /bound_moiety="Cre recombinase"
+                     /note="Cre-mediated recombination occurs in the 8-bp core
+                     sequence (GCATACAT)."
+                     /label="loxP"
+     misc_feature    3236..3241
+                     /Recognition_pattern="G^AATTC"
+                     /annotation_group="GAATTC"
+                     /label="EcoRI"
+                     /note="Geneious type: restriction site"
+     misc_feature    3242..3247
+                     /Recognition_pattern="GAT^ATC"
+                     /annotation_group="GATATC"
+                     /label="EcoRV, Eco32I"
+                     /note="Geneious type: restriction site"
+     misc_feature    3248..3253
+                     /Recognition_pattern="A^AGCTT"
+                     /annotation_group="AAGCTT"
+                     /label="HindIII"
+                     /note="Geneious type: restriction site"
+     misc_feature    3260..3848
+                     /note="woodchuck hepatitis virus posttranscriptional 
+                     regulatory element"
+                     /label="WPRE"
+     CDS             complement(3731..3742)
+                     /codon_start=1
+                     /product="Factor Xa recognition and cleavage site"
+                     /translation="IEGR"
+                     /label="Factor Xa site"
+     misc_feature    3866..3871
+                     /Recognition_pattern="C^TCGAG"
+                     /annotation_group="CTCGAG"
+                     /label="XhoI"
+                     /note="Geneious type: restriction site"
+     misc_feature    3872..3877
+                     /Recognition_pattern="A^GATCT"
+                     /annotation_group="AGATCT"
+                     /label="BglII"
+                     /note="Geneious type: restriction site"
+     polyA_signal    3880..4356
+                     /note="human growth hormone polyadenylation signal"
+                     /label="hGH poly(A) signal"
+     misc_feature    4388..4395
+                     /Recognition_pattern="GC^GGCCGC"
+                     /annotation_group="GCGGCCGC"
+                     /label="NotI"
+                     /note="Geneious type: restriction site"
+     repeat_region   4396..4536
+                     /note="inverted terminal repeat of adeno-associated virus
+                     serotype 2"
+                     /label="AAV2 ITR"
+     misc_feature    4481..4486
+                     /Recognition_pattern="CCC^GGG"
+                     /annotation_group="CCCGGG"
+                     /label="SmaI"
+                     /note="Geneious type: restriction site"
+     misc_feature    4492..4497
+                     /Recognition_pattern="CCC^GGG"
+                     /annotation_group="CCCGGG"
+                     /label="SmaI"
+                     /note="Geneious type: restriction site"
+     misc_feature    4530..4535
+                     /Recognition_pattern="CTGCA^G"
+                     /annotation_group="CTGCAG"
+                     /label="PstI"
+                     /note="Geneious type: restriction site"
+     rep_origin      4611..5066
+                     /direction="RIGHT"
+                     /note="f1 bacteriophage origin of replication; arrow 
+                     indicates direction of (+) strand synthesis"
+                     /label="f1 ori"
+     promoter        5348..5452
+                     /gene="bla"
+                     /label="AmpR promoter"
+     CDS             5453..6313
+                     /codon_start=1
+                     /gene="bla"
+                     /product="beta-lactamase"
+                     /note="confers resistance to ampicillin, carbenicillin,
+                     and related antibiotics"
+                     /translation="MSIQHFRVALIPFFAAFCLPVFAHPETLVKVKDAEDQLGARVGY
+                     IELDLNSGKILESFRPEERFPMMSTFKVLLCGAVLSRIDAGQEQLGRRIHYSQNDLVE
+                     YSPVTEKHLTDGMTVRELCSAAITMSDNTAANLLLTTIGGPKELTAFLHNMGDHVTRL
+                     DRWEPELNEAIPNDERDTTMPVAMATTLRKLLTGELLTLASRQQLIDWMEADKVAGPL
+                     LRSALPAGWFIADKSGAGERGSRGIIAALGPDGKPSRIVVIYTTGSQATMDERNRQIA
+                     EIGASLIKHW"
+                     /label="AmpR"
+     rep_origin      6484..7072
+                     /direction="RIGHT"
+                     /note="high-copy-number ColE1/pMB1/pBR322/pUC origin of 
+                     replication"
+                     /label="ori"
+ORIGIN      
+        1 tcctgcaggc agctgcgcgc tcgctcgctc actgaggccg cccgggcgtc gggcgacctt
+       61 tggtcgcccg gcctcagtga gcgagcgagc gcgcagagag ggagtggcca actccatcac
+      121 taggggttcc tgcggccgca cgcgtaagct ttgcaaagat ggataaagtt ttaaacagag
+      181 aggaatcttt gcagctaatg gaccttctag gtcttgaaag gagtgggaat tggctccggt
+      241 gcccgtcagt gggcagagcg cacatcgccc acagtccccg agaagttggg gggaggggtc
+      301 ggcaattgaa ccggtgccta gagaaggtgg cgcggggtaa actgggaaag tgatgtcgtg
+      361 tactggctcc gcctttttcc cgagggtggg ggagaaccgt atataagtgc agtagtcgcc
+      421 gtgaacgttc tttttcgcaa cgggtttgcc gccagaacac aggtaagtgc cgtgtgtggt
+      481 tcccgcgggc ctggcctctt tacgggttat ggcccttgcg tgccttgaat tacttccacc
+      541 tggctgcagt acgtgattct tgatcccgag cttcgggttg gaagtgggtg ggagagttcg
+      601 aggccttgcg cttaaggagc cccttcgcct cgtgcttgag ttgaggcctg gcctgggcgc
+      661 tggggccgcc gcgtgcgaat ctggtggcac cttcgcgcct gtctcgctgc tttcgataag
+      721 tctctagcca tttaaaattt ttgatgacct gctgcgacgc tttttttctg gcaagatagt
+      781 cttgtaaatg cgggccaaga tctgcacact ggtatttcgg tttttggggc cgcgggcggc
+      841 gacggggccc gtgcgtccca gcgcacatgt tcggcgaggc ggggcctgcg agcgcggcca
+      901 ccgagaatcg gacgggggta gtctcaagct ggccggcctg ctctggtgcc tggcctcgcg
+      961 ccgccgtgta tcgccccgcc ctgggcggca aggctggccc ggtcggcacc agttgcgtga
+     1021 gcggaaagat ggccgcttcc cggccctgct gcagggagct caaaatggag gacgcggcgc
+     1081 tcgggagagc gggcgggtga gtcacccaca caaaggaaaa gggcctttcc gtcctcagcc
+     1141 gtcgcttcat gtgactccac ggagtaccgg gcgccgtcca ggcacctcga ttagttctcg
+     1201 agcttttgga gtacgtcgtc tttaggttgg ggggaggggt tttatgcgat ggagtttccc
+     1261 cacactgagt gggtggagac tgaagttagg ccagcttggc acttgatgta attctccttg
+     1321 gaatttgccc tttttgagtt tggatcttgg ttcattctca agcctcagac agtggttcaa
+     1381 agtttttttc ttccatttca ggtgtcgtga ggtaccggat cctctagagt cgactccgga
+     1441 ataacttcgt ataggatact ttatacgaag ttatgcagaa tggtagctgg attgtagctg
+     1501 ctattagcaa tatgaaacct cttaataact tcgtatagca tacattatac gaagttatgg
+     1561 cgcgccctat tacttgtaca ttatcaaaag cgggtcgctt ccggaaaatc ggtcgcgcag
+     1621 ctaataaagc tatcaatgct gctcatgctg cgcatatcaa tcacgccttc ggtgcgcgcc
+     1681 ggcagcggcg ccaccgggct cggcatgctg ctcatttcca gttcttccgg cggtttgctc
+     1741 tgcggcgcca tttctttggt gttcagaatc ggctggctct gacgcgtgga agatccagat
+     1801 gaacctgaag aacccttaag ggttaccact tcaagttgtt tcttctgtga agccaggcga
+     1861 aatattctta ttaagataac aattttcaga actcgaagaa gagtaaccat gtgcggcatc
+     1921 tgatctgtat catattccag tttatgcccc agaatgttgc catcttcttt aaaatcggtg
+     1981 cctttcagtt caatgcggtt caccagggta tcgccttcaa atttcaccac cgcgcgggtt
+     2041 ttatatttgc catcatcttt aaagctaatg gtgcgttcct gcacatagcc ttccggcatc
+     2101 gcgcttttaa aaaaatcatg gcgtttcata tgatccggat agcggctaaa gcactgcacg
+     2161 ccataggtta aggtggtcac cagggtcggc cacggcaccg gtagtttgcc ggtggtgcaa
+     2221 ataaatttca gggtcagttt gccaatggtc gcatcgcctt cgccttcgcc gcgcacgcta
+     2281 aatttatggc cgttcacatc gccatccagt tccaccagaa tcggcaccac gccggtaaac
+     2341 agttcttcgc cctggctcgc gctgccgccg gtgccgccat acagttcatc catgccgtgt
+     2401 gtaatgcccg ctgcggtcac aaattccagc agcaccatgt gatcgcgttt ttcgttcgga
+     2461 tctttgctca gcacggtctg gtggctcaga taatggttat ccggcagcag caccgggcca
+     2521 tcgccaatcg gggtgttctg ctgataatga tccgccagct gcacgctgcc atcttccacg
+     2581 ttatggcgca cggtaaagtt cgctttaatg ccgtttttct gtttatccgc ggtaatatac
+     2641 acgttctcgc tgttaaaggc agcaaggtca gagaaggagt aggtcatatt aattagcaga
+     2701 gtgcccacta ctatgactgc atccaaagta accagtttgg accggaaata gttcttgaag
+     2761 ccttcaacaa acactctcat gagaacatca acaaggaaga agagtgctat agccagggaa
+     2821 acaccttcaa gaatctctct aatgcctctt ttcttctcac tgatggccag atccacaatc
+     2881 accactatga tgtctacaat gataagcaca actccaaata ctctgaatcc aaatgacatc
+     2941 acaaacgggg aaatttttct cctaatggta ttggaacagc tgtcttgttc attaccctca
+     3001 tcacgaccat catcaatctt tatcgtgggc tcatctgctg ttggagagct cgaagtttta
+     3061 gtgagctctg acccctgttc atacctcaca gtcgtctcca tggtggcggt agctagcata
+     3121 acttcgtata aagtatccta tacgaagtta tttgccttaa cccagaaatt atcactgtta
+     3181 ttctttagaa tggtgcaaag aataacttcg tataatgtat gctatacgaa gttatgaatt
+     3241 cgatatcaag cttatcgata atcaacctct ggattacaaa atttgtgaaa gattgactgg
+     3301 tattcttaac tatgttgctc cttttacgct atgtggatac gctgctttaa tgcctttgta
+     3361 tcatgctatt gcttcccgta tggctttcat tttctcctcc ttgtataaat cctggttgct
+     3421 gtctctttat gaggagttgt ggcccgttgt caggcaacgt ggcgtggtgt gcactgtgtt
+     3481 tgctgacgca acccccactg gttggggcat tgccaccacc tgtcagctcc tttccgggac
+     3541 tttcgctttc cccctcccta ttgccacggc ggaactcatc gccgcctgcc ttgcccgctg
+     3601 ctggacaggg gctcggctgt tgggcactga caattccgtg gtgttgtcgg ggaaatcatc
+     3661 gtcctttcct tggctgctcg cctatgttgc cacctggatt ctgcgcggga cgtccttctg
+     3721 ctacgtccct tcggccctca atccagcgga ccttccttcc cgcggcctgc tgccggctct
+     3781 gcggcctctt ccgcgtcttc gccttcgccc tcagacgagt cggatctccc tttgggccgc
+     3841 ctccccgcat cgataccgag cgctgctcga gagatctacg ggtggcatcc ctgtgacccc
+     3901 tccccagtgc ctctcctggc cctggaagtt gccactccag tgcccaccag ccttgtccta
+     3961 ataaaattaa gttgcatcat tttgtctgac taggtgtcct tctataatat tatggggtgg
+     4021 aggggggtgg tatggagcaa ggggcaagtt gggaagacaa cctgtagggc ctgcggggtc
+     4081 tattgggaac caagctggag tgcagtggca caatcttggc tcactgcaat ctccgcctcc
+     4141 tgggttcaag cgattctcct gcctcagcct cccgagttgt tgggattcca ggcatgcatg
+     4201 accaggctca gctaattttt gtttttttgg tagagacggg gtttcaccat attggccagg
+     4261 ctggtctcca actcctaatc tcaggtgatc tacccacctt ggcctcccaa attgctggga
+     4321 ttacaggcgt gaaccactgc tcccttccct gtccttctga ttttgtaggt aaccacgtgc
+     4381 ggaccgagcg gccgcaggaa cccctagtga tggagttggc cactccctct ctgcgcgctc
+     4441 gctcgctcac tgaggccggg cgaccaaagg tcgcccgacg cccgggcttt gcccgggcgg
+     4501 cctcagtgag cgagcgagcg cgcagctgcc tgcaggggcg cctgatgcgg tattttctcc
+     4561 ttacgcatct gtgcggtatt tcacaccgca tacgtcaaag caaccatagt acgcgccctg
+     4621 tagcggcgca ttaagcgcgg cgggtgtggt ggttacgcgc agcgtgaccg ctacacttgc
+     4681 cagcgcctta gcgcccgctc ctttcgcttt cttcccttcc tttctcgcca cgttcgccgg
+     4741 ctttccccgt caagctctaa atcgggggct ccctttaggg ttccgattta gtgctttacg
+     4801 gcacctcgac cccaaaaaac ttgatttggg tgatggttca cgtagtgggc catcgccctg
+     4861 atagacggtt tttcgccctt tgacgttgga gtccacgttc tttaatagtg gactcttgtt
+     4921 ccaaactgga acaacactca actctatctc gggctattct tttgatttat aagggatttt
+     4981 gccgatttcg gtctattggt taaaaaatga gctgatttaa caaaaattta acgcgaattt
+     5041 taacaaaata ttaacgttta caattttatg gtgcactctc agtacaatct gctctgatgc
+     5101 cgcatagtta agccagcccc gacacccgcc aacacccgct gacgcgccct gacgggcttg
+     5161 tctgctcccg gcatccgctt acagacaagc tgtgaccgtc tccgggagct gcatgtgtca
+     5221 gaggttttca ccgtcatcac cgaaacgcgc gagacgaaag ggcctcgtga tacgcctatt
+     5281 tttataggtt aatgtcatga taataatggt ttcttagacg tcaggtggca cttttcgggg
+     5341 aaatgtgcgc ggaaccccta tttgtttatt tttctaaata cattcaaata tgtatccgct
+     5401 catgagacaa taaccctgat aaatgcttca ataatattga aaaaggaaga gtatgagtat
+     5461 tcaacatttc cgtgtcgccc ttattccctt ttttgcggca ttttgccttc ctgtttttgc
+     5521 tcacccagaa acgctggtga aagtaaaaga tgctgaagat cagttgggtg cacgagtggg
+     5581 ttacatcgaa ctggatctca acagcggtaa gatccttgag agttttcgcc ccgaagaacg
+     5641 ttttccaatg atgagcactt ttaaagttct gctatgtggc gcggtattat cccgtattga
+     5701 cgccgggcaa gagcaactcg gtcgccgcat acactattct cagaatgact tggttgagta
+     5761 ctcaccagtc acagaaaagc atcttacgga tggcatgaca gtaagagaat tatgcagtgc
+     5821 tgccataacc atgagtgata acactgcggc caacttactt ctgacaacga tcggaggacc
+     5881 gaaggagcta accgcttttt tgcacaacat gggggatcat gtaactcgcc ttgatcgttg
+     5941 ggaaccggag ctgaatgaag ccataccaaa cgacgagcgt gacaccacga tgcctgtagc
+     6001 aatggcaaca acgttgcgca aactattaac tggcgaacta cttactctag cttcccggca
+     6061 acaattaata gactggatgg aggcggataa agttgcagga ccacttctgc gctcggccct
+     6121 tccggctggc tggtttattg ctgataaatc tggagccggt gagcgtgggt ctcgcggtat
+     6181 cattgcagca ctggggccag atggtaagcc ctcccgtatc gtagttatct acacgacggg
+     6241 gagtcaggca actatggatg aacgaaatag acagatcgct gagataggtg cctcactgat
+     6301 taagcattgg taactgtcag accaagttta ctcatatata ctttagattg atttaaaact
+     6361 tcatttttaa tttaaaagga tctaggtgaa gatccttttt gataatctca tgaccaaaat
+     6421 cccttaacgt gagttttcgt tccactgagc gtcagacccc gtagaaaaga tcaaaggatc
+     6481 ttcttgagat cctttttttc tgcgcgtaat ctgctgcttg caaacaaaaa aaccaccgct
+     6541 accagcggtg gtttgtttgc cggatcaaga gctaccaact ctttttccga aggtaactgg
+     6601 cttcagcaga gcgcagatac caaatactgt tcttctagtg tagccgtagt taggccacca
+     6661 cttcaagaac tctgtagcac cgcctacata cctcgctctg ctaatcctgt taccagtggc
+     6721 tgctgccagt ggcgataagt cgtgtcttac cgggttggac tcaagacgat agttaccgga
+     6781 taaggcgcag cggtcgggct gaacgggggg ttcgtgcaca cagcccagct tggagcgaac
+     6841 gacctacacc gaactgagat acctacagcg tgagctatga gaaagcgcca cgcttcccga
+     6901 agggagaaag gcggacaggt atccggtaag cggcagggtc ggaacaggag agcgcacgag
+     6961 ggagcttcca gggggaaacg cctggtatct ttatagtcct gtcgggtttc gccacctctg
+     7021 acttgagcgt cgatttttgt gatgctcgtc aggggggcgg agcctatgga aaaacgccag
+     7081 caacgcggcc tttttacggt tcctggcctt ttgctggcct tttgctcaca tg
+//

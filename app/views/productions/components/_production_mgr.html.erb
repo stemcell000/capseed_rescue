@@ -68,7 +68,7 @@
         		<%end%>
         	</td>
           <td id="comment" class=" <%= "bg-primary" unless p.virus_productions.empty? %>">
-            <small><%=p.comment.nil? ? "-" : p.comment %></small>
+            <%=p.comment.nil? ? "-" : p.comment %>
           </td>
            <td id="Exp. end" class=" <%= "bg-primary" unless p.virus_productions.empty? %>">
           <%=p.order_date.nil? ? "-" : p.order_date.strftime("%d %b %y") %>

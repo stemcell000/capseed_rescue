@@ -24,7 +24,6 @@ class UserNotifier < ActionMailer::Base
     if Rails.env.production?
       sendgrid_category "Notification"
       sendgrid_recipients recipients
-      sendgrid_unique_args :key => production.id
       mail(from: "mailer@capseed.com", to: "noreply@address.com", subject: "Production notification")
     else
       mail(from: "mailer@capseed.com", to: recipients, subject: "Production notification")

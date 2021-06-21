@@ -126,7 +126,7 @@ def pluralize_without_count(count, noun, text = nil)
   end
 end
 
-def massive_files_attachment(folder_name, object_list, attachmentModel)
+def massive_files_attachment(folder_name, object_list, attachmentModel, attachments)
       begin
       #Starting values
         origin = File.join(Rails.root, folder_name)
@@ -134,19 +134,19 @@ def massive_files_attachment(folder_name, object_list, attachmentModel)
         files_names = Dir.entries(".")
       #Loop over the items
         object_list.each do |object|
-          if files_names.include? object.barcode
+          if files_names.include? object.id
             puts("Object has folder.")
-            object_dir = File.join(origin, object.barcode)
+            object_dir = File.join(origin, object.id)
             Dir.chdir(object_dir)
             Dir.glob("*").each do |file_name|
               puts("files selection.")
               src = File.join(object_dir, file_name)
               object_attachment = attachmentModel.new()
-              puts("attachement creation.")
+              puts("attachment creation.")
               object_attachment.attachment = File.new(src)
               puts("file saving.")
               object_attachment.save
-              object.item_attachments << object_attachment
+              object.attachments << object_attachment
             end
           end
         end

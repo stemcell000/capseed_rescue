@@ -20,17 +20,14 @@ class UserNotifier < ActionMailer::Base
     recipients = User.where( :production_notify => true).where.not(:role => "guest").pluck(:email)
     firstnames = User.where( :production_notify => true ).where.not(:role => "guest").pluck(:firstname)
     
-    sendgrid_category "Notification"
-    
-    sendgrid_recipients recipients
-    sendgrid_substitute "|subme|", firstnames
     
     if Rails.env.production?
+      sendgrid_category "Notification"
       sendgrid_recipients recipients
       sendgrid_unique_args :key => production.id
       mail(from: "mailer@capseed.com", to: "noreply@address.com", subject: "Production notification")
     else
-      mail(:from => "mailer@capseed.com", :to => recipients, :subject => "Production notification")
+      mail(from: "mailer@capseed.com", to: recipients, subject: "Production notification")
     end
   end
   

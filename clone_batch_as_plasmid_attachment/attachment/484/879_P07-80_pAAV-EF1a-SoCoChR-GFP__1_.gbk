@@ -1,0 +1,657 @@
+LOCUS       pAAV-EF1a-SoCoChR-GFP      7420 bp    DNA     circular UNA 28-MAR-2011
+COMMENT     http://www.invitrogen.com/
+FEATURES             Location/Qualifiers
+     Misc._feature   1..141
+                     /vntifkey="21"
+                     /label=L-ITR
+     Vector          join(3524..7420,1..1426)
+                     /origin="pAAV-EF1a-Chr2d-EGFPwithDel (6,988bp
+                     circular)Target vector: from EcoRI cut at 3091^3092 to
+                     BamHI cut at 1426^1427, 5,323bpOrientation: originalPlus
+                     strand 5':   no changePlus strand 3':   no changeMinus
+                     strand 5':  no changeMinus strand 3':  no change"
+     Misc._structure 39..49
+                     /label=deletion
+     Promoter        156..1419
+                     /vntifkey="29"
+                     /label=EF-1a
+     Primer_binding_ 220..240
+                     /note="Primer: GGTCTTGAAAGGAGTGGGAAT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 220..240"
+                     /label="B08-48 (mismatches: 0)"
+     Primer_binding_ complement(309..328)
+                     /note="Primer: GGCACCGGTTCAATTGCCGA"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(309..328)"
+                     /label="B10-03 (mismatches: 0)"
+     Primer_binding_ 589..608
+                     /note="Primer: GGAAGTGGGTGGGAGAGTTC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 589..608"
+                     /label="B08-50 (mismatches: 0)"
+     Primer_binding_ complement(786..805)
+                     /note="Primer: GGCCCGCATTTACAAGACTA"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(786..805)"
+                     /label="B08-49 (mismatches: 0)"
+     Primer_binding_ 1063..1082
+                     /note="Primer: GGGAGCTCAAAATGGAGGAC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 1063..1082"
+                     /label="B08-52 (mismatches: 0)"
+     Primer_binding_ complement(1155..1174)
+                     /note="Primer: ACTCCGTGGAGTCACATGAA"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(1155..1174)"
+                     /label="B08-51 (mismatches: 0)"
+     Primer_binding_ 1271..1296
+                     /note="Primer: ACACTGAGTGGGTGGAGACTGAAGTT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 1271..1296"
+                     /label="B07-47 (mismatches: 0)"
+     Insertion       1427..3523
+                     /origin="GS56987-1 (11,327bp circular)Fragment: from
+                     BamHI cut at 3898^3899 to EcoRI cut at 5995^5996,
+                     2,097bpOrientation: originalPlus strand 5':   no
+                     changePlus strand 3':   no changeMinus strand 5':  no
+                     changeMinus strand 3':  no change"
+                     /label=Insert
+     CDS             <1427..>3523
+                     /gene="ChR86-12-KA2-(1-150)-GFP"
+                     /SECDrawAs="Gene"
+                     /SECStyleId=1
+     Primer_binding_ complement(1807..1826)
+                     /note="Primer: ATGGTgCGCcTGCTGTAGTC"
+                     /note="Number of mismatches: 2"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(1807..1826)"
+                     /label="B05-65 (mismatches: 2)"
+     Primer_binding_ 1891..1910
+                     /note="Primer: TACGTCAAGGTCATCTTCTT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 1891..1910"
+                     /label="B06-20 (mismatches: 0)"
+     Primer_binding_ complement(1901..1920)
+                     /note="Primer: ACCCAGgcaGAAGAAGATGA"
+                     /note="Number of mismatches: 3"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(1901..1920)"
+                     /label="B01-18 (mismatches: 3)"
+     Primer_binding_ complement(2470..2533)
+                     /note="Primer:
+                     tCtagatctagactattaagtggacatggTacccaAcctCcTTcgaaaGtcCggTAGC
+                     CAGTGC"
+                     /note="Number of mismatches: 46"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(2470..2533)"
+                     /label="B08-10 (mismatches: 46)"
+     Primer_binding_ 2759..2823
+                     /note="Primer:
+                     accttcttaAgcTtgCgggaGacGTCgagtccaaccctGGgcccAtgGTGAGCAAGGG
+                     CGAGGAG"
+                     /note="Number of mismatches: 37"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 2759..2823"
+                     /label="B07-20 (mismatches: 37)"
+     Primer_binding_ 2759..2823
+                     /note="Primer:
+                     accttcttaAgcTtgCgggaGacGTCgagtccaaccctGGgcccAtgGTGAGCAAGGG
+                     CGAGGAG"
+                     /note="Number of mismatches: 37"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 2759..2823"
+                     /label="B07-38 (mismatches: 37)"
+     Primer_binding_ 2785..2823
+                     /note="Primer: gGatccGgatcCGccaccAtgGTGAGCAAGGGCGAGGAG"
+                     /note="Number of mismatches: 16"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 2785..2823"
+                     /label="B07-41 (mismatches: 16)"
+     Primer_binding_ complement(2813..2831)
+                     /note="Primer: GTGAACAGCTCCTCGCCCT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(2813..2831)"
+                     /label="B01-54 (mismatches: 0)"
+     Primer_binding_ complement(2813..2831)
+                     /note="Primer: GTGAACAGCTCCTCGCCCT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(2813..2831)"
+                     /label="B01-53 (mismatches: 0)"
+     Primer_binding_ 2866..2885
+                     /note="Primer: GACGTAAACGGCCACAAGTT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 2866..2885"
+                     /label="B03-19 (mismatches: 0)"
+     Primer_binding_ 2905..2928
+                     /note="Primer: GAGGGCGATGCCACCTACGGCAAG"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 2905..2928"
+                     /label="B01-59 (mismatches: 0)"
+     Primer_binding_ complement(2924..2943)
+                     /note="Primer: GAACTTCAGGGTCAGCTTGC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(2924..2943)"
+                     /label="B02-42 (mismatches: 0)"
+     Primer_binding_ complement(2924..2943)
+                     /note="Primer: GAACTTCAGGGTCAGCTTGC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(2924..2943)"
+                     /label="B02-34 (mismatches: 0)"
+     Primer_binding_ 2999..3021
+                     /note="Primer: CCTACGGCGTGCAGTGCTTCAGC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 2999..3021"
+                     /label="B01-56 (mismatches: 0)"
+     Primer_binding_ complement(3008..3026)
+                     /note="Primer: TAGCGGCTGAAGCACTGCA"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3008..3026)"
+                     /label="B01-62 (mismatches: 0)"
+     Primer_binding_ complement(3011..3028)
+                     /note="Primer: GGTAGCGGCTGAAGCACT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3011..3028)"
+                     /label="B01-55 (mismatches: 0)"
+     Primer_binding_ complement(3011..3028)
+                     /note="Primer: GGTAGCGGCTGAAGCACT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3011..3028)"
+                     /label="B01-32 (mismatches: 0)"
+     Primer_binding_ 3034..3053
+                     /note="Primer: CACATGAAGCAGCACGACTT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3034..3053"
+                     /label="B03-17 (mismatches: 0)"
+     Primer_binding_ 3034..3053
+                     /note="Primer: CACATGAAGCAGCACGACTT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3034..3053"
+                     /label="B03-43 (mismatches: 0)"
+     Primer_binding_ 3034..3053
+                     /note="Primer: CACATGAAGCAGCACGACTT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3034..3053"
+                     /label="B09-12 (mismatches: 0)"
+     Primer_binding_ complement(3034..3053)
+                     /note="Primer: AAGTCGTGCTGCTTCATGTG"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3034..3053)"
+                     /label="B09-11 (mismatches: 0)"
+     Primer_binding_ complement(3034..3053)
+                     /note="Primer: AAGTCGTGCTGCTTCATGTG"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3034..3053)"
+                     /label="B03-32 (mismatches: 0)"
+     Primer_binding_ complement(3034..3053)
+                     /note="Primer: AAGTCGTGCTGCTTCATGTG"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3034..3053)"
+                     /label="B03-16 (mismatches: 0)"
+     Primer_binding_ complement(3034..3053)
+                     /note="Primer: AAGTCGTGCTGCTTCATGTG"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3034..3053)"
+                     /label="B01-38 (mismatches: 0)"
+     Primer_binding_ 3045..3071
+                     /note="Primer: GCACGACTTCTTCAAGTCCGCCATGCC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3045..3071"
+                     /label="B01-61 (mismatches: 0)"
+     Primer_binding_ 3066..3083
+                     /note="Primer: CATGCCCGAAGGCTACGT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3066..3083"
+                     /label="B05-66 (mismatches: 0)"
+     Primer_binding_ 3110..3129
+                     /note="Primer: ACGACGGCAACTACAAGACC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3110..3129"
+                     /label="B01-33 (mismatches: 0)"
+     Primer_binding_ 3110..3129
+                     /note="Primer: ACGACGGCAACTACAAGACC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3110..3129"
+                     /label="B02-02 (mismatches: 0)"
+     Primer_binding_ complement(3110..3129)
+                     /note="Primer: GGTCTTGTAGTTGCCGTCGT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3110..3129)"
+                     /label="B03-40 (mismatches: 0)"
+     Primer_binding_ complement(3121..3136)
+                     /note="Primer: CGGCGCGGGTCTTGTA"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3121..3136)"
+                     /label="B05-67 (mismatches: 0)"
+     Primer_binding_ 3183..3201
+                     /note="Primer: GGGCATCGACTTCAAGGAG"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3183..3201"
+                     /label="B06-65 (mismatches: 0)"
+     Primer_binding_ 3217..3237
+                     /note="Primer: GGGCACAAGCTGGAGTACAAC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3217..3237"
+                     /label="B05-62 (mismatches: 0)"
+     Primer_binding_ complement(3223..3242)
+                     /note="Primer: aTGgcGTTGTACTCCAGCTT"
+                     /note="Number of mismatches: 3"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 1"
+                     /note="Primer binding region: complement(3223..3242)"
+                     /label="B02-03 (mismatches: 3)"
+     Primer_binding_ complement(3268..3288)
+                     /note="Primer: GATGCCGTTCTTCTGCTTGTC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3268..3288)"
+                     /label="B05-63 (mismatches: 0)"
+     Primer_binding_ complement(3283..3309)
+                     /note="Primer: GCGGATCTTGAAGTTCACCTTGATGCC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3283..3309)"
+                     /label="B01-60 (mismatches: 0)"
+     Primer_binding_ 3296..3315
+                     /note="Primer: ACTTCAAGATCCGCCACAAC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3296..3315"
+                     /label="B09-10 (mismatches: 0)"
+     Primer_binding_ complement(3393..3412)
+                     /note="Primer: TGCTCAGGTAGTGGTTGTCG"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3393..3412)"
+                     /label="B03-18 (mismatches: 0)"
+     Primer_binding_ complement(3405..3428)
+                     /note="Primer: CTCAGGGCGGACTGGGTGCTCAGG"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3405..3428)"
+                     /label="B01-58 (mismatches: 0)"
+     Primer_binding_ 3454..3482
+                     /note="Primer: CACATGGTCCTGCTGGAGTTCGTGACCGC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3454..3482"
+                     /label="B08-21 (mismatches: 0)"
+     Primer_binding_ complement(3455..3474)
+                     /note="Primer: GAACTCCAGCAGGACCATGT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3455..3474)"
+                     /label="B03-20 (mismatches: 0)"
+     Primer_binding_ complement(3473..3537)
+                     /note="Primer:
+                     gaattcgaattcTcaTTACTTGTACAGCTCGTCCATGCCGAGAGTGATCCCGGCGGCG
+                     GTCACGA"
+                     /note="Number of mismatches: 14"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3473..3537)"
+                     /label="B07-40 (mismatches: 14)"
+     Primer_binding_ complement(3482..3537)
+                     /note="Primer:
+                     gaattcgaattcTTaTcACTTGTACAGCTCGTCCATGCCGAGAGTGATCCCGGCGG"
+                     /note="Number of mismatches: 14"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3482..3537)"
+                     /label="B08-18 (mismatches: 14)"
+     Primer_binding_ 3489..3507
+                     /note="Primer: GATCACTCTCGGCATGGAC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3489..3507"
+                     /label="B06-63 (mismatches: 0)"
+     Primer_binding_ 3491..3515
+                     /note="Primer: cCACcggCGGCATGGACGAGCTGTA"
+                     /note="Number of mismatches: 4"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3491..3515"
+                     /label="B08-69 (mismatches: 4)"
+     Primer_binding_ complement(3497..3541)
+                     /note="Primer:
+                     ggcGCgccggcgCGccTTaTcACTTGTACAGCTCGTCCATGCCGA"
+                     /note="Number of mismatches: 14"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3497..3541)"
+                     /label="B08-20 (mismatches: 14)"
+     Primer_binding_ complement(3497..3537)
+                     /note="Primer: gaattcgaattcTcaTTACTTGTACAGCTCGTCCATGCCGA"
+                     /note="Number of mismatches: 14"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3497..3537)"
+                     /label="B07-39 (mismatches: 14)"
+     Primer_binding_ complement(3498..3543)
+                     /note="Primer:
+                     GgcgcGCcgGcgcgCctcaTtaTACTTGTACAGCTCGTCCATGCCG"
+                     /note="Number of mismatches: 16"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3498..3543)"
+                     /label="B07-21 (mismatches: 16)"
+     Primer_binding_ complement(3498..3539)
+                     /note="Primer: gaaTTcgaATtctcaTtaTACTTGTACAGCTCGTCCATGCCG"
+                     /note="Number of mismatches: 13"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3498..3539)"
+                     /label="B07-35 (mismatches: 13)"
+     Primer_binding_ complement(3498..3539)
+                     /note="Primer: gaaTTcgaATtctcaTtaTACTTGTACAGCTCGTCCATGCCG"
+                     /note="Number of mismatches: 13"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3498..3539)"
+                     /label="B07-23 (mismatches: 13)"
+     Primer_binding_ complement(3498..3539)
+                     /note="Primer: gGaTccggATCctcaTtaTACTTGTACAGCTCGTCCATGCCG"
+                     /note="Number of mismatches: 12"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3498..3539)"
+                     /label="B07-25 (mismatches: 12)"
+     Primer_binding_ 3500..3519
+                     /note="Primer: GCATGGACGAGCTGTACAAG"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3500..3519"
+                     /label="B03-53 (mismatches: 0)"
+     Primer_binding_ complement(3500..3559)
+                     /note="Primer:
+                     ggccgGccTtgTacgCGtTAAGtgcaAcAcaattcTtaTACTTGTACAGCTCGTCCAT
+                     GC"
+                     /note="Number of mismatches: 26"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3500..3559)"
+                     /label="B07-44 (mismatches: 26)"
+     Misc._feature   3537..4145
+                     /vntifkey="21"
+                     /label=WPRE
+     Primer_binding_ 3654..3675
+                     /note="Primer: TATTGCTTCCCGTATGGCTTTC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3654..3675"
+                     /label="B05-68 (mismatches: 0)"
+     Primer_binding_ complement(3681..3706)
+                     /note="Primer: GCAACCAGGATTTATACAAGGAGGAG"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3681..3706)"
+                     /label="B07-52 (mismatches: 0)"
+     Primer_binding_ complement(3700..3723)
+                     /note="Primer: CTCCTCATAAAGAGACAGCAACCA"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3700..3723)"
+                     /label="B05-69 (mismatches: 0)"
+     Primer_binding_ 3750..3768
+                     /note="Primer: CGTGGTGTGCACTGTGTTT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 3750..3768"
+                     /label="B05-10 (mismatches: 0)"
+     Primer_binding_ complement(3914..3933)
+                     /note="Primer: CAACACCACGGAATTGTCAG"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3914..3933)"
+                     /label="B05-09 (mismatches: 0)"
+     Primer_binding_ complement(3925..3942)
+                     /note="Primer: cTTCCCCGACAACACCAC"
+                     /note="Number of mismatches: 1"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(3925..3942)"
+                     /label="B05-11 (mismatches: 1)"
+     PolyA_signal    4165..4643
+                     /vntifkey="25"
+                     /label="hGH polyA"
+                     /label="hGH polyA"
+     Primer_binding_ complement(4379..4398)
+                     /note="Primer: aTGgCgtTGtACTCCAGCTT"
+                     /note="Number of mismatches: 5"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 1"
+                     /note="Primer binding region: complement(4379..4398)"
+                     /label="B02-03 (mismatches: 5)"
+     Misc._feature   4683..4823
+                     /vntifkey="21"
+                     /label=R-ITR
+     Replication_ori 4915..5221
+                     /vntifkey="33"
+                     /label="f1 Origin"
+                     /label="f1 Origin"
+     Primer_binding_ complement(5148..5167)
+                     /note="Primer: AAGGGCGAAAAACCGTCTAT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(5148..5167)"
+                     /label="B03-48 (mismatches: 0)"
+     Primer_binding_ complement(5615..5633)
+                     /note="Primer: ACATTTCCCCGAAAAGTGC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(5615..5633)"
+                     /label="B04-21 (mismatches: 0)"
+     Misc._feature   5740..6597
+                     /vntifkey="21"
+                     /label=AmpR
+     Primer_binding_ 5958..5977
+                     /note="Primer: GCTATGTGGCGCGGTATTAT"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 5958..5977"
+                     /label="B01-05 (mismatches: 0)"
+     Primer_binding_ 6591..6612
+                     /note="Primer: GCATTGGTAACTGTCAGACCAA"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 6591..6612"
+                     /label="B02-41 (mismatches: 0)"
+     Primer_binding_ 6710..6729
+                     /note="Primer: gcTAACcaGcGTTTTCGTTC"
+                     /note="Number of mismatches: 5"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 6710..6729"
+                     /label="B05-24 (mismatches: 5)"
+     Replication_ori 6748..7415
+                     /vntifkey="33"
+                     /label="pUC ori"
+                     /label="pUC ori"
+     Primer_binding_ 6969..6988
+                     /note="Primer: GCCTACATACCTCGCTCTGC"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other matches on pAAV-EF1a-SoCoChR-GFP:
+                     0"
+                     /note="Primer binding region: 6969..6988"
+                     /label="B03-41 (mismatches: 0)"
+     Primer_binding_ complement(7295..7314)
+                     /note="Primer: CTCAAGTCAGAGGTGGCGAA"
+                     /note="Number of mismatches: 0"
+                     /note="Number of other hits on pAAV-EF1a-SoCoChR-GFP: 0"
+                     /note="Primer binding region: complement(7295..7314)"
+                     /label="B10-04 (mismatches: 0)"
+ORIGIN
+        1 CCTGCAGGCA GCTGCGCGCT CGCTCGCTCA CTGAGGCCGC CCGGGCAAAG CCCGGGCGTC
+       61 GGGCGACCTT TGGTCGCCCG GCCTCAGTGA GCGAGCGAGC GCGCAGAGAG GGAGTGGCCA
+      121 ACTCCATCAC TAGGGGTTCC TGCGGCCGCA CGCGTAAGCT TTGCAAAGAT GGATAAAGTT
+      181 TTAAACAGAG AGGAATCTTT GCAGCTAATG GACCTTCTAG GTCTTGAAAG GAGTGGGAAT
+      241 TGGCTCCGGT GCCCGTCAGT GGGCAGAGCG CACATCGCCC ACAGTCCCCG AGAAGTTGGG
+      301 GGGAGGGGTC GGCAATTGAA CCGGTGCCTA GAGAAGGTGG CGCGGGGTAA ACTGGGAAAG
+      361 TGATGTCGTG TACTGGCTCC GCCTTTTTCC CGAGGGTGGG GGAGAACCGT ATATAAGTGC
+      421 AGTAGTCGCC GTGAACGTTC TTTTTCGCAA CGGGTTTGCC GCCAGAACAC AGGTAAGTGC
+      481 CGTGTGTGGT TCCCGCGGGC CTGGCCTCTT TACGGGTTAT GGCCCTTGCG TGCCTTGAAT
+      541 TACTTCCACT GGCTGCAGTA CGTGATTCTT GATCCCGAGC TTCGGGTTGG AAGTGGGTGG
+      601 GAGAGTTCGA GGCCTTGCGC TTAAGGAGCC CCTTCGCCTC GTGCTTGAGT TGAGGCCTGG
+      661 CCTGGGCGCT GGGGCCGCCG CGTGCGAATC TGGTGGCACC TTCGCGCCTG TCTCGCTGCT
+      721 TTCGATAAGT CTCTAGCCAT TTAAAATTTT TGATGACCTG CTGCGACGCT TTTTTTCTGG
+      781 CAAGATAGTC TTGTAAATGC GGGCCAAGAT CTGCACACTG GTATTTCGGT TTTTGGGGCC
+      841 GCGGGCGGCG ACGGGGCCCG TGCGTCCCAG CGCACATGTT CGGCGAGGCG GGGCCTGCGA
+      901 GCGCGGCCAC CGAGAATCGG ACGGGGGTAG TCTCAAGCTG GCCGGCCTGC TCTGGTGCCT
+      961 GGCCTCGCGC CGCCGTGTAT CGCCCCGCCC TGGGCGGCAA GGCTGGCCCG GTCGGCACCA
+     1021 GTTGCGTGAG CGGAAAGATG GCCGCTTCCC GGCCCTGCTG CAGGGAGCTC AAAATGGAGG
+     1081 ACGCGGCGCT CGGGAGAGCG GGCGGGTGAG TCACCCACAC AAAGGAAAAG GGCCTTTCCG
+     1141 TCCTCAGCCG TCGCTTCATG TGACTCCACG GAGTACCGGG CGCCGTCCAG GCACCTCGAT
+     1201 TAGTTCTCGA GCTTTTGGAG TACGTCGTCT TTAGGTTGGG GGGAGGGGTT TTATGCGATG
+     1261 GAGTTTCCCC ACACTGAGTG GGTGGAGACT GAAGTTAGGC CAGCTTGGCA CTTGATGTAA
+     1321 TTCTCCTTGG AATTTGCCCT TTTTGAGTTT GGATCTTGGT TCATTCTCAA GCCTCAGACA
+     1381 GTGGTTCAAA GTTTTTTTCT TCCATTTCAG GTGTCGTGAG GTACCGGATC CGCCACCATG
+     1441 CTGGGGAACG GCAGCGCCAT TGTGCCTATC GACCAGTGCT TTTGCCTGGC TTGGACCGAC
+     1501 AGCCTGGGAA GCGATACAGA GCAGCTGGTG GCCAACATCC TCCAGTGGTT CGCCTTCGGC
+     1561 TTCAGCATCC TGATCCTGAT GTTCTACGCC TACCAGACTT GGAGAGCCAC TTGCGGTTGG
+     1621 GAGGAGGTCT ACGTCTGTTG CGTCGAGCTG ACCAAGGTCA TCATCGAGTT CTTCCACGAG
+     1681 TTCGACGACC CCAGCATGCT GTACCTGGCT AACGGACACC GAGTCCAGTG GCTGAGATAC
+     1741 GCAGAGTGGC TGCTGACTTG TCCCGTCATC CTGATCCACC TGAGCAACCT GACCGGCCTG
+     1801 AAGGACGACT ACAGCAAGCG GACCATGAGG CTGCTGGTGT CAGACGTGGG AACCATCGTG
+     1861 TGGGGAGCTA CAAGCGCCAT GAGCACAGGC TACGTCAAGG TCATCTTCTT CGTGCTGGGT
+     1921 TGCATCTACG GCGCCAACAC CTTCTTCCAC GCCGCCAAGG TGTATATCGA GAGCTACCAC
+     1981 GTGGTGCCAA AGGGCAGACC TAGAACCGTC GTGCGGATCA TGGCTTGGCT GTTCTTCCTG
+     2041 TCTTGGGGCA TGTTCCCCGT GCTGTTCGTC GTGGGACCAG AAGGATTCGA CGCCATCAGC
+     2101 GTGTACGGCT CTACCATTGG CCACACCATC ATCGACCTCA TGAGCAAGAA TTGTTGGGGC
+     2161 CTGCTGGGAC ACTATCTGAG AGTGCTGATC CACCAGCACA TCATCATCTA CGGCGACATC
+     2221 CGGAAGAAGA CCAAGATCAA CGTGGCCGGC GAGGAGATGG AAGTGGAGAC CATGGTGGAC
+     2281 CAGGAGGACG AGGAGACAGT GGGAGGTTCA GGTGGAACCG GTGGAAGTGG AGGTACCATG
+     2341 CCCGCCGAAC TGCTGCTGCT GCTGATTGTC GCTTTTGCTA ACCCTTCTTG CCAGGTGCTG
+     2401 TCTTCTCTGA GGATGGCCGC TATTCTGGAC GATCAGACCG TGTGCGGAAG AGGAGAGAGG
+     2461 CTGGCACTGG CACTGGCTAG GGAGCAGATC AATGGCATCA TTGAAGTGCC TGCAAAGGCC
+     2521 CGGGTCGAGG TGGACATTTT CGAACTGCAG AGAGATAGCC AGTACGAGAC CACAGACACC
+     2581 ATGTGCCAGA TCCTGCCAAA AGGAGTGGTC TCCGTCCTGG GACCAAGCTC CTCTCCTGCT
+     2641 TCTGCAAGTA CCGTGTCTCA CATTTGTGGC GAGAAGGAAA TCCCCCATAT CAAGGTCGGG
+     2701 CCAGAGGAAA CACCCAGGCT GCAGTACCTG CGCTTCGCCT CAGTGAGCCT GTATCCATCA
+     2761 AACGAGGATG TGTCACTGGC AGTCAGCGGA GCTAGCGGAG GTACTGTGAG CAAGGGCGAG
+     2821 GAGCTGTTCA CCGGGGTGGT GCCCATCCTG GTCGAGCTGG ACGGCGACGT AAACGGCCAC
+     2881 AAGTTCAGCG TGTCCGGCGA GGGCGAGGGC GATGCCACCT ACGGCAAGCT GACCCTGAAG
+     2941 TTCATTTGCA CCACCGGCAA GCTGCCCGTG CCCTGGCCCA CCCTCGTGAC CACCCTGACC
+     3001 TACGGCGTGC AGTGCTTCAG CCGCTACCCC GACCACATGA AGCAGCACGA CTTCTTCAAG
+     3061 TCCGCCATGC CCGAAGGCTA CGTCCAGGAG CGCACCATCT TCTTCAAGGA CGACGGCAAC
+     3121 TACAAGACCC GCGCCGAGGT GAAGTTCGAG GGCGACACCC TGGTGAACCG CATCGAGCTG
+     3181 AAGGGCATCG ACTTCAAGGA GGACGGCAAC ATCCTGGGGC ACAAGCTGGA GTACAACTAC
+     3241 AACAGCCACA ACGTCTATAT CATGGCCGAC AAGCAGAAGA ACGGCATCAA GGTGAACTTC
+     3301 AAGATCCGCC ACAACATCGA GGACGGCAGC GTGCAGCTCG CCGACCACTA CCAGCAGAAC
+     3361 ACCCCCATCG GCGACGGCCC CGTGCTGCTG CCCGACAACC ACTACCTGAG CACCCAGTCC
+     3421 GCCCTGAGCA AAGACCCCAA CGAGAAGCGC GATCACATGG TCCTGCTGGA GTTCGTGACC
+     3481 GCCGCCGGGA TCACTCTCGG CATGGACGAG CTGTACAAGT AAGAATTCGA TATCAAGCTT
+     3541 ATCGATAATC AACCTCTGGA TTACAAAATT TGTGAAAGAT TGACTGGTAT TCTTAACTAT
+     3601 GTTGCTCCTT TTACGCTATG TGGATACGCT GCTTTAATGC CTTTGTATCA TGCTATTGCT
+     3661 TCCCGTATGG CTTTCATTTT CTCCTCCTTG TATAAATCCT GGTTGCTGTC TCTTTATGAG
+     3721 GAGTTGTGGC CCGTTGTCAG GCAACGTGGC GTGGTGTGCA CTGTGTTTGC TGACGCAACC
+     3781 CCCACTGGTT GGGGCATTGC CACCACCTGT CAGCTCCTTT CCGGGACTTT CGCTTTCCCC
+     3841 CTCCCTATTG CCACGGCGGA ACTCATCGCC GCCTGCCTTG CCCGCTGCTG GACAGGGGCT
+     3901 CGGCTGTTGG GCACTGACAA TTCCGTGGTG TTGTCGGGGA AATCATCGTC CTTTCCTTGG
+     3961 CTGCTCGCCT ATGTTGCCAC CTGGATTCTG CGCGGGACGT CCTTCTGCTA CGTCCCTTCG
+     4021 GCCCTCAATC CAGCGGACCT TCCTTCCCGC GGCCTGCTGC CGGCTCTGCG GCCTCTTCCG
+     4081 CGTCTTCGCC TTCGCCCTCA GACGAGTCGG ATCTCCCTTT GGGCCGCCTC CCCGCATCGA
+     4141 TACCGAGCGC TGCTCGAGAG ATCTACGGGT GGCATCCCTG TGACCCCTCC CCAGTGCCTC
+     4201 TCCTGGCCCT GGAAGTTGCC ACTCCAGTGC CCACCAGCCT TGTCCTAATA AAATTAAGTT
+     4261 GCATCATTTT GTCTGACTAG GTGTCCTTCT ATAATATTAT GGGGTGGAGG GGGGTGGTAT
+     4321 GGAGCAAGGG GCAAGTTGGG AAGACAACCT GTAGGGCCTG CGGGGTCTAT TGGGAACCAA
+     4381 GCTGGAGTGC AGTGGCACAA TCTTGGCTCA CTGCAATCTC CGCCTCCTGG GTTCAAGCGA
+     4441 TTCTCCTGCC TCAGCCTCCC GAGTTGTTGG GATTCCAGGC ATGCATGACC AGGCTCAGCT
+     4501 AATTTTTGTT TTTTTGGTAG AGACGGGGTT TCACCATATT GGCCAGGCTG GTCTCCAACT
+     4561 CCTAATCTCA GGTGATCTAC CCACCTTGGC CTCCCAAATT GCTGGGATTA CAGGCGTGAA
+     4621 CCACTGCTCC CTTCCCTGTC CTTCTGATTT TGTAGGTAAC CACGTGCGGA CCGAGCGGCC
+     4681 GCAGGAACCC CTAGTGATGG AGTTGGCCAC TCCCTCTCTG CGCGCTCGCT CGCTCACTGA
+     4741 GGCCGGGCGA CCAAAGGTCG CCCGACGCCC GGGCTTTGCC CGGGCGGCCT CAGTGAGCGA
+     4801 GCGAGCGCGC AGCTGCCTGC AGGGGCGCCT GATGCGGTAT TTTCTCCTTA CGCATCTGTG
+     4861 CGGTATTTCA CACCGCATAC GTCAAAGCAA CCATAGTACG CGCCCTGTAG CGGCGCATTA
+     4921 AGCGCGGCGG GTGTGGTGGT TACGCGCAGC GTGACCGCTA CACTTGCCAG CGCCCTAGCG
+     4981 CCCGCTCCTT TCGCTTTCTT CCCTTCCTTT CTCGCCACGT TCGCCGGCTT TCCCCGTCAA
+     5041 GCTCTAAATC GGGGGCTCCC TTTAGGGTTC CGATTTAGTG CTTTACGGCA CCTCGACCCC
+     5101 AAAAAACTTG ATTTGGGTGA TGGTTCACGT AGTGGGCCAT CGCCCTGATA GACGGTTTTT
+     5161 CGCCCTTTGA CGTTGGAGTC CACGTTCTTT AATAGTGGAC TCTTGTTCCA AACTGGAACA
+     5221 ACACTCAACC CTATCTCGGG CTATTCTTTT GATTTATAAG GGATTTTGCC GATTTCGGCC
+     5281 TATTGGTTAA AAAATGAGCT GATTTAACAA AAATTTAACG CGAATTTTAA CAAAATATTA
+     5341 ACGTTTACAA TTTTATGGTG CACTCTCAGT ACAATCTGCT CTGATGCCGC ATAGTTAAGC
+     5401 CAGCCCCGAC ACCCGCCAAC ACCCGCTGAC GCGCCCTGAC GGGCTTGTCT GCTCCCGGCA
+     5461 TCCGCTTACA GACAAGCTGT GACCGTCTCC GGGAGCTGCA TGTGTCAGAG GTTTTCACCG
+     5521 TCATCACCGA AACGCGCGAG ACGAAAGGGC CTCGTGATAC GCCTATTTTT ATAGGTTAAT
+     5581 GTCATGATAA TAATGGTTTC TTAGACGTCA GGTGGCACTT TTCGGGGAAA TGTGCGCGGA
+     5641 ACCCCTATTT GTTTATTTTT CTAAATACAT TCAAATATGT ATCCGCTCAT GAGACAATAA
+     5701 CCCTGATAAA TGCTTCAATA ATATTGAAAA AGGAAGAGTA TGAGTATTCA ACATTTCCGT
+     5761 GTCGCCCTTA TTCCCTTTTT TGCGGCATTT TGCCTTCCTG TTTTTGCTCA CCCAGAAACG
+     5821 CTGGTGAAAG TAAAAGATGC TGAAGATCAG TTGGGTGCAC GAGTGGGTTA CATCGAACTG
+     5881 GATCTCAACA GCGGTAAGAT CCTTGAGAGT TTTCGCCCCG AAGAACGTTT TCCAATGATG
+     5941 AGCACTTTTA AAGTTCTGCT ATGTGGCGCG GTATTATCCC GTATTGACGC CGGGCAAGAG
+     6001 CAACTCGGTC GCCGCATACA CTATTCTCAG AATGACTTGG TTGAGTACTC ACCAGTCACA
+     6061 GAAAAGCATC TTACGGATGG CATGACAGTA AGAGAATTAT GCAGTGCTGC CATAACCATG
+     6121 AGTGATAACA CTGCGGCCAA CTTACTTCTG ACAACGATCG GAGGACCGAA GGAGCTAACC
+     6181 GCTTTTTTGC ACAACATGGG GGATCATGTA ACTCGCCTTG ATCGTTGGGA ACCGGAGCTG
+     6241 AATGAAGCCA TACCAAACGA CGAGCGTGAC ACCACGATGC CTGTAGCAAT GGCAACAACG
+     6301 TTGCGCAAAC TATTAACTGG CGAACTACTT ACTCTAGCTT CCCGGCAACA ATTAATAGAC
+     6361 TGGATGGAGG CGGATAAAGT TGCAGGACCA CTTCTGCGCT CGGCCCTTCC GGCTGGCTGG
+     6421 TTTATTGCTG ATAAATCTGG AGCCGGTGAG CGTGGGTCTC GCGGTATCAT TGCAGCACTG
+     6481 GGGCCAGATG GTAAGCCCTC CCGTATCGTA GTTATCTACA CGACGGGGAG TCAGGCAACT
+     6541 ATGGATGAAC GAAATAGACA GATCGCTGAG ATAGGTGCCT CACTGATTAA GCATTGGTAA
+     6601 CTGTCAGACC AAGTTTACTC ATATATACTT TAGATTGATT TAAAACTTCA TTTTTAATTT
+     6661 AAAAGGATCT AGGTGAAGAT CCTTTTTGAT AATCTCATGA CCAAAATCCC TTAACGTGAG
+     6721 TTTTCGTTCC ACTGAGCGTC AGACCCCGTA GAAAAGATCA AAGGATCTTC TTGAGATCCT
+     6781 TTTTTTCTGC GCGTAATCTG CTGCTTGCAA ACAAAAAAAC CACCGCTACC AGCGGTGGTT
+     6841 TGTTTGCCGG ATCAAGAGCT ACCAACTCTT TTTCCGAAGG TAACTGGCTT CAGCAGAGCG
+     6901 CAGATACCAA ATACTGTCCT TCTAGTGTAG CCGTAGTTAG GCCACCACTT CAAGAACTCT
+     6961 GTAGCACCGC CTACATACCT CGCTCTGCTA ATCCTGTTAC CAGTGGCTGC TGCCAGTGGC
+     7021 GATAAGTCGT GTCTTACCGG GTTGGACTCA AGACGATAGT TACCGGATAA GGCGCAGCGG
+     7081 TCGGGCTGAA CGGGGGGTTC GTGCACACAG CCCAGCTTGG AGCGAACGAC CTACACCGAA
+     7141 CTGAGATACC TACAGCGTGA GCTATGAGAA AGCGCCACGC TTCCCGAAGG GAGAAAGGCG
+     7201 GACAGGTATC CGGTAAGCGG CAGGGTCGGA ACAGGAGAGC GCACGAGGGA GCTTCCAGGG
+     7261 GGAAACGCCT GGTATCTTTA TAGTCCTGTC GGGTTTCGCC ACCTCTGACT TGAGCGTCGA
+     7321 TTTTTGTGAT GCTCGTCAGG GGGGCGGAGC CTATGGAAAA ACGCCAGCAA CGCGGCCTTT
+     7381 TTACGGTTCC TGGCCTTTTG CTGGCCTTTT GCTCACATGT
+//

@@ -126,7 +126,7 @@ def pluralize_without_count(count, noun, text = nil)
   end
 end
 
-def massive_files_attachment(folder_name, object_list, attachmentModel, attachments)
+def massive_files_attachment(folder_name, object_list, attachmentModel)
       begin
       #Starting values
         origin = File.join(Rails.root, folder_name)
@@ -134,9 +134,9 @@ def massive_files_attachment(folder_name, object_list, attachmentModel, attachme
         files_names = Dir.entries(".")
       #Loop over the items
         object_list.each do |object|
-          if files_names.include? object.id
+          if files_names.include? object.id.to_s
             puts("Object has folder.")
-            object_dir = File.join(origin, object.id)
+            object_dir = File.join(origin, object.id.to_s)
             Dir.chdir(object_dir)
             Dir.glob("*").each do |file_name|
               puts("files selection.")
@@ -146,8 +146,40 @@ def massive_files_attachment(folder_name, object_list, attachmentModel, attachme
               object_attachment.attachment = File.new(src)
               puts("file saving.")
               object_attachment.save
-              object.attachments << object_attachment
+              object.send(attachmentModel.name.underscore.pluralize) << object_attachment
             end
+          end
+        end
+    end
+      rescue Errno::ENOENT
+      puts "Unkown folder."  
+  end
+
+  def massive_files_reload(folder_name, attachmentModel)
+      begin
+      #Starting values
+      folder_name = "public/uploads/"+folder_name
+        origin = File.join(Rails.root, folder_name)
+        Dir.chdir(origin)
+        folder_names = Dir.entries(".")
+      #Loop over the items
+        folder_names.each do |folder_name|
+            puts("new folder.")
+            object_nb = folder_name.to_i
+            if object_nb.is_a? Integer and object_nb > 0
+              object = attachmentModel.find(object_nb)
+              unless object.nil?
+                new_dir = File.join(origin, folder_name)
+                Dir.chdir(new_dir)
+                Dir.glob("*").each do |file_name|
+                  puts("files selection.")
+                  src = File.join(new_dir, file_name)
+                  puts("attachment creation.")
+                  object.attachment = File.new(src)
+                  puts("file saving.")
+                  object.save
+                end
+              end
           end
         end
     end

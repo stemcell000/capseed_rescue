@@ -1,6 +1,22 @@
 Rails.application.routes.draw do
   
   resources :clone_samples
+  resources :clone_batches do
+    resources :sequencings
+    resources :pcr_colonies 
+    resources :plasmid_batches do
+      get :new_from_inventory, :on => :new
+      post :create_from_inventory, :on => :collection
+      get :destroy_from_inventory, :on => :member
+      get :edit_from_inventory, :on => :member
+      patch :update_from_inventory, :on => :member
+     get :destroy_from_list, :on => :member
+    end
+    patch :hide_from_inventory, :on => :member
+    get :remove_plasmid_data, :on => :member
+    get :add_pb_from_inventory, :on => :member
+    post :search, :on => :collection
+  end
   resources :plasmid_boxes
   resources :box_types
   resources :positions
@@ -206,11 +222,6 @@ Rails.application.routes.draw do
       resources :dosages, :on => :member
       get :spawn_dosage, :on => :member
     end
-    
-   resources :clone_batches do
-      get :edit_from_prod, :on => :member
-   end
-    
    end
    
    resources :virus_productions do
@@ -267,31 +278,6 @@ Rails.application.routes.draw do
        get :show_exist, :on => :member
        post :select, :on => :member
     end
-  end
-  
-  resources :clone_batches do
-    resources :sequencings
-    resources :pcr_colonies 
-    resources :plasmid_batches do
-      get :new_from_inventory, :on => :new
-      post :create_from_inventory, :on => :collection
-      get :destroy_from_inventory, :on => :member
-      get :edit_from_inventory, :on => :member
-      patch :update_from_inventory, :on => :member
-     get :destroy_from_list, :on => :member
-    end
-    get :edit_as_plasmid, :on => :member
-    get :edit_from_inventory, :on => :member
-    patch :hide_from_inventory, :on => :member
-    get :new_from_inventory, :on => :new
-    post :create_from_inventory, :on => :collection
-    delete :destroy_from_inventory, :on => :member
-    patch :update_from_inventory, :on => :member
-    patch :update_as_plasmid, :on => :member
-    get :remove_plasmid_data, :on => :member
-    get :add_pb_from_inventory, :on => :member
-    get :export
-    post :search, :on => :collection
   end
   
   resources :plasmid_batches do

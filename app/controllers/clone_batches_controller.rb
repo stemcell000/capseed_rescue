@@ -4,13 +4,13 @@ class CloneBatchesController < InheritedResources::Base
     
   before_action :authenticate_user!
   before_action :set_clone_batch, only:[ :edit, :show_exist, :select, :destroy, :add_plasmid_batch, :add_pb_from_inventory, :update,
-    :edit_from_inventory, :hide_from_inventory, :update_from_inventory, :update_pb_from_inventory, :destroy_from_inventory,
-    :remove_plasmid_data, :edit_from_prod, :remove_from_prod, :select_from_prod, :add_to_prod]
-  before_action :load_all, only:[:select, :update, :update_plasmid_batch, :add_plasmid_batch, :destroy]
+    :edit, :hide_from_inventory, :update_from_inventory, :update_pb_from_inventory, :destroy_from_inventory,
+    :update_as_plasmid, :remove_plasmid_data, :remove_from_prod, :select_from_prod, :add_to_prod]
+  before_action :load_all, only:[:select, :update, :update_as_plasmid, :update_plasmid_batch, :add_plasmid_batch, :destroy]
   before_action :load_assay, only:[:show_exist, :select]
-  before_action :load_clone, only:[:show_exist, :select]
-  before_action :load_lists, only: [:edit_from_inventory, :new_from_inventory, :update_from_inventory, :update_as_plasmid]
-  before_action :set_option, only:[:index_from_inventory, :hide_from_inventory, :edit_from_inventory, :update_from_inventory, :create_from_inventory ]
+  before_action :load_clone, only:[:show_exist, :select, :update_as_plasmid]
+  before_action :load_lists, only: [:edit, :new_from_inventory, :update_from_inventory, :update_as_plasmid]
+  before_action :set_option, only:[:index, :hide_from_inventory, :edit, :update_from_inventory, :create_from_inventory ]
   
 
   def index
@@ -20,7 +20,7 @@ class CloneBatchesController < InheritedResources::Base
         end_time = params[:created_at_lteq].to_date rescue Date.current
         end_time = end_time.end_of_day # sets to 23:59:59
       
-      @option = current_user.options.first
+      #?->@option = current_user.options.first
      
      #Plasmids cachés
      unless @option.display_all_clone_batch
@@ -117,6 +117,22 @@ class CloneBatchesController < InheritedResources::Base
       #end
  # end
 
+ #def update_as_plasmid
+  #    @clone_batch.update_attributes(plasmid_params)
+  #    if @clone_batch.valid?
+  #      flash.keep[:success] = "Task completed!"
+  #      @clone_batch.generate_recap
+  #       #
+  #       if @clone_batch.insert.nil?
+  #        @insert = Insert.new(:name => @clone_batch.name, :number => @clone_batch.nb.to_s)
+  #        @clone_batch.insert = @insert
+  #       end
+  #       #
+  #      else
+  #      render :action => 'edit_as_plasmid'
+   #   end
+  #end
+
   def edit
       @clone_batch.skip_name_validation = false
       @clone_batch.skip_type_validation = false
@@ -143,7 +159,7 @@ class CloneBatchesController < InheritedResources::Base
          #end
          #
         else
-        render :action => 'edit_from_inventory'
+        render :action => 'edit'
       end
   end
   

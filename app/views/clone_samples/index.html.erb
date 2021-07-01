@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clone Samples</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clone_samples.each do |clone_sample| %>
+      <tr>
+        <td><%= link_to 'Show', clone_sample %></td>
+        <td><%= link_to 'Edit', edit_clone_sample_path(clone_sample) %></td>
+        <td><%= link_to 'Destroy', clone_sample, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clone Sample', new_clone_sample_path %>

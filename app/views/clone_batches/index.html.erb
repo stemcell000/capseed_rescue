@@ -1,9 +1,20 @@
 <% provide(:title, "Plasmid : Search") %>
 <%= render :partial => 'clone_batches/components/cb_search' %>
+
+<%if can? :create, CloneBatch %>
 <div class="row">
-	<div class="col-lg-4 pull-left">
-		<div id="display-hidden-container"> <%= render :partial => "clone_batches/components/toggle_display_hidden", :locals => { :option => @option } %>
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<div class="btn-group" role="group" aria-label="Basic example">
+			<%= link_to "New plasmid", new_clone_batch_path, class: "btn btn-primary" %>
+			<a href="<%= clone_batches_path(request.parameters.merge({format: 'csv'})) %>" data-role="button" data-icon="info" data-mini="true" class= "btn btn-primary" data-turbolinks=false>Export</a>
+		</div>
+		<div id="display-hidden-container" class="pull-right"> <%= render :partial => "clone_batches/components/toggle_display_hidden", :locals => { :option => @option } %>
 		</div>	
 	</div>
 </div>
-<%= smart_listing_render :clone_batches %>
+<%end%>
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<%= render partial: "clone_batches/list_components/list", locals: {clone_batches: @clone_batches}%>
+	</div>
+</div>

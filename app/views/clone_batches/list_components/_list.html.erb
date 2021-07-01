@@ -1,0 +1,53 @@
+<% unless clone_batches.empty? %>   
+  <div class="container-fluid">
+	  <table class="table table-striped">
+	    <thead>
+	     
+	    <th class="col-lg-1 col-md-1 col-sm-A center">
+	        <%= sort_link(@q, :nb, 'Number') %>
+	    </th>
+	      
+	    <th class="col-lg-2 col-md-2 col-sm-2 center">
+	        <%= sort_link(@q, :name, 'Name') %>
+	    </th>
+	    
+	     <th class="col-lg-2 col-md-2 col-sm-2 center">
+	     		<%= sort_link(@q, :clone, 'Construction') %>
+	    </th>
+	    
+	    <th class="col-lg-1 col-md-2 col-sm-2 center">
+	       <%= sort_link(@q, :promoters_name, 'Promoter') %>
+	    </th>
+	    
+	     <th class="col-lg-1 col-md-2 col-sm-2 center">
+	       <%= sort_link(@q, :genes_id, 'Gene') %>
+	    </th>
+	    
+	    	 <th class="col-lg-2 col-md-2 col-sm-2 center">
+	       <%= sort_link(@q, :plasmid_batches_count, 'Batches') %>
+	    </th>
+	    
+	    <th class="col-lg-1 col-md-1 col-sm-1 center">
+			<%= sort_link(@q, :date_as_plasmid, 'Date') %>
+	  	</th>
+	  	<th class="col-lg-2 col-md-2 col-sm-2 center"></th>
+	    </thead>
+	    <tbody>
+	        <% clone_batches.each do |clone_batch| %>
+        		<tr class="editable" data-id = "<%= clone_batch.id %>">
+         			<%= render  partial: "clone_batches/list_components/object", locals: {object: clone_batch} %>
+        		</tr>
+      	<% end %>
+	    </tbody>
+	  </table>
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <%== pagy_bootstrap_nav(@pagy) %>
+    <%== pagy_bootstrap_nav_js(@pagy) %>
+  </div>
+</div>
+<%else%>
+<div class="row text-center">
+  <p>No item to display</p>
+</div>
+<%end%>

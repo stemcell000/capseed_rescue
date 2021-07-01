@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   ActiveRecord::Base.connection.tables.each do |t|
    ActiveRecord::Base.connection.reset_pk_sequence!(t)
   end
+
+  include Pagy::Backend
   
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

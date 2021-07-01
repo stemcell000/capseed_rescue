@@ -3,7 +3,9 @@ class CloneBatch < ActiveRecord::Base
   include ActiveModel::Dirty
   #scopes
   scope :by_production,  ->(production_id) { joins(:productions).where(productions: { id: production_id }) }
-  
+  #call-back
+  after_create :create_insert
+  after_update :update_insert
   #Set to nil blank fields values (utile pour effacer le final name à l'étape CBQC - rename)
   before_save :normalize_blank_values
   belongs_to :clone
@@ -49,7 +51,7 @@ class CloneBatch < ActiveRecord::Base
   attr_accessor :skip_batch_validation
   attr_accessor :skip_strict_validation
   
-  validates :temp_name, :presence => true unless :skip_strict_validation
+  # clone_sample -> validates :temp_name, :presence => true unless :skip_strict_validation
   validates :name, presence: true, uniqueness: true unless :skip_name_validation
   validates :type, presence: true
   validates :strand, presence: true
@@ -66,12 +68,24 @@ class CloneBatch < ActiveRecord::Base
   def autocomplete_display
     self.uniq
   end
-  
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      csv << column_names
-      all.each do |clone_batch|
-        csv << clone_batch.attributes.values_at(*column_names)
+
+
+  def self.to_csv
+    attributes = %w{number name construction promoter gene batches date_as_plasmid}
+
+    CSV.generate(headers: true, :col_sep => ";") do |csv|
+      csv << attributes
+
+      all.each do |object|
+        csv << [
+          object.number.nil? ? "" : object.number,
+          object.name.nil? ? "" : object.name,
+          object.clone.nil? ? "" : object.clone.name,
+          object.promoters.uniq.nil? ? "" : object.promoters.pluck(:name).to_sentence,
+          object.genes.uniq.nil? ? "" : object.genes.pluck(:name).to_sentence,
+          object.plasmid_batches_count,
+          object.date_as_plasmid.nil? ? "" : object.date_as_plasmid,
+        ]
       end
     end
   end
@@ -109,7 +123,20 @@ class CloneBatch < ActiveRecord::Base
       
   end
   
-  
+  def create_insert
+    insert = Insert.new(:name => self.name, :number => self.number, :dismissed => self.dismissed)
+    self.insert = insert
+  end
+
+  def update_insert
+    if self.insert.nil?
+      create_insert
+    else
+      insert = self.insert
+      insert.update_attributes(:name => self.name, :number => self.number, :dismissed => self.dismissed)
+    end
+  end
+
   private
   
   def enable_strict_validation?

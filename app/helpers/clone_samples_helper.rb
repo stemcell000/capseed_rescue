@@ -1,0 +1,2 @@
+module CloneSamplesHelper
+end

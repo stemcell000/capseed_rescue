@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :clone_samples
   resources :plasmid_boxes
   resources :box_types
   resources :positions
@@ -63,7 +64,6 @@ Rails.application.routes.draw do
   resources :plasmid_batches
   resources :units
   resources :clone_batch_attachments
-  resources :plasmids
   resources :qc_attachments
   resources :clone_attachments
   resources :clone_batches

@@ -8,7 +8,7 @@
 				<%else%>
 					<% n = 1 %>
 				<%end%>
-					<%= f.input :nb, :input_html => { :value => n }, :readonly => true%>
+					<%= f.input :nb, label: "Number", :input_html => { :value => n }, :readonly => true%>
 					<%= f.input :nb, :input_html => { :value => n }, :as => :hidden%>
 					<%= f.input :number, :input_html => { :value => n.to_s }, :as => :hidden %>		
 			</div>
@@ -32,7 +32,6 @@
 						</div>
 				</div>
 			</div>
-			<small>
 			<div class="row">
 				<div class="col-lg-2">
 					<%=f.input :invoice , :label => "Invoice"%>
@@ -51,31 +50,13 @@
 				<div class="col-lg-2">
 					<%= f.input :vol, :label => "Volume" %>
 				</div>
-				<div class="col-lg-2">
+				<div class="col-lg-1">
 					<%= f.association :vol_unit, :label => "Volume unit",
 												:collection => VolUnit.all,:value_method => :id,
 												:input_html => { class:"select2-select" },
 												:selected => 1 %>
 				</div>
 			</div>
-	<%=f.simple_fields_for :sterilitytests do |s|%>
-		<div class="form-group ui-front well">
-			<div class="row">
-				<div class="col-lg-2">
-					<%=s.input :date, :label => "Date", :as => :string, :input_html => { :value => (s.object.date.strftime("%B %e, %Y") if s.object.date), "data-behaviour" => "datepicker" } %>
-				</div>
-				<div class="col-lg-2">
-					<%= s.input :sterility, label: "Sterility", collection: [["yes",1],["no",2]], input_html: {class: "select2-select"} %>
-				</div>
-			</div>
-			<%= s.link_to_remove "Remove test" %>
-		</div>
-	<%end%>
-		<div class="row">	
-			<div class="col-lg-12">
-				<%= f.link_to_add "Add a sterility test", :sterilitytests, :class => "btn btn-info btn-sm" %>
-			</div>
-		</div>
 		<div class="row">
 				<div class="col-lg-2">
 					<%=f.input :gel_prot , :label => "Gel (proteins)"%>
@@ -91,6 +72,24 @@
 				</div>
 					
 			</div>
+<%=f.simple_fields_for :sterilitytests do |s|%>
+	<div class="form-group ui-front well">
+		<div class="row">
+			<div class="col-lg-2">
+				<%=s.input :date, :label => "Date", :as => :string, :input_html => { :value => (s.object.date.strftime("%B %e, %Y") if s.object.date), "data-behaviour" => "datepicker" } %>
+			</div>
+			<div class="col-lg-2">
+				<%= s.input :sterility, label: "Sterility", collection: [["yes",1],["no",2]], input_html: {class: "select2-select"} %>
+			</div>
+		</div>
+		<%= s.link_to_remove "Remove test" %>
+	</div>
+<%end%>
+	<div class="row">	
+		<div class="col-lg-12">
+			<%= f.link_to_add "Add a sterility test", :sterilitytests %>
+		</div>
+	</div>
 			
 <%=f.simple_fields_for :dosages do |ff|%>
 			<div class="form-group ui-front well">
@@ -171,10 +170,9 @@
 		</div>		
 			
 		<div class="btn-group row" role="group" aria-label="...">
-			<div class="col-lg-12">
+			<div class="col-lg-12 right">
 				<%= f.submit "Save", :class => "btn btn-primary" %>
 	        		<%= link_to "Cancel", :back, :class => "btn btn-default", :remote => true %>
 	        </div>
 		</div>
-	</small>
 <%end%>

@@ -13,10 +13,14 @@
   <body>
   	<%= include_gon(:watch => true) %>
   	<%= Gon::Base.render_data({}) %>
+  	<%= render :partial => 'components/modal_alt' %>
+  	<%= render :partial => 'components/modal' %>
+  	<%= render :partial => 'components/modal_pb' %>
+  	<%= render :partial => 'components/modal_user' %>
     	<div id='flash-msg-container'>
-				<%= render partial: "layouts/flash_messages", :flash => flash %>
 			</div>
     	<%= render 'layouts/header' %>
+    	<%= render partial: "layouts/flash_messages", :flash => flash %>
 
     		<div class="jumbotron jumbotron-fluid">
     			<div class="container" style="width: 95%;">

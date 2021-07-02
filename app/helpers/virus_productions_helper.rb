@@ -1,4 +1,5 @@
 module VirusProductionsHelper
+
   def scientific_notation(i)
     sci = "%e" %i
     return sci
@@ -26,10 +27,8 @@ module VirusProductionsHelper
   def invcolor(obj)
     if obj.dismissed == 1
       "danger"
-    elsif obj.virus_batches.empty?
-      "warning"
     elsif obj.virus_batches.pluck(:trash) == [true]
-      "warning"
+      "discarded"
     end
   end
 end

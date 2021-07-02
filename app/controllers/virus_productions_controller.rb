@@ -3,10 +3,6 @@ class VirusProductionsController < InheritedResources::Base
    before_action :set_virus_production, only:[:edit, :destroy, :edit_from_inventory, :add_vb_from_inventory, :spawn_dosage, :update, :update_from_inventory, :create_dosage,
                                                 :sort_tube, :map_tube, :update_box, :unsort, :hide_from_inventory]
    before_action :set_option, only:[:index, :update_from_inventory, :edit_from_inventory, :hide_from_inventory]
-   
-  #Smart_listing
-  include SmartListing::Helper::ControllerExtensions
-  helper  SmartListing::Helper
   
  def index
    #"between search": recherche dans un range de dates
@@ -32,6 +28,7 @@ class VirusProductionsController < InheritedResources::Base
     #Champs genes
       @genes_all = Gene.all.order(name: "asc").uniq
       @genes_all = @genes_all.map{ |obj| [obj['name'], obj['id']] }
+
     #Champs promoters
       @promoters_all = Promoter.all.order(name: "asc").uniq
       @promoters_all = @promoters_all.map{ |obj| [obj['name'], obj['id']] }
@@ -43,7 +40,7 @@ class VirusProductionsController < InheritedResources::Base
       @clone_batches_all = @clone_batches_all.map{ |obj| [obj['name'], obj['id']] }  
       @option = current_user.options.first
       
-      #virus cachés
+    #virus cachés
       unless @option.display_all_virus
         unless @option.virus_productions.empty?
           hidden_virus_ids = @option.virus_productions.pluck(:id)
@@ -54,15 +51,16 @@ class VirusProductionsController < InheritedResources::Base
       #
       @q = VirusProduction.ransack(params[:q])
       
-      @vps = @q.result.includes([:production, :plasmid_batches, :clone_batches, :sterilitytests, :genes, :user ]).where.not(:id => hidden_virus_ids).distinct
+      records = @q.result.includes([:production, :plasmid_batches, :clone_batches, :sterilitytests, :genes, :user ]).where.not(:id => hidden_virus_ids).distinct
 
       #Config de l'affichage des résultats.
-      smart_listing_create(:virus_productions, @vps, partial: "virus_productions/smart_listing/list", default_sort: {nb: "desc"}, page_sizes: [20, 30, 50, 100])
+    
+    @pagy, @virus_productions = pagy(records.order(nb: :desc), items: 30)
 
     respond_to do |format|
       format.html
       format.js
-      format.csv {send_data @vps.order(:nb).group(:id).to_csv, :filename => "Virus_Production-#{Date.today.strftime('%m/%d/%Y')}.csv"}
+      format.csv {send_data records.to_csv, :filename => "virus-#{Date.today.strftime('%m/%d/%Y')}.csv"}
     end
   end
    

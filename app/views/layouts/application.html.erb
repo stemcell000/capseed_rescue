@@ -2,6 +2,8 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "About Capseed" %></title>
  	<%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
@@ -11,33 +13,19 @@
   <body>
   	<%= include_gon(:watch => true) %>
   	<%= Gon::Base.render_data({}) %>
-  	<%= render 'layouts/header' %>
-  	<%= render :partial => 'components/modal_alt' %>
-  	<%= render :partial => 'components/modal' %>
-  	<%= render :partial => 'components/modal_pb' %>
-  	<%= render :partial => 'components/modal_user' %>
-    <div class="container">
     	<div id='flash-msg-container'>
-			<%= render partial: "layouts/flash_messages", :flash => flash %>
-	</div>
+				<%= render partial: "layouts/flash_messages", :flash => flash %>
+			</div>
+    	<%= render 'layouts/header' %>
 
-<% case params[:controller] %>
-	<% when "assays" || params[:controller] == "clones"%>
-		<h3>Cloning manager</h3>
-		<nav class="navbar-cloning" role="navigation">
-    			<div class="collapse navbar-collapse navbar-cloning">
-				<%= render :partial => 'components/dynamic_menu' %>
-				<% provide(:title, "Cloning Manager") %>    
-        </div>
-				</nav>
-	<%end%>
-      <div class="container">
-						     <%= yield %>
-		</div>
+    		<div class="jumbotron jumbotron-fluid">
+    			<div class="container" style="width: 95%;">
+						<main role="main">
+	    				<%= content_for?(:content) ? yield(:content) : yield %>
+	    			</main>
+	    			<%= render 'layouts/footer' %>
+	    		</div>
+		   </div>
+		   
  	</body>
- 	<div>
- 		<div class="col-lg-12">
-      		<%= render 'layouts/footer' %>
-      	</div>
-    </div>
 </html>

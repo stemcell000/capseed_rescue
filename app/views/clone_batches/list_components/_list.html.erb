@@ -7,11 +7,11 @@
 	        <%= sort_link(@q, :nb, 'Number') %>
 	    </th>
 	      
-	    <th class="col-lg-2 col-md-2 col-sm-2 center">
+	    <th class="col-lg-3 col-md-3 col-sm-3 center">
 	        <%= sort_link(@q, :name, 'Name') %>
 	    </th>
 	    
-	     <th class="col-lg-2 col-md-2 col-sm-2 center">
+	     <th class="col-lg-3 col-md-3 col-sm-3 center">
 	     		<%= sort_link(@q, :clone, 'Construction') %>
 	    </th>
 	    
@@ -23,14 +23,14 @@
 	       <%= sort_link(@q, :genes_id, 'Gene') %>
 	    </th>
 	    
-	    	 <th class="col-lg-2 col-md-2 col-sm-2 center">
+	    	 <th class="col-lg-1 col-md-1 col-sm-1 center">
 	       <%= sort_link(@q, :plasmid_batches_count, 'Batches') %>
 	    </th>
 	    
 	    <th class="col-lg-1 col-md-1 col-sm-1 center">
 			<%= sort_link(@q, :date_as_plasmid, 'Date') %>
 	  	</th>
-	  	<th class="col-lg-2 col-md-2 col-sm-2 center"></th>
+	  	<th class="col-lg-1 col-md-1 col-sm-1 center"></th>
 	    </thead>
 	    <tbody>
 	        <% clone_batches.each do |clone_batch| %>
@@ -48,6 +48,6 @@
 </div>
 <%else%>
 <div class="row text-center">
-  <p>No item to display</p>
+  <p>No item to display.</p>
 </div>
 <%end%>

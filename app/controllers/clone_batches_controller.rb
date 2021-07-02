@@ -54,7 +54,6 @@ class CloneBatchesController < InheritedResources::Base
       records = @q.result.includes(:clone, :target, :type, :strand, :genes, :promoters, :origin, :plasmid_batches).where.not(:nb => nil).where.not(:id => hidden_plasmids_ids)
     
     #Config de l'affichage des résultats.
-      #smart_listing_create(:clone_batches, @clone_batches, partial: "clone_batches/smart_listing/list", default_sort: {nb: "desc"}, page_sizes: [20,30, 50, 100])  
       @pagy, @clone_batches = pagy(records.order(nb: :desc), items: 30)
 
     respond_to do |format|

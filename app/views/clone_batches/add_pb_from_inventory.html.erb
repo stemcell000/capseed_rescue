@@ -1,17 +1,85 @@
 <% provide(:title, "Plasmid : Add batch(es)") %>
 
-<div class="container well">
+<div class="container">
 	<div class= "row">
 		<div class="col-lg-9">
-			<h5> Plasmid: <%= @clone_batch.name %> </h5>
+			<h4> Plasmid: <%= @clone_batch.name %> </h5>
 		</div>
 		<div class="col-lg-3">
-			<h5> Number: <%= @clone_batch.number %> </h5>
+			<h4> Number: <%= @clone_batch.number %> </h5>
 		</div>
 	</div>
-</div>
 
-		<div id="info-container" class="col-md-12" >
-					<%= render :partial => "plasmid_batches/components/content_inventory", :locals => {:plasmid_batches => @plasmid_batches} %>
+<div id="info-container" class="col-lg-12" >
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="row" >
+						<div class="col-lg-6">
+							<%unless @plasmid_batches.empty?%>
+							<strong><%= "Plasmid batches".pluralize(@plasmid_batches.length)%> : </strong><br />
+						</div>
+					</div>
+				<div class="row top10">
+						<div class="col-lg-6">
+							<table>
+								<tr>
+									<% @plasmid_batches.each_with_index do |b, index|%>
+									<td>
+										<a tabindex="0" data-toggle="popover" data-trigger="focus" data-html = "true"
+											title='
+												<div class="row"> 
+													<div class="col-lg-2 col-md-2 col-sm-2  text-left">
+														<%=b.name%>
+													</div>
+													<div class="col-lg-10 col-md-10 col-sm-10 right">
+														<% unless b.trash %>
+															<%= link_to "Edit", edit_from_inventory_clone_batch_plasmid_batch_path(@clone_batch, b), :class =>"btn btn-primary btn-xs font80pc"%>
+															<%= link_to "Remove", destroy_from_inventory_clone_batch_plasmid_batch_path(@clone_batch, b), :class =>"btn btn-danger btn-xs font80pc", :title=>"Remove clone from list.", :remote => true %>
+														<%else%>
+															<%= link_to "Rescue", destroy_from_inventory_clone_batch_plasmid_batch_path(@clone_batch, b), :class =>"btn btn-warning btn-xs font80pc", :title=>"Remove clone from list.", :remote => true %>
+														<%end%>	
+													</div>	
+												</div>'
+											data-content='
+												<div class="col-lg-12 text-left">
+													<strong>Barcode: </strong><%= b.barcode.nil? ? "Unknown" : b.barcode %><br />
+													<strong>Date of prod.: </strong><%= b.date.nil? ?  "Unknown" : b.date.strftime("%h %e, %Y ") %><br />
+													<strong>Format: </strong><%= b.format.name.nil? ? "Unknown" : b.format.name %><br />
+													<strong>Concentration: </strong><%= b.concentration.nil? ? "Unknown" : b.concentration %> <%= b.unit_id.blank? ? "" : b.unit.name %><br />
+													<strong>Volume: </strong><%= b.volume.nil? ? "Unknown" : b.volume %> <%= b.vol_unit_id.blank? ? "" : b.vol_unit.name %><br />
+													<strong>Comments: </strong><br /><%= b.comment.blank? ? "No comment" : b.comment %><br />
+													<strong>Contact: </strong><%= b.user.nil? ? "Unknown": "#{b.user.firstname} #{b.user.lastname}" %><br />
+													<strong>Box: </strong><%= b.plasmid_box.nil? ? "Unknown" : b.plasmid_box.name %> <br />
+													<% if b.plasmid_batch_attachments.length > 0 %>
+														<strong>Attached file(s): </strong><br />
+															<% b.plasmid_batch_attachments.each do |a|%>
+																<%= link_to File.basename(a.attachment.path), a.attachment.to_s, :target => "_blank"%><br />
+															<%end%>
+													<%end%>
+												</div>
+											'
+										>
+											<div style="width: 60px; text-align: center;">
+												<img src= <%=b.set_tube_status %> alt="not-empty"  class="mx-auto d-block"/>
+												<span class="text-center"><strong><%= b.name %></strong></span>
+											</div>
+
+										</a>	
+									</td>
+									<% if index == 12 %>
+										</tr>
+									<%end%>
+								<%end%>
+							</table>
+							<%else%>
+							<span><p>No batch yet.</p></span>
+							<%end%>
+						</div><!--End of col-lg-6-->
+						<div class="col-lg-6 right">
+									<%= link_to "Add plasmid batch", new_from_inventory_new_clone_batch_plasmid_batch_path( :clone_batch_id => @clone_batch.id ), :class =>"btn btn-default", :remote => false%>
+						</div><!--End of Btn_col-->
+					</div><!--End of row top10-->
+				</div><!--End of panel body-->
+			</div><!--End of panel-->
 		</div>
-
+</div>

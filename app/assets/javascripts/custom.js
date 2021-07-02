@@ -19,7 +19,12 @@ $(document).ready(function() {
     		changeYear: true,
     		changeMonth: true
     		});
+
+	$('#accordion').on('hidden.bs.collapse', toggleChevron);
+	$('#accordion').on('shown.bs.collapse', toggleChevron); 
+    
     });
+
 	//Popover
   $('[data-toggle="popover"]').popover({
   	html:true,
@@ -29,10 +34,10 @@ $(document).ready(function() {
 //Activation des chevron sur le bootstrap panel collapse
 function toggleChevron(e) {
     $(e.target)
-        //.prev('.panel-heading')
+        .prev('.panel-heading')
         .find("i.indicator")
-        .toggleClass('fas fa-chevron-down fa-chevron-right');
-	};
+        .toggleClass('fa-chevron-down fa-chevron-right');
+    };
 	
 		
 	$('[data-toggle="popover"]').popover({html:true});
@@ -49,9 +54,6 @@ function toggleChevron(e) {
     		changeMonth: true
     		});
     });
-    
-   	$('#accordion').on('hidden.bs.collapse', toggleChevron);
-	$('#accordion').on('shown.bs.collapse', toggleChevron); 
 
 $("#assay-modal").on('show', function () {
     $.fn.modal.Constructor.prototype.enforceFocus = function () { };

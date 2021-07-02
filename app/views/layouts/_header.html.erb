@@ -1,44 +1,40 @@
 <header>
- <div class="navbar navbar-dark navbar-fixed-top navbar">
+ <div class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
   	<div class="navbar-header">
-  		      <%=link_to(image_tag("/images/Logo-1200.png", size: "150x33", alt: "CapSeed"), root_path, class: "navbar-brand")%>
-  		      <button type="button" class="navbar-toggle align-bottom" data-toggle="collapse" data-target="#myNavbar">
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span> 
+  		      <%=link_to(image_tag("/images/LOGO_NEW.png", size: "", alt: "Capseed"), root_path, class: "navbar-brand")%>
 		      </button>
       </div>
       <% if signed_in? %>
-      <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="collapse navbar-collapse" id="myNavbar" style="margin-top: 10px;">
 		      <ul class="nav navbar-nav ">
-	<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plasmids<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-          	<li><%=link_to "Plamids inventory", clone_batches_path %></li>
+					<li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="font120pc">Plasmids</span> <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+          <li><%=link_to "Plamids inventory", clone_batches_path, class: "font120pc" %></li>
           <% if can? :manage, :all %>
-          	<li><%=link_to "Box inventory", plasmid_boxes_path %></li>
+          	<li><%=link_to "Box inventory", plasmid_boxes_path, class: "font120pc"   %></li>
           	<%end%>
           </ul>
         </li>
-		      	<li><%= link_to "Virus", virus_productions_path %></li>
-		      	<li><%= link_to "Virus batches", boxes_path %></li>
-		        <li><%= link_to "Cloning", assays_path %></li>
-		        <li><%= link_to "Production", productions_path %></li>
+		      	<li><%= link_to "Virus", virus_productions_path, class: "font120pc"  %></li>
+		      	<li><%= link_to "Virus batches", boxes_path, class: "font120pc"  %></li>
+		        <li><%= link_to "Cloning", assays_path, class: "font120pc"  %></li>
+		        <li><%= link_to "Production", productions_path, class: "font120pc"  %></li>
       <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilities <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="font120pc">Utilities</span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
           	<% if can? :manage, :all %>
-          	<li><%=link_to "Constructions", clones_path %></li>
+          	<li><%=link_to "Constructions", clones_path, class: "font120pc"  %></li>
           	<%end%>
-            <li><%=link_to "Primers", primers_path %></li>
-            <li><%=link_to "Promoters", promoters_path %></li>
-            <li><%=link_to "Genes", genes_path %></li>
-            <li><%=link_to "Enzymes", enzymes_path %></li>
+            <li><%=link_to "Primers", primers_path, class: "font120pc"  %></li>
+            <li><%=link_to "Promoters", promoters_path, class: "font120pc"  %></li>
+            <li><%=link_to "Genes", genes_path, class: "font120pc"  %></li>
+            <li><%=link_to "Enzymes", enzymes_path, class: "font120pc"  %></li>
             <% if can? :manage, @user %>
             <li role="separator" class="divider"></li>
-            <li><%=link_to "User management", users_path %></li>
-            <li><%=link_to "Projects", projects_path %></li>
+            <li><%=link_to "User management", users_path, class: "font120pc"  %></li>
+            <li><%=link_to "Projects", projects_path, class: "font120pc"  %></li>
             <%end%>
           </ul>
         </li>
@@ -67,7 +63,6 @@
 		    		<li>
 		    		<% end %>
 		    		</li>
-			
 				</ul>
 			</div>
 			</div>

@@ -16,14 +16,6 @@ def display_all_clone_batch_switch
   end
 end
 
-def display_limited_virus_switch
-  @option = current_user.options.first
-  @option.toggle!(:display_limited_virus)
-  respond_to do |format|
-    format.js
-  end
-end
-
 private
 
   def option_params

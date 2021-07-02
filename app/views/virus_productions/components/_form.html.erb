@@ -1,55 +1,63 @@
 <%= simple_nested_form_for @virus_production, html: { class: 'form-vertical' }, :remote => true  do |f| %>
 	<%= f.error_notification %>
-	<% if @virus_production.errors.any? %>
-	<ul>
-	  <% @virus_production.errors.full_messages.each do |msg| %>
-	    <li><%= msg %></li>
-	  <% end %>
-	</ul>
-<% end %>
-	<small>
-		
-			<%= f.input :id, :as => :hidden %>
-			<% unless VirusProduction.all.nil? %>
-				<% n = VirusProduction.last.nb+1 %>
-			 <%else%>
-			     <% n = 1 %>
-			 <%end%>
-			<%= f.input :nb, :input_html => { :value => n }, :as => :hidden%>
+	<%= f.input :id, :as => :hidden %>
+		<div class="row">
+			<div class="col-lg-2">
+				<% unless VirusProduction.last.nil? %>
+					<% n = VirusProduction.last.nb+1 %>
+				<%else%>
+					<% n = 1 %>
+				<%end%>
+					<%= f.input :nb, :input_html => { :value => n }, :readonly => true%>
+					<%= f.input :nb, :input_html => { :value => n }, :as => :hidden%>
+					<%= f.input :number, :input_html => { :value => n.to_s }, :as => :hidden %>		
+			</div>
+				<div class="col-lg-2" >
+							<strong>Associated plasmids :</strong>
+				</div>
+				<div class="col-lg-7">
+								<% if f.object.clone_batches.empty? %>
+										No plasmid
+									<%else%>
+									 <table class = "table table-sm table-bordered">
+									 	
+											<% f.object.clone_batches.each do |cb| %> 
+											<tr>
+												<td><%= cb.number %></td>
+												<td><%= cb.name %></td>
+											</tr>
+											<%end%>
+									</table>
+								<% end %>
+						</div>
+				</div>
+			</div>
+			<small>
 			<div class="row">
-				<div class="col-lg-4">
-						<%=f.input :nb, :label => "Number", :readonly => true, :input_html => {:value =>n} %>
-						<%= f.input :number, :input_html => { :value => n.to_s }, :as => :hidden %>
-				</div>
-				<div class = "col-lg-3">
-						<%=f.input :date_of_production, :label => "Date", :as => :string, :input_html => {:value => (f.object.date_of_production.strftime("%B %e, %Y")  if f.object.date_of_production), "data-behaviour" => "datepicker" } %>
-				</div>
 				<div class="col-lg-2">
 					<%=f.input :invoice , :label => "Invoice"%>
+				</div>
+				<div class = "col-lg-2">
+						<%=f.input :date_of_production, :label => "Date of production", :as => :string, :input_html => { :value => (f.object.date_of_production.strftime("%B %e, %Y") if f.object.date_of_production), "data-behaviour" => "datepicker" } %>
 				</div>
 			</div>
 			
 			<div class="row">
-				<div class="col-lg-5">
+				<div class="col-lg-3">
 								<%= f.association :user, :label => "Contact name",
 												:collection => User.all, :label_method => :full_name, :value_method => :id,
 												:input_html => { class:"select2-select" } %>
 									</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-lg-4">
+				<div class="col-lg-2">
 					<%= f.input :vol, :label => "Volume" %>
 				</div>
-				<div class="col-lg-4">
+				<div class="col-lg-2">
 					<%= f.association :vol_unit, :label => "Volume unit",
 												:collection => VolUnit.all,:value_method => :id,
 												:input_html => { class:"select2-select" },
 												:selected => 1 %>
 				</div>
 			</div>
-			
-			<div class="row">
 	<%=f.simple_fields_for :sterilitytests do |s|%>
 		<div class="form-group ui-front well">
 			<div class="row">
@@ -62,25 +70,14 @@
 			</div>
 			<%= s.link_to_remove "Remove test" %>
 		</div>
-		
 	<%end%>
-	</div>
 		<div class="row">	
 			<div class="col-lg-12">
 				<%= f.link_to_add "Add a sterility test", :sterilitytests, :class => "btn btn-info btn-sm" %>
 			</div>
 		</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<%=f.input :plasmid_tag, :input_html => {:value =>  f.object.clone_batches.map{|object| object.number}.sort }, :as => :hidden %>
-					<%=f.input :plasmid_batch_tag, :input_html => {:value => f.object.plasmid_batches.map{|object| [object.name]}.sort }, :as => :hidden%>
-					<%=f.input :rev_plasmid_tag, :input_html => {:value =>  (f.object.clone_batches.map{|object| object.number}.sort).sort{|x,y| y <=> x } }, :as => :hidden %>
-					<%=f.input :rev_plasmid_batch_tag, :input_html => {:value => (f.object.plasmid_batches.map{|object| [object.name]}.sort).sort{|x,y| y <=> x } }, :as => :hidden %>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-lg-4">
+		<div class="row">
+				<div class="col-lg-2">
 					<%=f.input :gel_prot , :label => "Gel (proteins)"%>
 				</div>
 				<div class="col-lg-4">
@@ -89,14 +86,95 @@
 			</div>
 			
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="col-lg-6">
 					<%=f.input :comment , :label => "Comment"%>
 				</div>
+					
 			</div>
-
-			<div class="btn-group" role="group" aria-label="...">
-		    		<%= f.submit("Save", :class => "btn btn-default") %>
-		        	<%= f.submit 'Cancel', :type => :reset, :class => "btn btn-default", "data-dismiss" => "modal", "aria-hidden" => "true" %>
-		    </div>
+			
+<%=f.simple_fields_for :dosages do |ff|%>
+			<div class="form-group ui-front well">
+					<div class="row">
+									<div class="col-lg-4">
+										<%= ff.input :id, :as => :hidden %>
+										<%= ff.association :user, :label => "Contact name",
+										:collection => User.all, :label_method => :full_name, :value_method => :id,
+										:input_html => { class:"select2-select" } %>
+									</div>
+									<div class="col-lg-3">
+										<%= ff.input :date, :label => "Date", :as => :string, :input_html => { :value => (ff.object.date.strftime("%B %e, %Y") if ff.object.date), "data-behaviour" => "datepicker" } %>
+									</div>
+									<div class="col-lg-3">
+										<%= ff.input :plate_name, :label => "Plate#" %>
+										<div class="help-block">As Year + number (yy-##)</div>
+									</div>
+					</div>
+					<div class="row">
+								<div class="col-lg-3">
+									<%=ff.input :inactivation, :label => "Date of inactivation", :as => :string, :input_html => { :value => (ff.object.inactivation.strftime("%B %e, %Y") if ff.object.inactivation), "data-behaviour" => "datepicker" } %>
+								</div>
+								<div class="col-lg-3">
+									<%=ff.input :inactivation_atcc, :label => "Date of inact. ATCC)", :as => :string, :input_html => { :value => (ff.object.inactivation_atcc.strftime("%B %e, %Y") if ff.object.inactivation_atcc), "data-behaviour" => "datepicker" } %>
+								</div>
+								<div class="col-lg-3">
+									<%=ff.input :inactivation_standard, :label => "Date of inact. standard", :as => :string, :input_html => { :value => (ff.object.inactivation_standard.strftime("%B %e, %Y") if ff.object.inactivation_standard), "data-behaviour" => "datepicker" } %>
+								</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="help-block">Example of titer: 4.2e13 (please use a dot for decimals)</div>
+						</div>
+					</div>
+					<div class="row">
+								<%= ff.input :id, :as => :hidden %>
+								<div class ="col-lg-4 col-md-4 col-sm-4">
+								<% if ff.object.titer.nil? %>
+									<%= ff.input :titer, :label => "Titer (vg/mL)", as: :string %>
+								<%else%>
+									<%= ff.input :titer, :label => "Titer (vg/mL)", as: :string, :input_html => { :value => "%.2e" %ff.object.titer } %>
+								<%end%>
+								</div>
+								<div class ="col-lg-4">
+								<% if ff.object.titer_atcc.nil? %>
+									<%= ff.input :titer_atcc , :label => "Titer ATCC (vg/mL)", as: :string %>
+								<%else%>
+									<%= ff.input :titer_atcc, :label => "Titer ATCC (vg/mL)", as: :string, :input_html => { :value => "%.2e" %ff.object.titer_atcc } %>
+								<%end%>
+								</div>
+								<div class ="col-lg-4">
+								<% if !ff.object.id.nil? %>
+									<%= ff.input :titer_to_atcc, :label => "Titer to ATCC (vg/mL)", as: :string, :input_html => { :value => "%.2e" %ff.object.titer_to_atcc }, :readonly => true %>
+								<%end%>
+								</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12 col-md-8 col-sm-6">
+							<div class="help-block font-italic">Validated if the ATCC titer is between 8e+9 and 8e+10 vg/ml.</div>
+						</div>
+					<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6">
+										<%=ff.input :accepted, :label => "Validated"%>
+									</div>
+					</div>
+							
+							
+								<%= ff.link_to_remove "Remove titer" %>
+					</div>
+				<%end%>
+				
+								<%= f.link_to_add "Add titers", :dosages %>
+				
+		<div class="row">
+			<div class="col-lg-2">
+				<%=f.input :dismissed, collection: VirusProduction.statuses, input_html: { class: 'select2-select'}%>
+			</div>
+		</div>		
+			
+		<div class="btn-group row" role="group" aria-label="...">
+			<div class="col-lg-12">
+				<%= f.submit "Save", :class => "btn btn-primary" %>
+	        		<%= link_to "Cancel", :back, :class => "btn btn-default", :remote => true %>
+	        </div>
+		</div>
 	</small>
 <%end%>

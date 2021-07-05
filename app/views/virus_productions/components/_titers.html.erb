@@ -1,0 +1,41 @@
+<small>
+<div class="table-responsive">
+<table class="table table-bordered table-hover table-condensed" id="plasmid-table">
+			<thead>
+				<th class="text-center">Titer</th>
+				<th class="text-center">Titer ATCC</th>
+				<th class="text-center">Titer to ATCC</th>
+				<th class="text-center">Contact</th>
+				<th class="text-center">Date</th>
+				<th class="text-center">Inact.</th>
+				<th class="text-center">Inact. atcc</th>
+				<th class="text-center">Inact. strd</th>
+				<th class="text-center">Validation</th>
+				<th class="text-center">Action</th>
+
+			</thead>
+				<% dosages.each do |dosage| %>
+					<tr>
+						<td class="col-lg-3 text-center"><%= dosage.titer.nil? ? "No data":"%.2e" %dosage.titer+" vg/ml" %></td>
+						<td class="col-lg-3 text-center"><%= dosage.titer.nil? ? "No data":"%.2e" %dosage.titer_atcc.to_s+" vg/ml" %></td>
+						<td class="col-lg-3 text-center"><%= dosage.titer.nil? ? "No data":"%.2e" %dosage.titer_to_atcc.to_s+" vg/ml" %></td>
+						<td class="col-lg-2 text-center"><%= dosage.user.nil? ? "No data" : dosage.user.short_name %></td>
+						<td class="col-lg-1 text-center"><%= dosage.date.nil? ? "No data" : dosage.date.strftime("%y-%m-%e") %></td>
+						<td class="col-lg-1 text-center"><%= dosage.inactivation.nil? ? "No data" : dosage.inactivation.strftime("%y-%m-%e") %></td>
+						<td class="col-lg-1 text-center"><%= dosage.inactivation_atcc.nil? ? "No data" : dosage.inactivation_atcc.strftime("%y-%m-%e") %></td>
+						<td class="col-lg-1 text-center"><%= dosage.inactivation_standard.nil? ? "No data" : dosage.inactivation_standard.strftime("%y-%m-%e") %></td>
+						<td class="col-lg-2 text-center"><% if dosage.accepted?%>
+															<i class="fa_icon fa fa-check text-success"></i>
+														<%else%>
+															<i class="fa_icon fa fa-check text-danger"></i>
+														<%end%>
+													</td>
+						<td class="col-lg-2 text-center">
+													</td>
+					</tr>
+				<%end%>
+				
+</table>
+</div>
+</small>
+

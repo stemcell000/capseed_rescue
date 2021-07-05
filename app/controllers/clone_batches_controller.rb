@@ -3,13 +3,10 @@ class CloneBatchesController < InheritedResources::Base
   autocomplete :clone_batch, :name
     
   before_action :authenticate_user!
-  before_action :set_clone_batch, only:[ :edit, :show_exist, :select, :destroy, :add_plasmid_batch, :add_pb_from_inventory, :update,
-    :edit, :hide_from_inventory, :update_from_inventory, :update_pb_from_inventory, :destroy_from_inventory,
-    :update_as_plasmid, :remove_plasmid_data, :remove_from_prod, :select_from_prod, :add_to_prod]
-  before_action :load_all, only:[:select, :update, :update_as_plasmid, :update_plasmid_batch, :add_plasmid_batch, :destroy]
-  before_action :load_assay, only:[:show_exist, :select]
-  before_action :load_clone, only:[:show_exist, :select, :update_as_plasmid]
-  before_action :load_lists, only: [:edit, :new_from_inventory, :update_from_inventory, :update_as_plasmid]
+  before_action :set_clone_batch, only:[ :edit, :show, :destroy, :add_plasmid_batch, :add_pb_from_inventory, :update,
+    :edit, :hide_from_inventory, :update_from_inventory, :update_pb_from_inventory, :destroy_from_inventory, :remove_plasmid_data, :remove_from_prod, :select_from_prod, :add_to_prod]
+  #before_action :load_all, only:[ :update, :update_plasmid_batch, :add_plasmid_batch, :destroy]
+  before_action :load_lists, only: [:edit, :new_from_inventory, :update_from_inventory]
   before_action :set_option, only:[:index, :hide_from_inventory, :edit, :update_from_inventory, :create_from_inventory ]
   
 
@@ -179,6 +176,21 @@ class CloneBatchesController < InheritedResources::Base
    # @cb_collection = @clone.clone_batches
    # @cb_collection.delete(@clone_batch)
   # end
+
+  def show
+      @number= @clone_batch.nb.nil? ? '-' : @clone_batch.nb.to_s
+      @date = @clone_batch.date_as_plasmid.nil? ? '-' : @clone_batch.date_as_plasmid.strftime('%b %e, %Y')
+      @glyc_stock_box_as_plasmid = @clone_batch.glyc_stock_box_as_plasmid.nil? ? 'No data' : @clone_batch.glyc_stock_box_as_plasmid
+      @origin = @clone_batch.origin.nil? ? '-' : @clone_batch.origin.name
+      @type = @clone_batch.type.nil? ? '-' : @clone_batch.type.name
+      @nb_of_batches = @clone_batch.plasmid_batches.empty? ? '-' : @clone_batch.plasmid_batches.count
+      @clone_name = @clone_batch.clone.nil? ? '-' : @clone_batch.clone.name
+      @target = @clone_batch.target.nil? ? '-' : @clone_batch.target.name
+      @strand  = @clone_batch.strand.nil? ? '-' : @clone_batch.strand.name
+      @promoters = @clone_batch.promoters.empty? ? '-' : @clone_batch.promoters.uniq.pluck(:name).to_sentence
+      @genes = @clone_batch.genes.empty? ? '-' : @clone_batch.genes.uniq.pluck(:name).to_sentence
+      @comment = @clone_batch.comment_as_plasmid.nil? ? '-' : @clone_batch.comment_as_plasmid
+  end
   
   def add_plasmid_batch
     @units = Unit.all
@@ -267,6 +279,7 @@ class CloneBatchesController < InheritedResources::Base
     def set_clone_batch
       @clone_batch = CloneBatch.find(params[:id])
     end
+
     #clone_sample ->
     #def clone_batch_params
      # params.require(:clone_batch).permit(:id, :name, :number, :comment, :qc_validation, :clone_id, :assay_id, :plasmid_validation, :temp_name, :type_id, :dismissed, :nb,
@@ -283,7 +296,6 @@ class CloneBatchesController < InheritedResources::Base
       #:insert_attributes => [:id, :name, :number, :clone_batch_id, :dismissed],
       #:productions_attributes => [:id]
       #)
-      
     #end
     
     def clone_batch_params
@@ -335,19 +347,18 @@ class CloneBatchesController < InheritedResources::Base
     end
        
       
-    def load_all
-        @clone_batch = CloneBatch.find(params[:id])
-
-        @clone = Clone.find(params[:clone_id]) unless params[:clone_id].nil?
-        @assay = Assay.find(params[:assay_id]) unless params[:assay_id].nil?
-        unless @assay.nil?
-          @clones = @assay.clones
-          @cb_collection = []
-          @clones.each do |c|
-            @cb_collection = c.clone_batches.where.not(:name => nil).order(:id) + @cb_collection
-          end
-        end
-    end
+    #def load_all
+     #   @clone_batch = CloneBatch.find(params[:id])
+      #  @clone = Clone.find(params[:clone_id]) unless params[:clone_id].nil?
+       # @assay = Assay.find(params[:assay_id]) unless params[:assay_id].nil?
+       # unless @assay.nil?
+        #  @clones = @assay.clones
+        #  @cb_collection = []
+        #  @clones.each do |c|
+        #    @cb_collection = c.clone_batches.where.not(:name => nil).order(:id) + @cb_collection
+        #  end
+       # end
+    #end
     
     #clone_sample ->
     #def load_assay

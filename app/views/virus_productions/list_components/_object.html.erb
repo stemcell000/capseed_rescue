@@ -1,4 +1,5 @@
-  <td class="text-center <%= invcolor(object) %>"><%= object.nb %></td>
+  <% font_hide = object.options.where(:id => @option.id).exists? ? "font-red" : "" %>
+  <td class="text-center <%= invcolor(object) %> <%= font_hide %>"><%= object.nb %></td>
   <td class="text-center <%= invcolor(object) %>"> <small><%= object.date_of_production.nil? ? "No data" : object.date_of_production.strftime("%b %e, %Y") %></small></td>
   <td class="text-center <%= invcolor(object) %>"> <%= object.production.nil? ? "-" : object.production.name %> </small></td>
   <td class="text-left <%= invcolor(object) %>" >
@@ -60,10 +61,8 @@
 		>
 			<span class="fa_icon fa fa-eye"></span>
 	</a>
-		<% icon_hide = object.options.where(:id => @option.id).exists? ? "fa_icon fa fa-eye-slash font-red" : "fa_icon fa fa-eye-slash" %>
 
 	  	<%= link_to "<i class='fa fa-pencil-square-o'></i>".html_safe, edit_virus_production_path(object), method: :get %>
-	  	<%= link_to "<i class='#{icon_hide}'></i>".html_safe, hide_from_inventory_virus_production_path(object), method: :patch %>
 	  	<%= link_to "<i class='glyphicon glyphicon-th'></i>".html_safe, add_vb_from_inventory_virus_production_path(object), method: :get %>
   			
   		<%if object.production_id?%>

@@ -1,15 +1,65 @@
-<p>
-  <strong>Title:</strong>
-  <%= @clone_batch.number %>
-</p>
+<div class="row">
+  <div class="col-lg-12">
+    <h3>Plasmid #<%=@clone_batch.nb.to_s%></h3>
+  </div>
+</div>
 
-<p>
-  <strong>Data:</strong>
-  <%= @clone_batch.name %>
-  <%= @clone_batch.temp_name %>
-  <%= @clone_batch.number %>
-  <%= @clone_batch.comment %>
-  <%= @clone_batch.comment_as_plasmid %>
-</p>
+        <div class="row"> 
+          <div class="col-xs-12">
+            <strong>Name : </strong><%=@clone_batch.name%><br />
+            <strong>Date: </strong> <%= @clone_batch.date_as_plasmid.nil? ? "-" : @clone_batch.date_as_plasmid.strftime("%b %e, %Y") %><br />
+            <strong>Glycerol stock box: </strong><%= @clone_batch.glyc_stock_box_as_plasmid.nil? ? "-" : @clone_batch.glyc_stock_box_as_plasmid %><br />
+            <strong>Origin: </strong><%= @clone_batch.origin.nil? ? "-" : @clone_batch.origin.name %><br />
+            <strong>Type: </strong> <%= @clone_batch.type.nil? ? "-" : @clone_batch.type.name %><br />
+            <strong>Number of batches: </strong> <%= @clone_batch.plasmid_batches.empty? ? "-" : @clone_batch.plasmid_batches.length %><br />
+            <strong>Clone: </strong><%= @clone_batch.clone.nil? ? "-" : @clone_batch.clone.name %><br />
+            <strong>Target: </strong> <%= @clone_batch.target.nil? ? "-" : @clone_batch.target.name %><br />
+            <strong>Strand: </strong><%= @clone_batch.strand.nil? ? "-" : @clone_batch.strand.name %><br />
+            <strong>Promoter: </strong><%= @clone_batch.promoters.empty? ? "-" : @clone_batch.promoters.uniq.pluck(:name).to_sentence %><br />
+            <strong>Gene: </strong><%= @clone_batch.genes.empty? ? "-" : @clone_batch.genes.uniq.pluck(:name).to_sentence %><br />
 
-<%= link_to '<- Back', productions_path %>
+            <% unless @clone_batch.comment_as_plasmid.blank? %>
+                <strong>Comment: </strong>
+                  <%= @clone_batch.comment_as_plasmid %>
+                <%end%>
+                <br />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+                <% unless @clone_batch.plasmid_batches.empty? %>
+                <table class="table table-bordered">
+                  <thead>
+                    <th>Batch</th>
+                    <th>Box</th>
+                    <th>Conc.</th>
+                    <th>Date of production</th>
+                    <th>Volume</th>
+                  </thead>
+                  <%@clone_batch.plasmid_batches.each do |pb|%>
+                  <tr>
+                    <% involved = pb.productions.where('last_step < ?', 3).any?  %>
+                    <td><%= pb.name %></td>
+                    <td><%= pb.plasmid_box.nil? ? "Unknown" : pb.plasmid_box.name %></td>
+                    <td><%= pb.concentration.nil? ? "Unknown" : "#{pb.concentration} #{pb.unit.name}" %></td>
+                    <td><%= pb.date.nil? ? "Unknown" : pb.date.strftime("%B %e, %Y") %></td>
+                    <td class = <%= "dismissed" if involved %>><%= pb.volume.nil? ? "-":"#{pb.volume} #{pb.vol_unit.name}" %></td>
+                  </tr>
+                  <%end%>
+                </table>
+              <%else%>
+              no batch
+              <%end%>
+              <br />
+                <div class="col-lg-8">
+                <% unless @clone_batch.clone_batch_as_plasmid_attachments.empty? %>
+                  <strong>Attached <%="file".pluralize(@clone_batch.clone_batch_as_plasmid_attachments.length)%> :</strong><br />
+                  <% @clone_batch.clone_batch_as_plasmid_attachments.each do |a|%>
+                    <small><%= link_to File.basename(a.attachment.path ), a.attachment.to_s %></small> <br />
+                  <%end%>
+                <%end%>
+              </div>
+            </div>
+          </div>
+
+<%= link_to 'Back', clone_batches_path %>

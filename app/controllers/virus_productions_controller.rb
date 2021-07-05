@@ -63,8 +63,23 @@ class VirusProductionsController < InheritedResources::Base
       format.csv {send_data records.to_csv, :filename => "virus-#{Date.today.strftime('%m/%d/%Y')}.csv"}
     end
   end
+
+  def new
+    @virus_production = VirusProduction.new
+  end
+  
+  def create
+        @virus_production = VirusProduction.create(virus_production_params)
+      if  @virus_production.valid?
+          flash.keep[:success] = "Task completed!"
+          @virus_production.generate_recap
+      else
+          render :action => :new
+      end
+  end
    
   def edit
+    @users = User.all
   end
  
   def update
@@ -102,19 +117,7 @@ class VirusProductionsController < InheritedResources::Base
      @virus_production.destroy
   end
   
-  def new
-    @virus_production = VirusProduction.new
-  end
-  
-  def create
-        @virus_production = VirusProduction.create(virus_production_params)
-      if  @virus_production.valid?
-          flash.keep[:success] = "Task completed!"
-          @virus_production.generate_recap
-      else
-          render :action => :new
-      end
-  end
+
   
   def spawn_dosage
     @virus_production = VirusProduction.find(params[:id])

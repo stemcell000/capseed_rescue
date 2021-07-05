@@ -1,5 +1,5 @@
 <%= simple_nested_form_for @option, url: display_all_clone_batch_switch_option_path(@option),  html: { class: 'form-inline' }, :remote=> true do |f| %>
-  	 	Display hidden plasmids
-  	 	<span class="align-middle"><%= f.input :display_all_clone_batch, :as => :boolean, :label =>false, :input_html => {:onclick => "$('#option_display_all_clone_batch*').submit();"}%></span>
+  	 	<%= f.label "Display hidden plasmid"%> 
+		<%= f.input :display_all_clone_batch, :as => :boolean, :label =>false, :input_html => {:onclick => "$('#option_display_all_clone_batch*').submit();"}%>
 <%end%>
 

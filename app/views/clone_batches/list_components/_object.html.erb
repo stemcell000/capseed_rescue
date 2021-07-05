@@ -1,4 +1,5 @@
-  <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><%= object.number %></td>
+  <% font_hide = object.options.where(:id => @option.id).exists? ? "font-red" : "" %>
+  <td class="text-center <%= dismissedOrNot(object.dismissed) %> <%=font_hide%>"><%= object.number %></td>
   <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><%= object.name || object.temp_name %></td>
   <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><%= object.clone.nil? ? "-" : object.clone.name %></td>
   <td class="text-center <%= dismissedOrNot(object.dismissed) %>"><%= object.promoters.empty? ? "-" : object.promoters.map {|promoter| promoter.name}.to_sentence%></td>
@@ -27,7 +28,7 @@
 								<strong>Strand: </strong><%= object.strand.nil? ? "-" : object.strand.name %><br />
 								<strong>Promoter: </strong><%= object.promoters.nil? ? "-" : object.promoters.uniq.map {|promoter| promoter.name}.to_sentence %><br />
 								<strong>Gene: </strong><%= object.genes.nil? ? "-" : object.genes.uniq.map {|gene| gene.name}.to_sentence %><br />
-								<% if !object.comment_as_plasmid.blank? %>
+								<% unless object.comment_as_plasmid.blank? %>
 									<strong>Comment: </strong>
 									<%= object.comment_as_plasmid %>
 								<%end%>
@@ -57,7 +58,7 @@
 							<%end%>
 							<br />
 								<div class="col-lg-8">
-								<% if !object.clone_batch_as_plasmid_attachments.empty? %>
+								<% unless object.clone_batch_as_plasmid_attachments.empty? %>
 									<strong>Attached <%="file".pluralize(object.clone_batch_as_plasmid_attachments.length)%> :</strong><br />
 									<% object.clone_batch_as_plasmid_attachments.each do |a|%>
 										<small><%= link_to File.basename(a.attachment.path ), a.attachment.to_s %></small> <br />
@@ -69,9 +70,8 @@
 		>
 			<span class="fa_icon fa fa-eye"></span>
 	</a>
-	<% icon_hide = object.options.where(:id => @option.id).exists? ? "fa_icon fa fa-eye-slash font-red" : "fa_icon fa fa-eye-slash" %>
+
   	<%= link_to "<i class='fa fa-pencil-square-o'></i>".html_safe, edit_clone_batch_path(object), method: :get %>
-  	<%= link_to "<i class='#{icon_hide}'></i>".html_safe, hide_from_inventory_clone_batch_path(object), method: :patch %>	
   	<%= link_to "<i class='glyphicon glyphicon-th'></i>".html_safe, add_pb_from_inventory_clone_batch_path(object), method: :get %>
 
   	<% if object.clone %>

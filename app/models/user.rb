@@ -54,6 +54,10 @@ class User < ActiveRecord::Base
      "#{firstname} #{lastname}"
    end
   
+  def short_name
+     "#{firstname.slice(0,1)}. #{lastname}"
+   end
+
     def password_match?
      self.errors[:password] << I18n.t('errors.messages.blank') if password.blank?
      self.errors[:password_confirmation] << I18n.t('errors.messages.blank') if password_confirmation.blank?

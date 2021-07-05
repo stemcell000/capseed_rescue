@@ -105,12 +105,12 @@ class CloneBatch < ActiveRecord::Base
       genes = self.genes.nil? ? '-' : self.genes.uniq.map {|gene| gene.name}.to_sentence
       comment = self.comment_as_plasmid.nil? ? '' : ' '+self.comment_as_plasmid
       
-       block = "<i class='glyphicon glyphicon-inbox'></i> <strong>Number: </strong> #{ number } <br />
-       <i class='glyphicon glyphicon-calendar'></i> <strong> Date: </strong> #{ date_as_plasmid} <br />
-       <i class='glyphicon glyphicon-inbox'></i> <strong>Glycerol stock box: </strong> #{glyc_stock_box_as_plasmid } <br />
-       <i class='glyphicon glyphicon-home'></i> <strong>Origin: </strong> #{ origin } <br />
-       <i class='glyphicon glyphicon-inbox'></i> <strong>Type: </strong> #{ type }<br />
-       <i class='glyphicon glyphicon-th'></i> <strong>Number of batches: </strong> #{ nb_of_batches }<br />
+       block = "<strong>Number: </strong> #{ number } <br />
+       <strong> Date: </strong> #{ date_as_plasmid} <br />
+       <strong>Glycerol stock box: </strong> #{glyc_stock_box_as_plasmid } <br />
+       <strong>Origin: </strong> #{ origin } <br />
+       <strong>Type: </strong> #{ type }<br />
+       <strong>Number of batches: </strong> #{ nb_of_batches }<br />
        <strong>Clone: </strong> #{clone } <br />
        <strong>Target: </strong> #{ target } <br />
        <strong>Strand: </strong> #{ strand } <br />

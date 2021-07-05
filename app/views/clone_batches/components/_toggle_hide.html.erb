@@ -1,0 +1,4 @@
+<%= simple_nested_form_for @option, url: hide_from_inventory_clone_batch_path(@clone_batch),  html: { class: 'form-inline' }, :remote=> true do |f| %>
+    <%= f.label "Hide plasmid from inventory"%> 
+    <%= f.input :display_all_clone_batch, :as => :boolean, :label =>false, :input_html => {:onclick => "$('#option_display_all_clone_batch*').submit();"}%>
+<%end%>

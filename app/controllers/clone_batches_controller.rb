@@ -4,10 +4,10 @@ class CloneBatchesController < InheritedResources::Base
     
   before_action :authenticate_user!
   before_action :set_clone_batch, only:[ :edit, :show, :destroy, :add_plasmid_batch, :add_pb_from_inventory, :update,
-    :edit, :hide_from_inventory, :update_from_inventory, :update_pb_from_inventory, :destroy_from_inventory, :remove_plasmid_data, :remove_from_prod, :select_from_prod, :add_to_prod]
+    :edit, :hide_from_inventory, :update_pb_from_inventory, :destroy_from_inventory, :remove_plasmid_data, :remove_from_prod, :select_from_prod, :add_to_prod]
   #before_action :load_all, only:[ :update, :update_plasmid_batch, :add_plasmid_batch, :destroy]
-  before_action :load_lists, only: [:edit, :new_from_inventory, :update_from_inventory]
-  before_action :set_option, only:[:index, :hide_from_inventory, :edit, :update_from_inventory, :create_from_inventory ]
+  before_action :load_lists, only: [:edit, :new_from_inventory]
+  before_action :set_option, only:[:index, :hide_from_inventory, :edit, :show]
   
 
   def index
@@ -271,7 +271,7 @@ class CloneBatchesController < InheritedResources::Base
     else
       @option.clone_batches.destroy(@clone_batch)
     end
-    redirect_to clone_batches_path
+    redirect_to clone_batch_path
   end
   
   private

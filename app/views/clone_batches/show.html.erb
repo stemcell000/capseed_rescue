@@ -61,11 +61,8 @@
               </div>
             </div>
           </div>
-    <div id="hide-container" class="pull-right"> <%= render :partial => "clone_batches/components/toggle_display_hidden", :locals => { :option => @option } %>
-    </div>  
-  <%= simple_nested_form_for @option, url: hide_from_inventory_clone_batch_path(@clone_batch),  html: { class: 'form-inline' }, :remote=> true do |f| %>
-      <%= f.label "Display hidden plasmid"%> 
-    <%= f.input :display_all_clone_batch, :as => :boolean, :label =>false, :input_html => {:onclick => "$('#option_display_all_clone_batch*').submit();"}%>
-<%end%>
+
+    <%=link_to "Hide from inventory", hide_from_inventory_clone_batch_path(@clone_batch), remote:false, title: "Hide", method: :patch %>
+
 
 <%= link_to 'Back', clone_batches_path %>

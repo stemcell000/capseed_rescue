@@ -1,0 +1,69 @@
+<%= simple_form_for ([@virus_production, @dosage]), html: { class: 'form-vertical' } do |f| %>
+	<%= f.error_notification %>
+	<div class="row">
+		<div class="col-xs-6">
+			<%= f.input :virus_production_id, :input_html =>{value: @virus_production.id}, as: :hidden %>
+			<%= f.association :user, :label => "Contact name",
+			:collection => @users, :label_method => :full_name, :value_method => :id,
+			:input_html => { class:"select2-select" } %>
+		</div>
+		<div class="col-xs-3">
+			<%= f.input :date, :label => "Date", :as => :string, :input_html => { :value => (f.object.date.strftime("%B %e, %Y") if f.object.date), "data-behaviour" => "datepicker" } %>
+		</div>
+		<div class="col-xs-3">
+			<%= f.input :plate_name, :label => "Plate#" %>
+			<div class="help-block">As Year + number (yy-##)</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="form-group ui-front">
+			<div class="row">
+			<div class="col-xs-3">
+				<%=f.input :inactivation, :label => "Date of inactivation", :as => :string, :input_html => { :value => (f.object.inactivation.strftime("%b %e, %Y") if f.object.inactivation), "data-behaviour" => "datepicker" } %>
+			</div>
+			<div class="col-xs-3">
+				<%=f.input :inactivation_atcc, :label => "Date of inact. ATCC)", :as => :string, :input_html => { :value => (f.object.inactivation_atcc.strftime("%b %e, %Y") if f.object.inactivation_atcc), "data-behaviour" => "datepicker" } %>
+			</div>
+			<div class="col-xs-3">
+				<%=f.input :inactivation_standard, :label => "Date of inact. standard", :as => :string, :input_html => { :value => (f.object.inactivation_standard.strftime("%b %e, %Y") if f.object.inactivation_standard), "data-behaviour" => "datepicker" } %>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+			<%= f.input :id, :as => :hidden %>
+			<div class ="col-xs-3">
+			<% if f.object.titer.nil? %>
+				<%= f.input :titer, :label => "Titer (vg/mL)", as: :string %>
+				<div class="help-block">Example of titer: 4.2e13 (please use a dot for decimals).</div>
+			<%else%>
+				<%= f.input :titer, :label => "Titer (vg/mL)", as: :string, :input_html => { :value => "%.2e" %f.object.titer } %>
+			<%end%>
+			</div>
+			<div class ="col-xs-4">
+			<% if f.object.titer_atcc.nil? %>
+				<%= f.input :titer_atcc , :label => "Titer ATCC (vg/mL)", as: :string %>
+			<%else%>
+				<%= f.input :titer_atcc, :label => "Titer ATCC (vg/mL)", as: :string, :input_html => { :value => "%.2e" %f.object.titer_atcc } %>
+			<%end%>
+			</div>
+			<div class ="col-xs-4">
+			<% if !f.object.id.nil? %>
+				<%= f.input :titer_to_atcc, :label => "Titer to ATCC (vg/mL)", as: :string, :input_html => { :value => "%.2e" %f.object.titer_to_atcc }, :readonly => true %>
+			<%end%>
+			</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-3">
+			<%=f.input :accepted, :label => "Validated"%>
+			<div class="help-block">Validated if the ATCC titer is between  8e+9 and 8e+10 vg/ml.</div>
+		</div>
+	</div>
+			
+	<div class="btn-group row" role="group" aria-label="...">
+		<div class="col-xs-12 right">
+			<%= f.submit "Save", :class => "btn btn-primary" %>
+        	<%= link_to "Cancel", :back, :class => "btn btn-default" %>
+        </div>
+	</div>
+<%end%>

@@ -178,18 +178,6 @@ class CloneBatchesController < InheritedResources::Base
   # end
 
   def show
-      @number= @clone_batch.nb.nil? ? '-' : @clone_batch.nb.to_s
-      @date = @clone_batch.date_as_plasmid.nil? ? '-' : @clone_batch.date_as_plasmid.strftime('%b %e, %Y')
-      @glyc_stock_box_as_plasmid = @clone_batch.glyc_stock_box_as_plasmid.nil? ? 'No data' : @clone_batch.glyc_stock_box_as_plasmid
-      @origin = @clone_batch.origin.nil? ? '-' : @clone_batch.origin.name
-      @type = @clone_batch.type.nil? ? '-' : @clone_batch.type.name
-      @nb_of_batches = @clone_batch.plasmid_batches.empty? ? '-' : @clone_batch.plasmid_batches.count
-      @clone_name = @clone_batch.clone.nil? ? '-' : @clone_batch.clone.name
-      @target = @clone_batch.target.nil? ? '-' : @clone_batch.target.name
-      @strand  = @clone_batch.strand.nil? ? '-' : @clone_batch.strand.name
-      @promoters = @clone_batch.promoters.empty? ? '-' : @clone_batch.promoters.uniq.pluck(:name).to_sentence
-      @genes = @clone_batch.genes.empty? ? '-' : @clone_batch.genes.uniq.pluck(:name).to_sentence
-      @comment = @clone_batch.comment_as_plasmid.nil? ? '-' : @clone_batch.comment_as_plasmid
   end
   
   def add_plasmid_batch

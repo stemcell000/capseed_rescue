@@ -1,79 +1,81 @@
-<div class="row">
-  <div class="col-lg-12">
-<% hidden_status = @clone_batch.options.where(:id => @option.id).exists? ? "(Hidden)" : "" %>
-    <h3>Plasmid #<%=@clone_batch.nb.to_s+" "+hidden_status%></h3>
+<div class="container bottom20">
+  <div class="row">
+    <div class="col-lg-12">
+      <% hidden_status = @clone_batch.options.where(:id => @option.id).exists? ? "(Hidden)" : "" %>
+      <h3>Plasmid #<%=@clone_batch.nb.to_s+" "+hidden_status%></h3>
+    </div>
   </div>
-</div>
 
-<div class="row"> 
-  <div class="col-xs-12">
-    <strong>Name : </strong><%=@clone_batch.name%><br />
-    <strong>Date: </strong> <%= @clone_batch.date_as_plasmid.nil? ? "-" : @clone_batch.date_as_plasmid.strftime("%b %e, %Y") %><br />
-    <strong>Glycerol stock box: </strong><%= @clone_batch.glyc_stock_box_as_plasmid.nil? ? "-" : @clone_batch.glyc_stock_box_as_plasmid %><br />
-    <strong>Origin: </strong><%= @clone_batch.origin.nil? ? "-" : @clone_batch.origin.name %><br />
-    <strong>Type: </strong> <%= @clone_batch.type.nil? ? "-" : @clone_batch.type.name %><br />
-    <strong>Number of batches: </strong> <%= @clone_batch.plasmid_batches.empty? ? "-" : @clone_batch.plasmid_batches.length %><br />
-    <strong>Clone: </strong><%= @clone_batch.clone.nil? ? "-" : @clone_batch.clone.name %><br />
-    <strong>Target: </strong> <%= @clone_batch.target.nil? ? "-" : @clone_batch.target.name %><br />
-    <strong>Strand: </strong><%= @clone_batch.strand.nil? ? "-" : @clone_batch.strand.name %><br />
-    <strong>Promoter: </strong><%= @clone_batch.promoters.empty? ? "-" : @clone_batch.promoters.uniq.pluck(:name).to_sentence %><br />
-    <strong>Gene: </strong><%= @clone_batch.genes.empty? ? "-" : @clone_batch.genes.uniq.pluck(:name).to_sentence %><br />
+  <div class="row"> 
+    <div class="col-xs-12">
+      <strong>Name : </strong><%=@clone_batch.name%><br />
+      <strong>Date: </strong> <%= @clone_batch.date_as_plasmid.nil? ? "-" : @clone_batch.date_as_plasmid.strftime("%b %e, %Y") %><br />
+      <strong>Glycerol stock box: </strong><%= @clone_batch.glyc_stock_box_as_plasmid.nil? ? "-" : @clone_batch.glyc_stock_box_as_plasmid %><br />
+      <strong>Origin: </strong><%= @clone_batch.origin.nil? ? "-" : @clone_batch.origin.name %><br />
+      <strong>Type: </strong> <%= @clone_batch.type.nil? ? "-" : @clone_batch.type.name %><br />
+      <strong>Number of batches: </strong> <%= @clone_batch.plasmid_batches.empty? ? "-" : @clone_batch.plasmid_batches.length %><br />
+      <strong>Clone: </strong><%= @clone_batch.clone.nil? ? "-" : @clone_batch.clone.name %><br />
+      <strong>Target: </strong> <%= @clone_batch.target.nil? ? "-" : @clone_batch.target.name %><br />
+      <strong>Strand: </strong><%= @clone_batch.strand.nil? ? "-" : @clone_batch.strand.name %><br />
+      <strong>Promoter: </strong><%= @clone_batch.promoters.empty? ? "-" : @clone_batch.promoters.uniq.pluck(:name).to_sentence %><br />
+      <strong>Gene: </strong><%= @clone_batch.genes.empty? ? "-" : @clone_batch.genes.uniq.pluck(:name).to_sentence %><br />
 
-    <% unless @clone_batch.comment_as_plasmid.blank? %>
-        <strong>Comment: </strong>
-          <%= @clone_batch.comment_as_plasmid %>
+      <% unless @clone_batch.comment_as_plasmid.blank? %>
+          <strong>Comment: </strong>
+            <%= @clone_batch.comment_as_plasmid %>
+          <%end%>
+          <br />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <% unless @clone_batch.plasmid_batches.empty? %>
+      <table class="table table-bordered">
+        <thead>
+          <th>Batch</th>
+          <th>Box</th>
+          <th>Conc.</th>
+          <th>Date of production</th>
+          <th>Volume</th>
+        </thead>
+        <%@clone_batch.plasmid_batches.each do |pb|%>
+        <tr>
+          <% involved = pb.productions.where('last_step < ?', 3).any?  %>
+          <td><%= pb.name %></td>
+          <td><%= pb.plasmid_box.nil? ? "Unknown" : pb.plasmid_box.name %></td>
+          <td><%= pb.concentration.nil? ? "Unknown" : "#{pb.concentration} #{pb.unit.name}" %></td>
+          <td><%= pb.date.nil? ? "Unknown" : pb.date.strftime("%B %e, %Y") %></td>
+          <td class = <%= "dismissed" if involved %>><%= pb.volume.nil? ? "-":"#{pb.volume} #{pb.vol_unit.name}" %></td>
+        </tr>
         <%end%>
-        <br />
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-6">
-    <% unless @clone_batch.plasmid_batches.empty? %>
-    <table class="table table-bordered">
-      <thead>
-        <th>Batch</th>
-        <th>Box</th>
-        <th>Conc.</th>
-        <th>Date of production</th>
-        <th>Volume</th>
-      </thead>
-      <%@clone_batch.plasmid_batches.each do |pb|%>
-      <tr>
-        <% involved = pb.productions.where('last_step < ?', 3).any?  %>
-        <td><%= pb.name %></td>
-        <td><%= pb.plasmid_box.nil? ? "Unknown" : pb.plasmid_box.name %></td>
-        <td><%= pb.concentration.nil? ? "Unknown" : "#{pb.concentration} #{pb.unit.name}" %></td>
-        <td><%= pb.date.nil? ? "Unknown" : pb.date.strftime("%B %e, %Y") %></td>
-        <td class = <%= "dismissed" if involved %>><%= pb.volume.nil? ? "-":"#{pb.volume} #{pb.vol_unit.name}" %></td>
-      </tr>
-      <%end%>
-    </table>
-  <%else%>
-  no batch
-  <%end%>
-</div>
-</div>
-<div class="row">
-    <div class="col-lg-8">
-    <% unless @clone_batch.clone_batch_as_plasmid_attachments.empty? %>
-      <strong>Attached <%="file".pluralize(@clone_batch.clone_batch_as_plasmid_attachments.length)%> :</strong><br />
-      <% @clone_batch.clone_batch_as_plasmid_attachments.each do |a|%>
-        <small><%= link_to File.basename(a.attachment.path ), a.attachment.to_s %></small> <br />
-      <%end%>
+      </table>
+    <%else%>
+    no batch
     <%end%>
   </div>
-</div>
-
-<% label_hide = @clone_batch.options.where(:id => @option.id).exists? ? "Display in the inventory " : "Hide from the inventory" %>
-<% color_hide = @clone_batch.options.where(:id => @option.id).exists? ? "font-red" : "" %>
-<div class="row top20">
-  <div class="col-xs-12">
-    <%=link_to label_hide, hide_from_inventory_clone_batch_path(@clone_batch), remote:false, title: "Hide", method: :patch, class: color_hide %>
   </div>
-</div>
-<div class="row top20">
-  <div class="col-xs-12">
-<%= link_to 'Back to inventory', clone_batches_path, class: "btn btn-primary" %>
+  <div class="row">
+      <div class="col-xs-8">
+      <% unless @clone_batch.clone_batch_as_plasmid_attachments.empty? %>
+        <strong>Attached <%="file".pluralize(@clone_batch.clone_batch_as_plasmid_attachments.length)%> :</strong><br />
+        <% @clone_batch.clone_batch_as_plasmid_attachments.each do |a|%>
+          <%= link_to File.basename(a.attachment.path ), a.attachment.to_s %><br />
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+
+  <% label_hide = @clone_batch.options.where(:id => @option.id).exists? ? "Display in the inventory " : "Hide from the inventory" %>
+  <% color_hide = @clone_batch.options.where(:id => @option.id).exists? ? "font-red" : "" %>
+  <div class="row top20">
+    <div class="col-xs-12">
+      <%=link_to label_hide, hide_from_inventory_clone_batch_path(@clone_batch), remote:false, title: "Hide", method: :patch, class: color_hide %>
+    </div>
+  </div>
+  <div class="row top20">
+    <div class="col-xs-12">
+  <%= link_to 'Back to plasmid inventory', clone_batches_path, class: "btn btn-primary" %>
+    </div>
   </div>
 </div>

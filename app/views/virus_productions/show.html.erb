@@ -1,0 +1,131 @@
+<div class="container bottom20">
+	<div class="row"> 
+		<div class="col-xs-12">
+			<% hidden_status = @virus_production.options.where(:id => @option.id).exists? ? "(Hidden)" : "" %>
+			<h3>Virus #<%=@virus_production.nb.to_s+" "+hidden_status%></h3>
+		</div>
+	</div>
+	<div class="row">		
+		<div class="col-xs-12">
+			<strong>Record created on : </strong><%=@virus_production.created_at.strftime("%b %e, %Y")%>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<% if @virus_production.clone_batches.empty?%>
+				<span>No plasmid associated.</span>
+			<%else%>
+			<strong>Associated plasmids : </strong>
+				<div style="margin-left: 50px;">
+				<table>
+					<% @virus_production.clone_batches.joins(:type).order('order_set').each do |clone_batch| %>
+						<tr>
+							<td class="text-primary"><strong><%=clone_batch.number %></strong> - </td>
+							<td><%=link_to clone_batch.name, clone_batch_path(clone_batch) %> </td>
+						</tr>
+					<%end%>
+				</table>
+			</div>
+				<%end%>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<strong>Date of production : </strong><%= @virus_production.date_of_production.nil? ? "none" : @virus_production.date_of_production.strftime("%b %e, %Y")%><br />
+	    	<strong>Project : </strong><%= @virus_production.production.nil? ? "none" : @virus_production.production.projects.pluck(:name).to_sentence %><br />
+	    	<strong>Contact : </strong><%= @virus_production.user.nil? ? "none" : @virus_production.user.full_name %><br />
+	    	<strong>Volume : </strong><%= @virus_production.vol.nil? ? "none" : @virus_production.vol.to_s+" "+@virus_production.vol_unit.name %><br />
+	    	<strong>Gel (Protein) : </strong><%= @virus_production.gel_prot.nil? ? "none" : @virus_production.gel_prot %><br />
+	    	<strong>HEK results : </strong><%= @virus_production.hek_result.blank? ? "-" :  @virus_production.hek_result %><br />
+	    	<strong>Comment : </strong><%= @virus_production.comment.blank? ? "-" : @virus_production.comment %><br />
+   		</div>
+   </div>
+   	<div class="row">
+		<div class="col-xs-12">
+    	   <%last_dosage = @virus_production.dosages.last%>
+           <%inactivation_count = pluralize_without_count(@virus_production.dosages.count, 'Inactivation' , ' :')%>
+           <%inactivation_dates = @virus_production.dosages.pluck(:inactivation).uniq%>
+           <%inactivation_dates = inactivation_dates.map {|i| i.nil? || i.strftime("%b %e, %Y")}.join(",")%>
+           
+          <%if last_dosage%>
+
+           <%last_inactivation_dates = last_dosage.date.nil? ? "none" : last_dosage.date.strftime("%b %e, %Y")%>
+           <%last_dosage_titer =  last_dosage.titer.nil? ? "none" : "%.2e" %last_dosage.titer+"vg/ml"%>
+           <%last_dosage_atcc = last_dosage.titer_atcc.nil? ? "none" : "%.2e" %last_dosage.titer_atcc+"vg/ml"%>
+           <%last_dosage_to_atcc = last_dosage.titer_to_atcc.nil? ? "none" : "%.2e" %last_dosage.titer_to_atcc+"vg/ml"%>
+           <%last_inactivation_dates = last_dosage.date.nil? ? "none" : last_dosage.date.strftime("%b %e, %Y")%>
+		    
+		    <strong> <%= inactivation_count%> </strong> <%=inactivation_dates%><br />
+		    <strong> Date of the last titration : </strong> <%=last_inactivation_dates %><br />
+                <ul>  
+                  <li><strong> Titer : </strong> <%=last_dosage_titer%> </li>
+                  <li><strong> Titer ATCC : </strong> <%last_dosage_atcc%> </li>
+                  <li><strong> Titer to ATCC : </strong> <%=last_dosage_to_atcc%> </li>
+                </ul>
+		   <%else%>
+               <strong>Titer : </strong>None. <br />             
+           <%end%>
+    	</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<h4>Virus batches: </h4>
+						<% unless @virus_production.virus_batches.empty? %>
+							<table class="table table-bordered">
+								<thead>
+									<th>Batch</th>
+									<th>Barcode</th>
+									<th>Box</th>
+									<th>Slot</th>
+									<th>Volume</th>
+									<th>Date of production</th>
+									<th>Date of thawing</th>
+									<th>Trash</th>
+								</thead>
+								<%@virus_production.virus_batches.each do |vb|%>
+								<tr>
+									<td class="text-center"><%= vb.name.nil? ? "-" :vb.name %></td>
+									<td class="text-center"><%= vb.barcode.nil? ? "-" :vb.barcode %></td>
+									<td class="text-center"><%= vb.position.nil? ? "-" : vb.position.box.name %></td>
+									<td class="text-center"><%= vb.position.nil? ? "-" : vb.position.name.upcase() %></td>
+									<td class="text-center"><%= vb.volume.nil? ? "-" : "#{vb.volume} #{vb.vol_unit.name}" %></td>
+									<td class="text-center"><%= vb.virus_production.date_of_production.nil? ? "-" : vb.virus_production.date_of_production.strftime("%B %e, %Y") %></td>
+									<td class="text-center"><%= vb.date_of_thawing.nil? ? "Unknown" : vb.date_of_thawing.strftime("%B %e, %Y") %></td>
+									<td class="text-center"><%= vb.trash? ? "Yes" : "No" %></td>
+								</tr>
+								<%end%>
+							</table>
+					<%else%>
+						No batch
+					<%end%>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<%= link_to "Add batch", add_vb_from_inventory_virus_production_path %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h4>Titers: </h4>
+				<%= render partial: "virus_productions/components/titers", locals: {dosages: @virus_production.dosages} %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<%= link_to "Add dosage", new_virus_production_dosage_path(@virus_production) %>
+		</div>
+	</div>
+		<div class="row">
+		<div class="col-xs-12">
+			<h4>Sterility tests: </h4>
+				<%= render partial: "virus_productions/components/sterilitytests", locals: {sterilitytests: @virus_production.sterilitytests} %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-6">
+			<%= link_to "Add test", new_virus_production_sterilitytest_path(@virus_production)  %>
+		</div>
+	</div>
+</div>

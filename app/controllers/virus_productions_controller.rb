@@ -1,8 +1,8 @@
 class VirusProductionsController < InheritedResources::Base
  
    before_action :set_virus_production, only:[:edit, :destroy, :edit_from_inventory, :add_vb_from_inventory, :spawn_dosage, :update, :update_from_inventory, :create_dosage,
-                                                :sort_tube, :map_tube, :update_box, :unsort, :hide_from_inventory]
-   before_action :set_option, only:[:index, :update_from_inventory, :edit_from_inventory, :hide_from_inventory]
+                                                :sort_tube, :map_tube, :update_box, :unsort, :hide_from_inventory, :show]
+   before_action :set_option, only:[:index, :update_from_inventory, :edit_from_inventory, :hide_from_inventory, :show]
   
  def index
    #"between search": recherche dans un range de dates
@@ -94,30 +94,31 @@ class VirusProductionsController < InheritedResources::Base
       render :action => 'edit'
     end
   end
-  
-  def edit_from_inventory
-      @users = User.all
-      if @option.virus_productions.exists?(:id => @virus_production.id)
-        @virus_production.hidden = true
-      end
+
+  def show  
   end
   
-  def update_from_inventory
-      @virus_production.update_attributes(virus_production_params)
-      if @virus_production.valid?
-          flash.keep[:success] = "Task completed!"
-          @virus_production.generate_recap
-      else
-          render :action => 'spawn_dosage'
-      end
-  end 
+  #def edit_from_inventory
+   #   @users = User.all
+    #  if @option.virus_productions.exists?(:id => @virus_production.id)
+     #   @virus_production.hidden = true
+     # end
+  #end
+  
+  #def update_from_inventory
+   #   @virus_production.update_attributes(virus_production_params)
+    #  if @virus_production.valid?
+     #     flash.keep[:success] = "Task completed!"
+      #    @virus_production.generate_recap
+      #else
+       #   render :action => 'spawn_dosage'
+      #end
+  #end 
   
   def destroy
      @vps = VirusProduction.all
      @virus_production.destroy
   end
-  
-
   
   def spawn_dosage
     @virus_production = VirusProduction.find(params[:id])
@@ -133,6 +134,23 @@ class VirusProductionsController < InheritedResources::Base
       @virus_production.generate_recap
      else
       render :action => 'spawn_dosage'
+    end
+  end
+
+  def spawn_sterilitytest
+    @virus_production = VirusProduction.find(params[:id])
+    @users = User.all
+  end
+  
+  def create_sterilitytest
+    production = @virus_production.production
+    @vps = production.virus_productions
+     @virus_production.update_attributes(virus_production_params)
+     if @virus_production.valid?
+      flash.keep[:success] = "Task completed!"
+      @virus_production.generate_recap
+     else
+      render :action => 'spawn_sterilitytest'
     end
   end
   

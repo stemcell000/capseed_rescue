@@ -7,7 +7,7 @@
   		Unknown set of plasmids
   	<% else %>
   		<% object.production.clone_batches.joins(:type).order('order_set').each do |cb| %>
-												  				<small><span class="text-primary"><strong><%=cb.nb %></strong></span> <span> <%=cb.name %> </span></small><br />
+	<small><span class="text-primary"><strong><%=cb.nb %></strong></span> <span> <%=link_to "#{cb.name}", clone_batch_path(cb) %> </span></small><br />
 												  	<%end%>
 	<%end%>
 	</td>
@@ -66,8 +66,9 @@
 	  	<%= link_to "<i class='glyphicon glyphicon-th'></i>".html_safe, add_vb_from_inventory_virus_production_path(object), method: :get %>
   			
   		<%if object.production_id?%>
-  		<% prod_icon = object.production.last_step < 3 ? "fa fa-cog" : "fa fa-industry" %>
-  		<%= link_to "<i class='#{prod_icon}'></i>".html_safe, edit_production_path(object.production_id), method: :get %>
+	  		<% prod_icon = object.production.last_step < 3 ? "fa fa-cog" : "fa fa-industry" %>
+	  		<%= link_to "<i class='#{prod_icon}'></i>".html_safe, edit_production_path(object.production_id), method: :get %>
   		<%end%>
+  		<%= link_to "<i class='fa fa-sticky-note'></i>".html_safe, virus_production_path(object), method: :get %>
   	<%end%>
 </td>

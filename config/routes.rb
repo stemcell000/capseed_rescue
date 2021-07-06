@@ -1,21 +1,29 @@
 Rails.application.routes.draw do
+
+  get 'errors/not_found'
+  get 'errors/internal_server_error'
+  
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
+
+  ActiveAdmin.routes(self)
   
   resources :clone_samples
   resources :clone_batches do
     resources :sequencings
     resources :pcr_colonies 
     resources :plasmid_batches do
-      get :new_from_inventory, :on => :new
-      post :create_from_inventory, :on => :collection
-      get :destroy_from_inventory, :on => :member
-      get :edit_from_inventory, :on => :member
-      patch :update_from_inventory, :on => :member
-     get :destroy_from_list, :on => :member
+      get :new_from_inventory, on: :new
+      post :create_from_inventory, on: :collection
+      get :destroy_from_inventory, on: :member
+      get :edit_from_inventory, on: :member
+      patch :update_from_inventory, on: :member
+     get :destroy_from_list, on: :member
     end
-    patch :hide_from_inventory, :on => :member
-    get :remove_plasmid_data, :on => :member
-    get :add_pb_from_inventory, :on => :member
-    post :search, :on => :collection
+    patch :hide_from_inventory, on: :member
+    get :remove_plasmid_data, on: :member
+    get :add_pb_from_inventory, on: :member
+    post :search, on: :collection
   end
   resources :plasmid_boxes
   resources :box_types
@@ -25,15 +33,15 @@ Rails.application.routes.draw do
   resources :locations
   resources :buildings
   resources :virus_batches do
-    patch :update_box, :on => :member
-    get :sorter, :on => :collection
-    get :sort_tube, :on => :collection
-    get :map_tube, :on => :collection
+    patch :update_box, on: :member
+    get :sorter, on: :collection
+    get :sort_tube, on: :collection
+    get :map_tube, on: :collection
   end
   resources :options do
-   patch :display_all_virus_switch, :on => :member
-   patch :display_all_clone_batch_switch, :on => :member
-   patch :display_limited_virus_switch, :on => :member
+   patch :display_all_virus_switch, on: :member
+   patch :display_all_clone_batch_switch, on: :member
+   patch :display_limited_virus_switch, on: :member
   end
   devise_for :users do
     get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
@@ -42,20 +50,11 @@ Rails.application.routes.draw do
   devise_scope :user do
   put 'user/confirmation', to: 'confirmations#update'
   end
-  
-  ActiveAdmin.routes(self)
     
   resources :virus_batches
   resources :origins
   resources :sterilitytests
-  get 'errors/not_found'
-
-  get 'errors/internal_server_error'
-  
-  match "/404", :to => "errors#not_found", :via => :all
-  match "/500", :to => "errors#internal_server_error", :via => :all
-
-  resources :virus_productions
+  resources :dosages
   resources :inserts
   resources :clone_batch_as_plasmid_attachments
   resources :types
@@ -66,13 +65,13 @@ Rails.application.routes.draw do
 
   resources :vol_units
   resources :boxes do
-    get :fetch_virus_batches, :on => :member
+    get :fetch_virus_batches, on: :member
     get :fetch_position
   end
   
   resources :qc_attachments
   resources :plasmid_batch_qcs do
-    patch :validation_switch, :on => :collection
+    patch :validation_switch, on: :collection
   end
   
   resources :plasmid_batch_attachments
@@ -93,10 +92,10 @@ Rails.application.routes.draw do
   get 'inserts/index'
 
   resources :users do
-    get :edit_user, :on => :member
-    patch :actual_member_switch, :on => :member
-    get :actual_member_switch, :on => :collection
-    get :edit_notif, :on => :member
+    get :edit_user, on: :member
+    patch :actual_member_switch, on: :member
+    get :actual_member_switch, on: :collection
+    get :edit_notif, on: :member
   end
     
   resource :user, only: [:edit, :edit_notif] do
@@ -136,113 +135,114 @@ Rails.application.routes.draw do
 
      resources :projects
      resources :clones do
-      get :replicate, :on => :collection
-      get :edit_record, :on => :member
-      get :edit_batch, :on => :member
-      get :edit_batch_select, :on => :member
-      patch :update_record, :on => :member
-      patch :update_record_batch, :on => :member
-      patch :update_record_batch_select, :on => :member
-      patch :update_record_batch_qc, :on => :member
+      get :replicate, on: :collection
+      get :edit_record, on: :member
+      get :edit_batch, on: :member
+      get :edit_batch_select, on: :member
+      patch :update_record, on: :member
+      patch :update_record_batch, on: :member
+      patch :update_record_batch_select, on: :member
+      patch :update_record_batch_qc, on: :member
       get :clone_info
       get :plasmid_info
       get :plasmid_batch_info
       get :plasmid_batch_qc_info
       resources :sequencings do
-           get :new_sequencing_protocol, :on => :new
-           post :create_sequencing_protocol_collection, :on => :collection
+           get :new_sequencing_protocol, on: :new
+           post :create_sequencing_protocol_collection, on: :collection
       end
       resources :pcr_colonies do
-           get :new_pcr_colony_protocol, :on => :new
-           post :create_pcr_colony_protocol_collection, :on => :collection
+           get :new_pcr_colony_protocol, on: :new
+           post :create_pcr_colony_protocol_collection, on: :collection
       end
       resources :clone_batches do
-           get :show_exist, :on => :member
-           get :display, :on => :member
-           patch :update_as_plasmid, :on => :member
-           get :remove_from_clone_collection, :on => :member
+           get :show_exist, on: :member
+           get :display, on: :member
+           patch :update_as_plasmid, on: :member
+           get :remove_from_clone_collection, on: :member
            
            #Clone Batch QC
            resources :sequencings do
-             get :set_sequencing_validation, :on => :member
-             get :set_sequencing_unvalidation, :on => :member
+             get :set_sequencing_validation, on: :member
+             get :set_sequencing_unvalidation, on: :member
            end 
            resources :pcr_colonies do
-             get :set_pcr_colony_validation, :on => :member
-             get :set_pcr_colony_unvalidation, :on => :member
+             get :set_pcr_colony_validation, on: :member
+             get :set_pcr_colony_unvalidation, on: :member
            end 
            
            #Plasmid Batch QC
            resources :plasmid_batch_qcs do
-              get :new_qc_protocol, :on => :new
-              post :create_qc_protocol_collection, :on => :collection
-              get :set_qc_validation, :on => :member
-               get :set_qc_unvalidation, :on => :member
+              get :new_qc_protocol, on: :new
+              post :create_qc_protocol_collection, on: :collection
+              get :set_qc_validation, on: :member
+               get :set_qc_unvalidation, on: :member
             end
             resources :plasmid_batches do
-            get :edit_and_sort, :on => :member
+            get :edit_and_sort, on: :member
               #Plasmid Batch QC indiv
               resources :plasmid_batch_qcs
           end
         end
         resources :clone_attachments
-          get :plasmid_info, :on => :member
-          get :plasmid_info_close, :on => :member
+          get :plasmid_info, on: :member
+          get :plasmid_info_close, on: :member
         end
   end  
   
   resources :productions do
-    post :update_row_order, :on => :collection
-    get :add_plasmid, :on => :member
-    get :virus_production, :on => :member
-    get :display_all, :on => :collection
-    get :scheduler, :on => :collection
-    post :scheduler, :on => :collection
-    get :select_pbs, :on => :member
-    get :spawn_vp, :on => :new 
-    patch :create_vp, :on => :member
-    patch :add_pbs, :on => :member
-    get :remove_vp_from_prod, :on => :member
+    post :update_row_order, on: :collection
+    get :add_plasmid, on: :member
+    get :virus_production, on: :member
+    get :display_all, on: :collection
+    get :scheduler, on: :collection
+    post :scheduler, on: :collection
+    get :select_pbs, on: :member
+    get :spawn_vp, on: :new 
+    patch :create_vp, on: :member
+    patch :add_pbs, on: :member
+    get :remove_vp_from_prod, on: :member
     patch :pool
-    get :close, :on => :member
-    get :inform_closed_production, :on => :member
-    get :set_pb_volume, :on => :member
-    patch :update_pb_volume, :on => :member
-    get :reset_volume, :on => :member
-    get :search, :on => :collection
+    get :close, on: :member
+    get :inform_closed_production, on: :member
+    get :set_pb_volume, on: :member
+    patch :update_pb_volume, on: :member
+    get :reset_volume, on: :member
+    get :search, on: :collection
     resources :plasmid_batches do
-            get :edit_pb_volume, :on => :member
-            patch :update_from_inventory, :on => :member 
+            get :edit_pb_volume, on: :member
+            patch :update_from_inventory, on: :member 
     end
-    get :lock, :on => :member
-
+    get :lock, on: :member
     resources :projects
-    
     resources :virus_productions do
-      resources :dosages, :on => :member
-      get :spawn_dosage, :on => :member
+      resources :dosages, on: :member
+      resources :sterilitytests, on: :member
+      get :spawn_dosage, on: :member
     end
    end
    
-   resources :virus_productions do
-     get :edit_from_inventory, :on => :member
-     get :add_vb_from_inventory, :on => :member
-     patch :update_from_inventory, :on => :member
-     patch :hide_from_inventory, :on => :member
-     resources :dosages, :on => :member
-     get :spawn_dosage, :on => :member
-     patch :create_dosage, :on => :member
-     get :sort_tube, :on => :member
-     get :map_tube, :on => :member
-     patch :update_box, :on => :member
+  resources :virus_productions do
+     #get :edit_from_inventory, on: :member
+     get :add_vb_from_inventory, on: :member
+     #patch :update_from_inventory, on: :member
+     patch :hide_from_inventory, on: :member
+     resources :dosages, on: :member
+     resources :sterilitytests, on: :member
+     #get :spawn_dosage, on: :member
+     #patch :create_dosage, on: :member
+     #patch :create_sterilitytest, on: :member
+     get :sort_tube, on: :member
+     get :map_tube, on: :member
+     patch :update_box, on: :member
      resources :virus_batches do
-       get :new_from_inventory, :on => :new
-       post :create_from_inventory, :on => :collection
-       get :destroy_from_inventory, :on => :member
-       get :edit_from_inventory, :on => :member
-       patch :update_from_inventory, :on => :member
-       get :sort_tube, :on => :member
-       patch :update_box, :on => :member
+       get :new_from_inventory, on: :new
+       post :create_from_inventory, on: :collection
+       get :destroy_from_inventory, on: :member
+       get :edit_from_inventory, on: :member
+       patch :update_from_inventory, on: :member
+       get :sort_tube, on: :member
+       patch :update_box, on: :member
      end
    end
   
@@ -253,47 +253,47 @@ Rails.application.routes.draw do
   end
   
   resources :clones do
-   get :autocomplete_clone_name, :on => :collection
-   get :replicate, :on => :collection
-   get :edit_record, :on => :member
-   put :update_record, :on => :member
-   patch :update_record_batch, :on => :member
-   get :edit_from_inventory, :on => :member
-   patch :update_from_inventory, :on => :member
-   get :new_from_inventory, :on => :new
-   post :create_from_inventory, :on => :collection
-   delete :destroy_from_inventory, :on => :member
+   get :autocomplete_clone_name, on: :collection
+   get :replicate, on: :collection
+   get :edit_record, on: :member
+   put :update_record, on: :member
+   patch :update_record_batch, on: :member
+   get :edit_from_inventory, on: :member
+   patch :update_from_inventory, on: :member
+   get :new_from_inventory, on: :new
+   post :create_from_inventory, on: :collection
+   delete :destroy_from_inventory, on: :member
 
    
   resources :enzymes 
   resources :inserts
   
   resources :clone_batches do
-    get :autocomplete_clone_batch_name, :on => :collection
-    patch :update_qc, :on => :member
-    get :select_to_add, :on => :member
+    get :autocomplete_clone_batch_name, on: :collection
+    patch :update_qc, on: :member
+    get :select_to_add, on: :member
   end
     resources :clone_attachments
     resources :clone_batches do
-       get :show_exist, :on => :member
-       post :select, :on => :member
+       get :show_exist, on: :member
+       post :select, on: :member
     end
   end
   
   resources :plasmid_batches do
     get :edit_and_sort
-    get :edit_from_inventory, :on => :member
-    get :edit_pb_volume, :on => :member
-    patch :update_from_inventory, :on => :member 
-    get :inventory, :on => :collection
-    get :autocomplete_plasmid_batch_number, :on => :collection
-    get :new_from_inventory, :on => :new
-    post :create_from_inventory, :on => :collection
-    get :destroy_confirm, :on => :member
-    delete :destroy_from_inventory, :on => :member
-    patch :update_and_sort, :on => :member
-    get :pipe, :on => :member
-    patch :send_to_production, :on => :member
+    get :edit_from_inventory, on: :member
+    get :edit_pb_volume, on: :member
+    patch :update_from_inventory, on: :member 
+    get :inventory, on: :collection
+    get :autocomplete_plasmid_batch_number, on: :collection
+    get :new_from_inventory, on: :new
+    post :create_from_inventory, on: :collection
+    get :destroy_confirm, on: :member
+    delete :destroy_from_inventory, on: :member
+    patch :update_and_sort, on: :member
+    get :pipe, on: :member
+    patch :send_to_production, on: :member
       resources :plasmid_batch_qcs
       resources :assets
   end
@@ -303,7 +303,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :origins
   resources :primers do
-   patch  :availability_switch, :on => :member
+   patch  :availability_switch, on: :member
   end
   #Home
   root 'clone_batches#index'

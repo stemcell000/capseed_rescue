@@ -9,8 +9,9 @@
 
 	 		<%f.object.clone_batches.order('type_id').each do |clone_batch|%>
 	 			<% type_name = clone_batch.type.name %>
-				<%= f.input :plasmid_batches, label:  "Add #{type_name}", collection:  clone_batch.plasmid_batches.select_available,
-				label_method:  lambda { |plasmid_batch| plasmid_batch.recap }
+				<%= f.association :plasmid_batches, label:  "Add #{type_name}", collection:  clone_batch.plasmid_batches.select_available,
+				label_method:  lambda { |plasmid_batch| plasmid_batch.recap },
+				input_html: {class: "select2-select", id: :"#{clone_batch.name}"}
 				%>
 			<%end%>	
 		</div>

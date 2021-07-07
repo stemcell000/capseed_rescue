@@ -8,6 +8,7 @@ $(document).ready(function() {
 		    tokenSeparators: [',', ' '],
 		    allowClear: true
 		});
+    
 	$('.datepicker').datepicker({
     		dateFormat: 'dd-mm-yy',
         format: 'dd-mm-yy',

@@ -73,6 +73,7 @@ class VirusProductionsController < InheritedResources::Base
       if  @virus_production.valid?
           flash.keep[:success] = "Task completed!"
           @virus_production.generate_recap
+          redirect_to eval(params[:redirect_location])
       else
           render :action => :new
       end
@@ -95,7 +96,7 @@ class VirusProductionsController < InheritedResources::Base
     end
   end
 
-  def show  
+  def show
   end
   
   #def edit_from_inventory
@@ -213,7 +214,7 @@ end
   def virus_production_params
     params.require(:virus_production).permit(:id, :number, :nb, :plate_name, :vol, :sterility, :titer_atcc, :titer, :titer_to_atcc, :comment, :date_of_production, :user_id,
     :gel_prot, :invoice, :hek_result, :created_at, :updated_at, :vol_unit_id, :production_id, :_destroy, :plasmid_tag, :plasmid_batch_tag, :rev_plasmid_tag, :rev_plasmid_batch_tag,
-    :dismissed, :hidden,
+    :dismissed, :hidden, :redirect_location,
     :dosages_attributes => [:id, :virus_production_id, :titer, :titer_atcc, :titer_to_atcc, :date, :plate_name, :_destroy, :remove_dosage,
     :inactivation, :inactivation_atcc, :inactivation_standard, :accepted, :user_id],
     :sterilitytests_attributes => [:id, :virus_production_id, :sterility, :date, :_destroy, :remove_sterilitytest],
@@ -223,6 +224,7 @@ end
   
  def set_virus_production
    @virus_production = VirusProduction.find(params[:id])
+   @production = @virus_production.production
  end
  
  def set_option

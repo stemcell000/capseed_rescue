@@ -1,4 +1,4 @@
-virus_production_dosage_path# This file is auto-generated from the current state of the database. Instead
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,7 +10,7 @@ virus_production_dosage_path# This file is auto-generated from the current state
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_080601) do
+ActiveRecord::Schema.define(version: 2021_07_07_134151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -394,6 +394,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_080601) do
     t.date "date"
     t.boolean "trash", default: false
     t.string "barcode"
+    t.string "recap"
     t.index ["clone_batch_id"], name: "index_plasmid_batches_on_clone_batch_id"
     t.index ["vol_unit_id"], name: "index_plasmid_batches_on_vol_unit_id"
   end

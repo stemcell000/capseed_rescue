@@ -12,10 +12,10 @@
 //
 //= require jquery3
 //= require jquery-ui
-//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require autocomplete-rails
 //= require jquery.remotipart
+//= require custom
 //= require select2
 //= require bootstrap/bootstrap-rails-tooltip
 //= require bootstrap/bootstrap-rails-popover
@@ -26,7 +26,6 @@
 //= require smart_listing
 //= require multi-select
 //= require jasny-bootstrap.min
-//= require custom
 //= require_tree .
 //= require nprogress
 //= require nprogress-ajax

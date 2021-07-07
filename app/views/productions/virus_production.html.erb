@@ -24,18 +24,24 @@
 		</div>
 			<div id="add-button-container">
 				<%unless @production.last_step == 3 %>
-						<%= render :partial => "productions/components/add_vp_button" , :locals => { :vps => @vps }%>
+					<% if @vps.empty? %>
+						<div class="row">
+						<div class="col-lg-12">
+							<%= link_to 'Add virus', spawn_vp_production_path(@production), :class => "pull-right" %>
+						</div>
+					</div>
+					<%end%>
 				<%end%>
 			</div>
 		</div>
 		<div class="panel-footer">
 		    <div class="btn-group" role="group" aria-label="...">
 		    	<% btn_name = @production.last_step < 3 ? "Close" : "Push"%>
-				<%= link_to 'Previous', add_plasmid_production_path, :class => "btn btn-default btn-sm" %>
+				<%= link_to 'Previous', add_plasmid_production_path, :class => "btn btn-default" %>
 				<% if @production.last_step == 3 %>
-					<%= link_to "Unlock", lock_production_path(@production), :class => "btn btn-default btn-sm" %>
+					<%= link_to "Unlock", lock_production_path(@production), :class => "btn btn-default" %>
 				<%else%>
-					<%= link_to btn_name, close_production_path, :class => "btn btn-default btn-sm" %>	
+					<%= link_to btn_name, close_production_path, :class => "btn btn-default" %>	
 				<%end%>
 		  	</div>
 	  	</div>

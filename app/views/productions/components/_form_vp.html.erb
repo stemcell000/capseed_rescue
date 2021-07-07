@@ -1,10 +1,10 @@
-<%= simple_nested_form_for @production, url: create_vp_production_path(:id => @production.id), html: { class: 'form-vertical' }, :remote => true  do |f| %>
+<%= simple_nested_form_for @production, url: create_vp_production_path(:id => @production.id), html: { class: 'form-vertical' }  do |f| %>
 	<%= f.error_notification %>
-	<small>
 	<%= f.input :id, :as => :hidden %>
-	
+
 		<%= f.simple_fields_for :virus_productions do |ff|%>
-			<% if ff.object.id.nil? %>
+			
+			<% if params[:action]== 'edit_vp' or ff.object.id.nil? %>
 			
 				<div class="row">
 						<% unless VirusProduction.all.nil? %>
@@ -13,7 +13,7 @@
 						     <% n = 1 %>
 						 <%end%>
 					<div class="col-lg-4">
-						<%= ff.input :nb, :input_html => { :value => n }, :readonly => true%>
+						<%= ff.input :nb, label: "Number", :input_html => { :value => n }, :readonly => true%>
 						<%= ff.input :nb, :input_html => { :value => n }, :as => :hidden%>
 						<%= ff.input :number, :input_html => { :value => n.to_s }, :as => :hidden %>
 					</div>
@@ -64,13 +64,11 @@
 				</div>
 			</div>
 			<%end%>
-			<div class="modal-footer" id="myPbButtons">	
-				<div class="btn-group" role="group" aria-label="...">
-			    		<%= f.submit("Save", :class => "btn btn-default") %>
-			        	<%= f.submit 'Cancel', :type => :reset, :class => "btn btn-default", "data-dismiss" => "modal", "aria-hidden" => "true" %>
-			    </div>
-		    </div>
-		  	
 		  <%end%>
+		  <div class="btn-group row" role="group" aria-label="...">
+			<div class="col-xs-12 right">
+				<%= f.submit "Save", :class => "btn btn-primary" %>
+	        	<%= link_to "Cancel", :back, :class => "btn btn-default", :remote => true %>
+	        </div>
+		</div>
 		<%end%>
-	</small>

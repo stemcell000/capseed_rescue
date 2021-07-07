@@ -4,12 +4,8 @@ class ProductionsController < InheritedResources::Base
   before_action :ranked_productions, only: [:index]
   before_action :production_params, only:[:create, :update_row_order, :update, :add_pbs, :update_pb_volumes]
   before_action :production_position_params, only:[:move_higher, :move_lower, :move_highest, :move_lowest ]
-  before_action :set_production, only:[:edit, :edit_pb_volumes, :update, :add_plasmid, :virus_production, :select_pbs, :add_pbs, :destroy, :reset_volume, :close, :create_vp, :update_pb_volume, :set_pb_volume,
+  before_action :set_production, only:[:edit, :edit_pb_volumes, :update, :add_plasmid, :virus_production,:spawn_vp, :edit_vp, :select_pbs, :add_pbs, :destroy, :reset_volume, :close, :create_vp, :update_pb_volume, :set_pb_volume,
     :add_pbs, :move_higher, :move_lower, :move_highest, :move_lowest, :lock]
-  
-#Smart_listing
-  #include SmartListing::Helper::ControllerExtensions
-  #helper  SmartListing::Helper 
   
   def index
     @productions = Production.where("last_step <?", 3 ).rank(:row_order).all
@@ -36,7 +32,6 @@ class ProductionsController < InheritedResources::Base
            end
        end
     end
-      
     gon.rabl "app/views/productions/index.json.rabl", as: "productions"
   end
   
@@ -90,11 +85,12 @@ class ProductionsController < InheritedResources::Base
              end
             end
 end 
- def edit
+
+def edit
    @production.update_columns(:step => 0)
- end
+end
  
- def update
+def update
       @projects_all = Project.all
       @production.update_attributes(production_params)
      if @production.valid?
@@ -126,7 +122,7 @@ end
        render :action => :edit
      end 
 
-  end
+end
   
   def show
     redirect_to :action => :add_plasmid
@@ -140,34 +136,39 @@ end
        
        @production.update_columns(:percentage => 50)
        
-       if @production.plasmid_batches.nil?
+       if @production.plasmid_batches.nil? or @production.plasmid_batch_productions.where(:volume=>0).any?
          @production.update_columns(:last_step => 1)
-       elsif @production.plasmid_batch_productions.where(:volume=>0).any?
-         @production.update_columns(:last_step => 1)
+       #elsif @production.plasmid_batch_productions.where(:volume=>0).any?
+        # @production.update_columns(:last_step => 1)
        end
        #
       end
   end
   
   def select_pbs
-      @plasmids = PlasmidBatch.where(:trash => false).where('volume > ?', 0)
+
+    @clone_batches_ids = @production.clone_batch_ids
+    #@types = Type.find[@clone_batches_ids]
+    #@types_names = @types.pluck(:name)
+      
   end
   
   def add_pbs
     @production.update_attributes(production_params)
     
-    pbs = @production.plasmid_batches
-    pbtag_value = pbs.order(:name).pluck(:id).sort.join('-')
-    @production.update_columns(:pbtag => pbtag_value)
+    if @production.save
+      pbs = @production.plasmid_batches
+      pbtag_value = pbs.order(:name).pluck(:id).sort.join('-')
+      @production.update_columns(:pbtag => pbtag_value)
     
-    flash.discard[:success]
-    flash.discard[:warning]
+      flash.discard[:success]
+      flash.discard[:warning]
      
         @production.update_columns(:step => 0)
         @production.update_columns(:percentage => 40)
         @production.update_columns(:pbtag => @production.plasmid_batches.order(:name).pluck(:name).join(" "))
         
-    #Recherche de l'existence d'une combinaison de plasmid_batches identique dans la DB
+      #Recherche de l'existence d'une combinaison de plasmid_batches identique dans la DB
             
             prod_array = VirusProduction.where(:plasmid_batch_tag => @production.pbtag)
             @vps = prod_array.pluck(:number).sort.join(',')
@@ -179,6 +180,10 @@ end
               else
                flash.now[:success] = "Task completed." 
              end
+        redirect_to add_plasmid_production_path(@production)
+      else
+        render 'select_pbs'
+      end
             end
    end
    
@@ -251,21 +256,46 @@ end
       redirect_to :action => :add_plasmid
     else
       @production.update_columns(:step => 2)
-        update_last_step(@production, 2)
-        @production.update_columns(:percentage => 75)
+      update_last_step(@production, 2)
+      @production.update_columns(:percentage => 75)
     end
     
   end
   
   def spawn_vp
-    @production = Production.find(params[:production_id])
-    #Ligne suivante indispensable pour nested_form
       @production.virus_productions.build
       @vps = @production.virus_productions
       @last_virus = VirusProduction.all.last
   end
   
- def destroy
+ def create_vp
+     @production.update_attributes(production_vp_params)
+     @vps = @production.virus_productions
+     @vp_last = @vps.last
+     if @production.valid?
+       @production.virus_productions.each do |vp|
+         vp.update_columns(:number => vp.nb.to_s)
+         vp.generate_recap
+       end
+       flash.keep[:success] = "Task completed!"
+       redirect_to virus_production_production_path(@production)
+     else
+       render :action => 'spawn_vp'
+     end
+  end
+
+  def edit_vp
+      @vps = @production.virus_productions
+      @last_virus = VirusProduction.all.last
+  end
+
+  def new_dosage
+    @dosage = Dosage.new
+    @virus_production = VirusProduction.find(params[:virus_production_id])
+    @users = User.all.order('lastname')
+  end
+
+def destroy
   pbs = @production.plasmid_batches
   @production.plasmid_batch_productions.each do |pbp|
     pb = pbs.where(:id => pbp.plasmid_batch_id).last
@@ -277,30 +307,12 @@ end
   redirect_to :action => 'index'
  end
   
- def create_vp
-     #production_vp_params doit contenir production_id dans les attribut de virus_production (nested)
-     #Sinon impossible d'ajouter nouveau virus_production
-     @production.update_attributes(production_vp_params)
-     @vps = @production.virus_productions
-     @vp_last = @vps.last
-             
-     if @production.valid?
-       @production.virus_productions.each do |vp|
-         vp.update_columns(:number => vp.nb.to_s)
-         vp.generate_recap
-       end
-       flash.keep[:success] = "Task completed!"
-     else
-       render :action => 'spawn_vp'
-     end
-     
-  end
-  
   def remove_vp_from_prod
       @vp = VirusProduction.find(params[:id])
       @production = Production.find(@vp.production_id)
       @vps = @production.virus_productions
       @vps.delete(@vp)
+      redirect_to virus_production_production_path(@production)
  end
  
  def close
@@ -409,6 +421,7 @@ end
       project_ids: [],
       :projects_attributes => [:id, :name],
       :clone_attributes => [:id, :name, :assay_id],
+      clone_batch_ids: [],
       :clone_batches_attributes => [:id, :name, :_destroy ],
       :assay_attributes => [:id, :name],
       :plasmid_batches_attributes => [:id, :name, :_destroy],

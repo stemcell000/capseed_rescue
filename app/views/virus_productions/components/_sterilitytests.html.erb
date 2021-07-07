@@ -9,9 +9,9 @@
 				<% sterilitytests.each do |sterilitytest| %>
 					<tr>
 						<td class="col-lg-3 text-center"><%= sterilitytest.nil? ? "-": sterilitytest.date %></td>
-						<td class="col-lg-3 text-center"><%= sterilitytest.sterility.nil? ? "-": sterilitytest.sterility %></td>
+						<td class="col-lg-3 text-center"><%= sterilitytest.sterility.nil? ? "-": integer_to_sentence(sterilitytest.sterility) %></td>
 						<td class="col-lg-1 text-center">
-						<%= link_to "<i class='fa fa-pencil-square-o'></i>".html_safe, edit_virus_production_sterilitytest_path(@virus_production, sterilitytest), method: :get %>
+						<%= link_to "<i class='fas fa-pen-square'></i>".html_safe, edit_virus_production_sterilitytest_path(@virus_production, sterilitytest), method: :get %>
 						<%=link_to "<i class='fa fa-trash'></i>".html_safe,  virus_production_sterilitytest_path(@virus_production, sterilitytest), method: :delete, title: "Destroy", data: {confirm: "Are you sure ?"}%>
 						</td>
 					</tr>

@@ -198,7 +198,9 @@ Rails.application.routes.draw do
     get :scheduler, on: :collection
     post :scheduler, on: :collection
     get :select_pbs, on: :member
-    get :spawn_vp, on: :new 
+    get :spawn_vp, on: :member
+    get :edit_vp, on: :member
+    get :new_dosage, on: :member
     patch :create_vp, on: :member
     patch :add_pbs, on: :member
     get :remove_vp_from_prod, on: :member

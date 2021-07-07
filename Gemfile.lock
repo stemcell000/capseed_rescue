@@ -186,8 +186,8 @@ GEM
     fog-xml (0.1.3)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
-    font-awesome-rails (4.7.0.7)
-      railties (>= 3.2, < 7)
+    font-awesome-sass (5.15.1)
+      sassc (>= 1.11)
     foreman (0.87.2)
     formatador (0.2.5)
     formtastic (4.0.0)
@@ -417,7 +417,7 @@ DEPENDENCIES
   devise
   figaro
   fog-aws
-  font-awesome-rails
+  font-awesome-sass (~> 5.15.1)
   foreman
   gon
   jasny-bootstrap-rails

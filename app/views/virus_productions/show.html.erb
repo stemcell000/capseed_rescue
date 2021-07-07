@@ -114,7 +114,7 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-12">
-			<%= link_to "Add dosage", new_virus_production_dosage_path(@virus_production) %>
+			<%= link_to "<i class='fas fa-vial'></i> Add dosage".html_safe, new_virus_production_dosage_path(@virus_production) %>
 		</div>
 	</div>
 		<div class="row">
@@ -125,7 +125,17 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-6">
-			<%= link_to "Add test", new_virus_production_sterilitytest_path(@virus_production)  %>
+			<%= link_to "<i class='fas fa-bacteria'></i> Add test".html_safe, new_virus_production_sterilitytest_path(@virus_production)  %>
 		</div>
 	</div>
+	<div class="row top20">
+		<div class="col-xs-6">
+			<%= link_to "<i class='fas fa-vials'></i> Inventory".html_safe, virus_productions_path, class: 'btn btn-primary'  %>
+	  	<%if @production%>
+	  		<% prod_icon = @production.last_step < 3 ? "fa fa-cog" : "fa fa-industry" %>
+	  		<%= link_to "<i class='#{prod_icon}'></i> Production #{@production.id}".html_safe, select_process_method(@production), method: :get,
+	  		class: 'btn btn-primary' %>
+  		<%end%>
+  	</div>
+  </div>
 </div>

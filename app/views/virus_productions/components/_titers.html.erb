@@ -30,7 +30,7 @@
 														<%end%>
 						</td>
 						<td class="col-lg-1 text-center">
-						<%= link_to "<i class='fa fa-pencil-square-o'></i>".html_safe, edit_virus_production_dosage_path(@virus_production, dosage), method: :get %>
+						<%= link_to "<i class='fas fa-pen-square'></i>".html_safe, edit_virus_production_dosage_path(@virus_production, dosage), method: :get %>
 						<%=link_to "<i class='fa fa-trash'></i>".html_safe,  virus_production_dosage_path(@virus_production, dosage), method: :delete, title: "Destroy", data: {confirm: "Are you sure ?"}%>
 							</td>
 					</tr>

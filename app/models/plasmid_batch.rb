@@ -1,7 +1,12 @@
 class PlasmidBatch < ActiveRecord::Base
   belongs_to :clone_batch, :counter_cache => true
+  belongs_to :type
   default_scope { order(:name) } #défini l'ordre d'affichage de pb par ex. dans les form (fields_for)
-  
+  scope :select_available, ->{ where(trash: false).where('volume > 0').order('name')}
+
+  after_create :generate_recap
+  after_update :generate_recap
+
   has_many :plasmid_batch_attachments, :dependent => :destroy
   has_many :plasmid_batch_productions, :dependent => :destroy
   has_many :productions, :through => :plasmid_batch_productions, join_table: "plasmid_batches_productions"
@@ -60,4 +65,17 @@ def set_tube_status
    end
     return str
   end
+
+  def generate_recap
+    plasmid_batch_name = self.name.blank? ? "?" : self.name
+    clone_batch_name = self.clone_batch.nil? ? "?" : self.clone_batch.name
+    clone_batch_type = self.clone_batch.type.nil? ? "?" : self.clone_batch.type.name
+    volume = self.volume.blank? ? "?" : self.volume.to_s
+    vol_unit = self.vol_unit.nil? ? "?" : self.vol_unit.name
+    concentration = self.concentration.blank? ? "?" : self.concentration.to_s
+    unit = self.unit.nil? ? "?" : self.unit.name
+   block =  plasmid_batch_name+" | "+ clone_batch_name+" - "+clone_batch_type+" | volume : "+ volume +" "+vol_unit+" | Conc. : "+concentration +" "+unit
+    self.update_columns(:recap => block)
+  end
+
 end

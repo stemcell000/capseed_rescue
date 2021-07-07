@@ -2,6 +2,8 @@ class VirusProduction < ActiveRecord::Base
  
  include VirusProductionsHelper
  include ApplicationHelper
+
+ attr_accessor :redirect_location
  
  belongs_to :production
  has_and_belongs_to_many :options

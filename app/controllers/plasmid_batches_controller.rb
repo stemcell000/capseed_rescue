@@ -234,7 +234,7 @@ end
   private
     def set_params
       params.require(:plasmid_batch).permit(:clone_batch_id, :id, :number, :name, :volume, :format, :concentration, :comment, :unit_id , :vol_unit_id, :plasmid_box_id, :production_id, :format_id,
-      :user_id, :strict_validation , :_destroy, :trash, :date,
+      :user_id, :strict_validation , :_destroy, :trash, :date, :recap,
       
       :plasmid_batch_attachments_attributes =>[:id,:plasmid_batch_id, :attachment, :remove_attachment, :_destroy],
       

@@ -128,5 +128,17 @@ end
  def round_up(n)
    (n.to_f).ceil
  end
-  
+
+ def select_process_method(production)
+  case production.last_step
+    when 0
+      step_path =  edit_production_path(production.id)
+    when 1
+      step_path = add_pbs_production_path(production.id)
+    when 2
+      step_path = virus_production_production_path(production.id)
+    when 3
+      step_path = virus_production_production_path(production.id)
+    end 
+ end
 end

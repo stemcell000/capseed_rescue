@@ -28,20 +28,20 @@
 												title='
 													<div class="row"> 
 														<div class="col-lg-5 text-left">
-															<strong><%=b.name%></strong>
+															
 														</div>
 														<div class="col-lg-12 right">
 															<%unless b.trash%>
-																<%= link_to "Edit", edit_from_inventory_virus_production_virus_batch_path(@virus_production, b), :class =>"btn btn-primary btn-xs font80pc", :remote => false %>
-																<%= link_to "Remove", destroy_from_inventory_virus_production_virus_batch_path(@virus_production, b.id), :class =>"btn btn-danger btn-xs font80pc", :title=>"Remove from list.", :remote => false %>
+																<%= link_to "Edit", edit_from_inventory_virus_production_virus_batch_path(@virus_production, b), :class =>"btn btn-primary btn-sm", :remote => false %>
+																<%= link_to "Remove", destroy_from_inventory_virus_production_virus_batch_path(@virus_production, b.id), :class =>"btn btn-danger btn-sm", :title=>"Remove from list.", :remote => false %>
 															<%else%>
-																<%= link_to "Rescue", destroy_from_inventory_virus_production_virus_batch_path(@virus_production, b.id), :class =>"btn btn-warning btn-xs font80pc", :title=>"Rescue", :remote => false %>
+																<%= link_to "Rescue", destroy_from_inventory_virus_production_virus_batch_path(@virus_production, b.id), :class =>"btn btn-warning", :title=>"Rescue", :remote => false %>
 															<%end%>	
 														</div>	
 													</div>'
 												data-content='
 													<div class="col-lg-12 text-left">
-														<small>
+														<strong>Name : <%= b.name.nil? ? "-" : b.name%></strong><br />
 														<strong>Barcode : </strong><%= b.barcode.nil? ? "-" : b.barcode %><br />
 														<strong>Date of production : </strong><%= b.virus_production.date_of_production.nil? ?  "-" : b.virus_production.date_of_production.strftime("%h %e, %Y ") %><br />
 														<strong>Date of thawing : </strong><%= b.date_of_thawing.nil? ?  "-" : b.date_of_thawing.strftime("%h %e, %Y ") %><br />
@@ -51,7 +51,6 @@
 														<% if !b.comment.blank? %>
 															<strong>Comments : </strong><br /><%= b.comment || "-" %><br />
 														<%end%>
-														</small>
 													</div>
 												'
 											>

@@ -6,7 +6,8 @@ class Ability
     if user.role? :administrator
         can :manage, :all
     elsif user.role? :user
-        can :manage, :production
+        can :create, :production
+        can :update, :production
         can :update, :assay
         can :update, :clone
         can :manage, :clone_attachment

@@ -77,7 +77,7 @@ gem "figaro"
 gem 'sendgrid'
 gem 'bootstrap-popover-rails'
 gem "active_admin_import"
-gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 5.15.1'
 gem 'acts_as_list'
 gem 'derailed', group: :development
 gem 'rack-cache'

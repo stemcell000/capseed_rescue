@@ -171,7 +171,7 @@ end
             
             unless @production.plasmid_batches.empty?
               if @trigger >= 1
-                flash.keep[:alert] = "You did this before! This combination of plasmid batches already exists (virus # #{@vps}). Are you sure you want to do it again?"
+                flash.keep[:alert] = "You did this before ! This combination of plasmid batches already exists (virus # #{@vps}). Are you sure you want to do it again?"
               else
                flash.now[:success] = "Task completed." 
              end

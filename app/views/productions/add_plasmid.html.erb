@@ -22,11 +22,7 @@
 		    <div class="btn-group" role="group" aria-label="...">
 		    		<%= link_to 'Previous', edit_production_path(@production.id), :class => "btn btn-default btn-sm" %>
 				<% unless @production.clone_batches.empty? || @production.last_step == 3 %>
-					<%if @production.plasmid_batches.empty?%>
-						<%= link_to 'Add Plasmids', select_pbs_production_path(@production), :class => "btn btn-default btn-sm" %>
-					<%else%>
-						<%= link_to 'Modify Plasmids', select_pbs_production_path(@production), :class => "btn btn-default btn-sm" %>
-					<%end%>
+					<%= link_to 'Add/Modify Plasmids', select_pbs_production_path(@production), :remote => true, :class => "btn btn-default btn-sm" %>
 		  		<%end%>	
 		  			<%= link_to 'Next', virus_production_production_path, :class => "btn btn-default btn-sm" %>
 		  	</div>

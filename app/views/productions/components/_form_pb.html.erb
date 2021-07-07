@@ -1,4 +1,4 @@
-<%= simple_nested_form_for @production, url: add_pbs_production_path do |f|  %>
+<%= simple_nested_form_for @production, url: add_pbs_production_path, remote: true do |f|  %>
 	<%= f.error_notification %>
 	<ul class="errors"></ul>
 <div class="form-group ui-front col-xs-12">

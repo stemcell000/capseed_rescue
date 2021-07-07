@@ -146,29 +146,24 @@ end
   end
   
   def select_pbs
-
-    @clone_batches_ids = @production.clone_batch_ids
-    #@types = Type.find[@clone_batches_ids]
-    #@types_names = @types.pluck(:name)
-      
+      @plasmids = PlasmidBatch.where(:trash => false).where('volume > ?', 0)
   end
   
   def add_pbs
     @production.update_attributes(production_params)
     
-    if @production.save
-      pbs = @production.plasmid_batches
-      pbtag_value = pbs.order(:name).pluck(:id).sort.join('-')
-      @production.update_columns(:pbtag => pbtag_value)
+    pbs = @production.plasmid_batches
+    pbtag_value = pbs.order(:name).pluck(:id).sort.join('-')
+    @production.update_columns(:pbtag => pbtag_value)
     
-      flash.discard[:success]
-      flash.discard[:warning]
+    flash.discard[:success]
+    flash.discard[:warning]
      
         @production.update_columns(:step => 0)
         @production.update_columns(:percentage => 40)
         @production.update_columns(:pbtag => @production.plasmid_batches.order(:name).pluck(:name).join(" "))
         
-      #Recherche de l'existence d'une combinaison de plasmid_batches identique dans la DB
+    #Recherche de l'existence d'une combinaison de plasmid_batches identique dans la DB
             
             prod_array = VirusProduction.where(:plasmid_batch_tag => @production.pbtag)
             @vps = prod_array.pluck(:number).sort.join(',')
@@ -180,10 +175,6 @@ end
               else
                flash.now[:success] = "Task completed." 
              end
-        redirect_to add_plasmid_production_path(@production)
-      else
-        render 'select_pbs'
-      end
             end
    end
    

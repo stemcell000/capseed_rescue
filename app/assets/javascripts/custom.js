@@ -22,15 +22,18 @@ $(document).ready(function() {
     		});
 
 	$('#accordion').on('hidden.bs.collapse', toggleChevron);
-	$('#accordion').on('shown.bs.collapse', toggleChevron); 
-    
-    });
+	$('#accordion').on('shown.bs.collapse', toggleChevron);
 
-	//Popover
+//Popover
   $('[data-toggle="popover"]').popover({
-  	html:true,
-  	container: 'body'
-  	});
+    html:true,
+    container: 'body',
+    placement: 'right',
+    });
+    
+});
+
+
 		
 //Activation des chevron sur le bootstrap panel collapse
 function toggleChevron(e) {
@@ -41,9 +44,7 @@ function toggleChevron(e) {
     };
 	
 		
-	$('[data-toggle="popover"]').popover({html:true});
-		
-	$(document).on("focus", "[data-behaviour~='datepicker']", function(e){
+$(document).on("focus", "[data-behaviour~='datepicker']", function(e){
     $(this).datepicker({
     		dateFormat: 'dd-mm-yy',
     		autoclose: true,

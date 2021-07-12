@@ -421,7 +421,6 @@ ul.star-list{
     word-wrap:break-word;
 }
 
-
   
 p.help-block {
    font-size: 14px;
@@ -457,4 +456,12 @@ p.help-block {
 .discarded {
   background-color: dark-grey;
   color: white;
+}
+
+.popover {
+ z-index:1060;
+}
+
+.mycontent-left {
+  border-right: 1px dashed #333;
 }

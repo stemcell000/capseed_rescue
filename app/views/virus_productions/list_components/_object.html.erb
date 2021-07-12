@@ -67,7 +67,7 @@
   			
   		<%if object.production_id?%>
 	  		<% prod_icon = object.production.last_step < 3 ? "fa fa-cog" : "fa fa-industry" %>
-	  		<%= link_to "<i class='#{prod_icon}'></i>".html_safe, edit_production_path(object.production_id), method: :get %>
+	  		<%= link_to "<i class='#{prod_icon}'></i>".html_safe, select_process_method(object.production), method: :get %>
   		<%end%>
   		<%= link_to "<i class='fa fa-sticky-note'></i>".html_safe, virus_production_path(object), method: :get %>
   	<%end%>

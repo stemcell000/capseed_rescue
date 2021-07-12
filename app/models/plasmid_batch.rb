@@ -4,8 +4,7 @@ class PlasmidBatch < ActiveRecord::Base
   default_scope { order(:name) } #défini l'ordre d'affichage de pb par ex. dans les form (fields_for)
   scope :select_available, ->{ where(trash: false).where('volume > 0').order('name')}
 
-  after_create :generate_recap
-  after_update :generate_recap
+  after_save :generate_recap
 
   has_many :plasmid_batch_attachments, :dependent => :destroy
   has_many :plasmid_batch_productions, :dependent => :destroy

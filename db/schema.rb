@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_07_134151) do
+ActiveRecord::Schema.define(version: 2021_07_08_133211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -404,6 +404,7 @@ ActiveRecord::Schema.define(version: 2021_07_07_134151) do
     t.integer "production_id"
     t.decimal "volume", default: "0.0"
     t.decimal "starting_volume"
+    t.text "volumes", default: [], array: true
     t.index ["plasmid_batch_id"], name: "index_plasmid_batches_productions_on_plasmid_batch_id"
     t.index ["production_id"], name: "index_plasmid_batches_productions_on_production_id"
   end
@@ -448,7 +449,7 @@ ActiveRecord::Schema.define(version: 2021_07_07_134151) do
     t.float "percentage", default: 0.0
     t.boolean "locked", default: false
     t.integer "strict_validation"
-    t.boolean "pool"
+    t.boolean "pool", default: false
     t.date "today_date"
     t.decimal "production_volume"
     t.string "cbtag"

@@ -1,17 +1,16 @@
 <% if @productions.empty?%>
 			<p>No production to display!</p>
 <%else%>
-<small>
 <table class="table table-bordered table-hover" style="width: 90%;" id="sortable-production">
   <thead>
     <tr>
-    		<th style="width: 5%;">
+    		<th style="width: 11%;">
         ID
       </th>
       <th style="width: 15%;">
         Name
       </th>
-      <th style="width: 30%;">
+      <th style="width: 25%;">
         Plasmids
       </th>
       <th style="width: 10%;">
@@ -23,7 +22,7 @@
       <th style="width: 10%;">
         Expected end
       </th>
-      <th style="width: 5%;"></th>
+      <th style="width: 4%;"></th>
     </tr>
   </thead>
   <tbody>
@@ -54,7 +53,10 @@
 	        	-
 	        	<%else%>
 	        	<% p.clone_batches.joins(:type).order('order_set').each do |c| %>
-	        		<small><span class="<%=  p.virus_productions.empty? ? "text-primary" : "white" %>"><strong><%=c.nb if c.number%></strong></span>-<span></small><%=c.name.truncate(50, omission:'...') if c.name%></span><br />
+	        		
+            <%=link_to clone_batch_path(c), class: link_formatter(p) do %>
+              <small><span><strong><%=c.nb if c.number%></strong></span> - <span></small><%=c.name.truncate(50, omission:'...') if c.name%></span><br />
+              <%end%>
 	        	<%end%>
         	<%end%>
         </td>
@@ -87,5 +89,4 @@
       </tr>
   </tbody>
 </table>
-</small>
 <%end%>

@@ -9,20 +9,20 @@
       <div class="collapse navbar-collapse" id="myNavbar" style="margin-top: 10px;">
 		      <ul class="nav navbar-nav ">
 					<li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="font120pc">Plasmids</span> <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="font120pc"><i class='fas fa-dna'></i> Plamids</span> <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-          <li><%=link_to "Plamids inventory", clone_batches_path, class: "font120pc" %></li>
+          <li><%=link_to "Plamids inventory".html_safe, clone_batches_path, class: "font120pc" %></li>
           <% if can? :manage, :all %>
           	<li><%=link_to "Box inventory", plasmid_boxes_path, class: "font120pc"   %></li>
           	<%end%>
           </ul>
         </li>
-		      	<li><%= link_to "Virus", virus_productions_path, class: "font120pc"  %></li>
-		      	<li><%= link_to "Virus batches", boxes_path, class: "font120pc"  %></li>
-		        <li><%= link_to "Cloning", assays_path, class: "font120pc"  %></li>
-		        <li><%= link_to "Production", productions_path, class: "font120pc"  %></li>
+		      	<li><%= link_to "<i class='fas fa-virus'></i> Virus".html_safe, virus_productions_path, class: "font120pc"  %></li>
+		      	<li><%= link_to "<i class='fas fa-vials'></i> Virus batches".html_safe, boxes_path, class: "font120pc"  %></li>
+		        <li><%= link_to "<i class='fas fa-clone'></i> Cloning".html_safe, assays_path, class: "font120pc"  %></li>
+		        <li><%= link_to "<i class='fas fa-industry'></i> Production".html_safe, productions_path, class: "font120pc"  %></li>
       <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="font120pc">Utilities</span> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="font120pc"><i class='fas fa-tools'></i> Utilities</span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
           	<% if can? :manage, :all %>
           	<li><%=link_to "Constructions", clones_path, class: "font120pc"  %></li>
@@ -41,14 +41,9 @@
 		      </ul>
 		      <small>
 		       <ul class="nav navbar-nav navbar-right">
-		       
-		    		<li id="session_msg"><a class="inactivelink">Logged in as <%= "#{current_user.firstname}  #{current_user.lastname}" %></a></li>
+		    		<li>	  <%= link_to current_user.full_name, edit_user_path(current_user) %></li>
 		    		<li><%= link_to destroy_user_session_path, method: :delete do %>
 		    				<span class="glyphicon glyphicon-log-out"></span>
-		    			<%end%>
-		    		</li>
-		    		<li>	  <%= link_to edit_user_path(current_user) do %>
-	    					<span class="glyphicon glyphicon-user"></span>
 		    			<%end%>
 		    		</li>
 		    		<li>	<%= link_to edit_notif_user_path(current_user) do %>

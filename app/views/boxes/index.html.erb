@@ -1,16 +1,38 @@
-<div class="row">
-	<div class="col-lg-12 col-md-12 col-sm-12">
-		<%=render 'boxes/components/search'%>
+<div class="container-fluid">
+	
+	<div class="row">
+		<div class="col-xs-12">
+			<%=render 'boxes/components/search'%>
+		</div>
 	</div>
-<div class="row">
-	<div class="col-lg-12 col-md-12 col-sm-12">
-		<div id="results" class="col-lg-3 col-md-3 col-sm-3">
-		<%= smart_listing_render :boxes %>
+
+	<div class="row">
+		<div id="results" class="col-xs-4">
+			<div class="panel panel-primary">
+				<div class="panel-body" style="height: 600px;">
+					<%= render :partial => "boxes/list_components/list", :locals => { option: @option, pagy: @pagy } %>
+				</div>
+			</div>
 		</div>
-		<div id="results_vb" class="col-lg-3 col-md-3 col-sm-3">
-		<%= smart_listing_render :virus_batches %>
+
+		<div class="col-xs-3">
+			<div class="panel panel-primary">
+				<div class="panel-body" style="height: 600px;">
+					<div id="results_vb">
+						<%= render :partial => "virus_batches/list_components/list", :locals => { option: @option, pagy: @pagy_virus_batches } %>
+					</div>
+			</div>
 		</div>
-		<div id="map-container" class="col-lg-6 col-md-6 col-sm-6 text-center">
+		</div>
+		<div class="col-xs-5">		
+			<div class="panel panel-primary">
+				<div class="panel-body" style="height: 600px;">
+					<h4>Location</h4>
+					<div id="map-container" >
+						<p>Select a box or a batch.</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

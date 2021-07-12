@@ -1,4 +1,10 @@
-<%= smart_listing_update(:virus_batches) %>
+$("#results_vb").html("<%= escape_javascript( render :partial =>  'virus_batches/list_components/list', :locals => { option: @option, pagy: @pagy_virus_batches }) %>");
+//Popover
+  $('[data-toggle="popover"]').popover({
+    html:true,
+    container: 'body',
+    placement: 'left',
+    });
 
 if(<%= !@box_type.nil?%>){
 	

@@ -1,0 +1,31 @@
+<h4>Virus batches</h4>
+<% unless @virus_batches.empty? %>
+	  <table class="table table-striped">
+	    <thead>
+	    <th class="col-lg-2">
+	        Name
+	    </th>
+	    <th class="col-lg-5">
+	        Barcode
+	    </th>
+	    <th class="col-xs-2"></th>
+	    
+	    </thead>
+	    <tbody>
+		  	<% @virus_batches.each do |virus_batch| %>
+	      		<tr class="editable" data-id = "<%= virus_batch.id %>">
+	          			<%= render partial: "virus_batches/list_components/object", locals: {object: virus_batch} %>
+	        		</tr>
+	      <% end %>
+	    </tbody>
+	  </table>
+		<div class="row">
+		  <div class="col-lg-12 text-center">
+		    <%== pagy_bootstrap_combo_nav_js(pagy) %>
+		  </div>
+		</div>
+<%else%>
+			<div class="row text-center">
+  			<p>No item to display.</p>
+		</div>
+<%end%>

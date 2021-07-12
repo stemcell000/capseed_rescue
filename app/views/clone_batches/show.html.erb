@@ -70,12 +70,14 @@
   <% color_hide = @clone_batch.options.where(:id => @option.id).exists? ? "font-red" : "" %>
   <div class="row top20">
     <div class="col-xs-12">
-      <%=link_to label_hide, hide_from_inventory_clone_batch_path(@clone_batch), remote:false, title: "Hide", method: :patch, class: color_hide %>
+  <%=link_to label_hide, hide_from_inventory_clone_batch_path(@clone_batch), remote:false, title: "Hide", method: :patch, class: color_hide %>
     </div>
   </div>
   <div class="row top20">
-    <div class="col-xs-12">
-  <%= link_to 'Back to plasmid inventory', clone_batches_path, class: "btn btn-primary" %>
+    <div class="col-xs-6">
+        <%= link_to "<i class='fas fa-dna'></i>  plasmid inventory".html_safe, clone_batches_path, class: "btn btn-primary" %>
+        <%= link_to "<i class='fas fa-industry'></i> Productions".html_safe, productions_path, method: :get,
+        class: 'btn btn-primary' %>
     </div>
   </div>
 </div>

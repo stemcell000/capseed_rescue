@@ -1,0 +1,32 @@
+  <td>
+  	<%if object.position %>
+  		<%box = object.position.box%>
+  		<%=link_to object.name, box_fetch_position_path(:virus_batch_id=>object.id, :box_id => box.id), :remote => true %>
+  	<%else%>
+  		<%=object.name%>
+  	<%end%>
+  	</td>
+  <td><%= object.barcode %></td>
+  <td class="actions text-right">
+    <% if can? :manage, Box%>
+    <%= link_to "<i class='fas fa-pen-square'></i>".html_safe, edit_virus_batch_path(object), method: :get %>
+    <%end%>
+    <a tabindex="0" data-toggle="popover" data-trigger="focus" data-html = "true" data-container="body"
+                        data-content='
+                          <div class="col-lg-12 text-left">
+                            <strong>Name : </strong><%= object.name.nil? ? "-" : object.name %><br />
+                            <strong>Barcode : </strong><%= object.barcode.nil? ? "-" : object.barcode %><br />
+                            <strong>Date of production : </strong><%= object.virus_production.date_of_production.nil? ?  "-" : object.virus_production.date_of_production.strftime("%h %e, %Y ") %><br />
+                            <strong>Date of thawing : </strong><%= object.date_of_thawing.nil? ?  "-" : object.date_of_thawing.strftime("%h %e, %Y ") %><br />
+                            <strong>Volume : </strong><%= object.volume.nil? ? "-" : object.volume %> <%= object.vol_unit_id.blank? ? "" : object.vol_unit.name %><br />
+                            <strong>Box : </strong><%= object.position.nil? ? "-" : object.position.box.name %> <br />
+                            <strong>Slot : </strong><%= object.position.nil? ? "-" : object.position.name.upcase() %> <br />
+                            <% if !object.comment.blank? %>
+                              <strong>Comments : </strong><br /><%= object.comment || "-" %><br />
+                            <%end%>
+                          </div>
+                        '
+                      >
+                            <span class="fa_icon fa fa-eye"></span>
+                    </a>
+</td>

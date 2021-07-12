@@ -1,24 +1,23 @@
 class BoxesController < InheritedResources::Base
-       
-    #Smart_listing
-    include SmartListing::Helper::ControllerExtensions
-    helper  SmartListing::Helper
     
-    before_action :set_box, only:[:delete, :edit, :show, :update]
+before_action :set_box, only:[:delete, :edit, :show, :update]
 
-  
-def index
-     @q = Box.ransack(params[:q])
-     @boxes = @q.result(distinct: true)
-     if params[:q].blank?
-      @virus_batches = VirusBatch.all  
-     else
-      positions = Position.where(box_id: @boxes.pluck(:id)) 
-      @virus_batches = VirusBatch.where(position_id: positions.pluck(:id))
-     end
-      @boxes = @boxes.includes(:positions)
-      @virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {id: "asc"}, page_sizes: [20, 30, 50, 100])
-      @boxes = smart_listing_create(:boxes, @boxes, partial: "boxes/smart_listing/list", default_sort: {name: "asc"}, page_sizes: [10, 20, 30, 50, 100])
+def index 
+ @q = Box.ransack(params[:q])
+ records = @q.result
+
+ if params[:q].blank?
+  virus_batches_records = VirusBatch.all  
+ else
+  arr = records.pluck(:id)
+  positions = Position.where(box_id: arr) 
+  virus_batches_records = VirusBatch.where(position_id: positions.pluck(:id))
+ end
+
+  records = records.includes(:positions)
+
+  @pagy, @boxes = pagy(records.order(name: :asc), items: 10)
+  @pagy_virus_batches, @virus_batches = pagy(virus_batches_records.order(name: :asc), items: 10, page_param: :page_virus_batch)
 end
 
 def box_inventory
@@ -33,6 +32,8 @@ end
 
 def fetch_virus_batches
   @box = Box.find(params[:id])
+  @q = Box.ransack(params[:q])
+  records = @q.result
   if @box.box_type
     @box_type = @box.box_type
     @v_max = @box_type.vertical_max
@@ -47,8 +48,14 @@ def fetch_virus_batches
     @position_ids = []
     @position_names = []
   end
-    @virus_batches = VirusBatch.where(position_id: @position_ids)
-    @virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {name: "asc"}, page_sizes: [20, 30, 50, 100])
+    @pagy, @boxes = pagy(records.order(name: :asc), items: 10)
+    virus_batches_records = VirusBatch.where(position_id: @position_ids)
+    @pagy_virus_batches, @virus_batches = pagy(virus_batches_records.order(name: :asc), items: 10, page_param: :page_virus_batch, link_extra: 'data-remote="true"')
+    respond_to do |format|
+      format.html
+      format.text
+      format.js
+    end
 end
 
 def fetch_position
@@ -68,8 +75,9 @@ if @box.box_type
     @position_ids = []
     @position_names = []
   end
-    @virus_batches = VirusBatch.where(position_id: @position_ids)
-    @virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {id: "asc"}, page_sizes: [20, 30, 50, 100])
+    virus_batches_records = VirusBatch.where(position_id: @position_ids)
+    @pagy, @virus_batches = pagy(virus_batches_records.order(name: :desc), items: 30)
+    #@virus_batches = smart_listing_create(:virus_batches, @virus_batches, partial: "virus_batches/smart_listing/list", default_sort: {id: "asc"}, page_sizes: [20, 30, 50, 100])
 end
  
 def new

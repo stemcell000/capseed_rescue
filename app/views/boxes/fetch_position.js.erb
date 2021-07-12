@@ -2,6 +2,13 @@ console.log("fetch position")
 console.log("<%=@virus_batch.id%>")
 console.log("<%=@box.id%>")
 
+//Popover
+  $('[data-toggle="popover"]').popover({
+    html:true,
+    container: 'body',
+    placement: 'left',
+    });
+
 if(<%= !@box_type.nil?%>){
 	
 //Affichage du partial
@@ -34,8 +41,7 @@ $('.slot').each(function(index){
 	$(this).attr({'data-id': arr1[index], 'data-name': arr2[index], 'data-nb': arr4[index]});
 });
 
-$("#<%=@virus_batch.position.id%>").css('background-color', '#FDC6F1');
-$("#vb-recap").html("<%= escape_javascript( render :partial =>  "boxes/components/vb", :locals => {:b => @virus_batch})%>");
+$("#<%=@virus_batch.position.id%>").css('background-color', '#5bc0de');
 }else{
 	$("#map-container").html("<%= escape_javascript( render :partial =>  "boxes/components/no_map") %>");
 }

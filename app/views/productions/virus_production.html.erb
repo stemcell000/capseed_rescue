@@ -27,7 +27,7 @@
 					<% if @vps.empty? %>
 						<div class="row">
 						<div class="col-lg-12">
-							<%= link_to 'Add virus', spawn_vp_production_path(@production), :class => "pull-right" %>
+							<%= link_to "<i class='fas fa-virus'></i> Add virus".html_safe, spawn_vp_production_path(@production), :class => "pull-right" %>
 						</div>
 					</div>
 					<%end%>
@@ -37,7 +37,7 @@
 		<div class="panel-footer">
 		    <div class="btn-group" role="group" aria-label="...">
 		    	<% btn_name = @production.last_step < 3 ? "Close" : "Push"%>
-				<%= link_to 'Previous', add_plasmid_production_path, :class => "btn btn-default" %>
+				<%= link_to 'Previous', add_plasmid_production_path, :class => "btn btn-default", disabled: !@production.virus_productions.empty? %>
 				<% if @production.last_step == 3 %>
 					<%= link_to "Unlock", lock_production_path(@production), :class => "btn btn-default" %>
 				<%else%>

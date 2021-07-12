@@ -1,28 +1,26 @@
  <%= search_form_for @q, remote: false do |f| %>
-<small>
-
  <div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="col-xs-12">
 				<h3><i class="fa_icon fa fa-search"></i> Boxes and virus batches</h3>
 			</div>
 </div>
 		
 <div class="row">
-		<div class="col-lg-12 col-md-12 col-sm-12">
-				<%= f.search_field :name_or_barcode_or_positions_virus_batch_name_or_positions_virus_batch_barcode_cont, class: "col-lg-12 col-md-12 col-sm-12", placeholder: "Search any terms."%>
+		<div class="col-xs-12">
+				<%= f.search_field :name_or_barcode_or_positions_virus_batch_name_or_positions_virus_batch_barcode_cont, class: "col-xs-12", placeholder: "Search any terms."%>
 		</div>
 </div>
-<div class="row">
-			<div class="col-lg-4">
+<div class="row top10">
+			<div class="col-xs-6">
 				<%= f.label "Container"%>
-				<%= f.select(:shelf_container_id_in, Container.all.map{|c| c.name}, {:include_blank=> " "}, {:class => "select2-select col-lg-12", :multiple => true}) %>
+				<%= f.select(:shelf_container_name_in, Container.all.map{|c| c.name}, {:include_blank=> " "}, {:class => "select2-select col-xs-12", :multiple => true}) %>
 			</div>
-			<div class="col-lg-4">
+			<div class="col-xs-6">
 				<%= f.label "Shelf"%>
-				<%= f.select(:shelf_id_in, Shelf.all.map{|s| s.name}, {:include_blank=> " "}, {:class => "select2-select col-lg-12", :multiple => true}) %>
+				<%= f.select(:shelf_name_in, Shelf.all.map{|s| s.name}, {:include_blank=> " "}, {:class => "select2-select col-xs-12", :multiple => true}) %>
 			</div>
 		</div>
-<div class="row">
+<div class="row top10">
 	<div class="form-group pull-right">
   			<%= f.submit class:"btn btn-default" %>
   			<%= link_to "Clear Search", request.path, class:"btn btn-default" %>
@@ -30,5 +28,4 @@
 			<%= link_to "New box", new_box_path, class: "btn btn-default" %>
   	</div>
 </div>
-</small>
 <% end %>

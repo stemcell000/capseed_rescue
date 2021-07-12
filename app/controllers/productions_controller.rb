@@ -138,8 +138,6 @@ end
        
        if @production.plasmid_batches.nil? or @production.plasmid_batch_productions.where(:volume=>0).any?
          @production.update_columns(:last_step => 1)
-       #elsif @production.plasmid_batch_productions.where(:volume=>0).any?
-        # @production.update_columns(:last_step => 1)
        end
        #
       end
@@ -152,44 +150,44 @@ end
   def add_pbs
     @production.update_attributes(production_params)
     
-    pbs = @production.plasmid_batches
-    pbtag_value = pbs.order(:name).pluck(:id).sort.join('-')
-    @production.update_columns(:pbtag => pbtag_value)
-    
-    flash.discard[:success]
-    flash.discard[:warning]
-     
-        @production.update_columns(:step => 0)
-        @production.update_columns(:percentage => 40)
-        @production.update_columns(:pbtag => @production.plasmid_batches.order(:name).pluck(:name).join(" "))
+    if @production.valid?
+      pbs = @production.plasmid_batches
+      pbtag_value = pbs.order(:name).pluck(:id).sort.join('-')
+      @production.update_columns(:pbtag => pbtag_value)
+      
+      flash.discard[:success]
+      flash.discard[:warning]
+       
+          @production.update_columns(:step => 0)
+          @production.update_columns(:percentage => 40)
+          @production.update_columns(:pbtag => @production.plasmid_batches.order(:name).pluck(:name).join(" "))
+          
+      #Recherche de l'existence d'une combinaison de plasmid_batches identique dans la DB
         
-    #Recherche de l'existence d'une combinaison de plasmid_batches identique dans la DB
-            
-            prod_array = VirusProduction.where(:plasmid_batch_tag => @production.pbtag)
-            @vps = prod_array.pluck(:number).sort.join(',')
-            @trigger = prod_array.count
-            
-            unless @production.plasmid_batches.empty?
-              if @trigger >= 1
-                flash.keep[:alert] = "You did this before ! This combination of plasmid batches already exists (virus # #{@vps}). Are you sure you want to do it again?"
-              else
-               flash.now[:success] = "Task completed." 
-             end
+        prod_array = VirusProduction.where(:plasmid_batch_tag => @production.pbtag)
+        @vps = prod_array.pluck(:number).sort.join(',')
+        @trigger = prod_array.count
+        
+        unless @production.plasmid_batches.empty?
+          if @trigger >= 1
+            flash.keep[:alert] = "You did this before ! This combination of plasmid batches already exists (virus # #{@vps}). Are you sure you want to do it again?"
+          else
+            flash.now[:success] = "Task completed." 
+         end
+
+        if @production.last_step < 2
+            @production.plasmid_batches.each do |plasmid_batch|
+              arr = [plasmid_batch.volume]
+              plasmid_batch_production = plasmid_batch.plasmid_batch_productions.where(:production_id => @production.id).first
+              plasmid_batch_production.update_columns(:volumes => arr)
             end
-   end
-   
-   def reset_volume
-     @production.plasmid_batches.each do |pb|
-       pb.plasmid_batch_productions.where(:production_id => @production.id).first.update_columns(:volume => 0)
-     end
-      @production.update_column(:last_step => 1)
-   end
-   
-   def pool
-     #
-     @production = Production.find(params[:production_id])
-     #
-     @production.update_attributes(production_params)
+         end  
+
+         redirect_to add_plasmid_production_path(@production)
+      else
+        render action: 'select_pbs'
+      end
+        end
    end
    
     def set_pb_volume
@@ -200,23 +198,45 @@ end
 
       if @production.valid?
         flash.keep[:success] = "Task completed!"
-        
+        redirect_to add_plasmid_production_path(@production)
         #Actuallisation des volumes de chaque plasmid batch
-       if @production.last_step < 3
-            @production.plasmid_batch_productions.each do |pbp|
-              remaining_volume = pbp.starting_volume - pbp.volume
-              pbp.plasmid_batch.update_columns(:volume => remaining_volume)
+       if @production.last_step < 2
+            @production.plasmid_batch_productions.each do |plasmid_batch_production|
+              remaining_volume = plasmid_batch_production.starting_volume - plasmid_batch_production.volume
+              plasmid_batch_production.plasmid_batch.update_columns(:volume => remaining_volume)
+              arr = plasmid_batch_production.volumes
+              arr.push(plasmid_batch_production.starting_volume)
+              plasmid_batch_production.update_columns(volumes: arr)
+              plasmid_batch_production.plasmid_batch.generate_recap
             end
          end   
         #Actualisation du status de la production au cas ou un volume serait égal à zéro
         if @production.plasmid_batch_productions.where(:volume=>0).any?
-          @production.update_column(:last_step => 1)
+          @production.update_columns(:last_step => 1)
         end
-        
       else
         render :action => 'set_pb_volume'
      end
   end
+
+
+  def reset_volume
+     @production.plasmid_batches.each do |plasmid_batch|
+       plasmid_batch_production = plasmid_batch.plasmid_batch_productions.where(:production_id => @production.id).first
+       plasmid_batch_production.update_columns(:volume => 0)
+       plasmid_batch.update_columns(volume: plasmid_batch_production.volumes[0])
+       plasmid_batch.generate_recap
+     end
+      @production.update_columns(:last_step => 1)
+
+   end
+   
+   def pool
+     #
+     @production = Production.find(params[:production_id])
+     #
+     @production.update_attributes(production_params)
+   end
  
   def virus_production
     #Collection des plasmids batches
@@ -237,7 +257,7 @@ end
       @missing_plasmids = 'batch'.pluralize(@a.size)+' for '+@str+"."
       
     if !@a.empty?
-      flash.keep[:warning] = "Add each corresponding plasmid batches please: missing #@missing_plasmids"
+      flash.keep[:warning] = "Add each corresponding plasmid batches please : missing #@missing_plasmids"
       redirect_to :action => :add_plasmid
     elsif @production.plasmid_batch_productions.any? { |pbp| pbp.volume <= 0 }
       flash.keep[:warning] = "Complete the  production volumes, please."
@@ -246,8 +266,6 @@ end
        flash.keep[:warning] = "Check the production volumes, please."
       redirect_to :action => :add_plasmid
     else
-      @production.update_columns(:step => 2)
-      update_last_step(@production, 2)
       @production.update_columns(:percentage => 75)
     end
     
@@ -269,6 +287,8 @@ end
          vp.generate_recap
        end
        flash.keep[:success] = "Task completed!"
+        @production.update_columns(:last_step => 2)
+        @production.update_columns(:step => 2)
        redirect_to virus_production_production_path(@production)
      else
        render :action => 'spawn_vp'
@@ -298,13 +318,16 @@ def destroy
   redirect_to :action => 'index'
  end
   
-  def remove_vp_from_prod
+def remove_vp_from_prod
       @vp = VirusProduction.find(params[:id])
       @production = Production.find(@vp.production_id)
       @vps = @production.virus_productions
       @vps.delete(@vp)
       redirect_to virus_production_production_path(@production)
- end
+      if @production.virus_productions.empty?
+        @production.update_columns(:last_step => 1)
+      end
+end
  
  def close
     if @production.virus_productions.empty?
@@ -437,16 +460,9 @@ end
     :dosages_attributes => [:id, :virus_production_id, :titer, :titer_atcc, :titer_to_atcc, :date, :user_id, :_destroy, :inactivation]])
   end
   
-  def production_OLD_volumes_params
-    params.require(:production).permit(:id, 
-      :plasmid_batches_attributes => [:id, :volume, :_destroy,
-        :plasmid_batch_productions_attributes => [:id, :volume, :production_id, :plasmid_batch_id, :_destroy ]]
-    )
-  end
-  
    def production_volumes_params
     params.require(:production).permit(:id, 
-        :plasmid_batch_productions_attributes => [:id, :volume, :starting_volume, :production_id, :plasmid_batch_id, :_destroy ]
+        :plasmid_batch_productions_attributes => [:id, :volume, :volumes, :starting_volume, :production_id, :plasmid_batch_id, :_destroy ]
     )
   end
   

@@ -1,4 +1,4 @@
-<%= simple_nested_form_for @production, url: add_pbs_production_path, remote: true do |f|  %>
+<%= simple_nested_form_for @production, url: add_pbs_production_path, remote: false do |f|  %>
 	<%= f.error_notification %>
 	<ul class="errors"></ul>
 <div class="form-group ui-front col-xs-12">
@@ -11,7 +11,7 @@
 	 			<% type_name = clone_batch.type.name %>
 				<%= f.association :plasmid_batches, label:  "Add #{type_name}", collection:  clone_batch.plasmid_batches.select_available,
 				label_method:  lambda { |plasmid_batch| plasmid_batch.recap },
-				input_html: {class: "select2-select", id: :"#{clone_batch.name}"}
+				input_html: {class: "select2-select", id: :"#{type_name}"}
 				%>
 			<%end%>	
 		</div>

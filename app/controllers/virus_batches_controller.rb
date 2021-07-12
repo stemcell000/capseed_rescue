@@ -17,12 +17,15 @@ def index
       @q = VirusBatch.ransack(params[:q])
       @q.sorts = ['name asc', 'date desc'] if @q.sorts.empty?
       vbs = @q.result
-      @virus_batches = vbs.includes([:virus_production]).order(:name).page params[:page]
+      records = vbs.includes([:virus_production]).order(:name).page params[:page]
       
       vb_ids = vbs.map{|vb|vb.id}
       
-      @boxes = Box.joins(:virus_batches).where(virus_batches: {id: vb_ids})
-      @boxes = @boxes.order(:name).page params[:page]
+      boxes_records = Box.joins(:virus_batches).where(virus_batches: {id: vb_ids})
+
+      #Config de l'affichage des résultats.
+      @pagy, @virus_batches = pagy(records.order(name: :desc), items: 30)
+      @pagy, @boxes = pagy(boxes_records.order(name: :desc), items: 30)
 end
  
 def new

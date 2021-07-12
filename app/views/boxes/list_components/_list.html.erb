@@ -1,0 +1,36 @@
+<h4>Boxes</h4>
+<% unless @boxes.empty? %>
+	  <table class="table table-striped">
+	    <thead>
+	      
+	    <th class="col-xs-8">
+	        <%= sort_link(@q, :name, 'Name') %>
+	    </th>
+	    	 <th class="col-xs-2">
+	        <%= sort_link(@q, :barcode, 'Barcode') %>
+	    </th>
+	    <th class="col-xs-2"></th>
+	    
+	    </thead>
+	    <tbody>
+
+		  	<% @boxes.each do |box| %>
+	      		<tr class="editable" data-id = "<%= box.id %>">
+	          			<%= render partial: "boxes/list_components/object", locals: {object: box} %>
+	        		</tr>
+	      <% end %>
+	    </tbody>
+	  </table>
+		<div class="row">
+		  <div class="col-xs-12 text-center">
+		  	<small>
+		    <%== pagy_bootstrap_nav(@pagy) %>
+		    <%== pagy_bootstrap_nav_js(@pagy) %>
+		  </small>
+		  </div>
+		</div>
+<%else%>
+		<div class="row text-center">
+  			<p>No item to display.</p>
+		</div>
+<%end%>

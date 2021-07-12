@@ -2,7 +2,9 @@
 <table class="table table-bordered" id="plasmid-table">
 			<thead>
 				<th>Data</th>
+			<% if @production.last_step<3 %>
 				<th>Actions</th>
+			<%end%>
 			</thead>
 				<% collection.each do |vp| %>
 					<tr>
@@ -29,8 +31,9 @@
 								</div>
 							</div>
 						</td>
+						<% if vp.production.last_step<3 %>
 						<td class="col-lg-1 text-center">
-							<% if vp.production.last_step<3 %>
+							
 								<%= link_to "<i class='fa fa-sticky-note'></i>".html_safe, virus_production_path(vp), method: :get %>
 								<% if can? :create, User%>
 									<%= link_to "<i class='fas fa-trash'></i>".html_safe, 
@@ -39,8 +42,8 @@
 										data: {confirm: "Are you sure ?"}
 								%>
 								<%end%>
-							<%end%>
 						</td>
+						<%end%>
 					</tr>
 				<% end %>
 </table>

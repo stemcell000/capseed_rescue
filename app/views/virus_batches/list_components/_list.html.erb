@@ -14,8 +14,8 @@
 	    <tbody>
 		  	<% @virus_batches.each do |virus_batch| %>
 	      		<tr class="editable" data-id = "<%= virus_batch.id %>">
-	          			<%= render partial: "virus_batches/list_components/object", locals: {object: virus_batch} %>
-	        		</tr>
+	          			<%= render partial: "virus_batches/list_components/object", locals: {object: virus_batch} %>	
+	        	</tr>
 	      <% end %>
 	    </tbody>
 	  </table>

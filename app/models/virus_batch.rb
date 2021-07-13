@@ -20,24 +20,28 @@ end
 
 def set_tube_status
   str = ""
-  unless self.trash?
-    case self.volume
-      when 0
-        str="/images/empty-med.png"
-      when 0..50
-        str="/images/full-med-very-low.png"
-      when 50..100
-        str="/images/full-med-low.png"
-      when 100..500
-        str="/images/full-med-half.png"
-       when 500..1000
-        str="/images/full-med-high.png"
-      else
-       str=  "/images/empty-med.png"
+  if self.virus_production
+    unless self.trash?
+      case self.volume
+        when 0
+          str="/images/empty-med.png"
+        when 0..50
+          str="/images/full-med-very-low.png"
+        when 50..100
+          str="/images/full-med-low.png"
+        when 100..500
+          str="/images/full-med-half.png"
+         when 500..1000
+          str="/images/full-med-high.png"
+        else
+         str=  "/images/empty-med.png"
+       end
+     else
+         str = "/images/trash.png"
      end
-   else
-       str = "/images/trash.png"
-   end
+    else
+      str = "/images/no-parent.png"
+    end
   return str
 end
 

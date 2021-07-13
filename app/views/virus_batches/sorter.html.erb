@@ -1,16 +1,25 @@
 <% provide(:title, "Batch sorter") %>
 		<div id="info-container" class="container-fluid">
-					<div class="row">
+			<div class="row">
+				<div class="col-xs-12">
+					<%= link_to "New box", new_box_path, class: "btn btn-primary" %>
+				</div>
+			</div>
+			<div class="row top10">
 						<div id="vb-container" class="col-lg-4">
 							<%= render :partial => "virus_batches/components/content_inventory", :locals => {:virus_batches => @virus_batches} %>
 						</div>
-						<div class="col-lg-8">
-							<div class="col-lg-12 col-md-12 col-sm-12" style="padding: 5px;">
-								<h4>Location</h4>
-								<span><em><small>Choose a box then drag and drop each vial into a slot.</small></em></span>
-								<%=select_tag "Box", options_from_collection_for_select(Box.all.order(name: :desc), "id", "name"), :class => 'select2-select', include_blank: true, onchange: "getBoxMap(this.value, '#map-container')" %>
-							</div>
-						<div id="map-container"></div>
-						</div><!--End of col-->
-					</div><!--End of row-->
+
+						<div class="col-xs-8" style="padding: 5px;">
+							<div class="panel panel-primary">
+								<div class="panel-body" style="height: 700px;">
+										<h4>Location</h4>
+										<span><em><small>Choose a box then drag and drop each vial into a slot.</small></em></span>
+										<%=select_tag "Box", options_from_collection_for_select(Box.all.order(name: :desc), "id", "name"), :class => 'select2-select', include_blank: true, onchange: "getBoxMap(this.value, '#map-container')" %>
+									
+								<div id="map-container"></div>
+						</div>
+						</div>
+					</div>
 			</div>
+		</div>

@@ -11,14 +11,25 @@
 					<li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="font120pc"><i class='fas fa-dna'></i> Plamids</span> <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-          <li><%=link_to "Plamids inventory".html_safe, clone_batches_path, class: "font120pc" %></li>
+          <li><%=link_to "Inventory".html_safe, clone_batches_path, class: "font120pc" %></li>
           <% if can? :manage, :all %>
           	<li><%=link_to "Box inventory", plasmid_boxes_path, class: "font120pc"   %></li>
           	<%end%>
           </ul>
         </li>
 		      	<li><%= link_to "<i class='fas fa-virus'></i> Virus".html_safe, virus_productions_path, class: "font120pc"  %></li>
-		      	<li><%= link_to "<i class='fas fa-vials'></i> Virus batches".html_safe, boxes_path, class: "font120pc"  %></li>
+
+
+					<li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="font120pc"><i class='fas fa-vials'></i> Virus batches</span> <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	        <li><%=link_to "Inventory", boxes_path, class: "font120pc"   %></li>
+          <li><%=link_to "Sorter".html_safe, sorter_virus_batches_path, class: "font120pc" %></li>
+          </ul>
+        </li>
+
+
+
 		        <li><%= link_to "<i class='fas fa-clone'></i> Cloning".html_safe, assays_path, class: "font120pc"  %></li>
 		        <li><%= link_to "<i class='fas fa-industry'></i> Production".html_safe, productions_path, class: "font120pc"  %></li>
       <li class="dropdown">

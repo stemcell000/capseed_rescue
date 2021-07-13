@@ -89,7 +89,7 @@ def create
    if  @box.valid?
      flash.keep[:success] = "Box created !"
      @box.generate_positions
-     redirect_to virus_productions_path
+     redirect_to sorter_boxes_path
    else
      render action: "new"
    end

@@ -3,8 +3,6 @@ class PromotersController < ApplicationController
   before_action :promoter_params, only:[:create, :update]
   before_action :find_promoter, only: [:edit, :destroy, :update]
   
-  include SmartListing::Helper::ControllerExtensions
-  helper  SmartListing::Helper
   
  def new
    @promoter = Promoter.new
@@ -28,7 +26,9 @@ class PromotersController < ApplicationController
   end
  
  def index
-    @promoters = smart_listing_create(:promoters, Promoter.all, partial: "promoters/list", default_sort: {name: "asc"},  page_sizes: [100, 150, 200])   
+      @q = Promoter.ransack(params[:q])
+      records = @q.result
+      @pagy, @promoters = pagy(records.order(name: :desc), items: 30)
  end
  
  def destroy

@@ -1,9 +1,0 @@
-<td ><small><%= object.name%></small></td>
-<td ><small><%= object.sequence.nil? ? "":object.sequence.upcase %></small></td>
-<td class="col-lg-2 center"><small><%= object.available? ? "Yes" : "No" %></small></td>
-<td ><small><%= object.comment %></small></td>
-<td class="actions center">
-	<%= smart_listing_item_actions [
-	  	{name: :edit,    url: edit_primer_path(object), title: "Edit"},
-	]%>
-</td>

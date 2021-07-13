@@ -1,0 +1,25 @@
+<%= simple_form_for @promoter, html: {class: 'vertical-form'} do |f|  %>
+	<%= f.error_notification %>
+	<ul class="errors"></ul>
+	  	<!--Attention: la div form-group ui-front est indispensable au fonctionnement du champ autocomplete -->
+			<div class="form-group ui-front">
+				<div class="row">
+						<div class="col-md-4">
+							<%= f.input :name,
+							:label => "Name"
+							 %>
+					 	</div>
+				 </div>
+ 	<div class="row">
+	 	<div class="btn-group" role="group" aria-label="...">
+	 			<div class="col-lg-4">
+	    			<%= f.submit "Save", :class => "btn btn-primary" %>
+	    		</div>
+	    		<div class="col-lg-4">
+	        		<%= link_to "Cancel", :back, :class => "btn btn-default"%>
+	        	</div>
+	     </div>
+	 </div>
+<%end%>
+
+

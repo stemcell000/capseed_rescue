@@ -4,6 +4,6 @@
 	</div>
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12">
-		<%= smart_listing_render :plasmid_boxes %>
+		<%= render partial: "plasmid_boxes/list_components/list", locals: {plasmid_boxes: @plasmid_boxes} %>
 	</div>
 </div>

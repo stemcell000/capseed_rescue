@@ -1,3 +1,17 @@
-<% provide(:title, "Users") %>
-<h4>User management</h4>
- <%= smart_listing_render :users %>
+<%  provide(:title, "Users") %>
+    
+<div class="row">
+    <div class="col-xs-12">
+        <%= render :partial => 'users/components/searchbar' %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 left">
+            <%= link_to "New user", new_user_path, class: "btn btn-primary" %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <%= render partial: "users/list_components/list", locals: {users: @users} %>
+    </div>
+</div>

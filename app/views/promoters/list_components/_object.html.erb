@@ -1,0 +1,9 @@
+<td><%= object.name%></td>
+<td>
+<%= link_to "<i class='fas fa-pen-square'></i>".html_safe, edit_promoter_path(object), method: :get %>
+<%if object.clone_batches.nil?%>
+	<% if can? :manage, Promoter %>
+	<%= link_to "<i class='fas fa-trash'></i>".html_safe, promoter_path(object), method: :destroy%>
+	<%end%>
+<%end%>
+</td>

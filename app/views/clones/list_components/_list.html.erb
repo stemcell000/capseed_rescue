@@ -1,0 +1,37 @@
+<% unless clones.empty? %> 
+  <table class="table table-striped">
+    <thead>
+      <th class="col-xs-3 ">
+        <%= sort_link(@q, :name, 'Name') %>
+    </th>
+    <th class="col-xs-2 ">
+        <%= sort_link(@q, :cmeth, "Cloning Method") %>
+    </th>
+     <th class="col-xs-3 ">
+        <%= sort_link(@q, :inserts_name, "Inserts") %>
+    </th>
+      <th class="col-xs-3 ">
+        <%= sort_link(@q, :backbones_name, "Backbones") %>
+    </th>
+    <th class="col-xs-1 "></th>
+    </thead>
+    <tbody>
+	  	<% clones.uniq.each do |c| %>
+      		<tr>
+          		<%= render partial: "clones/list_components/object", locals: {object: c} %>
+        	</tr>
+      	<% end %>
+    </tbody>
+  </table>
+<div class="row">
+      <div class="col-lg-12 text-">
+        <%== pagy_bootstrap_nav(@pagy) %>
+        <%== pagy_bootstrap_nav_js(@pagy) %>
+      </div>
+  </div>
+  <%else%>
+<div class="row text-">
+  <p>No item to display.</p>
+</div>
+<%end%>
+

@@ -27,7 +27,9 @@ class GenesController < ApplicationController
   end
  
  def index
-    @genes = smart_listing_create(:genes, Gene.all, partial: "genes/list", default_sort: {name: "asc"},  page_sizes: [10, 20, 30, 50, 100])   
+      @q = Gene.ransack(params[:q])
+      records = @q.result
+      @pagy, @genes = pagy(records.order(name: :desc), items: 30)
  end
  
  def destroy

@@ -1,3 +1,18 @@
-<% provide(:title, "Enzymes Inventory") %>
-<h4>Registered enzymes</h4>
- <%= smart_listing_render :enzymes %>
+<%  provide(:title, "Enzymes Inventory") %>
+<div class="container-fluid">      
+<div class="row">
+    <div class="col-xs-12">
+        <%= render :partial => 'enzymes/components/searchbar' %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 left">
+            <%= link_to "New enzyme", new_enzyme_path, class: "btn btn-primary" %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <%= render partial: "enzymes/list_components/list", locals: {enzymes: @enzymes} %>
+    </div>
+</div>
+</div>

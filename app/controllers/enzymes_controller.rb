@@ -27,7 +27,9 @@ class EnzymesController < ApplicationController
   end
  
  def index
-    @enzymes = smart_listing_create(:enzymes, Enzyme.all, partial: "enzymes/list", default_sort: {name: "asc"},  page_sizes: [10, 20, 30, 50, 100])   
+      @q = Enzyme.ransack(params[:q])
+      records = @q.result
+      @pagy, @enzymes = pagy(records.order(name: :desc), items: 30)
  end
  
  def destroy

@@ -3,9 +3,6 @@ class UsersController < ApplicationController
   load_and_authorize_resource
   before_action :set_user, only: [:show, :edit_user, :update, :destroy]
   
-  include SmartListing::Helper::ControllerExtensions
-  helper  SmartListing::Helper
-  
   def resource_name
     :user
   end
@@ -33,7 +30,9 @@ class UsersController < ApplicationController
   end
   
  def index
-    @users = smart_listing_create(:users, User.all, partial: "users/list", default_sort: {:id => "asc"},  page_sizes: [20, 30, 50, 100])   
+      @q = User.ransack(params[:q])
+      records = @q.result
+      @pagy, @users = pagy(records.order(lastname: :asc), items: 30)
   end
 
   def show
@@ -47,15 +46,24 @@ class UsersController < ApplicationController
     if @user.valid?
         flash.keep[:success] = "User created!"
         @user.create_option
+        redirect_to users_path
      else
         render action: :new
     end
   end
 
   def update
+    
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+
+
      @user.update_attributes(user_params)
      if @user.valid?
         flash.keep[:success] = "User updated!"
+        redirect_to users_path
      else
         render action: :new
      end

@@ -1,8 +1,18 @@
-<% provide(:title, "Primers Inventory") %>
-	<div class="row">
-		<div class="col-lg-12">
-			<h3><i class="fa_icon fa fa-search"></i> Primer Inventory</h3>
-		</div>
+<%  provide(:title, "Primers Inventory") %>
+<div class="container-fluid">  	
+<div class="row">
+	<div class="col-xs-12">
+		<%= render :partial => 'primers/components/search' %>
 	</div>
-<%= render :partial => 'primers/primer_search' %>
- <%= smart_listing_render :primers %>
+</div>
+<div class="row">
+    <div class="col-xs-12 left">
+            <%= link_to "New primer", new_primer_path, class: "btn btn-primary" %>
+    </div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<%= render partial: "primers/list_components/list", locals: {primers: @primers} %>
+	</div>
+</div>
+</div>

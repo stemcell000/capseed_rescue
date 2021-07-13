@@ -1,0 +1,7 @@
+<td ><%= object.name%></td>
+<td ><small><%= object.sequence.nil? ? "":object.sequence.upcase %></small></td>
+<td class="col-lg-2 center"><%= object.available? ? "Available" : "Not available" %></td>
+<td ><small><%= object.comment %></small></td>
+<td class="actions center">
+	<%= link_to "<i class='fas fa-pen-square'></i>".html_safe, edit_primer_path(object), method: :get %>
+</td>

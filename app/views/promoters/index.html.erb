@@ -1,3 +1,18 @@
-<% provide(:title, "Promoters Inventory") %>
-<h4>Registered promoters</h4>
- <%= smart_listing_render :promoters %>
+<%  provide(:title, "Promoters Inventory") %>
+<div class="container-fluid">  
+<div class="row">
+    <div class="col-xs-12">
+        <%= render :partial => 'promoters/components/searchbar' %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 left">
+            <%= link_to "New promoter", new_promoter_path, class: "btn btn-primary" %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <%= render partial: "promoters/list_components/list", locals: {promoters: @promoters} %>
+    </div>
+</div>
+</div>

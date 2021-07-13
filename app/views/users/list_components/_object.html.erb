@@ -1,0 +1,15 @@
+<td ><%= object.full_name%></td>
+<td ><%= object.created_at.strftime("%b %e, %Y")%></td>
+<td ><%= object.role%></td>
+<td class="actions">
+<%= link_to "<i class='fas fa-pen-square'></i>".html_safe, edit_user_path(object), method: :get %>
+<i class = "<%= object.actual_member? ? 'fa fa-check':'fa fa-times' %>"></i>
+
+<%if can? :manage, :all %>
+	<% unless object.role === 'administrator' %>
+		<% unless object.virus_productions.exists? || object.plasmid_batches.exists? || object.sequencings.exists? || object.pcr_colonies.exists? || object.dosages.exists?%>
+			<%= link_to "<i class='fas fa-trash'></i>".html_safe, project_path(object), method: :destroy%>
+		<%end%>
+	<%end%>
+<%end%>
+</td>

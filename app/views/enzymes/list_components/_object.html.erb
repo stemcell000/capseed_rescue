@@ -1,0 +1,8 @@
+<td><%= object.name%></td>
+<td><%= object.created_at.strftime("%b %e, %Y")%></td>
+<td>
+<%= link_to "<i class='fas fa-pen-square'></i>".html_safe, edit_enzyme_path(object), method: :get %>
+	<% if can? :destroy, Enzyme %>
+	<%= link_to "<i class='fas fa-trash'></i>".html_safe, enzyme_path(object), method: :destroy%>
+	<%end%>
+</td>

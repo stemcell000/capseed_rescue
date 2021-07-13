@@ -1,0 +1,5 @@
+  <td><%=object.name%></td>
+  <td><%= object.barcode %><%= object.id %></td>
+<td class="actions text-right">
+  <%= link_to "<i class='fas fa-pen-square'></i>".html_safe, edit_plasmid_box_path(object), method: :get %>
+</td>

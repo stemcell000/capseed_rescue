@@ -1,18 +1,16 @@
-<%= form_for(@user, :url => { :action => "update_password" } ) do |f| %>
-   <div class="field row">
-    <%= f.label "current_password" %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :encrypted_password %>
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Edit <%=@user.full_name%></h3>
   </div>
-  <div class="field row">
-    <%= f.label :password, "new password" %>
-    <%= f.password_field :password, :autocomplete => "off"  %>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-xs-12">
+          <%= render 'users/components/form'%>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field row">
-    <%= f.label :password_confirmation, "new password confirmation" %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  
-  <div class="action_container">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

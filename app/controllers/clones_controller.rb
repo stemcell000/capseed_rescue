@@ -1,10 +1,6 @@
 class ClonesController < ApplicationController
 
 autocomplete :clone, :name, :full => true, :extra_data => [:id], :display_value => :display_method, :limit => 100, :order => :id
-
-#Smart_listing
- include SmartListing::Helper::ControllerExtensions
- helper  SmartListing::Helper
     
 before_action :load_assay, only:[:edit, :new, :edit_record, :edit_batch, :edit_batch_select, :update, :create, :autocm, :destroy, :replicate, :update_record, :update_record_batch, :update_record_batch_select,
   :update_record_batch_qc, :clone_info]
@@ -31,11 +27,11 @@ def index
     @inserts_all = @inserts_all.map{ |obj| [obj['name'], obj['id']] }
   
   #Recherche sur tables multiples.
-    @q = Clone.ransack(params[:q])
-    @clones = @q.result(distinct: true).includes(:inserts, :backbones)
+    @q = Clone.joins([:inserts, :backbones]).select('id', 'name', 'cmeth_id', 'primer_f_id', 'primer_r_id', 'comment').ransack(params[:q])
+    records = @q.result
   
   #Config de l'affichage des résultats.
-    @clones = smart_listing_create(:clones, @clones, partial: "clones/smart_listing/list", default_sort: {id: "asc"}, page_sizes: [20, 30, 50, 100])
+    @pagy, @clones = pagy(records.order(name: :desc), items: 30)
 end
 
 def new

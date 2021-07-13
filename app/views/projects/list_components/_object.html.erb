@@ -1,0 +1,10 @@
+<td ><%= object.name%></td>
+<td><%= object.created_at.strftime("%b %e, %Y")%></td>
+<td>
+<%= link_to "<i class='fas fa-pen-square'></i>".html_safe, edit_project_path(object), method: :get %>
+<% unless object.productions.exists? %>	
+	<% if can? :destroy, Project %>
+	<%= link_to "<i class='fas fa-trash'></i>".html_safe, project_path(object), method: :destroy%>
+	<%end%>
+<%end%>
+</td>

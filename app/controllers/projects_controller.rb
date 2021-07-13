@@ -27,7 +27,9 @@ before_action :project_params, only:[:create, :update]
   end
  
  def index
-    @projects = smart_listing_create(:projects, Project.all, partial: "projects/list", default_sort: {id: "asc"},  page_sizes: [20, 40,100])   
+      @q = Project.ransack(params[:q])
+      records = @q.result
+      @pagy, @projects = pagy(records.order(name: :desc), items: 30)
  end
  
  def destroy

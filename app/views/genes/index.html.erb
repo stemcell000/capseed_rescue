@@ -1,3 +1,18 @@
-<% provide(:title, "Genes Inventory") %>
-<h4>Registered Genes</h4>
- <%= smart_listing_render :genes %>
+<%  provide(:title, "Genes Inventory") %>
+<div class="container-fluid">      
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <%= render :partial => 'genes/components/searchbar' %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 left">
+            <%= link_to "New gene", new_gene_path, class: "btn btn-primary" %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <%= render partial: "genes/list_components/list", locals: {genes: @genes} %>
+    </div>
+</div>
+</div>

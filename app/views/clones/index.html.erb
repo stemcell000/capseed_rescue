@@ -1,5 +1,18 @@
-<% provide(:title, "Clones (constructions) :") %>
-	<%= render :partial => 'clones/components/searchbar' %>
-	<div id= "info-container">
-		<%= smart_listing_render :clones %>
+<% provide(:title, "Constructions (Clone) :") %>
+<div class="container-fluid">  
+<div class="row">
+	<div class="col-xs-12">
+		<%=render 'clones/components/searchbar'%>
 	</div>
+</div>
+<div class="row">
+    <div class="col-xs-12 left">
+            <%= link_to "New Clone", new_from_inventory_new_clone_path, class: "btn btn-primary" %>
+    </div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<%= render partial: "clones/list_components/list", locals: {clones: @clones} %>
+	</div>
+</div>
+</div>

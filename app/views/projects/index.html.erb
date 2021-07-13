@@ -1,3 +1,18 @@
-<% provide(:title, "Projects Inventory") %>
-<h4>Registered projects</h4>
- <%= smart_listing_render :projects %>
+<%  provide(:title, "Projects Inventory") %>
+<div class="container-fluid">      
+<div class="row">
+    <div class="col-xs-12">
+        <%= render :partial => 'projects/components/searchbar' %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 left">
+            <%= link_to "New project", new_project_path, class: "btn btn-primary" %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <%= render partial: "projects/list_components/list", locals: {projects: @projects} %>
+    </div>
+</div>
+</div>

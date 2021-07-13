@@ -2,9 +2,6 @@ class PrimersController < ApplicationController
   before_action :primer_params, only:[:create, :update]
   before_action :find_primer, only: [:edit, :destroy, :availability_switch, :update]
   
-  include SmartListing::Helper::ControllerExtensions
-  helper  SmartListing::Helper
-  
  def new
    @primer = Primer.new
  end
@@ -27,14 +24,8 @@ class PrimersController < ApplicationController
  
  def index
       @q = Primer.ransack(params[:q])
-      @primers = @q.result(distinct: true)
-     
-      @primers = smart_listing_create(:primers, @primers, partial: "primers/list", default_sort: {id: "asc"},  page_sizes: [20,30,50, 100, 200])  
-     
-     respond_to do |format|
-      format.js
-      format.html
-    end
+      records = @q.result
+      @pagy, @primers = pagy(records.order(name: :desc), items: 30)
  end
  
  def destroy

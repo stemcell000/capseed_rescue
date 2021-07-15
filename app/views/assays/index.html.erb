@@ -8,7 +8,7 @@
 <div class="container">
 	<div class="row" >
 		<div class="row expl">
-			<% if can? :update_row_order, @assays %>
+			<% if can? :create, Assay %>
 			<div class="row">
 					<%= link_to 'New cloning', assay_generator_assays_path , :class => "btn info prod_btn" %> 
 					<%= link_to 'Push message !', users_inform_cloning_path(@user), :class => "btn info prod_btn"%>

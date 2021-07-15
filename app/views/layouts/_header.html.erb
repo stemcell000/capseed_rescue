@@ -52,7 +52,10 @@
 		      </ul>
 		      <small>
 		       <ul class="nav navbar-nav navbar-right">
-		    		<li>	  <%= link_to current_user.full_name, edit_user_path(current_user) %></li>
+		    		<li>	  <%= link_to edit_user_path(current_user) do%> 
+		    						<%=current_user.full_name%> (<%=current_user.role%>)
+		    				<%end%>
+		    		</li>
 		    		<li><%= link_to destroy_user_session_path, method: :delete do %>
 		    				<span class="glyphicon glyphicon-log-out"></span>
 		    			<%end%>
@@ -62,15 +65,6 @@
 		    			<%end%>
 		    		</li>
 		    		<%end%>
-		    		<% if can? :manage, :all %>
-		    		<li>
-		   			<%= link_to  admin_root_path do %>
-		   				<span class="glyphicon glyphicon-tower"></span> Administration
-		   			<%end%>
-		    		<li>
-		    		<% end %>
-		    		</li>
-		    	</li>
 				</ul>
 			</small>
 			</div>

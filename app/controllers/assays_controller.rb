@@ -37,7 +37,6 @@ class AssaysController < ApplicationController
   
   # Fonctions pour Smart Listing
   def display_all
-    
     #Liste des projets.
     @projects_all = Project.all
     
@@ -183,7 +182,6 @@ end
 
 #page clone design
  def clone_design
-    #@clones = @assay.clones.build provoque la construction d'un array vide => pb
     @clones = @assay.clones.order(:id)
     if @assay.clones.length > 0
           @assay.update_columns(:step => 1)

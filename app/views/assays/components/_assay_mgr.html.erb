@@ -34,12 +34,17 @@
           <%= link_to formatStep(assay.last_step, assay.id)[:step_name], formatStep(assay.last_step, assay.id)[:step_path] %>
         </td>
         <td class="center">
-          <% if can? :delete, @assay %>
+          <%if can? :update, Assay or can? :manage, Assay%>
+                <%= link_to clone_design_assay_path(assay) do %>
+                    <i class="fas fa-pen-square"></i>
+                  <%end%>
+                <%else%>
+                <p style="font-size: 1em;">No action available</p>
+           <%end%>
+          <% if can? :manage, Assay %>
           <%= link_to p, :method => :delete, data: {confirm: "Are you sure you want to delete this cloning ?"} do %>
-              <i class="fa fas-trash"></i>
+              <i class="fa fa-trash"></i>
         <% end %>
-        <%else%>
-       <p style="font-size: 0.8em;">No action available</p>
        <%end%>
         </td>
       </tr>

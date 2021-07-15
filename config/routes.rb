@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
   
-  resources :clone_samples
   resources :clone_batches do
     resources :sequencings
     resources :pcr_colonies 
@@ -92,18 +91,16 @@ Rails.application.routes.draw do
   get 'inserts/index'
 
   resources :users do
-    get :edit_user, on: :member
     patch :actual_member_switch, on: :member
     get :actual_member_switch, on: :collection
-    get :edit_notif, on: :member
   end
     
-  resource :user, only: [:edit, :edit_notif] do
-    collection do
-      patch 'update_password'
-      patch 'update_notif'
-    end
-  end
+ # resource :user, only: [:edit, :edit_notif] do
+  #  collection do
+   #   patch 'update_password'
+    #  patch 'update_notif'
+    #end
+  #end
 
   resources :assays do
     collection do

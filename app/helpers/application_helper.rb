@@ -75,16 +75,6 @@ end
 
 end
 
-def clone_display(collection)
-   r = ""
-    if !collection.empty?
-      r = collection.order(:id).map {|c| c.name+" | "+c.id.to_s}.to_sentence
-    else
-      r="Add a construction!"
-    end
-  return r
-end
-
 def display_collection(collection)
    r = ""
   if !collection.empty?

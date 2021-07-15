@@ -1,15 +1,20 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user)  
+    alias_action :create, :read, :update, :destroy, to: :crud
+    alias_action :read, :update, to: :ru
+    alias_action :create, :read, :update, to: :cru
+
     user ||= User.new # guest user (not logged in)
-    if user.role? :administrator
+    if user.role? :superadmin
         can :manage, :all
+    elsif user.role? :administrator
+        can :cru, :all
     elsif user.role? :user
-        can :create, :production
-        can :update, :production
-        can :update, :assay
-        can :update, :clone
+        can :ru, :production
+        can :ru, :assay
+        can :ru, :clone
         can :manage, :clone_attachment
         can :manage, :clone_batch_attachment
         can :manage, :sequencing

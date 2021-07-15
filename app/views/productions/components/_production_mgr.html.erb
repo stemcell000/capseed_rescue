@@ -81,7 +81,7 @@
 			<% end %>
           <% if can? :inform_production, @user %>
         		<%= link_to p, :method => :delete, data: {confirm: "Are you sure you want to delete this production ?"} do %>
-				    <i class="fa fa-trash <%= "white" unless p.virus_productions.empty? %>"></i>
+				    <i class="fas fa-trash <%= "white" unless p.virus_productions.empty? %>"></i>
 			<% end %>
 		<%end%>
 		<%end%>

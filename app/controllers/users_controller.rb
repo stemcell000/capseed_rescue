@@ -59,7 +59,6 @@ class UsersController < ApplicationController
       params[:user].delete(:password_confirmation)
     end
 
-
      @user.update_attributes(user_params)
      if @user.valid?
         flash.keep[:success] = "User updated!"
@@ -74,10 +73,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = current_user
-  end
-  
-  def edit_user
+    
   end
   
   def update_password
@@ -88,21 +84,6 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       render "edit"
-    end
-  end
-  
-  def edit_notif
-    @user = current_user
-  end
-  
-  def update_notif
-      @user = current_user
-    if @user.update(user_params)
-      # Sign in the user by passing validation in case their password changed
-      bypass_sign_in(@user)
-      redirect_to root_path
-    else
-      render "edit_notif"
     end
   end
   

@@ -1,7 +1,6 @@
 class ProductionsController < InheritedResources::Base
   
   before_action :authenticate_user!
-  before_action :ranked_productions, only: [:index]
   before_action :production_params, only:[:create, :update_row_order, :update, :add_pbs, :update_pb_volumes]
   before_action :production_position_params, only:[:move_higher, :move_lower, :move_highest, :move_lowest ]
   before_action :set_production, only:[:edit, :edit_pb_volumes, :update, :add_plasmid, :virus_production,:spawn_vp, :edit_vp, :select_pbs, :add_pbs, :destroy, :reset_volume, :close, :create_vp, :update_pb_volume, :set_pb_volume,
@@ -39,13 +38,8 @@ class ProductionsController < InheritedResources::Base
     @production = Production.find(production_params[:production_id])
     @production.row_order_position = production_params[:row_order_position]
     @production.save
-    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+    head :ok
   end
-  
- def ranked_productions
-    #Refresh the collection of productions
-    @productions = Production.rank(:row_order).where.not(step: "completed" , display: false)
- end
  
  def new
     @production = Production.new

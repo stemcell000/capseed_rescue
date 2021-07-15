@@ -4,43 +4,43 @@
 <table class="table table-bordered table-hover" id="sortable">
   <thead>
     <tr>
-      <th>
+      <th class="center"  style="width: 50%;">
         Construction
       </th>
-       <th>
+       <th class="center" style="width: 30%;">
         Step
       </th>
-      <th>
+      <th class="center" style="width: 20%;">
+        Actions
       </th>
     </tr>
   </thead>
   <tbody>
     <% @assays.each do |assay| %>
       <tr data-item-id=<%= assay.id %> class="item">
-        <td class="text-align-left">
-          <small><strong>
+        <td class="text-left">
+          <strong>
 			  <% unless assay.clones.empty? %>
 			    <% assay.clones.order(:id).each do |c|%>
 			    <span class="text-primary"><%= c.id%></span> | <%= c.name%><br />
 			    	<%end%>
 			  <%else%>
-			    "Add a construction!"
+			    "Add a construction !"
 			  <%end%>
 			  </strong>
-          </small>
+          
         </td>
-         <td>
+         <td class="center" >
           <%= link_to formatStep(assay.last_step, assay.id)[:step_name], formatStep(assay.last_step, assay.id)[:step_path] %>
         </td>
-        <td>
-        		<%= link_to clone_design_assay_path(assay.id)  do %>
-				    <i class="glyphicon glyphicon-pencil"></i>
-			<% end %>
-          <% if can? :inform_cloning, @user %>
-          	<%= link_to assay, :method => :delete, :remote => true  do %>
-          		<i class="glyphicon glyphicon-trash"></i>
-          	<%end%>
-        <%end%>	
+        <td class="center">
+          <% if can? :delete, @assay %>
+          <%= link_to p, :method => :delete, data: {confirm: "Are you sure you want to delete this cloning ?"} do %>
+              <i class="fa fas-trash"></i>
+        <% end %>
+        <%else%>
+       <p style="font-size: 0.8em;">No action available</p>
+       <%end%>
         </td>
       </tr>
     <% end %>

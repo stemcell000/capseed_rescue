@@ -55,15 +55,27 @@ def self.to_csv
       csv << attributes
 
       all.each do |vp|
+        unless vp.production.nil?
         csv << [
           vp.number.nil? ? "" : vp.number,
-          vp.production.nil? ? "" : (vp.production.projects.pluck(:name)-["Global project"]).to_sentence ,
-          vp.clone_batches.nil? ? "" : vp.production.clone_batches.pluck(:nb).join(", "),
-          vp.clone_batches.nil? ? "" : vp.production.clone_batches.pluck(:name).join(", "),
+          vp.production.projects.nil? ? "" : (vp.production.projects.pluck(:name)).to_sentence ,
+          vp.production.clone_batches.nil? ? "" : vp.production.clone_batches.pluck(:nb).join(", "),
+          vp.production.clone_batches.nil? ? "" : vp.production.clone_batches.pluck(:name).join(", "),
           vp.date_of_production.nil? ? "" : vp.date_of_production.strftime("%b %e, %Y"), 
           vp.dosages.where(:accepted => true).last.nil? ? "" : "%.2e" %vp.dosages.where(:accepted => true).last.titer_to_atcc+"vg/ml",
           vp.virus_batches.nil? ? "" : vp.virus_batches.count
         ]
+      else
+        csv << [
+          vp.number.nil? ? "" : vp.number,
+          "Unknown",
+          "Unknown",
+          "Unknown",
+          "Unknown", 
+          vp.dosages.where(:accepted => true).last.nil? ? "" : "%.2e" %vp.dosages.where(:accepted => true).last.titer_to_atcc+"vg/ml",
+          vp.virus_batches.nil? ? "" : vp.virus_batches.count
+        ]
+      end
       end
     end
   end

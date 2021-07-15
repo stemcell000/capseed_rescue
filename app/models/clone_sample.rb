@@ -1,2 +1,0 @@
-class CloneSample < ApplicationRecord
-end

@@ -1,6 +1,7 @@
 class AssaysController < ApplicationController
    
     before_action :authenticate_user!
+    before_action :scheduler, only: [:index]
     before_action :assay_params, only:[:create, :update_row_order, :update, :add_clone]
     before_action :set_params, only:[:get_line, :update, :mask_line, :show, :clone_design, :clone_batch, :clone_batch_nb_update, :clone_batch_select, :clone_batch_qc, :plasmid_design, :plasmid_batch, :plasmid_batch_qc,
       :edit, :watch, :destroy, :clone_info, :plasmid_info, :close, :complete]
@@ -17,6 +18,7 @@ class AssaysController < ApplicationController
         a.update_columns(:today_date => Date.today)
       end
     end
+    
   end
   
   # GET /assays/1
@@ -30,7 +32,7 @@ class AssaysController < ApplicationController
     @assay = Assay.find(assay_params[:assay_id])
     @assay.row_order_position = assay_params[:row_order_position]
     @assay.save
-    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+    head :ok
   end
   
   # Fonctions pour Smart Listing
@@ -47,7 +49,6 @@ class AssaysController < ApplicationController
     @assays = smart_listing_create(:assays, @assays, partial: "assays/smart_listing/list", default_sort: {id: "asc"}, page_sizes: [10, 20, 30, 50, 100])  
   end
   
-  #Formatage des données pour
   def scheduler
     refresh_statistics
     
